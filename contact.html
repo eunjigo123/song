@@ -15,7 +15,11 @@
             --text-sub: #5A6E7C;
             --border-color: #F1E6DC;
         }
-        html { scroll-behavior: smooth; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             color: var(--deep-color);
             background-color: var(--bg-base);
@@ -25,10 +29,19 @@
             margin: 0;
             padding: 0;
         }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; padding: 0; margin: 0; }
 
-        /* Header */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Header (Sticky & Blur) */
         header {
             position: fixed;
             top: 0;
@@ -48,34 +61,40 @@
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
+
         header.scrolled {
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
         }
+
         .logo {
             display: flex;
             align-items: center;
             justify-self: start;
         }
+
         .logo img {
             height: 40px;
             width: auto;
             display: block;
         }
+
         .nav-menu {
             display: flex;
             justify-self: start;
-            margin-left: 344px;
+            margin-left: 300px;
             gap: 60px;
             align-items: center;
             height: 100%;
         }
+
         .nav-menu > li {
             position: relative;
             height: 100%;
             display: flex;
             align-items: center;
         }
+
         .nav-menu a.nav-link {
             font-size: 1.05rem;
             font-weight: 600;
@@ -85,7 +104,12 @@
             align-items: center;
             gap: 6px;
         }
-        .nav-menu a.nav-link:hover { color: var(--primary-color); }
+
+        .nav-menu a.nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Dropdown Menu */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -101,6 +125,7 @@
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .dropdown::before {
             content: '';
             position: absolute;
@@ -113,12 +138,19 @@
             border-top: 1px solid var(--border-color);
             border-left: 1px solid var(--border-color);
         }
+
         .nav-menu > li:hover .dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
         }
-        .dropdown-list { display: flex; flex-direction: column; gap: 6px; }
+
+        .dropdown-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
         .dropdown-item {
             display: flex;
             align-items: center;
@@ -130,7 +162,12 @@
             color: var(--deep-color);
             transition: background 0.2s, color 0.2s;
         }
-        .dropdown-item:hover { background: var(--bg-light); color: var(--primary-color); }
+
+        .dropdown-item:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+        }
+
         .dropdown-item svg {
             width: 18px;
             height: 18px;
@@ -138,15 +175,21 @@
             flex-shrink: 0;
             transition: fill 0.2s;
         }
-        .dropdown-item:hover svg { fill: var(--primary-color); }
+
+        .dropdown-item:hover svg {
+            fill: var(--primary-color);
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
             justify-self: end;
             gap: 15px;
             height: 100%;
-            padding-right: 0;
+            padding-right: 80px;
         }
+
+        /* Language Switcher */
         .lang-switch {
             position: relative;
             display: inline-flex;
@@ -156,6 +199,7 @@
             height: 38px;
             width: 54px;
         }
+
         .current-lang {
             position: absolute;
             display: flex;
@@ -168,6 +212,7 @@
             width: 100%;
             height: 100%;
         }
+
         .lang-buttons {
             display: flex;
             align-items: center;
@@ -186,8 +231,19 @@
             box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
             z-index: 100;
         }
-        .lang-switch:hover .current-lang { opacity: 0; visibility: hidden; transform: translateY(6px); }
-        .lang-switch:hover .lang-buttons { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .lang-switch:hover .current-lang {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+        }
+
+        .lang-switch:hover .lang-buttons {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         .lang-btn {
             background: none;
             border: none;
@@ -198,7 +254,13 @@
             padding: 2px 4px;
             transition: color 0.2s;
         }
-        .lang-btn:hover, .lang-btn.active { color: var(--primary-color); }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Hamburger & Drawer */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -210,7 +272,15 @@
             cursor: pointer;
             z-index: 1100;
         }
-        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--deep-color); transition: all 0.3s ease; }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--deep-color);
+            transition: all 0.3s ease;
+        }
+
         .mobile-drawer {
             position: fixed;
             top: 0;
@@ -227,11 +297,38 @@
             transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
             box-sizing: border-box;
         }
-        .mobile-drawer.open { right: 0; }
-        .mobile-nav-list { display: flex; flex-direction: column; gap: 25px; }
-        .mobile-nav-item { font-size: 1.2rem; font-weight: 700; color: var(--deep-color); }
-        .mobile-sub-list { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; padding-left: 15px; border-left: 2px solid var(--border-color); }
-        .mobile-sub-item { font-size: 1rem; font-weight: 500; color: var(--text-sub); }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .mobile-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .mobile-nav-item {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-color);
+        }
+
+        .mobile-sub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .mobile-sub-item {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
         .drawer-overlay {
             position: fixed;
             top: 0;
@@ -245,7 +342,11 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        .drawer-overlay.open { opacity: 1; visibility: visible; }
+
+        .drawer-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
 
         /* Contact content */
         .container { max-width: 1200px; margin: 140px auto 100px; padding: 0 40px; }
@@ -286,11 +387,18 @@
         .guide-icon-box { width:75px; height:75px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1.5px solid var(--primary-color); overflow:hidden; padding:15px; }
         .guide-icon-box img { width:100%; height:100%; object-fit:contain; display:block; }
         .guide-icon-title { font-size:1.1rem; font-weight:700; color:var(--deep-color); }
+
         @media (max-width: 900px) {
-            header { padding: 0 20px; }
-            .nav-menu { display: none; }
-            .nav-right { padding-right: 0; }
-            .hamburger { display: flex; }
+            header {
+                grid-template-columns: auto 1fr auto;
+                padding: 0 20px;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
             .container { padding: 0 20px; margin-top: 110px; }
             .content-block, .email-card-section, .types-grid, .guide-icons-grid { grid-template-columns: 1fr; gap: 30px; }
             .email-card-section { padding: 30px 20px; }
@@ -300,24 +408,38 @@
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header id="header">
         <a href="#" class="logo">
             <img src="logo.png" alt="SONGSHTORY 로고">
         </a>
         <ul class="nav-menu">
-            <li><a href="about.html" class="nav-link">소개</a></li>
+            <li><a href="about.html" class="nav-link" data-translate="menu_about">소개</a></li>
             <li>
-                <a href="#" class="nav-link">브랜드 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                <a href="#" class="nav-link" data-translate="menu_brand">
+                    브랜드 
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                </a>
                 <div class="dropdown">
                     <div class="dropdown-list">
-                        <a href="creator.html" class="dropdown-item"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><span>크리에이터</span></a>
-                        <a href="ecommerce.html" class="dropdown-item"><svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg><span>이커머스</span></a>
-                        <a href="global-sourcing.html" class="dropdown-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg><span>글로벌 소싱</span></a>
+                        <a href="creator.html" class="dropdown-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <span data-translate="drop_creator">크리에이터</span>
+                        </a>
+                        <a href="ecommerce.html" class="dropdown-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+                            <span data-translate="drop_ecommerce">이커머스</span>
+                        </a>
+                        <a href="global-sourcing.html" class="dropdown-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            <span data-translate="drop_global">글로벌 소싱</span>
+                        </a>
                     </div>
                 </div>
             </li>
-            <li><a href="project.html" class="nav-link">프로젝트</a></li>
-            <li><a href="contact.html" class="nav-link">문의하기</a></li>
+            <li><a href="project.html" class="nav-link" data-translate="menu_project">프로젝트</a></li>
+            <li><a href="contact.html" class="nav-link" data-translate="menu_contact">문의하기</a></li>
         </ul>
         <div class="nav-right">
             <div class="lang-switch">
@@ -328,19 +450,39 @@
                     <button class="lang-btn" onclick="switchLanguage('chn', 'CHN', event)">CHN</button>
                 </div>
             </div>
-            <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Mobile Drawer Menu & Overlay -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="mobile-nav-list">
-            <div><a href="about.html" class="mobile-nav-item" onclick="toggleDrawer()">소개</a></div>
-            <div><a href="#" class="mobile-nav-item">브랜드</a><div class="mobile-sub-list"><a href="creator.html" class="mobile-sub-item" onclick="toggleDrawer()">크리에이터</a><a href="ecommerce.html" class="mobile-sub-item" onclick="toggleDrawer()">이커머스</a><a href="global-sourcing.html" class="mobile-sub-item" onclick="toggleDrawer()">글로벌 소싱</a></div></div>
-            <div><a href="project.html" class="mobile-nav-item" onclick="toggleDrawer()">프로젝트</a></div>
-            <div><a href="contact.html" class="mobile-nav-item" onclick="toggleDrawer()">문의하기</a></div>
+            <div>
+                <a href="about.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_about">소개</a>
+            </div>
+            <div>
+                <a href="#" class="mobile-nav-item" data-translate="menu_brand">브랜드</a>
+                <div class="mobile-sub-list">
+                    <a href="creator.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_creator">크리에이터</a>
+                    <a href="ecommerce.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_ecommerce">이커머스</a>
+                    <a href="global-sourcing.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_global">글로벌 소싱</a>
+                </div>
+            </div>
+            <div>
+                <a href="project.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_project">프로젝트</a>
+            </div>
+            <div>
+                <a href="contact.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_contact">문의하기</a>
+            </div>
         </div>
-        <div style="font-size:.85rem;color:var(--text-sub);">&copy; 2026 SONGSHTORY.</div>
+        <div style="font-size: 0.85rem; color: var(--text-sub);">
+            &copy; 2026 SONGSHTORY.
+        </div>
     </div>
 
     <div class="container">
