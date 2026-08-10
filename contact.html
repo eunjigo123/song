@@ -10,17 +10,13 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
         :root {
-            --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
-            --accent-color: #FF865E;       /* 보조 포인트 컬러 */
-            --deep-color: #2F4858;         /* 딥 컬러 (제목, 본문, 메뉴) */
-            --bg-light: #FDF3EC;           /* 시안 맞춤 연한 박스 배경 */
-            --bg-base: #FFFFFF;            /* 기본 배경 */
-            --text-sub: #333333;           /* 본문 일반 텍스트 색상 */
-            --border-color: #FFA552;       /* 디자인 시안의 주황색 구분선 컬러 */
-            --box-bg: #FFFFFF;             
+            --primary-color: #FFA552;      
+            --deep-color: #2F4858;         
+            --bg-light: #FDF3EC;           
+            --bg-base: #FFFFFF;            
+            --text-sub: #333333;           
         }
 
-        /* Serif 타이틀 적용 */
         .banner-text-area h1, .serif-title {
             font-family: 'Noto Serif KR', serif;
         }
@@ -273,14 +269,14 @@
             color: var(--primary-color);
         }
 
-        /* 메인 콘텐츠 레이아웃 */
+        /* 메인 콘텐츠 컨테이너 */
         .container { 
             max-width: 1200px; 
             margin: 140px auto 100px; 
             padding: 0 40px; 
         }
 
-        /* 1. 첫 번째 섹션 (C-001 시안 반영) */
+        /* [시안 1: C-001 반영] 상단 메인 블록 */
         .content-block {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -315,17 +311,20 @@
 
         .image-box {
             width: 100%;
-            aspect-ratio: 5 / 4; /* 시안의 5:4 비율 */
+            aspect-ratio: 5 / 4; /* 정확한 5:4 비율 */
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--box-bg);
+            background: #FFFFFF;
             border: 1.5px solid #000000;
             position: relative;
             overflow: hidden;
         }
 
         .placeholder-text-red {
+            position: absolute;
+            top: 15px;
+            left: 15px;
             color: #FF3333;
             font-weight: 500;
             font-size: 1rem;
@@ -337,9 +336,9 @@
             font-size: 1.1rem;
         }
 
-        /* 2. 두 번째 섹션: 이메일 카드 (C-003 시안 반영) */
+        /* [시안 2: 이메일 카드 반영] */
         .email-card-section {
-            background: #FDF3EC; /* 시안의 연한 살구색 배경 */
+            background: #FDF3EC; 
             padding: 50px 60px;
             margin-bottom: 120px;
             display: grid;
@@ -384,7 +383,7 @@
         }
 
         .action-btn {
-            background: #ED7D31; /* 시안 맞춤 진한 주황 버튼 */
+            background: #ED7D31; 
             color: #FFFFFF;
             font-size: 1.05rem;
             font-weight: 600;
@@ -411,7 +410,7 @@
             background: #f9f9f9;
         }
 
-        /* 3. 세 번째 섹션: 메일 양식 안내 및 어떤 문의인가요 (C-002 시안 반영) */
+        /* [시안 3: 메일 양식 안내 및 어떤 문의인가요 반영] */
         .mail-guide-section {
             text-align: center;
             margin-bottom: 100px;
@@ -466,11 +465,13 @@
             font-weight: 700;
         }
 
-        /* 어떤 문의인가요 하단 그리드 */
+        /* 어떤 문의인가요 하단 그리드 (상하 주황색 줄 구분선 포함) */
         .inquiry-types-section {
             border-top: 2px solid var(--primary-color);
-            padding-top: 50px;
+            border-bottom: 2px solid var(--primary-color);
+            padding: 50px 0;
             margin-bottom: 120px;
+            text-align: left;
         }
 
         .inquiry-types-section > h3 {
@@ -492,7 +493,7 @@
             position: relative;
         }
 
-        /* 3개 카드 사이 세로 구분선 (첫 번째와 두 번째, 두 번째와 세 번째 사이) */
+        /* 카드 사이 세로 구분선 */
         .type-card:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -516,11 +517,13 @@
             line-height: 1.7;
         }
 
-        /* 4. 네 번째 섹션: 문의 작성 시 함께 알려주세요 (C-005 시안 반영) */
+        /* [시안 4: C-002~C-005 아이콘 섹션 반영] */
         .guide-icons-section {
             border-top: 2px solid var(--primary-color);
-            padding-top: 50px;
+            border-bottom: 2px solid var(--primary-color);
+            padding: 50px 0;
             margin-bottom: 60px;
+            text-align: left;
         }
 
         .guide-icons-section > h3 {
@@ -547,7 +550,7 @@
             position: relative;
         }
 
-        /* 카드들 사이의 세로 구분선 */
+        /* 아이콘 카드 사이 세로 구분선 */
         .guide-icon-card:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -659,13 +662,13 @@
                 <p data-translate="contact_desc_3">이메일로 보내주세요.</p>
             </div>
             <div class="image-box">
-                <div style="position: absolute; top: 15px; left: 15px;" class="placeholder-text-red">사진비율 5:4</div>
+                <div class="placeholder-text-red">사진비율 5:4</div>
                 <div class="placeholder-code-red">C-001</div>
                 <img src="C-001.png" alt="C-001 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
             </div>
         </div>
 
-        <!-- 2. 두 번째 섹션: 이메일 카드 (C-003 디자인 반영) -->
+        <!-- 2. 두 번째 섹션: 이메일 카드 (이메일 시안 반영) -->
         <div class="email-card-section reveal-element">
             <div class="email-info-area">
                 <h3 data-translate="email_section_title">문의 이메일</h3>
@@ -678,7 +681,7 @@
             </div>
         </div>
 
-        <!-- 3. 세 번째 섹션: 메일 양식 안내 및 어떤 문의인가요? 순서 변경 및 배치 -->
+        <!-- 3. 세 번째 섹션: 메일 양식 안내 및 어떤 문의인가요? -->
         <div class="mail-guide-section reveal-element">
             <div class="mail-guide-title-wrap">
                 <span class="quote-icon">“</span>
@@ -696,7 +699,7 @@
                 </div>
             </div>
 
-            <!-- 어떤 문의인가요 섹션 (C-002 디자인 반영) -->
+            <!-- 어떤 문의인가요 섹션 (상하 주황 줄 및 세로선 반영) -->
             <div class="inquiry-types-section">
                 <h3 data-translate="types_section_title">어떤 문의인가요?</h3>
                 <div class="types-grid">
@@ -716,7 +719,7 @@
             </div>
         </div>
 
-        <!-- 4. 네 번째 섹션: 문의 작성 시 함께 알려주세요 (C-005 디자인 반영) -->
+        <!-- 4. 네 번째 섹션: 문의 작성 시 함께 알려주세요 (C-002 ~ C-005 반영) -->
         <div class="guide-icons-section reveal-element">
             <h3 data-translate="guide_icons_section_title">문의 작성 시 함께 알려주세요</h3>
             <div class="guide-icons-grid">
@@ -754,7 +757,6 @@
     </div>
 
     <script>
-        // 언어별 번역 데이터 딕셔너리
         const allTranslations = {
             kor: {
                 page_title: "문의하기 - SONGSHTORY",
@@ -863,7 +865,6 @@
             }
         };
 
-        // 이메일 주소 복사 함수
         function copyEmail() {
             const emailText = "song9shtory@gmail.com";
             navigator.clipboard.writeText(emailText).then(() => {
@@ -873,7 +874,6 @@
             });
         }
 
-        // 스크롤 시 헤더 효과
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 30) {
@@ -883,7 +883,6 @@
             }
         });
 
-        // 스크롤 페이드인 애니메이션 (Intersection Observer)
         const observerOptions = {
             root: null,
             rootMargin: '0px 0px -100px 0px',
@@ -903,7 +902,6 @@
             observer.observe(el);
         });
 
-        // 언어 변경 함수
         function switchLanguage(langKey, langDisplay, event) {
             event.stopPropagation();
             document.getElementById('currentLangText').innerText = langDisplay;
