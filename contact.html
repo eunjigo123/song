@@ -10,7 +10,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
         :root {
-            --primary-color: #FFA552;      
+            --primary-color: #ED7D31;      
             --deep-color: #2F4858;         
             --bg-light: #FDF3EC;           
             --bg-base: #FFFFFF;            
@@ -276,7 +276,7 @@
             padding: 0 40px; 
         }
 
-        /* [시안 1: C-001 반영] 상단 메인 블록 */
+        /* 첫 번째 섹션 */
         .content-block {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -311,7 +311,7 @@
 
         .image-box {
             width: 100%;
-            aspect-ratio: 5 / 4; /* 정확한 5:4 비율 */
+            aspect-ratio: 5 / 4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -321,22 +321,7 @@
             overflow: hidden;
         }
 
-        .placeholder-text-red {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            color: #FF3333;
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        .placeholder-code-red {
-            color: #FF3333;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        /* [시안 2: 이메일 카드 반영] */
+        /* 이메일 카드 섹션 */
         .email-card-section {
             background: #FDF3EC; 
             padding: 50px 60px;
@@ -410,7 +395,7 @@
             background: #f9f9f9;
         }
 
-        /* [시안 3: 메일 양식 안내 및 어떤 문의인가요 반영] */
+        /* 메일 양식 안내 및 어떤 문의인가요 섹션 */
         .mail-guide-section {
             text-align: center;
             margin-bottom: 100px;
@@ -465,7 +450,7 @@
             font-weight: 700;
         }
 
-        /* 어떤 문의인가요 하단 그리드 (상하 주황색 줄 구분선 포함) */
+        /* 어떤 문의인가요 하단 그리드 (시안 1 이미지와 완벽 일치: 좌측 정렬) */
         .inquiry-types-section {
             border-top: 2px solid var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
@@ -491,6 +476,7 @@
             background: transparent;
             padding: 0;
             position: relative;
+            text-align: left; /* 좌측 정렬 */
         }
 
         /* 카드 사이 세로 구분선 */
@@ -509,15 +495,17 @@
             font-weight: 700;
             color: #000000;
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .type-card p {
             font-size: 1.05rem;
             color: var(--text-sub);
             line-height: 1.7;
+            text-align: left;
         }
 
-        /* [시안 4: C-002~C-005 아이콘 섹션 반영] */
+        /* 문의 작성 시 함께 알려주세요 (아이콘 섹션 - 빨간글씨 완전 제거) */
         .guide-icons-section {
             border-top: 2px solid var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
@@ -559,13 +547,6 @@
             width: 1.5px;
             height: 100px;
             background-color: var(--primary-color);
-        }
-
-        .guide-tag-red {
-            color: #FF3333;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: -10px;
         }
 
         .guide-icon-box {
@@ -652,7 +633,7 @@
     <!-- 메인 컨테이너 영역 -->
     <div class="container">
         
-        <!-- 1. 첫 번째 섹션 (C-001 디자인 반영) -->
+        <!-- 1. 첫 번째 섹션 -->
         <div class="content-block reveal-element">
             <div class="text-content">
                 <span class="tag" data-translate="contact_tag">문의하기</span>
@@ -662,13 +643,11 @@
                 <p data-translate="contact_desc_3">이메일로 보내주세요.</p>
             </div>
             <div class="image-box">
-                <div class="placeholder-text-red">사진비율 5:4</div>
-                <div class="placeholder-code-red">C-001</div>
                 <img src="C-001.png" alt="C-001 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
             </div>
         </div>
 
-        <!-- 2. 두 번째 섹션: 이메일 카드 (이메일 시안 반영) -->
+        <!-- 2. 두 번째 섹션: 이메일 카드 -->
         <div class="email-card-section reveal-element">
             <div class="email-info-area">
                 <h3 data-translate="email_section_title">문의 이메일</h3>
@@ -699,7 +678,7 @@
                 </div>
             </div>
 
-            <!-- 어떤 문의인가요 섹션 (상하 주황 줄 및 세로선 반영) -->
+            <!-- 어떤 문의인가요 섹션 (좌측 정렬 적용) -->
             <div class="inquiry-types-section">
                 <h3 data-translate="types_section_title">어떤 문의인가요?</h3>
                 <div class="types-grid">
@@ -719,33 +698,29 @@
             </div>
         </div>
 
-        <!-- 4. 네 번째 섹션: 문의 작성 시 함께 알려주세요 (C-002 ~ C-005 반영) -->
+        <!-- 4. 네 번째 섹션: 문의 작성 시 함께 알려주세요 (빨간색 글씨/코드 완전 제거) -->
         <div class="guide-icons-section reveal-element">
             <h3 data-translate="guide_icons_section_title">문의 작성 시 함께 알려주세요</h3>
             <div class="guide-icons-grid">
                 <div class="guide-icon-card">
-                    <div class="guide-tag-red">C-002</div>
                     <div class="guide-icon-box">
                         <img src="contact_icon_01_purpose.png" alt="문의 목적 아이콘" onerror="this.style.display='none';">
                     </div>
                     <div class="guide-icon-title" data-translate="icon_1">문의 목적</div>
                 </div>
                 <div class="guide-icon-card">
-                    <div class="guide-tag-red">C-003</div>
                     <div class="guide-icon-box">
                         <img src="contact_icon_02_product.png" alt="필요한 내용 또는 상품 아이콘" onerror="this.style.display='none';">
                     </div>
                     <div class="guide-icon-title" data-translate="icon_2">필요한 내용 또는 상품</div>
                 </div>
                 <div class="guide-icon-card">
-                    <div class="guide-tag-red">C-004</div>
                     <div class="guide-icon-box">
                         <img src="contact_icon_03_schedule.png" alt="희망 일정 아이콘" onerror="this.style.display='none';">
                     </div>
                     <div class="guide-icon-title" data-translate="icon_3">희망 일정</div>
                 </div>
                 <div class="guide-icon-card">
-                    <div class="guide-tag-red">C-005</div>
                     <div class="guide-icon-box">
                         <img src="contact_icon_04_budget.png" alt="예산·수량 조건 아이콘" onerror="this.style.display='none';">
                     </div>
