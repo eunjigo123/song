@@ -16,9 +16,7 @@
             --border-color: #F1E6DC;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             color: var(--deep-color);
@@ -41,7 +39,7 @@
             margin: 0;
         }
 
-        /* Header (Sticky & Blur) */
+        /* Header (Sticky & Blur) - copied directly from index.html */
         header {
             position: fixed;
             top: 0;
@@ -298,9 +296,7 @@
             box-sizing: border-box;
         }
 
-        .mobile-drawer.open {
-            right: 0;
-        }
+        .mobile-drawer.open { right: 0; }
 
         .mobile-nav-list {
             display: flex;
@@ -393,12 +389,8 @@
                 grid-template-columns: auto 1fr auto;
                 padding: 0 20px;
             }
-            .nav-menu {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
+            .nav-menu { display: none; }
+            .hamburger { display: flex; }
             .container { padding: 0 20px; margin-top: 110px; }
             .content-block, .email-card-section, .types-grid, .guide-icons-grid { grid-template-columns: 1fr; gap: 30px; }
             .email-card-section { padding: 30px 20px; }
@@ -508,13 +500,47 @@
     </div>
 
     <script>
-        function copyEmail(){const emailText='song9shtory@gmail.com';navigator.clipboard.writeText(emailText).then(()=>alert('이메일 주소가 복사되었습니다: '+emailText));}
-        function switchLanguage(langKey,langDisplay,event){event.stopPropagation();document.getElementById('currentLangText').innerText=langDisplay;document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.remove('active'));event.target.classList.add('active');}
-        window.addEventListener('scroll',()=>{const header=document.getElementById('header');if(window.scrollY>30)header.classList.add('scrolled');else header.classList.remove('scrolled');});
-        const hamburgerBtn=document.getElementById('hamburgerBtn');const mobileDrawer=document.getElementById('mobileDrawer');const drawerOverlay=document.getElementById('drawerOverlay');
-        function toggleDrawer(){mobileDrawer.classList.toggle('open');drawerOverlay.classList.toggle('open');}
-        hamburgerBtn.addEventListener('click',toggleDrawer);drawerOverlay.addEventListener('click',toggleDrawer);
-        const observer=new IntersectionObserver((entries,observer)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('active');observer.unobserve(entry.target);}});},{root:null,rootMargin:'0px 0px -100px 0px',threshold:.15});
+        function copyEmail(){
+            const emailText='song9shtory@gmail.com';
+            navigator.clipboard.writeText(emailText).then(()=>alert('이메일 주소가 복사되었습니다: '+emailText));
+        }
+
+        function switchLanguage(langKey,langDisplay,event){
+            event.stopPropagation();
+            document.getElementById('currentLangText').innerText=langDisplay;
+            document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        function toggleDrawer() {
+            mobileDrawer.classList.toggle('open');
+            drawerOverlay.classList.toggle('open');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', toggleDrawer);
+
+        const observer=new IntersectionObserver((entries,observer)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },{root:null,rootMargin:'0px 0px -100px 0px',threshold:.15});
         document.querySelectorAll('.reveal-element').forEach(el=>observer.observe(el));
     </script>
 </body>
