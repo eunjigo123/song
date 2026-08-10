@@ -17,10 +17,6 @@
             --text-sub: #333333;           
         }
 
-        .banner-text-area h1, .serif-title {
-            font-family: 'Noto Serif KR', serif;
-        }
-
         html {
             scroll-behavior: smooth;
         }
@@ -151,7 +147,6 @@
             line-height: 1.4; 
             margin-bottom: 30px; 
             color: #000000; 
-            font-family: 'Pretendard', sans-serif;
         }
 
         .text-content p { 
@@ -301,24 +296,24 @@
             font-weight: 700;
         }
 
-        /* 공통 섹션 제목 (구분선 바깥으로 분리) */
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 25px;
+        /* [핵심 수정] 원본 시안 레이아웃 구조 (상단선 -> 제목 -> 내용 그리드 -> 하단선) */
+        .section-block {
+            border-top: 1.5px solid var(--primary-color);
+            border-bottom: 1.5px solid var(--primary-color);
+            padding: 40px 0;
+            margin-bottom: 120px;
             text-align: left;
         }
 
-        /* 공통 구분선 래퍼 (가로선만 담당) */
-        .grid-wrap-bordered {
-            border-top: 1.5px solid var(--primary-color);
-            border-bottom: 1.5px solid var(--primary-color);
-            padding: 50px 0;
-            margin-bottom: 120px;
+        /* 선 아래, 내용 위쪽에 위치하는 독립된 타이틀 */
+        .section-title-outside {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
         }
 
-        /* 어떤 문의인가요 섹션 */
+        /* 어떤 문의인가요 섹션 그리드 */
         .types-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -332,7 +327,6 @@
             text-align: left;
         }
 
-        /* 그리드 내부 세로선 */
         .type-card:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -356,7 +350,7 @@
             line-height: 1.7;
         }
 
-        /* 문의 작성 시 함께 알려주세요 아이콘 섹션 */
+        /* 문의 작성 시 함께 알려주세요 아이콘 섹션 그리드 */
         .guide-icons-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -374,7 +368,6 @@
             position: relative;
         }
 
-        /* 아이콘 그리드 내부 세로선 */
         .guide-icon-card:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -429,9 +422,7 @@
         </a>
         <ul class="nav-menu">
             <li><a href="about.html" class="nav-link" data-translate="menu_intro">소개</a></li>
-            <li>
-                <a href="#" class="nav-link" data-translate="menu_brand">브랜드</a>
-            </li>
+            <li><a href="#" class="nav-link" data-translate="menu_brand">브랜드</a></li>
             <li><a href="project.html" class="nav-link" data-translate="menu_project">프로젝트</a></li>
             <li><a href="contact.html" class="nav-link" style="color: var(--primary-color);" data-translate="menu_contact">문의하기</a></li>
         </ul>
@@ -454,7 +445,7 @@
             </div>
         </div>
 
-        <!-- 2. 두 번째 섹션: 이메일 카드 -->
+        <!-- 2. 이메일 카드 섹션 -->
         <div class="email-card-section reveal-element">
             <div class="email-info-area">
                 <h3 data-translate="email_section_title">문의 이메일</h3>
@@ -486,56 +477,52 @@
             </div>
         </div>
 
-        <!-- 4. 어떤 문의인가요? (제목이 구분선 바깥으로 독립) -->
-        <div class="reveal-element">
-            <h3 class="section-title" data-translate="types_section_title">어떤 문의인가요?</h3>
-            <div class="grid-wrap-bordered">
-                <div class="types-grid">
-                    <div class="type-card">
-                        <h4 data-translate="type_1_title">콘텐츠</h4>
-                        <p data-translate="type_1_desc">송스토리쩜엠피오의 영상·콘텐츠 제작, 촬영, 출연, 채널 및 브랜드 협업에 관한 문의</p>
-                    </div>
-                    <div class="type-card">
-                        <h4 data-translate="type_2_title">브랜드 상품</h4>
-                        <p data-translate="type_2_desc">9sh 상품 제안, 입점, 공급, 공동기획 및 브랜드 제휴 등, 그 외 9sh에 관한 문의</p>
-                    </div>
-                    <div class="type-card">
-                        <h4 data-translate="type_3_title">상품 소싱</h4>
-                        <p data-translate="type_3_desc">필요한 중국 상품 조사, 판매처 확인, 상품 비교 등, 해외(중국) 구매 지원에 관한 문의</p>
-                    </div>
+        <!-- 4. 어떤 문의인가요? (상단 테두리 안에 제목이 위치하도록 블록 안으로 배치) -->
+        <div class="section-block reveal-element">
+            <h3 class="section-title-outside" data-translate="types_section_title">어떤 문의인가요?</h3>
+            <div class="types-grid">
+                <div class="type-card">
+                    <h4 data-translate="type_1_title">콘텐츠</h4>
+                    <p data-translate="type_1_desc">송스토리쩜엠피오의 영상·콘텐츠 제작, 촬영, 출연, 채널 및 브랜드 협업에 관한 문의</p>
+                </div>
+                <div class="type-card">
+                    <h4 data-translate="type_2_title">브랜드 상품</h4>
+                    <p data-translate="type_2_desc">9sh 상품 제안, 입점, 공급, 공동기획 및 브랜드 제휴 등, 그 외 9sh에 관한 문의</p>
+                </div>
+                <div class="type-card">
+                    <h4 data-translate="type_3_title">상품 소싱</h4>
+                    <p data-translate="type_3_desc">필요한 중국 상품 조사, 판매처 확인, 상품 비교 등, 해외(중국) 구매 지원에 관한 문의</p>
                 </div>
             </div>
         </div>
 
-        <!-- 5. 문의 작성 시 함께 알려주세요 (제목이 구분선 바깥으로 독립) -->
-        <div class="reveal-element">
-            <h3 class="section-title" data-translate="guide_icons_section_title">문의 작성 시 함께 알려주세요</h3>
-            <div class="grid-wrap-bordered" style="margin-bottom: 60px;">
-                <div class="guide-icons-grid">
-                    <div class="guide-icon-card">
-                        <div class="guide-icon-box">
-                            <img src="contact_icon_01_purpose.png" alt="문의 목적 아이콘" onerror="this.style.display='none';">
-                        </div>
-                        <div class="guide-icon-title" data-translate="icon_1">문의 목적</div>
+        <!-- 5. 문의 작성 시 함께 알려주세요 -->
+        <div class="section-block reveal-element" style="margin-bottom: 60px;">
+            <h3 class="section-title-outside" data-translate="guide_icons_section_title">문의 작성 시 함께 알려주세요</h3>
+            <div class="guide-icons-grid">
+                <div class="guide-icon-card">
+                    <div class="guide-icon-box">
+                        <img src="contact_icon_01_purpose.png" alt="문의 목적 아이콘" onerror="this.style.display='none';">
                     </div>
-                    <div class="guide-icon-card">
-                        <div class="guide-icon-box">
-                            <img src="contact_icon_02_product.png" alt="필요한 내용 또는 상품 아이콘" onerror="this.style.display='none';">
-                        </div>
-                        <div class="guide-icon-title" data-translate="icon_2">필요한 내용 또는 상품</div>
+                    <div class="guide-icon-title" data-translate="icon_1">문의 목적</div>
+                </div>
+                <div class="guide-icon-card">
+                    <div class="guide-icon-box">
+                        <img src="contact_icon_02_product.png" alt="필요한 내용 또는 상품 아이콘" onerror="this.style.display='none';">
                     </div>
-                    <div class="guide-icon-card">
-                        <div class="guide-icon-box">
-                            <img src="contact_icon_03_schedule.png" alt="희망 일정 아이콘" onerror="this.style.display='none';">
-                        </div>
-                        <div class="guide-icon-title" data-translate="icon_3">희망 일정</div>
+                    <div class="guide-icon-title" data-translate="icon_2">필요한 내용 또는 상품</div>
+                </div>
+                <div class="guide-icon-card">
+                    <div class="guide-icon-box">
+                        <img src="contact_icon_03_schedule.png" alt="희망 일정 아이콘" onerror="this.style.display='none';">
                     </div>
-                    <div class="guide-icon-card">
-                        <div class="guide-icon-box">
-                            <img src="contact_icon_04_budget.png" alt="예산·수량 조건 아이콘" onerror="this.style.display='none';">
-                        </div>
-                        <div class="guide-icon-title" data-translate="icon_4">예산 · 수량 등 참고 조건</div>
+                    <div class="guide-icon-title" data-translate="icon_3">희망 일정</div>
+                </div>
+                <div class="guide-icon-card">
+                    <div class="guide-icon-box">
+                        <img src="contact_icon_04_budget.png" alt="예산·수량 조건 아이콘" onerror="this.style.display='none';">
                     </div>
+                    <div class="guide-icon-title" data-translate="icon_4">예산 · 수량 등 참고 조건</div>
                 </div>
             </div>
         </div>
