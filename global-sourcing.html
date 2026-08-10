@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">글로벌 소싱 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
@@ -59,14 +59,17 @@
             transform: translateY(0);
         }
 
-        /* Header (좌측 로고, 중앙 메뉴 배치, 우측 끝 언어 변경) */
+        /* =========================================================
+           HEADER - about.html 기준
+           ========================================================= */
+
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 75px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
@@ -74,13 +77,14 @@
             display: grid;
             grid-template-columns: auto 1fr auto;
             align-items: center;
-            padding: 0 50px;
+            padding: 0 40px;
             border-bottom: 1px solid #F1E6DC;
             transition: all 0.3s ease;
+            box-sizing: content-box;
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
         }
 
@@ -88,20 +92,27 @@
             display: flex;
             align-items: center;
             justify-self: start;
+            box-sizing: content-box;
         }
 
         .logo img {
-            height: 38px;
+            height: 40px;
             width: auto;
             display: block;
+            box-sizing: content-box;
         }
 
         .nav-menu {
             display: flex;
+            justify-self: start;
+            margin-left: 300px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding-left: 40px;
             gap: 60px;
             align-items: center;
-            justify-self: center;
-            height: 75px;
+            height: 100%;
+            box-sizing: content-box;
         }
 
         .nav-menu > li {
@@ -109,6 +120,7 @@
             height: 100%;
             display: flex;
             align-items: center;
+            box-sizing: content-box;
         }
 
         .nav-menu a.nav-link {
@@ -119,6 +131,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            box-sizing: content-box;
         }
 
         .nav-menu a.nav-link:hover {
@@ -140,6 +153,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-sizing: content-box;
         }
 
         .dropdown::before {
@@ -165,6 +179,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            box-sizing: content-box;
         }
 
         .dropdown-item {
@@ -177,6 +192,7 @@
             font-weight: 600;
             color: var(--deep-color);
             transition: background 0.2s, color 0.2s;
+            box-sizing: content-box;
         }
 
         .dropdown-item:hover {
@@ -190,6 +206,7 @@
             fill: var(--deep-color);
             flex-shrink: 0;
             transition: fill 0.2s;
+            box-sizing: content-box;
         }
 
         .dropdown-item:hover svg {
@@ -200,6 +217,10 @@
             display: flex;
             align-items: center;
             justify-self: end;
+            gap: 15px;
+            height: 100%;
+            padding-right: 80px;
+            box-sizing: content-box;
         }
 
         /* Language Switcher */
@@ -211,6 +232,7 @@
             cursor: pointer;
             height: 38px;
             width: 54px;
+            box-sizing: content-box;
         }
 
         .current-lang {
@@ -218,12 +240,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--primary-color);
             transition: all 0.25s ease;
             width: 100%;
             height: 100%;
+            box-sizing: content-box;
         }
 
         .lang-buttons {
@@ -243,6 +266,7 @@
             border-radius: 6px;
             box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
             z-index: 100;
+            box-sizing: content-box;
         }
 
         .lang-switch:hover .current-lang {
@@ -266,11 +290,102 @@
             cursor: pointer;
             padding: 2px 4px;
             transition: color 0.2s;
+            box-sizing: content-box;
         }
 
         .lang-btn:hover,
         .lang-btn.active {
             color: var(--primary-color);
+        }
+
+        /* Mobile Hamburger & Drawer */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+            box-sizing: content-box;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--deep-color);
+            transition: all 0.3s ease;
+            box-sizing: content-box;
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-base);
+            box-shadow: -5px 0 25px rgba(47, 72, 88, 0.15);
+            z-index: 1050;
+            padding: 100px 30px 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            box-sizing: content-box;
+        }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .mobile-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .mobile-nav-item {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-color);
+        }
+
+        .mobile-sub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+            padding-left: 15px;
+            border-left: 2px solid #F1E6DC;
+        }
+
+        .mobile-sub-item {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(47, 72, 88, 0.4);
+            backdrop-filter: blur(3px);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* 메인 콘텐츠 레이아웃 */
@@ -611,7 +726,12 @@
         }
 
         @media (max-width: 900px) {
-            header { padding: 0 20px; }
+            header {
+                grid-template-columns: auto 1fr auto;
+                padding: 0 20px;
+            }
+            .nav-menu { display: none; }
+            .hamburger { display: flex; }
             .content-block, .process-top-grid, .process-bottom-grid, .inquiry-banner, .flow-row-cards { grid-template-columns: 1fr; gap: 30px; }
             .content-block.reverse { direction: ltr; }
             .container { padding: 0 20px; }
@@ -621,51 +741,113 @@
 </head>
 <body>
 
-    <!-- 상단 헤더 -->
+    <!-- Header -->
     <header id="header">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="송스토리 로고" onerror="this.style.display='none';">
+        <a href="#" class="logo">
+            <img src="logo.png" alt="SONGSHTORY 로고">
         </a>
+
         <ul class="nav-menu">
-            <li><a href="about.html" class="nav-link" data-translate="menu_intro">소개</a></li>
+            <li>
+                <a href="about.html" class="nav-link" data-translate="menu_intro">소개</a>
+            </li>
+
             <li>
                 <a href="#" class="nav-link" data-translate="menu_brand">
                     브랜드
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
                 </a>
+
                 <div class="dropdown">
                     <div class="dropdown-list">
                         <a href="creator.html" class="dropdown-item">
-                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
                             <span data-translate="drop_creator">크리에이터</span>
                         </a>
+
                         <a href="ecommerce.html" class="dropdown-item">
-                            <svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/>
+                            </svg>
                             <span data-translate="drop_ecommerce">이커머스</span>
                         </a>
-                        <a href="global-sourcing.html" class="dropdown-item" style="background: var(--bg-light); color: var(--primary-color);">
-                            <svg viewBox="0 0 24 24" style="fill: var(--primary-color);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+
+                        <a href="global-sourcing.html" class="dropdown-item">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
                             <span data-translate="drop_global">글로벌 소싱</span>
                         </a>
                     </div>
                 </div>
             </li>
-            <li><a href="project.html" class="nav-link" data-translate="menu_project">프로젝트</a></li>
-            <li><a href="contact.html" class="nav-link" data-translate="menu_contact">문의하기</a></li>
+
+            <li>
+                <a href="project.html" class="nav-link" data-translate="menu_project">프로젝트</a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="nav-link" data-translate="menu_contact">문의하기</a>
+            </li>
         </ul>
+
         <div class="nav-right">
             <div class="lang-switch">
                 <div class="current-lang" id="currentLangText">KOR</div>
+
                 <div class="lang-buttons">
                     <button class="lang-btn active" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
                     <button class="lang-btn" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
                     <button class="lang-btn" onclick="switchLanguage('chn', 'CHN', event)">CHN</button>
                 </div>
             </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <!-- 메인 컨테이너 영역 -->
+    <!-- Mobile Drawer Menu & Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-list">
+            <div>
+                <a href="about.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_intro">소개</a>
+            </div>
+
+            <div>
+                <a href="#" class="mobile-nav-item" data-translate="menu_brand">브랜드</a>
+
+                <div class="mobile-sub-list">
+                    <a href="creator.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_creator">크리에이터</a>
+                    <a href="ecommerce.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_ecommerce">이커머스</a>
+                    <a href="global-sourcing.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_global">글로벌 소싱</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="project.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_project">프로젝트</a>
+            </div>
+
+            <div>
+                <a href="contact.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_contact">문의하기</a>
+            </div>
+        </div>
+
+        <div style="font-size: 0.85rem; color: var(--text-sub);">
+            &copy; 2026 SONGSHTORY.
+        </div>
+    </div>
+
+<!-- 메인 컨테이너 영역 -->
     <div class="container">
         
         <!-- 첫 번째 섹션 (B-03-002 이미지 반영): 글로벌 소싱 소개 -->
@@ -947,6 +1129,20 @@
                 header.classList.remove('scrolled');
             }
         });
+
+
+        // 모바일 메뉴
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        function toggleDrawer() {
+            mobileDrawer.classList.toggle('open');
+            drawerOverlay.classList.toggle('open');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', toggleDrawer);
 
         // 스크롤 페이드인 애니메이션 (Intersection Observer)
         const observerOptions = {
