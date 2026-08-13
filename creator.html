@@ -340,25 +340,24 @@
             width: 40px; height: 3px; background-color: var(--primary-color); margin-bottom: 24px;
         }
         
-        /* 이커머스 이미지처럼 타이틀, 서브문구 배치 크기 설정 */
         .hero-brand {
             font-family: 'Noto Serif KR', serif;
-            font-size: 3.5rem;          /* 이커머스와 동일한 타이틀 크기 */
+            font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.15;
             letter-spacing: -1px;
             display: block;
-            margin-bottom: 20px;        /* 타이틀과 서브 문구 사이 간격 */
+            margin-bottom: 20px;
         }
 
         .hero-sub {
             font-family: 'Pretendard', sans-serif;
-            font-size: 1.6rem;          /* 이커머스의 '새로운 시작을 함께하는...' 크기 대응 */
+            font-size: 1.6rem;
             font-weight: 700;
             line-height: 1.4;
             color: var(--deep-color);
             display: block;
-            margin-bottom: 30px;        /* 서브 문구와 본문 설명 사이 간격 */
+            margin-bottom: 30px;
         }
 
         .hero-desc {
@@ -368,7 +367,6 @@
             margin-bottom: 35px;
         }
 
-        /* 이커머스 스타일의 밑줄 링크 버튼 */
         .link-arrow {
             font-size: 1.05rem; 
             font-weight: 600; 
@@ -383,10 +381,26 @@
             border-color: var(--primary-color);
         }
 
-        .image-box {
-            width: 100%; height: 380px; border: 2px solid var(--deep-color); background: #FFFFFF; overflow: hidden;
+        /* 이미지 비율 클래스 정의 (5:4 및 4:5) */
+        .image-box-54 {
+            width: 100%; 
+            aspect-ratio: 5 / 4; 
+            border: 2px solid var(--deep-color); 
+            background: #FFFFFF; 
+            overflow: hidden;
         }
-        .image-box img {
+        .image-box-54 img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+
+        .image-box-45 {
+            width: 100%; 
+            aspect-ratio: 4 / 5; 
+            border: 2px solid var(--deep-color); 
+            background: #FFFFFF; 
+            overflow: hidden;
+        }
+        .image-box-45 img {
             width: 100%; height: 100%; object-fit: cover; display: block;
         }
 
@@ -410,8 +424,6 @@
         .topics-4-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: left; }
         .topic-card-wrap { display: flex; flex-direction: column; gap: 12px; }
         .topic-card-title { font-size: 1.25rem; font-weight: 700; text-align: center; }
-        .topic-card-box { width: 100%; height: 320px; border: 2px solid var(--deep-color); background: #FFFFFF; overflow: hidden; }
-        .topic-card-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* 섹션 4 */
         .sec-cta { background-color: var(--bg-light); border: 2px solid var(--deep-color); padding: 60px 20px; text-align: center; }
@@ -515,7 +527,7 @@
 
     <div class="container">
 
-        <!-- 섹션 1 (이커머스 구도와 폰트 크기 완벽 동기화) -->
+        <!-- 섹션 1 (brand_01_image_01.png - 5:4 비율 적용) -->
         <section class="sec-hero reveal-element">
             <div>
                 <span class="tag-orange" data-translate="creator_tag">크리에이터</span>
@@ -528,13 +540,13 @@
                 <a href="#" class="link-arrow" data-translate="content_view">콘텐츠 보기 ↗</a>
             </div>
             <div>
-                <div class="image-box">
+                <div class="image-box-54">
                     <img src="brand_01_image_01.png" alt="brand_01_image_01 이미지">
                 </div>
             </div>
         </section>
 
-        <!-- 섹션 2 -->
+        <!-- 섹션 2 (brand_01_image_02.png - 5:4 비율 적용) -->
         <section class="sec-story reveal-element">
             <div class="banner-title-box">
                 <h2>
@@ -545,7 +557,7 @@
             </div>
             <div class="sec-story-grid">
                 <div>
-                    <div class="image-box" style="height: 420px;">
+                    <div class="image-box-54">
                         <img src="brand_01_image_02.png" alt="brand_01_image_02 이미지">
                     </div>
                 </div>
@@ -557,7 +569,7 @@
             </div>
         </section>
 
-        <!-- 섹션 3 -->
+        <!-- 섹션 3 (brand_01_image_03 ~ 06.png - 4:5 비율 적용) -->
         <section class="sec-topics reveal-element">
             <span class="section-tag" data-translate="sec3_tag">기록하는 스토리</span>
             <h2 data-translate="sec3_title">다양한 주제로 콘텐츠를 만듭니다.</h2>
@@ -566,25 +578,25 @@
             <div class="topics-4-grid">
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_1">비즈니스·이커머스 경험</div>
-                    <div class="topic-card-box">
+                    <div class="image-box-45">
                         <img src="brand_01_image_03.png" alt="brand_01_image_03 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_2">중국·대만 문화와 생활</div>
-                    <div class="topic-card-box">
+                    <div class="image-box-45">
                         <img src="brand_01_image_04.png" alt="brand_01_image_04 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_3">여행과 일상</div>
-                    <div class="topic-card-box">
+                    <div class="image-box-45">
                         <img src="brand_01_image_05.png" alt="brand_01_image_05 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_4">중국어</div>
-                    <div class="topic-card-box">
+                    <div class="image-box-45">
                         <img src="brand_01_image_06.png" alt="brand_01_image_06 이미지">
                     </div>
                 </div>
