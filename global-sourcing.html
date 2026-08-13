@@ -461,10 +461,9 @@
             flex-shrink: 0;
         }
 
-        /* 이미지 박스 규격 스타일 */
+        /* 이미지 박스 규격 스타일 (비율별 클래스 정의) */
         .image-box {
             width: 100%;
-            aspect-ratio: 4 / 3; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -474,6 +473,17 @@
             overflow: hidden;
             border-radius: 2px;
             box-shadow: 0 4px 20px rgba(47, 72, 88, 0.04);
+        }
+
+        /* 비율 지정 */
+        .image-box.ratio-5-4 {
+            aspect-ratio: 5 / 4;
+        }
+        .image-box.ratio-11-5 {
+            aspect-ratio: 11 / 5;
+        }
+        .image-box.ratio-16-9 {
+            aspect-ratio: 16 / 9;
         }
 
         .image-box img {
@@ -690,7 +700,6 @@
 
         .inquiry-image-box {
             width: 100%;
-            aspect-ratio: 16 / 10;
             background: #FFFFFF;
             border: 1.5px solid var(--deep-color);
             display: flex;
@@ -699,12 +708,6 @@
             position: relative;
             overflow: hidden;
             border-radius: 6px;
-        }
-
-        .inquiry-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .placeholder-text {
@@ -838,7 +841,7 @@
 <!-- 메인 컨테이너 영역 -->
     <div class="container">
         
-        <!-- 첫 번째 섹션 (B-03-002 이미지 반영): 글로벌 소싱 소개 -->
+        <!-- 첫 번째 섹션 (brand_03_image_01.png: 5:4 비율 적용)[cite: 10] -->
         <div class="content-block reveal-element">
             <div class="text-content banner-text-area">
                 <span class="tag" data-translate="global_tag">GLOBAL SOURCING</span>
@@ -847,7 +850,7 @@
                 <h2 data-translate="sec1_main_title">고객의 조건에 맞는<br>중국 상품을 찾아<br>조사부터 구매까지 연결합니다.</h2>
                 <p data-translate="sec1_desc">한국과 중화권을 연결하는<br>맞춤형 글로벌 소싱 서비스입니다.</p>
             </div>
-            <div class="image-box">
+            <div class="image-box ratio-5-4">
                 <img src="brand_03_image_01.png" alt="brand_03_image_01 이미지" onerror="this.onerror=null; this.src='brand_03_image_01.png';">
             </div>
         </div>
@@ -859,7 +862,7 @@
             </h2>
         </div>
 
-        <!-- 두 번째 섹션 (B-03-001 이미지 반영): 상세 소개 및 체크리스트 -->
+        <!-- 두 번째 섹션 (brand_03_image_02.png: 5:4 비율 적용)[cite: 10] -->
         <div class="content-block reverse reveal-element">
             <div class="text-content">
                 <h2 data-translate="sec2_title">중국 상품을 더 정확하고<br>편리하게 찾을 수 있도록</h2>
@@ -878,12 +881,12 @@
 
                 <p data-translate="sec2_desc_1">고객과 내용을 조율해 적합한 상품을 선정하고, 최종적으로 선택한 상품을 받아볼 수 있도록 구매 과정까지 지원합니다.</p>
             </div>
-            <div class="image-box">
+            <div class="image-box ratio-5-4">
                 <img src="brand_03_image_02.png" alt="brand_03_image_02 이미지" onerror="this.onerror=null; this.src='brand_03_image_02.png';">
             </div>
         </div>
 
-        <!-- 세 번째 섹션 (B-03-003, B-03-004, B-03-005 이미지 복합 레이아웃) -->
+        <!-- 세 번째 섹션 (brand_03_image_03: 11:5, brand_03_image_04~05: 5:4 비율 적용)[cite: 10] -->
         <div class="process-layout-section reveal-element">
             <div class="process-top-grid">
                 <div class="text-content">
@@ -899,22 +902,22 @@
                         <div class="process-step-item"><span class="num">07</span><span data-translate="step_7">구매 및 국내 배송 지원</span></div>
                     </div>
                 </div>
-                <div class="image-box">
+                <div class="image-box ratio-11-5">
                     <img src="brand_03_image_03.png" alt="brand_03_image_03 이미지" onerror="this.onerror=null; this.src='brand_03_image_03.png';">
                 </div>
             </div>
             
             <div class="process-bottom-grid">
-                <div class="image-box">
+                <div class="image-box ratio-5-4">
                     <img src="brand_03_image_04.png" alt="brand_03_image_04 이미지" onerror="this.onerror=null; this.src='brand_03_image_04.jpg';">
                 </div>
-                <div class="image-box">
+                <div class="image-box ratio-5-4">
                     <img src="brand_03_image_05.png" alt="brand_03_image_05 이미지" onerror="this.onerror=null; this.src='brand_03_image_05.png';">
                 </div>
             </div>
         </div>
 
-        <!-- 네 번째 섹션: 서비스 진행 과정 (아이콘 카드 스타일 - 중앙 화살표 제거됨) -->
+        <!-- 네 번째 섹션: 서비스 진행 과정 (아이콘 카드 스타일) -->
         <div class="service-flow-section reveal-element">
             <div class="section-title-wrap">
                 <h2 data-translate="sec4_title">서비스 진행 과정</h2>
@@ -947,7 +950,7 @@
                     </div>
                 </div>
 
-                <!-- 두 번째 줄 (나머지 3개 카드 - 중앙 화살표 없음) -->
+                <!-- 두 번째 줄 (나머지 3개 카드) -->
                 <div class="flow-row-cards">
                     <div class="flow-card">
                         <div class="flow-card-icon">
@@ -973,7 +976,7 @@
                 </div>
             </div>
 
-            <!-- 하단 문의하기 배너 -->
+            <!-- 하단 문의하기 배너 (brand_03_image_06.png: 16:9 비율 적용)[cite: 10] -->
             <div class="inquiry-banner">
                 <div class="inquiry-content">
                     <h3 data-translate="inquiry_title">문의하기</h3>
@@ -983,8 +986,8 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
                 </div>
-                <div class="inquiry-image-box">
-                    <span class="placeholder-text">B-03-003</span>
+                <div class="inquiry-image-box ratio-16-9">
+                    <span class="placeholder-text" style="display:none;">B-03-003</span>
                     <img src="brand_03_image_06.png" alt="brand_03_image_06 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
                 </div>
             </div>
