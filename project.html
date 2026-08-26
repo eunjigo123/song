@@ -9,7 +9,7 @@
     </title>
 
     <!-- Pretendard 및 Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -385,24 +385,26 @@
         ========================= */
 
         .lang-switch {
-            display: flex;
+            position: relative;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             width: 145px;
             height: 40px;
-            cursor: pointer;
-            position: relative;
         }
 
-        .language-default {
-            width: 100%;
-            height: 100%;
+        /* 기본 상태: Language | KOR */
+        .current-lang {
+            position: absolute;
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
             font-size: 0.9rem;
             color: var(--deep-color);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
         }
 
         .language-label {
@@ -415,31 +417,41 @@
             color: #CFC6BE;
         }
 
-        .language-current {
+        #currentLangText {
             font-weight: 700;
             color: var(--deep-color);
         }
 
-        .language-options {
-            width: 100%;
-            height: 100%;
-            display: none;
+        /* Hover 상태: KOR ENG CN */
+        .lang-buttons {
+            position: absolute;
+            inset: 0;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
+
+            opacity: 0;
+            visibility: hidden;
+
             background-color: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             box-sizing: border-box;
             box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
+
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 2;
         }
 
-        .lang-switch:hover .language-default {
-            display: none;
+        .lang-switch:hover .current-lang {
+            opacity: 0;
+            visibility: hidden;
         }
 
-        .lang-switch:hover .language-options {
-            display: flex;
+        .lang-switch:hover .lang-buttons {
+            opacity: 1;
+            visibility: visible;
         }
 
         .lang-btn {
@@ -449,11 +461,13 @@
             border: none;
             margin: 0;
             padding: 5px 0;
+
             font-family: 'Pretendard', sans-serif;
             font-size: 0.82rem;
             font-weight: 700;
             line-height: 1;
             color: var(--text-sub);
+
             cursor: pointer;
             white-space: nowrap;
         }
@@ -1213,13 +1227,13 @@
 
             <div class="lang-switch">
 
-                <div class="language-default">
+                <div class="current-lang">
                     <span class="language-label">Language</span>
                     <span class="language-divider">|</span>
-                    <span class="language-current" id="currentLangText">KOR</span>
+                    <span id="currentLangText">KOR</span>
                 </div>
 
-                <div class="language-options">
+                <div class="lang-buttons">
                     <button
                         type="button"
                         class="lang-btn active"
