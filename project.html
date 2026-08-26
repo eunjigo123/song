@@ -9,7 +9,7 @@
     </title>
 
     <!-- Pretendard 및 Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -635,6 +635,7 @@
         ========================= */
 
         .container {
+            position: relative;
             max-width: 1200px;
 
             margin:
@@ -834,11 +835,27 @@
 
         .project-content-area {
             position: relative;
-
             padding-left: 30px;
+            border-left: none;
+        }
 
-            border-left:
-                2px solid var(--primary-color);
+        /* 프로젝트 전체를 잇는 하나의 세로선 */
+        .project-progress-track {
+            position: absolute;
+            width: 2px;
+            background: #F1E6DC;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .project-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--primary-color);
+            transition: height 0.18s linear;
         }
 
 
@@ -1017,8 +1034,11 @@
 
             .project-content-area {
                 border-left: none;
-
                 padding-left: 0;
+            }
+
+            .project-progress-track {
+                display: none;
             }
 
         }
@@ -2313,6 +2333,260 @@
 
                 }
             );
+
+
+        /* =========================
+           Project Progress Line
+           스크롤에 따라 각 프로젝트의 세로선이 위에서 아래로 채워짐
+        ========================= */
+
+        const projectBlocks =
+            document.querySelectorAll(
+                '.project-block'
+            );
+
+
+        function updateProjectProgress() {
+
+            const viewportHeight =
+                window.innerHeight;
+
+
+            projectBlocks.forEach(
+                block => {
+
+                    const content =
+                        block.querySelector(
+                            '.project-content-area'
+                        );
+
+
+                    if (!content) return;
+
+
+                    const rect =
+                        block.getBoundingClientRect();
+
+
+                    /*
+                    진행 기준:
+                    블록이 화면 하단 78% 지점에 들어오면 0%
+                    블록이 화면 상단 28% 지점에 닿으면 100%
+                    */
+
+                    const startPoint =
+                        viewportHeight * 0.78;
+
+
+                    const endPoint =
+                        viewportHeight * 0.28;
+
+
+                    const rawProgress =
+                        (
+                            startPoint -
+                            rect.top
+                        )
+                        /
+                        (
+                            startPoint -
+                            endPoint
+                        );
+
+
+                    const progress =
+                        Math.max(
+                            0,
+                            Math.min(
+                                1,
+                                rawProgress
+                            )
+                        );
+
+
+                    content.style.setProperty(
+                        '--line-fill',
+                        `${progress * 100}%`
+                    );
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            'scroll',
+            updateProjectProgress,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            'resize',
+            updateProjectProgress
+        );
+
+
+        updateProjectProgress();
+
+
+        /* =========================
+           Single Project Progress Line
+           모든 프로젝트를 하나의 세로선으로 연결
+        ========================= */
+
+        const projectContainer =
+            document.querySelector('.container');
+
+        const projectAreas =
+            document.querySelectorAll(
+                '.project-content-area'
+            );
+
+        const projectTrack =
+            document.createElement('div');
+
+        projectTrack.className =
+            'project-progress-track';
+
+        const projectFill =
+            document.createElement('div');
+
+        projectFill.className =
+            'project-progress-fill';
+
+        projectTrack.appendChild(
+            projectFill
+        );
+
+        projectContainer.appendChild(
+            projectTrack
+        );
+
+
+        function layoutProjectTrack() {
+
+            if (
+                projectAreas.length < 2
+            ) return;
+
+
+            const containerRect =
+                projectContainer
+                    .getBoundingClientRect();
+
+
+            const firstRect =
+                projectAreas[0]
+                    .getBoundingClientRect();
+
+
+            const lastRect =
+                projectAreas[
+                    projectAreas.length - 1
+                ]
+                    .getBoundingClientRect();
+
+
+            const left =
+                firstRect.left
+                - containerRect.left;
+
+
+            const top =
+                firstRect.top
+                - containerRect.top;
+
+
+            const bottom =
+                lastRect.bottom
+                - containerRect.top;
+
+
+            projectTrack.style.left =
+                `${left}px`;
+
+            projectTrack.style.top =
+                `${top}px`;
+
+            projectTrack.style.height =
+                `${bottom - top}px`;
+
+        }
+
+
+        function updateProjectTrack() {
+
+            const rect =
+                projectTrack
+                    .getBoundingClientRect();
+
+            const viewportHeight =
+                window.innerHeight;
+
+
+            const startPoint =
+                viewportHeight * 0.78;
+
+            const endPoint =
+                viewportHeight * 0.28;
+
+
+            const rawProgress =
+                (
+                    startPoint - rect.top
+                )
+                /
+                (
+                    rect.height
+                    + startPoint
+                    - endPoint
+                );
+
+
+            const progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        rawProgress
+                    )
+                );
+
+
+            projectFill.style.height =
+                `${progress * 100}%`;
+
+        }
+
+
+        function refreshProjectTrack() {
+
+            layoutProjectTrack();
+            updateProjectTrack();
+
+        }
+
+
+        window.addEventListener(
+            'scroll',
+            updateProjectTrack,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            'resize',
+            refreshProjectTrack
+        );
+
+
+        refreshProjectTrack();
 
 
         /* =========================
