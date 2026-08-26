@@ -6,7 +6,7 @@
 
     <title>문의하기 - SONGSHTORY</title>
 
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -378,6 +378,7 @@
             position: relative;
         }
 
+        /* 기본 상태: Language | KOR */
         .language-default {
             width: 100%;
             height: 100%;
@@ -404,6 +405,7 @@
             color: var(--deep-color);
         }
 
+        /* 마우스 올리면 KOR ENG CN */
         .language-options {
             width: 100%;
             height: 100%;
@@ -2104,12 +2106,7 @@
             event.stopPropagation();
 
 
-            document
-                .getElementById(
-                    'currentLangText'
-                )
-                .textContent =
-                    langDisplay;
+            document.getElementById('currentLangText').textContent = langDisplay;
 
 
             document
