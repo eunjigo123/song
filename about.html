@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13874"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13377"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10686"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9629"></script>
@@ -188,87 +189,78 @@
 
     /* Language Switcher */
     .lang-switch {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        height: 38px;
-        width: 125px;
-    }
-
-    .current-lang {
-        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--deep-color);
-        transition: all 0.25s ease;
-        width: 100%;
-        height: 100%;
-        white-space: nowrap;
+        width: 145px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
     }
 
-    .current-lang .language-label {
+    /* 마우스를 올리기 전: Language | KOR */
+    .language-default {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: 0.9rem;
+        color: var(--deep-color);
+    }
+
+    .language-label {
         font-weight: 500;
         color: var(--text-sub);
     }
 
-    .current-lang .language-divider {
-        margin: 0 8px;
-        color: var(--border-color);
+    .language-divider {
+        margin: 0 9px;
+        color: #CFC6BE;
     }
 
-    .current-lang .language-current {
+    .language-current {
         font-weight: 700;
         color: var(--deep-color);
     }
 
-    .lang-buttons {
-        display: flex;
+    /* 마우스를 올렸을 때: KOR / ENG / CN */
+    .language-options {
+        width: 100%;
+        height: 100%;
+        display: none;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-6px);
-        transition: all 0.25s ease;
-        position: absolute;
-        right: 0;
-        width: 125px;
-        height: 38px;
-        background: var(--bg-base);
-        padding: 0 8px;
+        gap: 14px;
+        background-color: #FFFFFF;
         border: 1px solid var(--border-color);
         border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
-        z-index: 100;
         box-sizing: border-box;
+        box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
     }
 
-    .lang-switch:hover .current-lang {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(6px);
+    .lang-switch:hover .language-default {
+        display: none;
     }
 
-    .lang-switch:hover .lang-buttons {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    .lang-switch:hover .language-options {
+        display: flex;
     }
 
     .lang-btn {
-        background: none;
-        border: none;
-        font-size: 0.8rem;
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 5px 0;
+        font-family: 'Pretendard', sans-serif;
+        font-size: 0.82rem;
         font-weight: 700;
+        line-height: 1;
         color: var(--text-sub);
         cursor: pointer;
-        padding: 4px 0;
-        transition: color 0.2s;
         white-space: nowrap;
     }
 
@@ -1040,15 +1032,16 @@
     </ul>
     <div class="nav-right">
         <div class="lang-switch">
-            <div class="current-lang" id="currentLangText">
+            <div class="language-default">
                 <span class="language-label">Language</span>
                 <span class="language-divider">|</span>
-                <span class="language-current">KOR</span>
+                <span class="language-current" id="currentLangText">KOR</span>
             </div>
-            <div class="lang-buttons">
-                <button class="lang-btn active" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
-                <button class="lang-btn" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
-                <button class="lang-btn" onclick="switchLanguage('chn', 'CN', event)">CN</button>
+
+            <div class="language-options">
+                <button type="button" class="lang-btn active" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
+                <button type="button" class="lang-btn" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
+                <button type="button" class="lang-btn" onclick="switchLanguage('chn', 'CN', event)">CN</button>
             </div>
         </div>
         <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
@@ -1563,10 +1556,7 @@
 
     function switchLanguage(langKey, langDisplay, event) {
         event.stopPropagation();
-        document.getElementById('currentLangText').innerHTML =
-            '<span class="language-label">Language</span>' +
-            '<span class="language-divider">|</span>' +
-            '<span class="language-current">' + langDisplay + '</span>';
+        document.getElementById('currentLangText').textContent = langDisplay;
         
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
