@@ -1,5 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
-<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10574"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10686"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9629"></script>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
@@ -422,9 +422,10 @@
     }
 
     .btn-primary:hover {
-        opacity: 0.95;
+        border-color: var(--deep-color);
+        background-color: var(--deep-color);
+        color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(255, 165, 82, 0.3);
     }
 
     .btn-outline {
@@ -879,9 +880,10 @@
     }
 
     .action-btn:hover {
-        opacity: 0.95;
+        border-color: var(--deep-color);
+        background-color: var(--deep-color);
+        color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 165, 82, 0.3);
     }
 
     /* 스크롤 애니메이션 클래스 (PROJECTS & STORIES 섹션 전용 반영) */
@@ -1533,25 +1535,6 @@
             footer_copy: "&copy; 2026 SONGSHTORY. All rights reserved. Designed by EJ"
         }
     };
-
-    // JS 버튼 hover 색상 변경
-    document.querySelectorAll('.btn-primary, .btn-outline, .action-btn, .lang-btn, .slide-dot').forEach(button => {
-        const originalBackground = getComputedStyle(button).backgroundColor;
-        const originalColor = getComputedStyle(button).color;
-        const originalBorderColor = getComputedStyle(button).borderColor;
-
-        button.addEventListener('mouseenter', () => {
-            button.style.backgroundColor = '#FF865E';
-            button.style.color = '#FFFFFF';
-            button.style.borderColor = '#FF865E';
-        });
-
-        button.addEventListener('mouseleave', () => {
-            button.style.backgroundColor = originalBackground;
-            button.style.color = originalColor;
-            button.style.borderColor = originalBorderColor;
-        });
-    });
 
     function switchLanguage(langKey, langDisplay, event) {
         event.stopPropagation();
