@@ -9,7 +9,7 @@
     </title>
 
     <!-- Pretendard 및 Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=20028"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=22958"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=20028"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -836,16 +836,18 @@
         .projects-timeline {
             position: relative;
             --timeline-progress: 0%;
+            --timeline-top: 0px;
+            --timeline-height: 0px;
         }
 
-        /* Project 1~3를 관통하는 연한 기본선 */
+        /* 첫 타이틀부터 마지막 문장까지 이어지는 연한 기본선 */
         .projects-timeline::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 100px;
+            top: calc(var(--timeline-top) - 6px);
             width: 2px;
+            height: var(--timeline-height);
             background: #F1E6DC;
             z-index: 0;
             pointer-events: none;
@@ -856,10 +858,10 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 0;
+            top: calc(var(--timeline-top) - 6px);
             width: 2px;
-            height: var(--timeline-progress);
-            max-height: calc(100% - 100px);
+            height: calc(var(--timeline-height) * var(--timeline-progress-number));
+            max-height: var(--timeline-height);
             background: var(--primary-color);
             z-index: 1;
             pointer-events: none;
@@ -2366,62 +2368,243 @@
             );
 
 
-        function updateProjectsTimeline() {
+        function layoutProjectsTimeline() {
 
             if (!projectsTimeline) return;
 
 
-            const rect =
+            const timelineRect =
                 projectsTimeline
                     .getBoundingClientRect();
 
 
-            const viewportHeight =
-                window.innerHeight;
+            const firstTitle =
+                projectsTimeline
+                    .querySelector(
+                        '.project-block:first-of-type .project-content-area h3'
+                    );
 
 
-            /*
-            화면 아래쪽 78% 지점에서 채우기 시작,
-            화면 위쪽 28% 지점을 지나며 끝까지 채움.
-            */
-
-            const startPoint =
-                viewportHeight * 0.78;
+            const lastProject =
+                projectsTimeline
+                    .querySelector(
+                        '.project-block:last-of-type .project-content-area'
+                    );
 
 
-            const endPoint =
-                viewportHeight * 0.28;
+            const lastParagraphs =
+                lastProject
+                    ? lastProject.querySelectorAll('p')
+                    : [];
 
 
-            const scrollableDistance =
-                rect.height
-                + startPoint
-                - endPoint;
+            const lastText =
+                lastParagraphs.length
+                    ? lastParagraphs[lastParagraphs.length - 1]
+                    : null;
 
 
-            const passedDistance =
-                startPoint
-                - rect.top;
+            if (
+                !firstTitle ||
+                !lastText
+            ) return;
 
 
-            const progress =
+            const firstTitleRect =
+                firstTitle
+                    .getBoundingClientRect();
+
+
+            const lastTextRect =
+                lastText
+                    .getBoundingClientRect();
+
+
+            /* 시작점: '콘텐츠 제작 - 송스토리쩜엠피오' 타이틀 상단 */
+            const lineTop =
+                firstTitleRect.top
+                - timelineRect.top;
+
+
+            /* 끝점: 마지막 '준비중인 프로젝트 입니다.' 문장 하단 */
+            const lineBottom =
+                lastTextRect.bottom
+                - timelineRect.top;
+
+
+            const lineHeight =
                 Math.max(
                     0,
-                    Math.min(
-                        1,
-                        passedDistance
-                        / scrollableDistance
-                    )
+                    lineBottom - lineTop
                 );
 
 
             projectsTimeline
                 .style
                 .setProperty(
-                    '--timeline-progress',
-                    `${progress * 100}%`
+                    '--timeline-top',
+                    `${lineTop}px`
                 );
 
+
+            projectsTimeline
+                .style
+                .setProperty(
+                    '--timeline-height',
+                    `${lineHeight}px`
+                );
+
+        }
+
+
+        function updateProjectsTimeline() {
+
+            if (!projectsTimeline) return;
+
+
+            const timelineRect =
+                projectsTimeline
+                    .getBoundingClientRect();
+
+
+            const projectTitles =
+                Array.from(
+                    projectsTimeline
+                        .querySelectorAll(
+                            '.project-content-area h3'
+                        )
+                );
+
+
+            const lastProject =
+                projectsTimeline
+                    .querySelector(
+                        '.project-block:last-of-type .project-content-area'
+                    );
+
+
+            const lastParagraphs =
+                lastProject
+                    ? lastProject.querySelectorAll('p')
+                    : [];
+
+
+            const lastText =
+                lastParagraphs.length
+                    ? lastParagraphs[lastParagraphs.length - 1]
+                    : null;
+
+
+            if (
+                projectTitles.length !== 3 ||
+                !lastText
+            ) return;
+
+
+            const firstTitleRect =
+                projectTitles[0]
+                    .getBoundingClientRect();
+
+
+            const lineTop =
+                firstTitleRect.top
+                - timelineRect.top;
+
+
+            /*
+            각 타이틀이 화면의 약 62% 지점에 들어오면
+            해당 프로젝트 단계까지 선이 한 덩어리씩 채워짐.
+            */
+
+            const triggerY =
+                window.innerHeight * 0.62;
+
+
+            const titleRects =
+                projectTitles.map(
+                    title =>
+                        title.getBoundingClientRect()
+                );
+
+
+            const lastTextRect =
+                lastText
+                    .getBoundingClientRect();
+
+
+            let fillHeight = 0;
+
+
+            /* 1단계: 첫 타이틀이 들어오면 1 -> 2 타이틀까지 */
+            if (
+                titleRects[0].top <= triggerY
+            ) {
+
+                fillHeight =
+                    titleRects[1].top
+                    - timelineRect.top
+                    - lineTop;
+
+            }
+
+
+            /* 2단계: 두 번째 타이틀이 들어오면 2 -> 3 타이틀까지 */
+            if (
+                titleRects[1].top <= triggerY
+            ) {
+
+                fillHeight =
+                    titleRects[2].top
+                    - timelineRect.top
+                    - lineTop;
+
+            }
+
+
+            /* 3단계: 세 번째 타이틀이 들어오면 마지막 문장까지 */
+            if (
+                titleRects[2].top <= triggerY
+            ) {
+
+                fillHeight =
+                    lastTextRect.bottom
+                    - timelineRect.top
+                    - lineTop;
+
+            }
+
+
+            const totalHeight =
+                lastTextRect.bottom
+                - timelineRect.top
+                - lineTop;
+
+
+            const progress =
+                totalHeight > 0
+                    ? Math.max(
+                        0,
+                        Math.min(
+                            1,
+                            fillHeight / totalHeight
+                        )
+                    )
+                    : 0;
+
+
+            projectsTimeline
+                .style
+                .setProperty(
+                    '--timeline-progress-number',
+                    progress
+                );
+
+        }
+
+
+        function refreshProjectsTimeline() {
+            layoutProjectsTimeline();
+            updateProjectsTimeline();
         }
 
 
@@ -2436,11 +2619,11 @@
 
         window.addEventListener(
             'resize',
-            updateProjectsTimeline
+            refreshProjectsTimeline
         );
 
 
-        updateProjectsTimeline();
+        refreshProjectsTimeline();
 
 
         /* =========================
