@@ -9,7 +9,7 @@
     </title>
 
     <!-- Pretendard 및 Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=20205"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=20028"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14758"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14498"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14196"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -835,44 +835,35 @@
 
         .projects-timeline {
             position: relative;
-
-            /* JS가 계산하는 실제 선 위치 */
-            --timeline-top: 0px;
-            --timeline-height: 0px;
-            --timeline-fill: 0px;
+            --timeline-progress: 0%;
         }
 
-        /* 첫 프로젝트 타이틀부터 마지막 프로젝트까지 이어지는 기본선 */
+        /* Project 1~3를 관통하는 연한 기본선 */
         .projects-timeline::before {
             content: '';
             position: absolute;
             left: 0;
-            top: var(--timeline-top);
-
+            top: 0;
+            bottom: 100px;
             width: 2px;
-            height: var(--timeline-height);
-
             background: #F1E6DC;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* 한 프로젝트씩 계단식으로 채워지는 주황색 선 */
+        /* 스크롤에 따라 위에서 아래로 채워지는 주황색 한 줄 */
         .projects-timeline::after {
             content: '';
             position: absolute;
             left: 0;
-            top: var(--timeline-top);
-
+            top: 0;
             width: 2px;
-            height: var(--timeline-fill);
-
+            height: var(--timeline-progress);
+            max-height: calc(100% - 100px);
             background: var(--primary-color);
             z-index: 1;
             pointer-events: none;
-
-            transition:
-                height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: height 0.12s linear;
         }
 
         .project-content-area {
@@ -2366,7 +2357,7 @@
 
         /* =========================
            Projects Timeline
-           타이틀부터 시작 + 프로젝트 한 덩어리씩 진행
+           Project 1~3 전체를 하나의 연속선으로 표시
         ========================= */
 
         const projectsTimeline =
@@ -2374,201 +2365,62 @@
                 '.projects-timeline'
             );
 
-        const timelineProjects =
-            Array.from(
-                document.querySelectorAll(
-                    '.projects-timeline .project-block'
-                )
-            );
-
-
-        function layoutProjectsTimeline() {
-
-            if (
-                !projectsTimeline ||
-                timelineProjects.length === 0
-            ) return;
-
-
-            const timelineRect =
-                projectsTimeline
-                    .getBoundingClientRect();
-
-
-            const firstTitle =
-                timelineProjects[0]
-                    .querySelector(
-                        '.project-content-area h3'
-                    );
-
-
-            const lastContent =
-                timelineProjects[
-                    timelineProjects.length - 1
-                ]
-                    .querySelector(
-                        '.project-content-area'
-                    );
-
-
-            if (
-                !firstTitle ||
-                !lastContent
-            ) return;
-
-
-            const firstTitleRect =
-                firstTitle
-                    .getBoundingClientRect();
-
-
-            const lastContentRect =
-                lastContent
-                    .getBoundingClientRect();
-
-
-            /* 타이틀 윗선보다 6px 위에서 시작 */
-            const lineTop =
-                firstTitleRect.top
-                - timelineRect.top
-                - 6;
-
-
-            const lineBottom =
-                lastContentRect.bottom
-                - timelineRect.top;
-
-
-            projectsTimeline
-                .style
-                .setProperty(
-                    '--timeline-top',
-                    `${lineTop}px`
-                );
-
-
-            projectsTimeline
-                .style
-                .setProperty(
-                    '--timeline-height',
-                    `${Math.max(
-                        0,
-                        lineBottom - lineTop
-                    )}px`
-                );
-
-        }
-
 
         function updateProjectsTimeline() {
 
-            if (
-                !projectsTimeline ||
-                timelineProjects.length === 0
-            ) return;
+            if (!projectsTimeline) return;
 
 
-            const timelineRect =
+            const rect =
                 projectsTimeline
                     .getBoundingClientRect();
 
 
-            const firstTitle =
-                timelineProjects[0]
-                    .querySelector(
-                        '.project-content-area h3'
-                    );
-
-
-            if (!firstTitle) return;
-
-
-            const firstTitleRect =
-                firstTitle
-                    .getBoundingClientRect();
-
-
-            const lineTop =
-                firstTitleRect.top
-                - timelineRect.top
-                - 6;
+            const viewportHeight =
+                window.innerHeight;
 
 
             /*
-            각 프로젝트 타이틀이 화면 62% 지점에 들어오면
-            그 프로젝트의 끝까지 한 번에 채움.
+            화면 아래쪽 78% 지점에서 채우기 시작,
+            화면 위쪽 28% 지점을 지나며 끝까지 채움.
             */
 
-            const triggerY =
-                window.innerHeight * 0.62;
+            const startPoint =
+                viewportHeight * 0.78;
 
 
-            let fillHeight = 0;
+            const endPoint =
+                viewportHeight * 0.28;
 
 
-            timelineProjects.forEach(
-                block => {
-
-                    const title =
-                        block.querySelector(
-                            '.project-content-area h3'
-                        );
+            const scrollableDistance =
+                rect.height
+                + startPoint
+                - endPoint;
 
 
-                    const content =
-                        block.querySelector(
-                            '.project-content-area'
-                        );
+            const passedDistance =
+                startPoint
+                - rect.top;
 
 
-                    if (
-                        !title ||
-                        !content
-                    ) return;
-
-
-                    const titleRect =
-                        title
-                            .getBoundingClientRect();
-
-
-                    if (
-                        titleRect.top <= triggerY
-                    ) {
-
-                        const contentRect =
-                            content
-                                .getBoundingClientRect();
-
-
-                        fillHeight =
-                            contentRect.bottom
-                            - timelineRect.top
-                            - lineTop;
-
-                    }
-
-                }
-            );
+            const progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        passedDistance
+                        / scrollableDistance
+                    )
+                );
 
 
             projectsTimeline
                 .style
                 .setProperty(
-                    '--timeline-fill',
-                    `${Math.max(
-                        0,
-                        fillHeight
-                    )}px`
+                    '--timeline-progress',
+                    `${progress * 100}%`
                 );
-
-        }
-
-
-        function refreshProjectsTimeline() {
-
-            layoutProjectsTimeline();
-            updateProjectsTimeline();
 
         }
 
@@ -2584,11 +2436,11 @@
 
         window.addEventListener(
             'resize',
-            refreshProjectsTimeline
+            updateProjectsTimeline
         );
 
 
-        refreshProjectsTimeline();
+        updateProjectsTimeline();
 
 
         /* =========================
