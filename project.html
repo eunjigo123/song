@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="page_title">프로젝트 - SONGSHTORY</title>
+
+    <title data-translate="page_title">
+        프로젝트 - SONGSHTORY
+    </title>
 
     <!-- Pretendard 및 Noto Serif KR 폰트 링크 -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        as="style"
+        crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
 
@@ -30,15 +42,20 @@
             --box-bg: #FFFFFF;
         }
 
+
+        /* Serif 타이틀 */
+
         h1,
         h2,
         .serif-title {
             font-family: 'Noto Serif KR', serif;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             color: var(--deep-color);
@@ -48,17 +65,21 @@
             position: relative;
         }
 
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
 
         ul {
             list-style: none;
         }
 
 
-        /* 스크롤 애니메이션 */
+        /* =========================
+           스크롤 애니메이션
+        ========================= */
 
         .reveal-element {
             opacity: 0;
@@ -71,16 +92,20 @@
             will-change: opacity, transform;
         }
 
+
         .reveal-element.active {
             opacity: 1;
             transform: translateY(0);
         }
 
 
-        /* Header */
+        /* =========================
+           Header
+        ========================= */
 
         header {
             position: fixed;
+
             top: 0;
             left: 0;
 
@@ -92,37 +117,48 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
 
-            box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
+            box-shadow:
+                0 2px 12px rgba(47, 72, 88, 0.03);
 
             z-index: 1000;
 
             display: grid;
-            grid-template-columns: auto 1fr auto;
+
+            grid-template-columns:
+                auto 1fr auto;
 
             align-items: center;
 
-            padding: 0 40px;
+            padding:
+                0 40px;
 
-            border-bottom: 1px solid var(--border-color);
+            border-bottom:
+                1px solid var(--border-color);
 
-            transition: all 0.3s ease;
+            transition:
+                all 0.3s ease;
         }
 
+
         header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background:
+                rgba(255, 255, 255, 0.95);
 
             box-shadow:
                 0 4px 20px rgba(47, 72, 88, 0.08);
         }
 
 
-        /* Logo */
+        /* =========================
+           Logo
+        ========================= */
 
         .logo {
             display: flex;
             align-items: center;
             justify-self: start;
         }
+
 
         .logo img {
             height: 40px;
@@ -131,7 +167,9 @@
         }
 
 
-        /* Navigation */
+        /* =========================
+           Navigation
+        ========================= */
 
         .nav-menu {
             display: flex;
@@ -147,6 +185,7 @@
             height: 100%;
         }
 
+
         .nav-menu > li {
             position: relative;
 
@@ -157,14 +196,17 @@
             align-items: center;
         }
 
+
         .nav-menu a.nav-link {
             font-size: 1.05rem;
 
             font-weight: 600;
 
-            color: var(--deep-color);
+            color:
+                var(--deep-color);
 
-            transition: color 0.3s;
+            transition:
+                color 0.3s;
 
             display: flex;
 
@@ -173,12 +215,16 @@
             gap: 6px;
         }
 
+
         .nav-menu a.nav-link:hover {
-            color: var(--primary-color);
+            color:
+                var(--primary-color);
         }
 
 
-        /* Dropdown */
+        /* =========================
+           Dropdown
+        ========================= */
 
         .dropdown {
             position: absolute;
@@ -213,6 +259,7 @@
                 all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+
         .dropdown::before {
             content: '';
 
@@ -238,6 +285,7 @@
                 1px solid var(--border-color);
         }
 
+
         .nav-menu > li:hover .dropdown {
             opacity: 1;
 
@@ -248,6 +296,7 @@
                 translateY(0);
         }
 
+
         .dropdown-list {
             display: flex;
 
@@ -256,6 +305,7 @@
             gap: 6px;
         }
 
+
         .dropdown-item {
             display: flex;
 
@@ -263,7 +313,8 @@
 
             gap: 12px;
 
-            padding: 10px 12px;
+            padding:
+                10px 12px;
 
             border-radius: 8px;
 
@@ -279,6 +330,7 @@
                 color 0.2s;
         }
 
+
         .dropdown-item:hover {
             background:
                 var(--bg-light);
@@ -286,6 +338,7 @@
             color:
                 var(--primary-color);
         }
+
 
         .dropdown-item svg {
             width: 18px;
@@ -301,13 +354,16 @@
                 fill 0.2s;
         }
 
+
         .dropdown-item:hover svg {
             fill:
                 var(--primary-color);
         }
 
 
-        /* Navigation Right */
+        /* =========================
+           Navigation Right
+        ========================= */
 
         .nav-right {
             display: flex;
@@ -324,7 +380,9 @@
         }
 
 
-        /* Language Switcher */
+        /* =========================
+           Language Switcher
+        ========================= */
 
         .lang-switch {
             position: relative;
@@ -341,6 +399,7 @@
 
             width: 54px;
         }
+
 
         .current-lang {
             position: absolute;
@@ -365,6 +424,7 @@
 
             height: 100%;
         }
+
 
         .lang-buttons {
             display: flex;
@@ -406,6 +466,7 @@
             z-index: 100;
         }
 
+
         .lang-switch:hover .current-lang {
             opacity: 0;
 
@@ -415,6 +476,7 @@
                 translateY(6px);
         }
 
+
         .lang-switch:hover .lang-buttons {
             opacity: 1;
 
@@ -423,6 +485,7 @@
             transform:
                 translateY(0);
         }
+
 
         .lang-btn {
             background: none;
@@ -445,6 +508,7 @@
                 color 0.2s;
         }
 
+
         .lang-btn:hover,
         .lang-btn.active {
             color:
@@ -452,7 +516,9 @@
         }
 
 
-        /* Mobile Hamburger */
+        /* =========================
+           Mobile Hamburger
+        ========================= */
 
         .hamburger {
             display: none;
@@ -475,6 +541,7 @@
             z-index: 1100;
         }
 
+
         .hamburger span {
             display: block;
 
@@ -490,7 +557,9 @@
         }
 
 
-        /* Mobile Drawer */
+        /* =========================
+           Mobile Drawer
+        ========================= */
 
         .mobile-drawer {
             position: fixed;
@@ -524,9 +593,11 @@
                 right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
+
         .mobile-drawer.open {
             right: 0;
         }
+
 
         .mobile-nav-list {
             display: flex;
@@ -536,6 +607,7 @@
             gap: 25px;
         }
 
+
         .mobile-nav-item {
             font-size: 1.2rem;
 
@@ -544,6 +616,7 @@
             color:
                 var(--deep-color);
         }
+
 
         .mobile-sub-list {
             display: flex;
@@ -560,6 +633,7 @@
                 2px solid var(--border-color);
         }
 
+
         .mobile-sub-item {
             font-size: 1rem;
 
@@ -570,7 +644,9 @@
         }
 
 
-        /* Overlay */
+        /* =========================
+           Overlay
+        ========================= */
 
         .drawer-overlay {
             position: fixed;
@@ -599,6 +675,7 @@
                 all 0.3s ease;
         }
 
+
         .drawer-overlay.open {
             opacity: 1;
 
@@ -606,7 +683,9 @@
         }
 
 
-        /* Container */
+        /* =========================
+           Container
+        ========================= */
 
         .container {
             max-width: 1200px;
@@ -619,7 +698,9 @@
         }
 
 
-        /* Hero */
+        /* =========================
+           Hero
+        ========================= */
 
         .hero-section {
             display: grid;
@@ -639,6 +720,7 @@
                 1px solid var(--border-color);
         }
 
+
         .hero-text .tag {
             display: inline-block;
 
@@ -651,6 +733,7 @@
 
             margin-bottom: 8px;
         }
+
 
         .hero-text h1 {
             font-size: 2.6rem;
@@ -665,6 +748,7 @@
                 var(--deep-color);
         }
 
+
         .hero-text p {
             font-size: 1.1rem;
 
@@ -677,7 +761,9 @@
         }
 
 
-        /* Image Boxes */
+        /* =========================
+           Image Box
+        ========================= */
 
         .image-box {
             width: 100%;
@@ -704,13 +790,16 @@
                 0 4px 20px rgba(47, 72, 88, 0.04);
         }
 
+
         .image-box.ratio-5-4 {
             aspect-ratio: 5 / 4;
         }
 
+
         .image-box.ratio-16-9 {
             aspect-ratio: 16 / 9;
         }
+
 
         .image-box img {
             width: 100%;
@@ -722,6 +811,7 @@
             display: block;
         }
 
+
         .placeholder-text {
             color: #FF3333;
 
@@ -731,13 +821,16 @@
         }
 
 
-        /* Section Header */
+        /* =========================
+           Section Header
+        ========================= */
 
         .section-header-center {
             text-align: center;
 
             margin-bottom: 80px;
         }
+
 
         .section-header-center h2 {
             font-size: 2rem;
@@ -755,6 +848,7 @@
                 0 20px;
         }
 
+
         .section-header-center h2::before,
         .section-header-center h2::after {
             content: '"';
@@ -771,7 +865,9 @@
         }
 
 
-        /* Project Blocks */
+        /* =========================
+           Project Blocks
+        ========================= */
 
         .project-block {
             display: grid;
@@ -788,6 +884,7 @@
             position: relative;
         }
 
+
         .project-content-area {
             position: relative;
 
@@ -796,6 +893,7 @@
             border-left:
                 2px solid var(--primary-color);
         }
+
 
         .project-content-area h3 {
             font-size: 1.6rem;
@@ -810,6 +908,7 @@
             line-height: 1.4;
         }
 
+
         .project-content-area .project-intro {
             font-size: 1.1rem;
 
@@ -820,6 +919,7 @@
 
             margin-bottom: 20px;
         }
+
 
         .project-content-area p {
             font-size: 1.05rem;
@@ -833,7 +933,9 @@
         }
 
 
-        /* Project Contact Banner */
+        /* =========================
+           Project Contact Banner
+        ========================= */
 
         .project-contact-banner {
             background:
@@ -855,6 +957,7 @@
                 0 10px 30px rgba(47, 72, 88, 0.03);
         }
 
+
         .project-contact-banner h3 {
             font-size: 1.8rem;
 
@@ -865,6 +968,7 @@
 
             margin-bottom: 15px;
         }
+
 
         .project-contact-banner p {
             font-size: 1.05rem;
@@ -878,51 +982,55 @@
         }
 
 
-        /* ============================= */
-        /* 프로젝트 문의 버튼 수정 부분 */
-        /* ============================= */
+        /* ==================================================
+           프로젝트 문의 버튼
+           커서 전 = 흰색 / 네이비 글자 / 연한 테두리
+           커서 후 = 네이비 / 흰 글자 / 네이비 테두리
+        ================================================== */
 
         .banner-btn {
             display: inline-block;
 
-            background: #FFFFFF;
+            background-color: #FFFFFF !important;
 
-            color:
-                var(--deep-color);
-
-            font-size: 1.05rem;
-
-            font-weight: 600;
+            color: #2F4858 !important;
 
             padding:
                 14px 30px;
 
             border-radius: 6px;
 
+            font-weight: 600;
+
             border:
-                1px solid var(--border-color);
+                1px solid #F1E6DC !important;
 
             transition:
                 all 0.2s ease;
 
-            box-shadow: none;
+            box-shadow:
+                none !important;
         }
 
-        .banner-btn:hover {
-            background:
-                var(--deep-color);
 
-            color: #FFFFFF;
+        .banner-btn:hover {
+            background-color:
+                #2F4858 !important;
+
+            color:
+                #FFFFFF !important;
 
             border-color:
-                var(--deep-color);
+                #2F4858 !important;
 
             transform:
                 translateY(-2px);
         }
 
 
-        /* Responsive */
+        /* =========================
+           Responsive
+        ========================= */
 
         @media (max-width: 900px) {
 
@@ -934,13 +1042,16 @@
                     0 20px;
             }
 
+
             .nav-menu {
                 display: none;
             }
 
+
             .hamburger {
                 display: flex;
             }
+
 
             .hero-section,
             .project-block {
@@ -950,36 +1061,49 @@
                 gap: 40px;
             }
 
+
             .container {
                 padding:
                     0 20px;
             }
+
 
             .project-content-area {
                 border-left: none;
 
                 padding-left: 0;
             }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
 
-    <!-- Header -->
+    <!-- =========================
+         Header
+    ========================= -->
 
     <header id="header">
 
         <a href="#" class="logo">
-            <img src="logo.png" alt="SONGSHTORY 로고">
+
+            <img
+                src="logo.png"
+                alt="SONGSHTORY 로고"
+            >
+
         </a>
 
 
         <ul class="nav-menu">
 
+
             <li>
+
                 <a
                     href="about.html"
                     class="nav-link"
@@ -987,16 +1111,19 @@
                 >
                     소개
                 </a>
+
             </li>
 
 
             <li>
+
 
                 <a
                     href="#"
                     class="nav-link"
                     data-translate="menu_brand"
                 >
+
                     브랜드
 
                     <svg
@@ -1007,13 +1134,18 @@
                         stroke="currentColor"
                         stroke-width="2.5"
                     >
-                        <path d="m6 9 6 6 6-6"/>
+
+                        <path
+                            d="m6 9 6 6 6-6"
+                        />
+
                     </svg>
 
                 </a>
 
 
                 <div class="dropdown">
+
 
                     <div class="dropdown-list">
 
@@ -1031,8 +1163,11 @@
 
                             </svg>
 
+
                             <span data-translate="drop_creator">
+
                                 크리에이터
+
                             </span>
 
                         </a>
@@ -1051,8 +1186,11 @@
 
                             </svg>
 
+
                             <span data-translate="drop_ecommerce">
+
                                 이커머스
+
                             </span>
 
                         </a>
@@ -1071,8 +1209,11 @@
 
                             </svg>
 
+
                             <span data-translate="drop_global">
+
                                 글로벌 소싱
+
                             </span>
 
                         </a>
@@ -1080,7 +1221,9 @@
 
                     </div>
 
+
                 </div>
+
 
             </li>
 
@@ -1092,7 +1235,9 @@
                     class="nav-link"
                     data-translate="menu_project"
                 >
+
                     프로젝트
+
                 </a>
 
             </li>
@@ -1105,7 +1250,9 @@
                     class="nav-link"
                     data-translate="menu_contact"
                 >
+
                     문의하기
+
                 </a>
 
             </li>
@@ -1119,38 +1266,52 @@
 
             <div class="lang-switch">
 
+
                 <div
                     class="current-lang"
                     id="currentLangText"
                 >
+
                     KOR
+
                 </div>
 
 
                 <div class="lang-buttons">
 
+
                     <button
                         class="lang-btn active"
                         onclick="switchLanguage('kor', 'KOR', event)"
                     >
+
                         KOR
+
                     </button>
+
 
                     <button
                         class="lang-btn"
                         onclick="switchLanguage('eng', 'ENG', event)"
                     >
+
                         ENG
+
                     </button>
+
 
                     <button
                         class="lang-btn"
                         onclick="switchLanguage('chn', 'CHN', event)"
                     >
+
                         CHN
+
                     </button>
 
+
                 </div>
+
 
             </div>
 
@@ -1170,10 +1331,13 @@
 
         </div>
 
+
     </header>
 
 
-    <!-- Mobile Drawer -->
+    <!-- =========================
+         Mobile Drawer
+    ========================= -->
 
     <div
         class="drawer-overlay"
@@ -1198,7 +1362,9 @@
                     onclick="toggleDrawer()"
                     data-translate="menu_about"
                 >
+
                     소개
+
                 </a>
 
             </div>
@@ -1206,12 +1372,15 @@
 
             <div>
 
+
                 <a
                     href="#"
                     class="mobile-nav-item"
                     data-translate="menu_brand"
                 >
+
                     브랜드
+
                 </a>
 
 
@@ -1224,7 +1393,9 @@
                         onclick="toggleDrawer()"
                         data-translate="drop_creator"
                     >
+
                         크리에이터
+
                     </a>
 
 
@@ -1234,7 +1405,9 @@
                         onclick="toggleDrawer()"
                         data-translate="drop_ecommerce"
                     >
+
                         이커머스
+
                     </a>
 
 
@@ -1244,11 +1417,14 @@
                         onclick="toggleDrawer()"
                         data-translate="drop_global"
                     >
+
                         글로벌 소싱
+
                     </a>
 
 
                 </div>
+
 
             </div>
 
@@ -1261,7 +1437,9 @@
                     onclick="toggleDrawer()"
                     data-translate="menu_project"
                 >
+
                     프로젝트
+
                 </a>
 
             </div>
@@ -1275,7 +1453,9 @@
                     onclick="toggleDrawer()"
                     data-translate="menu_contact"
                 >
+
                     문의하기
+
                 </a>
 
             </div>
@@ -1290,14 +1470,18 @@
                 color: var(--text-sub);
             "
         >
+
             &copy; 2026 SONGSHTORY.
+
         </div>
 
 
     </div>
 
 
-    <!-- Main Container -->
+    <!-- =========================
+         Main Container
+    ========================= -->
 
     <div class="container">
 
@@ -1309,11 +1493,14 @@
 
             <div class="hero-text">
 
+
                 <span
                     class="tag"
                     data-translate="hero_tag"
                 >
+
                     프로젝트
+
                 </span>
 
 
@@ -1361,6 +1548,7 @@
 
             <div class="image-box ratio-5-4">
 
+
                 <span class="placeholder-text">
 
                     P-001
@@ -1371,6 +1559,7 @@
                 <img
                     src="project_image_01.png"
                     alt="project_image_01 이미지"
+
                     style="
                         position: absolute;
                         top: 0;
@@ -1379,7 +1568,10 @@
                         height: 100%;
                         object-fit: cover;
                     "
-                    onerror="this.style.display='none';"
+
+                    onerror="
+                        this.style.display='none';
+                    "
                 >
 
 
@@ -1389,9 +1581,10 @@
         </div>
 
 
-        <!-- Ongoing Projects Title -->
+        <!-- 진행 프로젝트 타이틀 -->
 
         <div class="section-header-center reveal-element">
+
 
             <h2 data-translate="ongoing_section_title">
 
@@ -1399,10 +1592,13 @@
 
             </h2>
 
+
         </div>
 
 
-        <!-- Project 1 -->
+        <!-- =========================
+             Project 1
+        ========================= -->
 
         <div class="project-block reveal-element">
 
@@ -1464,6 +1660,7 @@
                 <img
                     src="project_image_02.png"
                     alt="project_image_02 이미지"
+
                     style="
                         position: absolute;
                         top: 0;
@@ -1472,7 +1669,10 @@
                         height: 100%;
                         object-fit: cover;
                     "
-                    onerror="this.style.display='none';"
+
+                    onerror="
+                        this.style.display='none';
+                    "
                 >
 
 
@@ -1482,7 +1682,9 @@
         </div>
 
 
-        <!-- Project 2 -->
+        <!-- =========================
+             Project 2
+        ========================= -->
 
         <div class="project-block reveal-element">
 
@@ -1544,6 +1746,7 @@
                 <img
                     src="project_image_03.png"
                     alt="project_image_03 이미지"
+
                     style="
                         position: absolute;
                         top: 0;
@@ -1552,7 +1755,10 @@
                         height: 100%;
                         object-fit: cover;
                     "
-                    onerror="this.style.display='none';"
+
+                    onerror="
+                        this.style.display='none';
+                    "
                 >
 
 
@@ -1562,7 +1768,9 @@
         </div>
 
 
-        <!-- Project 3 -->
+        <!-- =========================
+             Project 3
+        ========================= -->
 
         <div class="project-block reveal-element">
 
@@ -1624,6 +1832,7 @@
                 <img
                     src="project_image_04.png"
                     alt="project_image_04 이미지"
+
                     style="
                         position: absolute;
                         top: 0;
@@ -1632,7 +1841,10 @@
                         height: 100%;
                         object-fit: cover;
                     "
-                    onerror="this.style.display='none';"
+
+                    onerror="
+                        this.style.display='none';
+                    "
                 >
 
 
@@ -1642,7 +1854,9 @@
         </div>
 
 
-        <!-- Project Contact -->
+        <!-- =========================
+             Project Contact
+        ========================= -->
 
         <div class="project-contact-banner reveal-element">
 
@@ -1684,6 +1898,10 @@
 
     </div>
 
+
+    <!-- =========================
+         Script
+    ========================= -->
 
     <script>
 
@@ -2026,14 +2244,19 @@
         };
 
 
-        /* Header Scroll */
+        /* =========================
+           Header Scroll
+        ========================= */
 
         window.addEventListener(
             'scroll',
             () => {
 
                 const header =
-                    document.getElementById('header');
+                    document.getElementById(
+                        'header'
+                    );
+
 
                 if (window.scrollY > 30) {
 
@@ -2053,17 +2276,21 @@
         );
 
 
-        /* Mobile Menu */
+        /* =========================
+           Mobile Menu
+        ========================= */
 
         const hamburgerBtn =
             document.getElementById(
                 'hamburgerBtn'
             );
 
+
         const mobileDrawer =
             document.getElementById(
                 'mobileDrawer'
             );
+
 
         const drawerOverlay =
             document.getElementById(
@@ -2075,11 +2302,16 @@
 
             mobileDrawer
                 .classList
-                .toggle('open');
+                .toggle(
+                    'open'
+                );
+
 
             drawerOverlay
                 .classList
-                .toggle('open');
+                .toggle(
+                    'open'
+                );
 
         }
 
@@ -2096,7 +2328,9 @@
         );
 
 
-        /* Scroll Reveal */
+        /* =========================
+           Scroll Reveal
+        ========================= */
 
         const observerOptions = {
 
@@ -2105,7 +2339,8 @@
             rootMargin:
                 '0px 0px -100px 0px',
 
-            threshold: 0.15
+            threshold:
+                0.15
 
         };
 
@@ -2113,7 +2348,10 @@
         const observer =
             new IntersectionObserver(
 
-                (entries, observer) => {
+                (
+                    entries,
+                    observer
+                ) => {
 
                     entries.forEach(
                         entry => {
@@ -2122,13 +2360,18 @@
                                 entry.isIntersecting
                             ) {
 
-                                entry.target
+                                entry
+                                    .target
                                     .classList
-                                    .add('active');
+                                    .add(
+                                        'active'
+                                    );
 
-                                observer.unobserve(
-                                    entry.target
-                                );
+
+                                observer
+                                    .unobserve(
+                                        entry.target
+                                    );
 
                             }
 
@@ -2149,13 +2392,18 @@
             .forEach(
                 el => {
 
-                    observer.observe(el);
+                    observer
+                        .observe(
+                            el
+                        );
 
                 }
             );
 
 
-        /* Language */
+        /* =========================
+           Language
+        ========================= */
 
         function switchLanguage(
             langKey,
@@ -2191,7 +2439,8 @@
                 );
 
 
-            event.target
+            event
+                .target
                 .classList
                 .add(
                     'active'
@@ -2240,6 +2489,7 @@
 
 
     </script>
+
 
 </body>
 </html>
