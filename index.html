@@ -1,4 +1,6 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10686"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9629"></script>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
     :root {
@@ -410,19 +412,20 @@
     }
 
     .btn-primary {
-        background-color: var(--primary-color);
-        color: #ffffff;
+        background-color: transparent;
+        color: var(--deep-color);
         padding: 14px 30px;
         border-radius: 6px;
         font-weight: 600;
-        border: 1px solid var(--primary-color);
+        border: 1px solid var(--border-color);
         transition: all 0.2s ease;
     }
 
     .btn-primary:hover {
-        opacity: 0.95;
+        border-color: var(--deep-color);
+        background-color: var(--deep-color);
+        color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(255, 165, 82, 0.3);
     }
 
     .btn-outline {
@@ -863,22 +866,24 @@
         display: block;
         width: 100%;
         padding: 15px 20px;
-        background-color: var(--primary-color);
-        color: #fff;
+        background-color: transparent;
+        color: var(--deep-color);
         font-weight: 600;
         text-align: center;
         text-decoration: none;
         font-size: 1rem;
         border-radius: 6px;
+        border: 1px solid var(--border-color);
         transition: all 0.2s ease;
         box-sizing: border-box;
         margin-top: auto; 
     }
 
     .action-btn:hover {
-        opacity: 0.95;
+        border-color: var(--deep-color);
+        background-color: var(--deep-color);
+        color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 165, 82, 0.3);
     }
 
     /* 스크롤 애니메이션 클래스 (PROJECTS & STORIES 섹션 전용 반영) */
