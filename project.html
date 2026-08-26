@@ -14,18 +14,18 @@
             box-sizing: border-box;
             font-family: 'Pretendard', sans-serif;
         }
+
         :root {
-            --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
-            --accent-color: #FF865E;       /* 보조 포인트 컬러 */
-            --deep-color: #2F4858;         /* 딥 컬러 (제목, 본문, 메뉴) */
-            --bg-light: #FFF7EF;           /* 연한 브랜드 배경 */
-            --bg-base: #FFFFFF;            /* 기본 배경 */
-            --text-sub: #5A6E7C;           /* 보조 본문 컬러 */
-            --border-color: #F1E6DC;       /* 테두리 색상 */
-            --box-bg: #FFFFFF;             /* 이미지 박스 안쪽 배경 */
+            --primary-color: #FFA552;
+            --accent-color: #FF865E;
+            --deep-color: #2F4858;
+            --bg-light: #FFF7EF;
+            --bg-base: #FFFFFF;
+            --text-sub: #5A6E7C;
+            --border-color: #F1E6DC;
+            --box-bg: #FFFFFF;
         }
 
-        /* Serif 타이틀 적용 */
         h1, h2, .serif-title {
             font-family: 'Noto Serif KR', serif;
         }
@@ -51,11 +51,11 @@
             list-style: none;
         }
 
-        /* 스크롤 애니메이션 초기 상태 */
         .reveal-element {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
@@ -64,7 +64,6 @@
             transform: translateY(0);
         }
 
-        /* Header (Sticky & Blur) */
         header {
             position: fixed;
             top: 0;
@@ -131,7 +130,6 @@
             color: var(--primary-color);
         }
 
-        /* Dropdown Menu */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -211,7 +209,6 @@
             padding-right: 80px;
         }
 
-        /* Language Switcher */
         .lang-switch {
             position: relative;
             display: inline-flex;
@@ -282,7 +279,6 @@
             color: var(--primary-color);
         }
 
-        /* Mobile Hamburger & Drawer */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -369,14 +365,12 @@
             visibility: visible;
         }
 
-        /* 컨테이너 레이아웃 */
-        .container { 
-            max-width: 1200px; 
-            margin: 140px auto 100px; 
-            padding: 0 40px; 
+        .container {
+            max-width: 1200px;
+            margin: 140px auto 100px;
+            padding: 0 40px;
         }
 
-        /* 히어로 섹션 (이미지 1 반영) */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -387,30 +381,29 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-text .tag { 
-            display: inline-block; 
-            font-size: 0.95rem; 
-            font-weight: 700; 
-            color: var(--primary-color); 
-            margin-bottom: 8px; 
+        .hero-text .tag {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
         }
 
-        .hero-text h1 { 
-            font-size: 2.6rem; 
-            font-weight: 700; 
-            line-height: 1.35; 
-            margin-bottom: 25px; 
-            color: var(--deep-color); 
+        .hero-text h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 25px;
+            color: var(--deep-color);
         }
 
-        .hero-text p { 
-            font-size: 1.1rem; 
-            color: var(--text-sub); 
-            line-height: 1.8; 
-            margin-bottom: 8px; 
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
-        /* 이미지 박스 공통 및 비율 클래스 수정 */
         .image-box {
             width: 100%;
             display: flex;
@@ -424,12 +417,10 @@
             box-shadow: 0 4px 20px rgba(47, 72, 88, 0.04);
         }
 
-        /* project_image_01.png : 5:4 비율 */
         .image-box.ratio-5-4 {
             aspect-ratio: 5 / 4;
         }
 
-        /* project_image_02 ~ 04.png : 16:9 비율 */
         .image-box.ratio-16-9 {
             aspect-ratio: 16 / 9;
         }
@@ -447,7 +438,6 @@
             font-size: 1.5rem;
         }
 
-        /* 진행 중인 프로젝트 섹션 타이틀 */
         .section-header-center {
             text-align: center;
             margin-bottom: 80px;
@@ -471,7 +461,6 @@
             margin: 0 5px;
         }
 
-        /* 프로젝트 리스트 블록 (타임라인 라인 형태) */
         .project-block {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -509,7 +498,6 @@
             margin-bottom: 6px;
         }
 
-        /* 프로젝트 문의하기 하단 배너 (이미지 5 반영) */
         .project-contact-banner {
             background: var(--bg-light);
             border: 1px solid var(--border-color);
@@ -534,20 +522,23 @@
             line-height: 1.6;
         }
 
+        /* 여기 버튼 스타일 수정 */
         .banner-btn {
             display: inline-block;
-            background: var(--primary-color);
-            color: #FFFFFF;
+            background: transparent;
+            color: var(--deep-color);
             font-size: 1.05rem;
             font-weight: 700;
             padding: 14px 35px;
             border-radius: 8px;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(255, 165, 82, 0.3);
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
         }
 
         .banner-btn:hover {
-            background: #F39C12;
+            background: var(--deep-color);
+            color: #FFFFFF;
+            border-color: var(--deep-color);
             transform: translateY(-2px);
         }
 
@@ -565,15 +556,26 @@
                 display: flex;
             }
 
-            .hero-section, .project-block { grid-template-columns: 1fr; gap: 40px; }
-            .container { padding: 0 20px; }
-            .project-content-area { border-left: none; padding-left: 0; }
+            .hero-section,
+            .project-block {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .project-content-area {
+                border-left: none;
+                padding-left: 0;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
     <header id="header">
         <a href="#" class="logo">
             <img src="logo.png" alt="SONGSHTORY 로고">
@@ -581,186 +583,399 @@
 
         <ul class="nav-menu">
             <li>
-                <a href="about.html" class="nav-link" data-translate="menu_about">소개</a>
+                <a href="about.html"
+                   class="nav-link"
+                   data-translate="menu_about">
+                    소개
+                </a>
             </li>
 
             <li>
-                <a href="#" class="nav-link" data-translate="menu_brand">
+                <a href="#"
+                   class="nav-link"
+                   data-translate="menu_brand">
                     브랜드
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <svg width="12"
+                         height="12"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2.5">
                         <path d="m6 9 6 6 6-6"/>
                     </svg>
                 </a>
 
                 <div class="dropdown">
                     <div class="dropdown-list">
+
                         <a href="creator.html" class="dropdown-item">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                             </svg>
-                            <span data-translate="drop_creator">크리에이터</span>
+                            <span data-translate="drop_creator">
+                                크리에이터
+                            </span>
                         </a>
 
                         <a href="ecommerce.html" class="dropdown-item">
                             <svg viewBox="0 0 24 24">
                                 <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/>
                             </svg>
-                            <span data-translate="drop_ecommerce">이커머스</span>
+                            <span data-translate="drop_ecommerce">
+                                이커머스
+                            </span>
                         </a>
 
                         <a href="global-sourcing.html" class="dropdown-item">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                             </svg>
-                            <span data-translate="drop_global">글로벌 소싱</span>
+                            <span data-translate="drop_global">
+                                글로벌 소싱
+                            </span>
                         </a>
+
                     </div>
                 </div>
             </li>
 
             <li>
-                <a href="project.html" class="nav-link" data-translate="menu_project">프로젝트</a>
+                <a href="project.html"
+                   class="nav-link"
+                   data-translate="menu_project">
+                    프로젝트
+                </a>
             </li>
 
             <li>
-                <a href="contact.html" class="nav-link" data-translate="menu_contact">문의하기</a>
+                <a href="contact.html"
+                   class="nav-link"
+                   data-translate="menu_contact">
+                    문의하기
+                </a>
             </li>
         </ul>
 
         <div class="nav-right">
+
             <div class="lang-switch">
-                <div class="current-lang" id="currentLangText">KOR</div>
+                <div class="current-lang"
+                     id="currentLangText">
+                    KOR
+                </div>
 
                 <div class="lang-buttons">
-                    <button class="lang-btn active" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
-                    <button class="lang-btn" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
-                    <button class="lang-btn" onclick="switchLanguage('chn', 'CHN', event)">CHN</button>
+                    <button class="lang-btn active"
+                            onclick="switchLanguage('kor', 'KOR', event)">
+                        KOR
+                    </button>
+
+                    <button class="lang-btn"
+                            onclick="switchLanguage('eng', 'ENG', event)">
+                        ENG
+                    </button>
+
+                    <button class="lang-btn"
+                            onclick="switchLanguage('chn', 'CHN', event)">
+                        CHN
+                    </button>
                 </div>
             </div>
 
-            <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
+            <button class="hamburger"
+                    id="hamburgerBtn"
+                    aria-label="메뉴 열기">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
         </div>
     </header>
 
-    <!-- Mobile Drawer Menu & Overlay -->
-    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer-overlay"
+         id="drawerOverlay">
+    </div>
 
-    <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer"
+         id="mobileDrawer">
+
         <div class="mobile-nav-list">
+
             <div>
-                <a href="about.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_about">소개</a>
+                <a href="about.html"
+                   class="mobile-nav-item"
+                   onclick="toggleDrawer()"
+                   data-translate="menu_about">
+                    소개
+                </a>
             </div>
 
             <div>
-                <a href="#" class="mobile-nav-item" data-translate="menu_brand">브랜드</a>
+                <a href="#"
+                   class="mobile-nav-item"
+                   data-translate="menu_brand">
+                    브랜드
+                </a>
 
                 <div class="mobile-sub-list">
-                    <a href="creator.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_creator">크리에이터</a>
-                    <a href="ecommerce.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_ecommerce">이커머스</a>
-                    <a href="global-sourcing.html" class="mobile-sub-item" onclick="toggleDrawer()" data-translate="drop_global">글로벌 소싱</a>
+
+                    <a href="creator.html"
+                       class="mobile-sub-item"
+                       onclick="toggleDrawer()"
+                       data-translate="drop_creator">
+                        크리에이터
+                    </a>
+
+                    <a href="ecommerce.html"
+                       class="mobile-sub-item"
+                       onclick="toggleDrawer()"
+                       data-translate="drop_ecommerce">
+                        이커머스
+                    </a>
+
+                    <a href="global-sourcing.html"
+                       class="mobile-sub-item"
+                       onclick="toggleDrawer()"
+                       data-translate="drop_global">
+                        글로벌 소싱
+                    </a>
+
                 </div>
             </div>
 
             <div>
-                <a href="project.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_project">프로젝트</a>
+                <a href="project.html"
+                   class="mobile-nav-item"
+                   onclick="toggleDrawer()"
+                   data-translate="menu_project">
+                    프로젝트
+                </a>
             </div>
 
             <div>
-                <a href="contact.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_contact">문의하기</a>
+                <a href="contact.html"
+                   class="mobile-nav-item"
+                   onclick="toggleDrawer()"
+                   data-translate="menu_contact">
+                    문의하기
+                </a>
             </div>
+
         </div>
 
         <div style="font-size: 0.85rem; color: var(--text-sub);">
             &copy; 2026 SONGSHTORY.
         </div>
+
     </div>
 
-    <!-- 메인 컨테이너 영역 -->
     <div class="container">
-        
-        <!-- 히어로 섹션 (이미지 1 반영 - 5:4 비율 적용) -->
+
         <div class="hero-section reveal-element">
+
             <div class="hero-text">
-                <span class="tag" data-translate="hero_tag">프로젝트</span>
-                <h1 data-translate="hero_main_title">지금의 활동이<br>다음 이야기가 됩니다</h1>
-                <p data-translate="hero_desc_1">크고 화려한 성과보다</p>
-                <p data-translate="hero_desc_2" style="margin-bottom: 25px;">직접 움직이고 연결해 온 과정을 기록합니다.</p>
-                <p data-translate="hero_desc_3">콘텐츠, 브랜드, 상품 소싱에서 이어지는</p>
-                <p data-translate="hero_desc_4">현재의 활동을 소개합니다.</p>
+                <span class="tag"
+                      data-translate="hero_tag">
+                    프로젝트
+                </span>
+
+                <h1 data-translate="hero_main_title">
+                    지금의 활동이<br>
+                    다음 이야기가 됩니다
+                </h1>
+
+                <p data-translate="hero_desc_1">
+                    크고 화려한 성과보다
+                </p>
+
+                <p data-translate="hero_desc_2"
+                   style="margin-bottom: 25px;">
+                    직접 움직이고 연결해 온 과정을 기록합니다.
+                </p>
+
+                <p data-translate="hero_desc_3">
+                    콘텐츠, 브랜드, 상품 소싱에서 이어지는
+                </p>
+
+                <p data-translate="hero_desc_4">
+                    현재의 활동을 소개합니다.
+                </p>
             </div>
+
             <div class="image-box ratio-5-4">
-                <span class="placeholder-text">P-001</span>
-                <img src="project_image_01.png" alt="project_image_01 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
+                <span class="placeholder-text">
+                    P-001
+                </span>
+
+                <img src="project_image_01.png"
+                     alt="project_image_01 이미지"
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.style.display='none';">
             </div>
+
         </div>
 
-        <!-- 진행 중인 프로젝트 섹션 타이틀 -->
         <div class="section-header-center reveal-element">
-            <h2 data-translate="ongoing_section_title">진행하고 있는 프로젝트</h2>
+            <h2 data-translate="ongoing_section_title">
+                진행하고 있는 프로젝트
+            </h2>
         </div>
 
-        <!-- 1. 콘텐츠 제작 프로젝트 (이미지 2 반영 - 16:9 비율 적용) -->
         <div class="project-block reveal-element">
+
             <div class="project-content-area">
-                <h3 data-translate="proj_1_title">콘텐츠 제작 - 송스토리쩜엠피오</h3>
-                <div class="project-intro" data-translate="proj_1_intro">중국과 대만에서의 생활 경험을 콘텐츠로 기록</div>
-                <p data-translate="proj_1_desc_1">중국과 대만의 문화, 여행, 일상과</p>
-                <p data-translate="proj_1_desc_2">비즈니스 경험을 직접 촬영하고</p>
-                <p data-translate="proj_1_desc_3">영상과 이야기로 기록하고 있습니다.</p>
+
+                <h3 data-translate="proj_1_title">
+                    콘텐츠 제작 - 송스토리쩜엠피오
+                </h3>
+
+                <div class="project-intro"
+                     data-translate="proj_1_intro">
+                    중국과 대만에서의 생활 경험을 콘텐츠로 기록
+                </div>
+
+                <p data-translate="proj_1_desc_1">
+                    중국과 대만의 문화, 여행, 일상과
+                </p>
+
+                <p data-translate="proj_1_desc_2">
+                    비즈니스 경험을 직접 촬영하고
+                </p>
+
+                <p data-translate="proj_1_desc_3">
+                    영상과 이야기로 기록하고 있습니다.
+                </p>
+
             </div>
+
             <div class="image-box ratio-16-9">
-                <span class="placeholder-text">P-003</span>
-                <img src="project_image_02.png" alt="project_image_02 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
+
+                <span class="placeholder-text">
+                    P-003
+                </span>
+
+                <img src="project_image_02.png"
+                     alt="project_image_02 이미지"
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.style.display='none';">
+
             </div>
+
         </div>
 
-        <!-- 2. 중국 물품 구매 지원 프로젝트 (이미지 3 반영 - 16:9 비율 적용) -->
         <div class="project-block reveal-element">
+
             <div class="project-content-area">
-                <h3 data-translate="proj_2_title">중국 물품 구매 지원 - 星星地送</h3>
-                <div class="project-intro" data-translate="proj_2_intro">대학 창업동아리의 구매 물품 지원</div>
-                <p data-translate="proj_2_desc_1">활동에 필요한 물품의 조건을 확인하고,</p>
-                <p data-translate="proj_2_desc_2">고객과 판매자의 사이에서 커뮤니케이션 하며,</p>
-                <p data-translate="proj_2_desc_3">구매에 필요한 과정을 지원했습니다.</p>
+
+                <h3 data-translate="proj_2_title">
+                    중국 물품 구매 지원 - 星星地送
+                </h3>
+
+                <div class="project-intro"
+                     data-translate="proj_2_intro">
+                    대학 창업동아리의 구매 물품 지원
+                </div>
+
+                <p data-translate="proj_2_desc_1">
+                    활동에 필요한 물품의 조건을 확인하고,
+                </p>
+
+                <p data-translate="proj_2_desc_2">
+                    고객과 판매자의 사이에서 커뮤니케이션 하며,
+                </p>
+
+                <p data-translate="proj_2_desc_3">
+                    구매에 필요한 과정을 지원했습니다.
+                </p>
+
             </div>
+
             <div class="image-box ratio-16-9">
-                <span class="placeholder-text">P-002</span>
-                <img src="project_image_03.png" alt="project_image_03 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
+
+                <span class="placeholder-text">
+                    P-002
+                </span>
+
+                <img src="project_image_03.png"
+                     alt="project_image_03 이미지"
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.style.display='none';">
+
             </div>
+
         </div>
 
-        <!-- 3. 준비중 프로젝트 (이미지 4 반영 - 16:9 비율 적용) -->
         <div class="project-block reveal-element">
+
             <div class="project-content-area">
-                <h3 data-translate="proj_3_title">준비중 - 내용 준비중</h3>
-                <div class="project-intro" data-translate="proj_3_intro">준비중인 프로젝트 입니다.</div>
-                <p data-translate="proj_3_desc_1">준비중인 프로젝트 입니다.</p>
-                <p data-translate="proj_3_desc_2">준비중인 프로젝트 입니다.</p>
-                <p data-translate="proj_3_desc_3">준비중인 프로젝트 입니다.</p>
+
+                <h3 data-translate="proj_3_title">
+                    준비중 - 내용 준비중
+                </h3>
+
+                <div class="project-intro"
+                     data-translate="proj_3_intro">
+                    준비중인 프로젝트 입니다.
+                </div>
+
+                <p data-translate="proj_3_desc_1">
+                    준비중인 프로젝트 입니다.
+                </p>
+
+                <p data-translate="proj_3_desc_2">
+                    준비중인 프로젝트 입니다.
+                </p>
+
+                <p data-translate="proj_3_desc_3">
+                    준비중인 프로젝트 입니다.
+                </p>
+
             </div>
+
             <div class="image-box ratio-16-9">
-                <span class="placeholder-text">P-004</span>
-                <img src="project_image_04.png" alt="project_image_04 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
+
+                <span class="placeholder-text">
+                    P-004
+                </span>
+
+                <img src="project_image_04.png"
+                     alt="project_image_04 이미지"
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.style.display='none';">
+
             </div>
+
         </div>
 
-        <!-- 프로젝트 문의하기 하단 배너 -->
         <div class="project-contact-banner reveal-element">
-            <h3 data-translate="banner_title">프로젝트 문의하기</h3>
-            <p data-translate="banner_desc_1">과정을 기록하며, 다음 이야기를 준비합니다.</p>
-            <p data-translate="banner_desc_2">콘텐츠 협업, 브랜드와 상품, 중국 상품 소싱에 관한 문의를 남겨주세요.</p>
-            <a href="contact.html" class="banner-btn" data-translate="banner_btn">프로젝트 문의하기</a>
+
+            <h3 data-translate="banner_title">
+                프로젝트 문의하기
+            </h3>
+
+            <p data-translate="banner_desc_1">
+                과정을 기록하며, 다음 이야기를 준비합니다.
+            </p>
+
+            <p data-translate="banner_desc_2">
+                콘텐츠 협업, 브랜드와 상품, 중국 상품 소싱에 관한 문의를 남겨주세요.
+            </p>
+
+            <a href="contact.html"
+               class="banner-btn"
+               data-translate="banner_btn">
+                프로젝트 문의하기
+            </a>
+
         </div>
 
     </div>
 
     <script>
-        // 언어별 번역 데이터 딕셔너리
+
         const allTranslations = {
+
             kor: {
                 page_title: "프로젝트 - SONGSHTORY",
                 menu_about: "소개",
@@ -777,26 +992,31 @@
                 hero_desc_3: "콘텐츠, 브랜드, 상품 소싱에서 이어지는",
                 hero_desc_4: "현재의 활동을 소개합니다.",
                 ongoing_section_title: "진행하고 있는 프로젝트",
+
                 proj_1_title: "콘텐츠 제작 - 송스토리쩜엠피오",
                 proj_1_intro: "중국과 대만에서의 생활 경험을 콘텐츠로 기록",
                 proj_1_desc_1: "중국과 대만의 문화, 여행, 일상과",
                 proj_1_desc_2: "비즈니스 경험을 직접 촬영하고",
                 proj_1_desc_3: "영상과 이야기로 기록하고 있습니다.",
+
                 proj_2_title: "중국 물품 구매 지원 - 星星地送",
                 proj_2_intro: "대학 창업동아리의 구매 물품 지원",
                 proj_2_desc_1: "활동에 필요한 물품의 조건을 확인하고,",
                 proj_2_desc_2: "고객과 판매자의 사이에서 커뮤니케이션 하며,",
                 proj_2_desc_3: "구매에 필요한 과정을 지원했습니다.",
+
                 proj_3_title: "준비중 - 내용 준비중",
                 proj_3_intro: "준비중인 프로젝트 입니다.",
                 proj_3_desc_1: "준비중인 프로젝트 입니다.",
                 proj_3_desc_2: "준비중인 프로젝트 입니다.",
                 proj_3_desc_3: "준비중인 프로젝트 입니다.",
+
                 banner_title: "프로젝트 문의하기",
                 banner_desc_1: "과정을 기록하며, 다음 이야기를 준비합니다.",
                 banner_desc_2: "콘텐츠 협업, 브랜드와 상품, 중국 상품 소싱에 관한 문의를 남겨주세요.",
                 banner_btn: "프로젝트 문의하기"
             },
+
             eng: {
                 page_title: "Projects - SONGSHTORY",
                 menu_about: "About",
@@ -813,26 +1033,31 @@
                 hero_desc_3: "Introducing current activities continuing from",
                 hero_desc_4: "content, brands, and product sourcing.",
                 ongoing_section_title: "Ongoing Projects",
+
                 proj_1_title: "Content Production - Songstory MPO",
                 proj_1_intro: "Recording living experiences in China and Taiwan through content",
                 proj_1_desc_1: "Directly filming culture, travel, daily life,",
                 proj_1_desc_2: "and business experiences in China and Taiwan,",
                 proj_1_desc_3: "and recording them with videos and stories.",
+
                 proj_2_title: "China Goods Purchase Support - 星星地送",
                 proj_2_intro: "Supporting purchase goods for university startup clubs",
                 proj_2_desc_1: "Checking the conditions of required goods for activities,",
                 proj_2_desc_2: "communicating between customers and sellers,",
                 proj_2_desc_3: "and supporting necessary processes for purchasing.",
+
                 proj_3_title: "In Preparation - Content Preparing",
                 proj_3_intro: "Project in preparation.",
                 proj_3_desc_1: "Project in preparation.",
                 proj_3_desc_2: "Project in preparation.",
                 proj_3_desc_3: "Project in preparation.",
+
                 banner_title: "Project Inquiry",
                 banner_desc_1: "Recording the process and preparing for the next story.",
                 banner_desc_2: "Please leave inquiries regarding content collaboration, brands, products, and Chinese product sourcing.",
                 banner_btn: "Project Inquiry"
             },
+
             chn: {
                 page_title: "项目 - SONGSHTORY",
                 menu_about: "简介",
@@ -849,21 +1074,25 @@
                 hero_desc_3: "介绍延续自内容、品牌、",
                 hero_desc_4: "商品采购的当前活动。",
                 ongoing_section_title: "正在进行的项目",
+
                 proj_1_title: "内容制作 - 宋斯头里",
                 proj_1_intro: "通过内容记录在中国和台湾的生活经验",
                 proj_1_desc_1: "亲自拍摄中国和台湾的文化、旅游、日常生活",
                 proj_1_desc_2: "以及商业经验",
                 proj_1_desc_3: "并用视频和故事进行记录。",
+
                 proj_2_title: "中国物品购买支持 - 星星地送",
                 proj_2_intro: "支持大学创业社团的购买物品",
                 proj_2_desc_1: "确认活动所需物品的条件，",
                 proj_2_desc_2: "在客户与卖家之间进行沟通，",
                 proj_2_desc_3: "支持购买所需的流程。",
+
                 proj_3_title: "筹备中 - 内容筹备中",
                 proj_3_intro: "筹备中的项目。",
                 proj_3_desc_1: "筹备中的项目。",
                 proj_3_desc_2: "筹备中的项目。",
                 proj_3_desc_3: "筹备中的项目。",
+
                 banner_title: "项目咨询",
                 banner_desc_1: "记录过程，筹备下一个故事。",
                 banner_desc_2: "欢迎留下有关内容合作、品牌与商品、中国商品采购的咨询。",
@@ -871,69 +1100,110 @@
             }
         };
 
-        // 스크롤 시 헤더 효과
         window.addEventListener('scroll', () => {
+
             const header = document.getElementById('header');
+
             if (window.scrollY > 30) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
         });
 
-        // 모바일 메뉴
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileDrawer = document.getElementById('mobileDrawer');
-        const drawerOverlay = document.getElementById('drawerOverlay');
+        const hamburgerBtn =
+            document.getElementById('hamburgerBtn');
+
+        const mobileDrawer =
+            document.getElementById('mobileDrawer');
+
+        const drawerOverlay =
+            document.getElementById('drawerOverlay');
 
         function toggleDrawer() {
             mobileDrawer.classList.toggle('open');
             drawerOverlay.classList.toggle('open');
         }
 
-        hamburgerBtn.addEventListener('click', toggleDrawer);
-        drawerOverlay.addEventListener('click', toggleDrawer);
+        hamburgerBtn.addEventListener(
+            'click',
+            toggleDrawer
+        );
 
-        // 스크롤 페이드인 애니메이션 (Intersection Observer)
+        drawerOverlay.addEventListener(
+            'click',
+            toggleDrawer
+        );
+
         const observerOptions = {
             root: null,
             rootMargin: '0px 0px -100px 0px',
             threshold: 0.15
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            observerOptions
+        );
+
+        document.querySelectorAll('.reveal-element')
+            .forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.reveal-element').forEach(el => {
-            observer.observe(el);
-        });
+        function switchLanguage(
+            langKey,
+            langDisplay,
+            event
+        ) {
 
-        // 언어 변경 함수
-        function switchLanguage(langKey, langDisplay, event) {
             event.stopPropagation();
-            document.getElementById('currentLangText').innerText = langDisplay;
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+
+            document.getElementById(
+                'currentLangText'
+            ).innerText = langDisplay;
+
+            document.querySelectorAll('.lang-btn')
+                .forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
             event.target.classList.add('active');
 
-            const translations = allTranslations[langKey];
+            const translations =
+                allTranslations[langKey];
+
             if (!translations) return;
 
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
+            document.querySelectorAll(
+                '[data-translate]'
+            ).forEach(el => {
+
+                const key =
+                    el.getAttribute('data-translate');
+
                 if (translations[key]) {
-                    el.innerHTML = translations[key];
+                    el.innerHTML =
+                        translations[key];
                 }
+
             });
+
         }
+
     </script>
+
 </body>
 </html>
