@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3377"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=2656"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13874"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13377"></script>
@@ -47,8 +48,27 @@
         font-family: 'Noto Serif KR', serif;
     }
 
+
+    /* =========================================================
+       ★ 스크롤바 숨김
+       스크롤 기능은 유지하고 스크롤바만 보이지 않게 처리
+       ========================================================= */
+
     html {
         scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    body {
+        -ms-overflow-style: none; /* 구형 Edge / IE */
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none; /* Chrome / Edge / Safari */
+        background: transparent;
     }
 
     body {
