@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>문의하기 - SONGSHTORY</title>
+    <title data-translate="page_title">문의하기 - SONGSHTORY</title>
 
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9211"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8942"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8670"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12721"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9211"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8942"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8670"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <!-- 타이틀 전용: Noto Serif KR -->
+    <!-- 언어별 타이틀/본문 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -59,6 +59,63 @@
             --font-body-family: 'Pretendard', sans-serif;
         }
 
+        /* =========================================================
+           ★ LANGUAGE FONT SYSTEM
+           KOR Title : Noto Serif KR / Body : Pretendard
+           ENG Title : Noto Serif    / Body : Pretendard
+           CN  Title : Noto Serif SC / Body : Noto Sans SC
+           ========================================================= */
+
+        html[lang="ko"] {
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="en"] {
+            --font-title-family: 'Noto Serif', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="zh-CN"] {
+            --font-title-family: 'Noto Serif SC', serif;
+            --font-body-family: 'Noto Sans SC', sans-serif;
+        }
+
+
+
+
+
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        select,
+        .nav-menu,
+        .dropdown,
+        .lang-switch,
+        .mobile-drawer,
+        .text-content .tag,
+        .text-content p,
+        .email-address,
+        .email-actions,
+        .action-btn,
+        .mail-template-box-plain,
+        .mail-template-label,
+        .mail-template-value,
+        .type-card p {
+            font-family: var(--font-body-family);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .section-title-outside,
+        .guide-icon-title,
+        .quote-icon {
+            font-family: var(--font-title-family);
+        }
 
         html {
             scroll-behavior: smooth;
@@ -83,7 +140,7 @@
         body {
             color: var(--deep-color);
             background-color: var(--bg-base);
-            font-family: 'Pretendard', sans-serif;
+            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 400;
             line-height: var(--line-body);
@@ -224,7 +281,7 @@
 
 
         .nav-menu a.nav-link:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
 
@@ -338,7 +395,7 @@
                 var(--bg-light);
 
             color:
-                var(--primary-color);
+                var(--accent-color);
         }
 
 
@@ -359,7 +416,7 @@
 
         .dropdown-item:hover svg {
             fill:
-                var(--primary-color);
+                var(--accent-color);
         }
 
 
@@ -471,7 +528,7 @@
 
         .lang-btn:hover,
         .lang-btn.active {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
 
@@ -881,9 +938,9 @@
 
         .action-btn:hover,
         .action-btn.outline:hover {
-            background: var(--deep-color);
+            background: #FF865E;
             color: #FFFFFF;
-            border-color: var(--deep-color);
+            border-color: #FF865E;
             transform: translateY(-2px);
         }
 
@@ -1426,13 +1483,13 @@
                 </div>
 
                 <div class="language-options">
-                    <button type="button" class="lang-btn active"
+                    <button type="button" class="lang-btn active" aria-pressed="true"
                         onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('chn', 'CN', event)">CN</button>
                 </div>
             </div>
@@ -1625,14 +1682,14 @@
             <div class="text-content">
 
 
-                <span class="tag">
+                <span class="tag" data-translate="hero_tag">
 
                     문의하기
 
                 </span>
 
 
-                <h2>
+                <h2 data-translate="hero_title">
 
                     함께 찾고, 만들고,<br>
                     연결할 이야기가 있나요?
@@ -1640,17 +1697,17 @@
                 </h2>
 
 
-                <p>
+                <p data-translate="hero_desc_1">
                     콘텐츠 협업, 9sh 상품,
                 </p>
 
 
-                <p>
+                <p data-translate="hero_desc_2">
                     중국 상품 소싱에 관한 문의를
                 </p>
 
 
-                <p>
+                <p data-translate="hero_desc_3">
                     이메일로 보내주세요.
                 </p>
 
@@ -1681,7 +1738,7 @@
             <div class="email-info-area">
 
 
-                <h3>
+                <h3 data-translate="email_title">
 
                     문의 이메일
 
@@ -1709,7 +1766,7 @@
                 <a
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=song9shtory@gmail.com"
                     class="action-btn"
-                    target="_blank"
+                    target="_blank" data-translate="email_send"
                 >
                     이메일 보내기
                 </a>
@@ -1719,6 +1776,7 @@
                 <button
                     class="action-btn outline"
                     onclick="copyEmail()"
+                    data-translate="email_copy"
                 >
 
                     주소 복사
@@ -1748,7 +1806,7 @@
                 </span>
 
 
-                <h3>
+                <h3 data-translate="mail_guide_title">
 
                     메일에 함께 적어주세요
 
@@ -1772,14 +1830,14 @@
                 <div class="mail-template-row">
 
 
-                    <span class="mail-template-label">
+                    <span class="mail-template-label" data-translate="mail_subject_label">
 
                         제목:
 
                     </span>
 
 
-                    <span class="mail-template-value">
+                    <span class="mail-template-value" data-translate="mail_subject_value">
 
                         [문의 분야] 이름 또는 회사명
 
@@ -1793,14 +1851,14 @@
                 <div class="mail-template-row">
 
 
-                    <span class="mail-template-label">
+                    <span class="mail-template-label" data-translate="mail_body_label">
 
                         내용:
 
                     </span>
 
 
-                    <span class="mail-template-value">
+                    <span class="mail-template-value" data-translate="mail_body_value">
 
                         문의 내용, 연락 가능한 시간
 
@@ -1822,11 +1880,7 @@
         <div class="section-block reveal-element">
 
 
-            <h3 class="section-title-outside">
-
-                어떤 문의인가요?
-
-            </h3>
+            <h3 class="section-title-outside" data-translate="type_section_title">어떤 문의인가요?</h3>
 
 
 
@@ -1836,14 +1890,14 @@
                 <div class="type-card">
 
 
-                    <h4>
+                    <h4 data-translate="type_content_title">
 
                         콘텐츠
 
                     </h4>
 
 
-                    <p>
+                    <p data-translate="type_content_desc">
 
                         송스토리쩜엠피오의 영상·콘텐츠 제작,
                         촬영, 출연, 채널 및 브랜드 협업에 관한 문의
@@ -1865,7 +1919,7 @@
                     </h4>
 
 
-                    <p>
+                    <p data-translate="type_brand_desc">
 
                         9sh 상품 제안, 입점, 공급,
                         공동기획 및 브랜드 제휴 등,
@@ -1881,14 +1935,14 @@
                 <div class="type-card">
 
 
-                    <h4>
+                    <h4 data-translate="type_sourcing_title">
 
                         상품 소싱
 
                     </h4>
 
 
-                    <p>
+                    <p data-translate="type_sourcing_desc">
 
                         필요한 중국 상품 조사,
                         판매처 확인, 상품 비교 등,
@@ -1915,11 +1969,7 @@
         >
 
 
-            <h3 class="section-title-outside">
-
-                문의 작성 시 함께 알려주세요
-
-            </h3>
+            <h3 class="section-title-outside" data-translate="guide_section_title">문의 작성 시 함께 알려주세요</h3>
 
 
 
@@ -1939,7 +1989,7 @@
                     </div>
 
 
-                    <div class="guide-icon-title">
+                    <div class="guide-icon-title" data-translate="guide_purpose">
 
                         문의 목적
 
@@ -1962,11 +2012,7 @@
                     </div>
 
 
-                    <div class="guide-icon-title">
-
-                        필요한 내용 또는 상품
-
-                    </div>
+                    <div class="guide-icon-title" data-translate="guide_needed">필요한 내용 또는 상품</div>
 
 
                 </div>
@@ -1985,7 +2031,7 @@
                     </div>
 
 
-                    <div class="guide-icon-title">
+                    <div class="guide-icon-title" data-translate="guide_schedule">
 
                         희망 일정
 
@@ -2008,11 +2054,7 @@
                     </div>
 
 
-                    <div class="guide-icon-title">
-
-                        예산 · 수량 등 참고 조건
-
-                    </div>
+                    <div class="guide-icon-title" data-translate="guide_conditions">예산 · 수량 등 참고 조건</div>
 
 
                 </div>
@@ -2049,9 +2091,12 @@
                 .writeText(emailText)
                 .then(() => {
 
+                    const message =
+                        allTranslations[currentLanguage]?.copy_alert
+                        || allTranslations.kor.copy_alert;
+
                     alert(
-                        '이메일 주소가 복사되었습니다: '
-                        + emailText
+                        message + ' ' + emailText
                     );
 
                 });
@@ -2060,40 +2105,207 @@
 
 
 
-        /*
-        언어 선택
-        */
 
-        function switchLanguage(
-            langKey,
-            langDisplay,
-            event
-        ) {
+        const allTranslations = {
+            kor: {
+                page_title: "문의하기 - SONGSHTORY",
+                menu_about: "소개",
+                menu_brand: "브랜드",
+                drop_creator: "크리에이터",
+                drop_ecommerce: "이커머스",
+                drop_global: "글로벌 소싱",
+                menu_project: "프로젝트",
+                menu_contact: "문의하기",
 
-            event.stopPropagation();
+                hero_tag: "문의하기",
+                hero_title: "함께 찾고, 만들고,<br>연결할 이야기가 있나요?",
+                hero_desc_1: "콘텐츠 협업, 9sh 상품,",
+                hero_desc_2: "중국 상품 소싱에 관한 문의를",
+                hero_desc_3: "이메일로 보내주세요.",
 
+                email_title: "문의 이메일",
+                email_send: "이메일 보내기",
+                email_copy: "주소 복사",
+                copy_alert: "이메일 주소가 복사되었습니다:",
 
-            document.getElementById('currentLangText').textContent = langDisplay;
+                mail_guide_title: "메일에 함께 적어주세요",
+                mail_subject_label: "제목:",
+                mail_subject_value: "[문의 분야] 이름 또는 회사명",
+                mail_body_label: "내용:",
+                mail_body_value: "문의 내용, 연락 가능한 시간",
 
+                type_section_title: "어떤 문의인가요?",
+                type_content_title: "콘텐츠",
+                type_content_desc: "송스토리쩜엠피오의 영상·콘텐츠 제작,<br>촬영, 출연, 채널 및 브랜드 협업에 관한 문의",
+                type_brand_title: "브랜드 상품",
+                type_brand_desc: "9sh 상품 제안, 입점, 공급,<br>공동기획 및 브랜드 제휴 등,<br>그 외 9sh에 관한 문의",
+                type_sourcing_title: "상품 소싱",
+                type_sourcing_desc: "필요한 중국 상품 조사,<br>판매처 확인, 상품 비교 등,<br>해외(중국) 구매 지원에 관한 문의",
 
-            document
-                .querySelectorAll(
-                    '.lang-btn'
-                )
-                .forEach(btn => {
+                guide_section_title: "문의 작성 시 함께 알려주세요",
+                guide_purpose: "문의 목적",
+                guide_needed: "필요한 내용 또는 상품",
+                guide_schedule: "희망 일정",
+                guide_conditions: "예산 · 수량 등 참고 조건"
+            },
 
-                    btn.classList
-                        .remove('active');
+            eng: {
+                page_title: "Contact - SONGSHTORY",
+                menu_about: "About",
+                menu_brand: "Brands",
+                drop_creator: "Creator",
+                drop_ecommerce: "E-Commerce",
+                drop_global: "Global Sourcing",
+                menu_project: "Projects",
+                menu_contact: "Contact",
 
-                });
+                hero_tag: "CONTACT",
+                hero_title: "Have a Story to Find,<br>Create, or Connect Together?",
+                hero_desc_1: "For content collaborations, 9sh products,",
+                hero_desc_2: "or product sourcing in China,",
+                hero_desc_3: "send us an email anytime.",
 
+                email_title: "Contact Email",
+                email_send: "Send Email",
+                email_copy: "Copy Address",
+                copy_alert: "Email address copied:",
 
-            event.target
-                .classList
-                .add('active');
+                mail_guide_title: "What to Include in Your Email",
+                mail_subject_label: "Subject:",
+                mail_subject_value: "[Inquiry Type] Name or Company",
+                mail_body_label: "Message:",
+                mail_body_value: "Your inquiry and the best time to reach you",
 
+                type_section_title: "What Can We Help With?",
+                type_content_title: "Content",
+                type_content_desc: "Video and content production for SONGSHTORY.mp4,<br>including filming, appearances, channel collaborations, and brand partnerships.",
+                type_brand_title: "Brand & Products",
+                type_brand_desc: "9sh product proposals, retail placement, supply,<br>co-development, brand partnerships,<br>and other 9sh-related inquiries.",
+                type_sourcing_title: "Product Sourcing",
+                type_sourcing_desc: "China product research, seller verification,<br>product comparisons, and purchasing support<br>for sourcing from China.",
+
+                guide_section_title: "Helpful Details to Include",
+                guide_purpose: "Purpose of Inquiry",
+                guide_needed: "Content or Product Needed",
+                guide_schedule: "Preferred Schedule",
+                guide_conditions: "Budget, Quantity & Other Requirements"
+            },
+
+            chn: {
+                page_title: "联系我们 - SONGSHTORY",
+                menu_about: "关于我们",
+                menu_brand: "品牌",
+                drop_creator: "内容创作",
+                drop_ecommerce: "电商",
+                drop_global: "全球采购",
+                menu_project: "项目",
+                menu_contact: "联系我们",
+
+                hero_tag: "联系我们",
+                hero_title: "有想一起寻找、打造<br>并连接的故事吗？",
+                hero_desc_1: "无论是内容合作、9sh 商品，",
+                hero_desc_2: "还是中国商品采购与货源寻找，",
+                hero_desc_3: "都欢迎通过邮件与我们联系。",
+
+                email_title: "联系邮箱",
+                email_send: "发送邮件",
+                email_copy: "复制邮箱",
+                copy_alert: "邮箱地址已复制：",
+
+                mail_guide_title: "邮件中建议注明以下信息",
+                mail_subject_label: "主题：",
+                mail_subject_value: "[咨询类型] 姓名或公司名称",
+                mail_body_label: "内容：",
+                mail_body_value: "具体咨询内容及方便联系的时间",
+
+                type_section_title: "您想咨询哪一类服务？",
+                type_content_title: "内容合作",
+                type_content_desc: "SONGSHTORY.mp4 的视频与内容制作，<br>包括拍摄、出镜、频道合作及品牌合作等。",
+                type_brand_title: "品牌与商品",
+                type_brand_desc: "9sh 商品提案、入驻、供货、<br>联合企划、品牌合作，<br>以及其他与 9sh 相关的咨询。",
+                type_sourcing_title: "商品采购",
+                type_sourcing_desc: "中国商品调研、卖家确认、<br>商品对比，以及从中国采购商品时<br>所需的购买支持。",
+
+                guide_section_title: "咨询时建议一并告知",
+                guide_purpose: "咨询目的",
+                guide_needed: "所需内容或商品",
+                guide_schedule: "期望时间",
+                guide_conditions: "预算、数量等参考条件"
+            }
+        };
+
+        const languageConfig = {
+            kor: { label: "KOR", htmlLang: "ko" },
+            eng: { label: "ENG", htmlLang: "en" },
+            chn: { label: "CN", htmlLang: "zh-CN" }
+        };
+
+        let currentLanguage = "kor";
+
+        function applyLanguage(langKey, event = null) {
+            const config = languageConfig[langKey];
+            const dictionary = allTranslations[langKey];
+
+            if (!config || !dictionary) return;
+
+            if (event && typeof event.stopPropagation === "function") {
+                event.stopPropagation();
+            }
+
+            currentLanguage = langKey;
+            document.documentElement.lang = config.htmlLang;
+            document.documentElement.dataset.language = langKey;
+
+            const currentLangText = document.getElementById("currentLangText");
+            if (currentLangText) {
+                currentLangText.textContent = config.label;
+            }
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                const isActive = button.textContent.trim() === config.label;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
+
+            document.querySelectorAll("[data-translate]").forEach((element) => {
+                const key = element.dataset.translate;
+
+                if (!Object.prototype.hasOwnProperty.call(dictionary, key)) {
+                    return;
+                }
+
+                if (element.tagName === "TITLE") {
+                    element.textContent = dictionary[key].replace(/<br\s*\/?>/gi, " ");
+                } else {
+                    element.innerHTML = dictionary[key];
+                }
+            });
+
+            try {
+                localStorage.setItem("songshtory-language", langKey);
+            } catch (error) {
+                /* localStorage가 제한된 환경에서는 현재 세션만 유지 */
+            }
         }
 
+        function switchLanguage(langKey, langDisplay, event) {
+            applyLanguage(langKey, event);
+        }
+
+        function initializeLanguage() {
+            let initialLanguage = "kor";
+
+            try {
+                const savedLanguage = localStorage.getItem("songshtory-language");
+                if (savedLanguage && languageConfig[savedLanguage]) {
+                    initialLanguage = savedLanguage;
+                }
+            } catch (error) {
+                initialLanguage = "kor";
+            }
+
+            applyLanguage(initialLanguage);
+        }
 
 
         /*
@@ -2247,7 +2459,10 @@
             );
 
 
-    </script>
+    
+        document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+</script>
 
 
 </body>
