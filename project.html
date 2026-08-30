@@ -16,10 +16,9 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -71,6 +70,42 @@
             --font-body-family: 'Pretendard', sans-serif;
         }
 
+        html[lang="ko"] {
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="en"] {
+            --font-title-family: 'Noto Serif', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="zh-CN"] {
+            --font-title-family: 'Noto Serif SC', serif;
+            --font-body-family: 'Noto Sans SC', sans-serif;
+        }
+
+
+
+
+        body,
+        button,
+        input,
+        textarea,
+        select,
+        a,
+        .nav-menu,
+        .dropdown,
+        .lang-switch,
+        .mobile-drawer,
+        .hero-text .tag,
+        .hero-text p,
+        .project-content-area .project-intro,
+        .project-content-area p,
+        .project-contact-banner p,
+        .banner-btn {
+            font-family: var(--font-body-family);
+        }
 
         /* Serif 타이틀 */
 
@@ -976,13 +1011,13 @@
 
         .banner-btn:hover {
             background-color:
-                #2F4858 !important;
+                #FF865E !important;
 
             color:
                 #FFFFFF !important;
 
             border-color:
-                #2F4858 !important;
+                #FF865E !important;
 
             transform:
                 translateY(-2px);
@@ -1236,13 +1271,13 @@
                 </div>
 
                 <div class="language-options">
-                    <button type="button" class="lang-btn active"
+                    <button type="button" class="lang-btn active" aria-pressed="true"
                         onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('chn', 'CN', event)">CN</button>
                 </div>
             </div>
@@ -1845,341 +1880,177 @@
 
         const allTranslations = {
 
-
             kor: {
-
-                page_title:
-                    "프로젝트 - SONGSHTORY",
-
-                menu_about:
-                    "소개",
-
-                menu_brand:
-                    "브랜드",
-
-                drop_creator:
-                    "크리에이터",
-
-                drop_ecommerce:
-                    "이커머스",
-
-                drop_global:
-                    "글로벌 소싱",
-
-                menu_project:
-                    "프로젝트",
-
-                menu_contact:
-                    "문의하기",
-
-                hero_tag:
-                    "프로젝트",
-
-                hero_main_title:
-                    "지금의 활동이<br>다음 이야기가 됩니다",
-
-                hero_desc_1:
-                    "크고 화려한 성과보다",
-
-                hero_desc_2:
-                    "직접 움직이고 연결해 온 과정을 기록합니다.",
-
-                hero_desc_3:
-                    "콘텐츠, 브랜드, 상품 소싱에서 이어지는",
-
-                hero_desc_4:
-                    "현재의 활동을 소개합니다.",
-
-                ongoing_section_title:
-                    "진행하고 있는 프로젝트",
-
-
-                proj_1_title:
-                    "콘텐츠 제작 - 송스토리쩜엠피오",
-
-                proj_1_intro:
-                    "중국과 대만에서의 생활 경험을 콘텐츠로 기록",
-
-                proj_1_desc_1:
-                    "중국과 대만의 문화, 여행, 일상과",
-
-                proj_1_desc_2:
-                    "비즈니스 경험을 직접 촬영하고",
-
-                proj_1_desc_3:
-                    "영상과 이야기로 기록하고 있습니다.",
-
-
-                proj_2_title:
-                    "중국 물품 구매 지원 - 星星地送",
-
-                proj_2_intro:
-                    "대학 창업동아리의 구매 물품 지원",
-
-                proj_2_desc_1:
-                    "활동에 필요한 물품의 조건을 확인하고,",
-
-                proj_2_desc_2:
-                    "고객과 판매자의 사이에서 커뮤니케이션 하며,",
-
-                proj_2_desc_3:
-                    "구매에 필요한 과정을 지원했습니다.",
-
-
-                proj_3_title:
-                    "준비중 - 내용 준비중",
-
-                proj_3_intro:
-                    "준비중인 프로젝트 입니다.",
-
-                proj_3_desc_1:
-                    "준비중인 프로젝트 입니다.",
-
-                proj_3_desc_2:
-                    "준비중인 프로젝트 입니다.",
-
-                proj_3_desc_3:
-                    "준비중인 프로젝트 입니다.",
-
-
-                banner_title:
-                    "프로젝트 문의하기",
-
-                banner_desc_1:
-                    "과정을 기록하며, 다음 이야기를 준비합니다.",
-
-                banner_desc_2:
-                    "콘텐츠 협업, 브랜드와 상품, 중국 상품 소싱에 관한 문의를 남겨주세요.",
-
-                banner_btn:
-                    "프로젝트 문의하기"
-
+                page_title: "프로젝트 - SONGSHTORY",
+                menu_about: "소개",
+                menu_brand: "브랜드",
+                drop_creator: "크리에이터",
+                drop_ecommerce: "이커머스",
+                drop_global: "글로벌 소싱",
+                menu_project: "프로젝트",
+                menu_contact: "문의하기",
+                hero_tag: "프로젝트",
+                hero_main_title: "지금의 활동이<br>다음 이야기가 됩니다",
+                hero_desc_1: "크고 화려한 성과보다",
+                hero_desc_2: "직접 움직이고 연결해 온 과정을 기록합니다.",
+                hero_desc_3: "콘텐츠, 브랜드, 상품 소싱으로 이어지는",
+                hero_desc_4: "현재의 활동을 소개합니다.",
+                ongoing_section_title: "진행하고 있는 프로젝트",
+                proj_1_title: "콘텐츠 제작 - 송스토리쩜엠피오",
+                proj_1_intro: "중국과 대만에서의 생활 경험을 콘텐츠로 기록",
+                proj_1_desc_1: "중국과 대만의 문화, 여행, 일상과",
+                proj_1_desc_2: "비즈니스 경험을 직접 촬영하고",
+                proj_1_desc_3: "영상과 이야기로 기록하고 있습니다.",
+                proj_2_title: "중국 상품 구매 지원 - 星星地送",
+                proj_2_intro: "대학 창업동아리에 필요한 물품 구매 지원",
+                proj_2_desc_1: "활동에 필요한 상품 조건을 확인하고,",
+                proj_2_desc_2: "고객과 판매자 사이의 커뮤니케이션을 조율하며,",
+                proj_2_desc_3: "구매에 필요한 전 과정을 지원했습니다.",
+                proj_3_title: "준비 중 - 새로운 프로젝트",
+                proj_3_intro: "다음 프로젝트를 준비하고 있습니다.",
+                proj_3_desc_1: "새로운 아이디어와 가능성을 검토하고,",
+                proj_3_desc_2: "필요한 파트너와 자원을 연결하며,",
+                proj_3_desc_3: "다음 이야기를 차근차근 준비하고 있습니다.",
+                banner_title: "프로젝트 문의하기",
+                banner_desc_1: "과정을 기록하며, 다음 이야기를 준비합니다.",
+                banner_desc_2: "콘텐츠 협업, 브랜드와 상품, 중국 상품 소싱에 관한 문의를 남겨주세요.",
+                banner_btn: "프로젝트 문의하기"
             },
-
 
             eng: {
-
-                page_title:
-                    "Projects - SONGSHTORY",
-
-                menu_about:
-                    "About",
-
-                menu_brand:
-                    "Brand",
-
-                drop_creator:
-                    "Creator",
-
-                drop_ecommerce:
-                    "E-Commerce",
-
-                drop_global:
-                    "Global Sourcing",
-
-                menu_project:
-                    "Project",
-
-                menu_contact:
-                    "Contact",
-
-                hero_tag:
-                    "PROJECTS",
-
-                hero_main_title:
-                    "Current activities become<br>the next story",
-
-                hero_desc_1:
-                    "Rather than big and flashy achievements,",
-
-                hero_desc_2:
-                    "we record the process of moving and connecting directly.",
-
-                hero_desc_3:
-                    "Introducing current activities continuing from",
-
-                hero_desc_4:
-                    "content, brands, and product sourcing.",
-
-                ongoing_section_title:
-                    "Ongoing Projects",
-
-
-                proj_1_title:
-                    "Content Production - Songstory MPO",
-
-                proj_1_intro:
-                    "Recording living experiences in China and Taiwan through content",
-
-                proj_1_desc_1:
-                    "Directly filming culture, travel, daily life,",
-
-                proj_1_desc_2:
-                    "and business experiences in China and Taiwan,",
-
-                proj_1_desc_3:
-                    "and recording them with videos and stories.",
-
-
-                proj_2_title:
-                    "China Goods Purchase Support - 星星地送",
-
-                proj_2_intro:
-                    "Supporting purchase goods for university startup clubs",
-
-                proj_2_desc_1:
-                    "Checking the conditions of required goods for activities,",
-
-                proj_2_desc_2:
-                    "communicating between customers and sellers,",
-
-                proj_2_desc_3:
-                    "and supporting necessary processes for purchasing.",
-
-
-                proj_3_title:
-                    "In Preparation - Content Preparing",
-
-                proj_3_intro:
-                    "Project in preparation.",
-
-                proj_3_desc_1:
-                    "Project in preparation.",
-
-                proj_3_desc_2:
-                    "Project in preparation.",
-
-                proj_3_desc_3:
-                    "Project in preparation.",
-
-
-                banner_title:
-                    "Project Inquiry",
-
-                banner_desc_1:
-                    "Recording the process and preparing for the next story.",
-
-                banner_desc_2:
-                    "Please leave inquiries regarding content collaboration, brands, products, and Chinese product sourcing.",
-
-                banner_btn:
-                    "Project Inquiry"
-
+                page_title: "Projects - SONGSHTORY",
+                menu_about: "About",
+                menu_brand: "Brands",
+                drop_creator: "Creator",
+                drop_ecommerce: "E-Commerce",
+                drop_global: "Global Sourcing",
+                menu_project: "Projects",
+                menu_contact: "Contact",
+                hero_tag: "PROJECTS",
+                hero_main_title: "What We Do Today<br>Becomes the Next Story",
+                hero_desc_1: "Rather than focusing only on big, polished results,",
+                hero_desc_2: "we document the work of moving, creating, and connecting in real time.",
+                hero_desc_3: "Here are the projects currently growing from our work in",
+                hero_desc_4: "content, brands, and product sourcing.",
+                ongoing_section_title: "Ongoing Projects",
+                proj_1_title: "Content Production - SONGSHTORY.mp4",
+                proj_1_intro: "Turning everyday experiences in China and Taiwan into content",
+                proj_1_desc_1: "We film culture, travel, everyday life,",
+                proj_1_desc_2: "and business experiences across China and Taiwan,",
+                proj_1_desc_3: "then share them through video and storytelling.",
+                proj_2_title: "China Product Purchasing Support - 星星地送",
+                proj_2_intro: "Purchasing support for a university startup club",
+                proj_2_desc_1: "We identify the exact product requirements,",
+                proj_2_desc_2: "coordinate communication between buyers and sellers,",
+                proj_2_desc_3: "and support the purchasing process from inquiry to order.",
+                proj_3_title: "In Development - New Project",
+                proj_3_intro: "A new project is currently in development.",
+                proj_3_desc_1: "We are exploring new ideas and opportunities,",
+                proj_3_desc_2: "connecting the right partners and resources,",
+                proj_3_desc_3: "and preparing the next story step by step.",
+                banner_title: "Project Inquiry",
+                banner_desc_1: "We document each process while preparing for what comes next.",
+                banner_desc_2: "Get in touch about content collaborations, brand and product projects, or product sourcing in China.",
+                banner_btn: "Contact Us About a Project"
             },
 
-
             chn: {
-
-                page_title:
-                    "项目 - SONGSHTORY",
-
-                menu_about:
-                    "简介",
-
-                menu_brand:
-                    "品牌",
-
-                drop_creator:
-                    "创作者",
-
-                drop_ecommerce:
-                    "电商平台",
-
-                drop_global:
-                    "全球采购",
-
-                menu_project:
-                    "项目",
-
-                menu_contact:
-                    "联系我们",
-
-                hero_tag:
-                    "项目",
-
-                hero_main_title:
-                    "当下的活动将成为<br>下一个故事",
-
-                hero_desc_1:
-                    "比起宏大华丽的成果",
-
-                hero_desc_2:
-                    "我们记录亲自行动并连接的过程。",
-
-                hero_desc_3:
-                    "介绍延续自内容、品牌、",
-
-                hero_desc_4:
-                    "商品采购的当前活动。",
-
-                ongoing_section_title:
-                    "正在进行的项目",
-
-
-                proj_1_title:
-                    "内容制作 - 宋斯头里",
-
-                proj_1_intro:
-                    "通过内容记录在中国和台湾的生活经验",
-
-                proj_1_desc_1:
-                    "亲自拍摄中国和台湾的文化、旅游、日常生活",
-
-                proj_1_desc_2:
-                    "以及商业经验",
-
-                proj_1_desc_3:
-                    "并用视频和故事进行记录。",
-
-
-                proj_2_title:
-                    "中国物品购买支持 - 星星地送",
-
-                proj_2_intro:
-                    "支持大学创业社团的购买物品",
-
-                proj_2_desc_1:
-                    "确认活动所需物品的条件，",
-
-                proj_2_desc_2:
-                    "在客户与卖家之间进行沟通，",
-
-                proj_2_desc_3:
-                    "支持购买所需的流程。",
-
-
-                proj_3_title:
-                    "筹备中 - 内容筹备中",
-
-                proj_3_intro:
-                    "筹备中的项目。",
-
-                proj_3_desc_1:
-                    "筹备中的项目。",
-
-                proj_3_desc_2:
-                    "筹备中的项目。",
-
-                proj_3_desc_3:
-                    "筹备中的项目。",
-
-
-                banner_title:
-                    "项目咨询",
-
-                banner_desc_1:
-                    "记录过程，筹备下一个故事。",
-
-                banner_desc_2:
-                    "欢迎留下有关内容合作、品牌与商品、中国商品采购的咨询。",
-
-                banner_btn:
-                    "项目咨询"
-
+                page_title: "项目 - SONGSHTORY",
+                menu_about: "关于我们",
+                menu_brand: "品牌",
+                drop_creator: "内容创作",
+                drop_ecommerce: "电商",
+                drop_global: "全球采购",
+                menu_project: "项目",
+                menu_contact: "联系我们",
+                hero_tag: "项目",
+                hero_main_title: "今天正在做的事<br>会成为下一段故事",
+                hero_desc_1: "比起只展示宏大而亮眼的成果，",
+                hero_desc_2: "我们更愿意记录亲自行动、尝试与连接的过程。",
+                hero_desc_3: "这里介绍我们目前围绕内容、品牌与商品采购",
+                hero_desc_4: "持续推进的项目与实践。",
+                ongoing_section_title: "正在进行的项目",
+                proj_1_title: "内容制作 - SONGSHTORY.mp4",
+                proj_1_intro: "把在中国与台湾地区的生活经验转化为内容",
+                proj_1_desc_1: "我们亲自拍摄当地的文化、旅行与日常生活，",
+                proj_1_desc_2: "也记录真实的商业与交流经验，",
+                proj_1_desc_3: "并通过视频与故事持续分享。",
+                proj_2_title: "中国商品采购支持 - 星星地送",
+                proj_2_intro: "为大学创业社团提供商品采购支持",
+                proj_2_desc_1: "我们先确认活动所需商品的具体条件，",
+                proj_2_desc_2: "协调买方与卖方之间的沟通，",
+                proj_2_desc_3: "并协助完成从咨询到下单的采购流程。",
+                proj_3_title: "筹备中 - 新项目",
+                proj_3_intro: "我们正在筹备新的项目。",
+                proj_3_desc_1: "持续探索新的想法与合作机会，",
+                proj_3_desc_2: "连接合适的伙伴与资源，",
+                proj_3_desc_3: "一步步准备下一段故事。",
+                banner_title: "项目咨询",
+                banner_desc_1: "我们记录每一个过程，也持续准备下一段故事。",
+                banner_desc_2: "如需内容合作、品牌与商品项目，或中国商品采购支持，欢迎与我们联系。",
+                banner_btn: "咨询项目"
             }
 
         };
 
+
+        const languageConfig = {
+            kor: { label: "KOR", htmlLang: "ko" },
+            eng: { label: "ENG", htmlLang: "en" },
+            chn: { label: "CN", htmlLang: "zh-CN" }
+        };
+
+        function applyLanguage(langKey, event = null) {
+            const config = languageConfig[langKey];
+            const dictionary = allTranslations[langKey];
+            if (!config || !dictionary) return;
+
+            if (event && typeof event.stopPropagation === "function") {
+                event.stopPropagation();
+            }
+
+            document.documentElement.lang = config.htmlLang;
+            document.documentElement.dataset.language = langKey;
+
+            const currentLangText = document.getElementById("currentLangText");
+            if (currentLangText) currentLangText.textContent = config.label;
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                const isActive = button.textContent.trim() === config.label;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
+
+            document.querySelectorAll("[data-translate]").forEach((element) => {
+                const key = element.dataset.translate;
+                if (!Object.prototype.hasOwnProperty.call(dictionary, key)) return;
+
+                if (element.tagName === "TITLE") {
+                    element.textContent = dictionary[key].replace(/<br\s*\/?>/gi, " ");
+                } else {
+                    element.innerHTML = dictionary[key];
+                }
+            });
+
+            try {
+                localStorage.setItem("songshtory-language", langKey);
+            } catch (error) {}
+        }
+
+        function switchLanguage(langKey, langDisplay, event) {
+            applyLanguage(langKey, event);
+        }
+
+        function initializeLanguage() {
+            let initialLanguage = "kor";
+            try {
+                const savedLanguage = localStorage.getItem("songshtory-language");
+                if (savedLanguage && languageConfig[savedLanguage]) {
+                    initialLanguage = savedLanguage;
+                }
+            } catch (error) {}
+            applyLanguage(initialLanguage);
+        }
 
         /* =========================
            Header Scroll
@@ -2549,32 +2420,6 @@
            Language
         ========================= */
 
-        function switchLanguage(
-            langKey,
-            langDisplay,
-            event
-        ) {
-
-            event.stopPropagation();
-
-
-            document.getElementById('currentLangText').textContent = langDisplay;
-
-
-            document
-                .querySelectorAll(
-                    '.lang-btn'
-                )
-                .forEach(
-                    btn => {
-
-                        btn
-                            .classList
-                            .remove(
-                                'active'
-                            );
-
-                    }
                 );
 
 
@@ -2627,7 +2472,10 @@
         }
 
 
-    </script>
+    
+        document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+</script>
 
 
 </body>
