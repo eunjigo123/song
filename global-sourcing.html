@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">글로벌 소싱 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13179"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .container,
         .container * {
@@ -55,6 +57,30 @@
             --font-title-family: 'Noto Serif KR', serif;
             --font-body-family: 'Pretendard', sans-serif;
         }
+
+        /* =========================================================
+           ★ LANGUAGE FONT SYSTEM
+           KOR Title : Noto Serif KR / Body : Pretendard
+           ENG Title : Noto Serif    / Body : Pretendard
+           CN  Title : Noto Serif SC / Body : Noto Sans SC
+           ========================================================= */
+
+        html[lang="ko"] {
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="en"] {
+            --font-title-family: 'Noto Serif', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="zh-CN"] {
+            --font-title-family: 'Noto Serif SC', serif;
+            --font-body-family: 'Noto Sans SC', sans-serif;
+        }
+
+
 
         html {
             scroll-behavior: smooth;
@@ -110,6 +136,39 @@
             margin-bottom: 15px;
         }
 
+
+
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        select,
+        .nav-menu,
+        .dropdown,
+        .lang-switch,
+        .mobile-drawer,
+        .text-content .tag,
+        .text-content p,
+        .check-list,
+        .process-steps-list,
+        .flow-card-step,
+        .inquiry-content p,
+        .inquiry-btn,
+        .placeholder-text {
+            font-family: var(--font-body-family);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .flow-card-title,
+        .section-title-wrap h2,
+        .quote-title-section h2,
+        .inquiry-content h3 {
+            font-family: var(--font-title-family);
+        }
 
         /* 스크롤 애니메이션 초기 상태 */
         .reveal-element {
@@ -200,7 +259,7 @@
     }
 
         .nav-menu a.nav-link:hover {
-        color: var(--primary-color);
+        color: var(--accent-color);
     }
 
         /* Dropdown Menu */
@@ -263,7 +322,7 @@
 
         .dropdown-item:hover {
         background: var(--bg-light);
-        color: var(--primary-color);
+        color: var(--accent-color);
     }
 
         .dropdown-item svg {
@@ -275,7 +334,7 @@
     }
 
         .dropdown-item:hover svg {
-        fill: var(--primary-color);
+        fill: var(--accent-color);
     }
 
         .nav-right {
@@ -356,7 +415,7 @@
         border: 0;
         margin: 0;
         padding: 5px 0;
-        font-family: 'Pretendard', sans-serif;
+        font-family: var(--font-body-family);
         font-size: var(--font-sub);
         font-weight: 600;
         line-height: var(--line-sub);
@@ -367,7 +426,7 @@
 
         .lang-btn:hover,
     .lang-btn.active {
-        color: var(--primary-color);
+        color: var(--accent-color);
     }
 
         /* Mobile Hamburger & Drawer */
@@ -853,9 +912,9 @@
         }
 
         .inquiry-btn:hover {
-            background-color: #2F4858;
+            background-color: #FF865E;
             color: #FFFFFF;
-            border-color: #2F4858;
+            border-color: #FF865E;
             transform: translateY(-2px);
         }
 
@@ -959,13 +1018,13 @@
                 </div>
 
                 <div class="language-options">
-                    <button type="button" class="lang-btn active"
+                    <button type="button" class="lang-btn active" aria-pressed="true"
                         onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('chn', 'CN', event)">CN</button>
                 </div>
             </div>
@@ -1183,15 +1242,19 @@
                 drop_global: "글로벌 소싱",
                 menu_project: "프로젝트",
                 menu_contact: "문의하기",
+
                 global_tag: "GLOBAL SOURCING",
                 global_title: "星星地送",
                 sec1_main_title: "고객의 조건에 맞는<br>중국 상품을 찾아<br>조사부터 구매까지 연결합니다.",
                 sec1_desc: "한국과 중화권을 연결하는<br>맞춤형 글로벌 소싱 서비스입니다.",
-                quote_title: "단정함과 편안함 사이의 새로운 선택",
+
+                quote_title: "필요한 상품을 찾는 과정부터 구매까지 함께합니다",
+
                 sec2_title: "중국 상품을 더 정확하고<br>편리하게 찾을 수 있도록",
                 check_item_1: "중국 시장의 적합한 상품과 판매처 조사",
                 check_item_2: "판매자와 고객 사이에서의 커뮤니케이션",
-                sec2_desc_1: "고객과 내용을 조율해 적합한 상품을 선정하고, 최종적으로 선택한 상품을 받아볼 수 있도록 구매 과정까지 지원합니다.",
+                sec2_desc_1: "고객과 조건을 조율해 적합한 상품을 선정하고, 최종적으로 선택한 상품을 받아볼 수 있도록 구매 과정까지 지원합니다.",
+
                 sec3_title: "필요한 상품을 찾는<br>과정에 함께합니다.",
                 step_1: "고객 조건 확인",
                 step_2: "중국 상품, 판매처 조사",
@@ -1200,6 +1263,7 @@
                 step_5: "조사 결과 안내",
                 step_6: "상품 선택",
                 step_7: "구매 및 국내 배송 지원",
+
                 sec4_title: "서비스 진행 과정",
                 flow_1: "고객 상담 및 조건 확인",
                 flow_2: "중국 시장 상품 조사",
@@ -1207,83 +1271,98 @@
                 flow_4: "상품 비교와 결과 안내",
                 flow_5: "고객 최종 선택",
                 flow_6: "구매 및 국내 배송 지원",
+
                 inquiry_title: "문의하기",
                 inquiry_desc: "중국 상품 소싱과 구매 지원에 대해<br>궁금하신 점은 언제든지 문의해 주세요.",
                 inquiry_btn: "문의하기"
             },
+
             eng: {
                 page_title: "Global Sourcing - SONGSHTORY",
                 menu_intro: "About",
-                menu_brand: "Brand",
+                menu_brand: "Brands",
                 drop_creator: "Creator",
                 drop_ecommerce: "E-Commerce",
                 drop_global: "Global Sourcing",
-                menu_project: "Project",
+                menu_project: "Projects",
                 menu_contact: "Contact",
+
                 global_tag: "GLOBAL SOURCING",
                 global_title: "星星地送",
-                sec1_main_title: "Finding Chinese products tailored to your conditions,<br>connecting research to purchase.",
-                sec1_desc: "A customized global sourcing service<br>connecting Korea and Greater China.",
-                quote_title: "A New Choice Between Neatness and Comfort",
-                sec2_title: "Making it easier and more accurate<br>to find Chinese products",
-                check_item_1: "Researching suitable products and sellers in the Chinese market",
-                check_item_2: "Communication between sellers and customers",
-                sec2_desc_1: "We select the right product by coordinating details with you and support the entire purchasing process so you can receive your final choice.",
-                sec3_title: "We accompany you through<br>the process of finding products.",
-                step_1: "Check Customer Conditions",
-                step_2: "Research Chinese Products & Sellers",
-                step_3: "Inquire Chinese Sellers",
-                step_4: "Compare Prices, Specs & Composition",
-                step_5: "Guide Survey Results",
+                sec1_main_title: "Finding the Right Products in China,<br>from Research<br>to Purchase Support",
+                sec1_desc: "A tailored sourcing service connecting<br>Korea with the Greater China market.",
+
+                quote_title: "From Product Discovery to Purchase, We Support the Process",
+
+                sec2_title: "A More Accurate and Convenient Way<br>to Source Products from China",
+                check_item_1: "Researching suitable products and reliable sellers in China",
+                check_item_2: "Coordinating communication between customers and sellers",
+                sec2_desc_1: "We help refine your requirements, compare suitable options, and support the purchasing process so your selected products can reach you smoothly.",
+
+                sec3_title: "Supporting Every Step<br>of Product Discovery",
+                step_1: "Confirm Requirements",
+                step_2: "Research Products & Sellers",
+                step_3: "Contact Chinese Sellers",
+                step_4: "Compare Price, Specs & Options",
+                step_5: "Share Research Results",
                 step_6: "Select Products",
-                step_7: "Support Purchase & Domestic Delivery",
-                sec4_title: "Service Process",
-                flow_1: "Customer Consultation & Check",
-                flow_2: "Chinese Market Research",
-                flow_3: "Seller Inquiry & Verification",
-                flow_4: "Product Comparison & Guide",
-                flow_5: "Customer Final Selection",
+                step_7: "Support Purchase & Korea Delivery",
+
+                sec4_title: "How Our Sourcing Service Works",
+                flow_1: "Consultation & Requirement Review",
+                flow_2: "China Market Research",
+                flow_3: "Seller Contact & Verification",
+                flow_4: "Product Comparison & Findings",
+                flow_5: "Final Product Selection",
                 flow_6: "Purchase & Delivery Support",
-                inquiry_title: "Contact Us",
-                inquiry_desc: "If you have any questions about Chinese product sourcing<br>and purchase support, please feel free to contact us.",
+
+                inquiry_title: "Get in Touch",
+                inquiry_desc: "Have questions about sourcing products from China<br>or need purchasing support? Feel free to contact us.",
                 inquiry_btn: "Contact Us"
             },
+
             chn: {
                 page_title: "全球采购 - SONGSHTORY",
-                menu_intro: "简介",
+                menu_intro: "关于我们",
                 menu_brand: "品牌",
-                drop_creator: "创作者",
-                drop_ecommerce: "电商平台",
+                drop_creator: "内容创作",
+                drop_ecommerce: "电商",
                 drop_global: "全球采购",
                 menu_project: "项目",
                 menu_contact: "联系我们",
+
                 global_tag: "GLOBAL SOURCING",
                 global_title: "星星地送",
-                sec1_main_title: "寻找符合客户条件的中国商品，<br>从调研到购买全程连接。",
-                sec1_desc: "连接韩国与大中华区的<br>定制化全球采购服务。",
-                quote_title: "在端庄与舒适之间的新选择",
-                sec2_title: "让您更准确、更便捷地<br>寻找中国商品",
-                check_item_1: "调研中国市场的合适商品与商家",
-                check_item_2: "卖家与客户之间的有效沟通",
-                sec2_desc_1: "与客户协商选定合适的产品，并支持购买流程，确保您能顺利收到最终选择的产品。",
-                sec3_title: "在您寻找所需商品的<br>旅程中一路同行。",
-                step_1: "确认客户条件",
-                step_2: "调研中国商品及商家",
-                step_3: "咨询中国卖家",
+                sec1_main_title: "根据客户需求寻找<br>合适的中国商品，<br>从调研到采购全程协助。",
+                sec1_desc: "连接韩国与中国市场的<br>定制化商品采购服务。",
+
+                quote_title: "从寻找商品到完成采购，我们全程陪伴",
+
+                sec2_title: "让中国商品采购<br>更准确、更便捷",
+                check_item_1: "调研中国市场中合适的商品与可靠卖家",
+                check_item_2: "协助客户与卖家之间的沟通协调",
+                sec2_desc_1: "我们根据客户需求筛选并比较合适的商品，并协助后续采购流程，让最终选定的商品能够顺利送达。",
+
+                sec3_title: "陪伴您完成<br>寻找所需商品的每一步",
+                step_1: "确认客户需求",
+                step_2: "调研商品与卖家",
+                step_3: "联系中国卖家",
                 step_4: "比较价格、规格与配置",
-                step_5: "引导调研结果",
-                step_6: "选择商品",
-                step_7: "支持购买及国内配送",
+                step_5: "提供调研结果",
+                step_6: "确认商品",
+                step_7: "协助采购及韩国境内配送",
+
                 sec4_title: "服务流程",
-                flow_1: "客户咨询与条件确认",
+                flow_1: "咨询与需求确认",
                 flow_2: "中国市场商品调研",
-                flow_3: "卖家咨询与信息确认",
-                flow_4: "商品比较与结果引导",
-                flow_5: "客户最终选择",
-                flow_6: "支持购买及国内配送",
-                inquiry_title: "咨询我们",
-                inquiry_desc: "如果您对中国商品采购和购买支持有任何疑问，<br>请随时与我们联系。",
-                inquiry_btn: "咨询我们"
+                flow_3: "联系卖家并确认信息",
+                flow_4: "商品比较与结果说明",
+                flow_5: "客户最终确认",
+                flow_6: "采购与配送支持",
+
+                inquiry_title: "联系我们",
+                inquiry_desc: "如需中国商品采购或购买支持，<br>欢迎随时与我们联系。",
+                inquiry_btn: "联系我们"
             }
         };
 
@@ -1332,25 +1411,79 @@
         });
 
         // 언어 변경 함수
-        function switchLanguage(langKey, langDisplay, event) {
-            event.stopPropagation();
-            document.getElementById('currentLangText').textContent = langDisplay;
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
+        const languageConfig = {
+            kor: { label: "KOR", htmlLang: "ko" },
+            eng: { label: "ENG", htmlLang: "en" },
+            chn: { label: "CN", htmlLang: "zh-CN" }
+        };
+
+        function applyLanguage(langKey, event = null) {
+            const config = languageConfig[langKey];
+            const dictionary = allTranslations[langKey];
+
+            if (!config || !dictionary) return;
+
+            if (event && typeof event.stopPropagation === "function") {
+                event.stopPropagation();
+            }
+
+            document.documentElement.lang = config.htmlLang;
+            document.documentElement.dataset.language = langKey;
+
+            const currentLangText = document.getElementById("currentLangText");
+            if (currentLangText) {
+                currentLangText.textContent = config.label;
+            }
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                const isActive = button.textContent.trim() === config.label;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
             });
-            event.target.classList.add('active');
 
-            const translations = allTranslations[langKey];
-            if (!translations) return;
+            document.querySelectorAll("[data-translate]").forEach((element) => {
+                const key = element.getAttribute("data-translate");
 
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[key]) {
-                    el.innerHTML = translations[key];
+                if (!Object.prototype.hasOwnProperty.call(dictionary, key)) {
+                    return;
+                }
+
+                if (element.tagName === "TITLE") {
+                    element.textContent = dictionary[key].replace(/<br\s*\/?>/gi, " ");
+                } else {
+                    element.innerHTML = dictionary[key];
                 }
             });
+
+            try {
+                localStorage.setItem("songshtory-language", langKey);
+            } catch (error) {
+                /* localStorage가 제한된 환경에서는 현재 세션만 유지 */
+            }
         }
-    </script>
+
+        function switchLanguage(langKey, langDisplay, event) {
+            applyLanguage(langKey, event);
+        }
+
+        function initializeLanguage() {
+            let initialLanguage = "kor";
+
+            try {
+                const savedLanguage = localStorage.getItem("songshtory-language");
+
+                if (savedLanguage && languageConfig[savedLanguage]) {
+                    initialLanguage = savedLanguage;
+                }
+            } catch (error) {
+                initialLanguage = "kor";
+            }
+
+            applyLanguage(initialLanguage);
+        }
+    
+
+        document.addEventListener("DOMContentLoaded", initializeLanguage);
+</script>
 </body>
 </html>
