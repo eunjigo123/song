@@ -6,7 +6,7 @@
 
     <title>문의하기 - SONGSHTORY</title>
 
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8670"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8942"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8670"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -731,6 +731,7 @@
 
 
         .image-box {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -755,42 +756,33 @@
 
 
        
-        /* contact_image_01.png */
-        .contact-image-box-01 {
-            width: 100%;
-            max-width: none;
-            aspect-ratio: 5 / 4;
-        }
 
-        /* contact_icon_01.png */
-        .contact-icon-box-01 {
-            width: 75px;
-            max-width: 75px;
-            aspect-ratio: 1 / 1;
-        }
+        /* =========================================================
+           ★ 이미지 규격 기본툴
+           첫 번째 코드와 동일한 방식으로 이미지별 비율을 독립 관리합니다.
 
-        /* contact_icon_02.png */
-        .contact-icon-box-02 {
-            width: 75px;
-            max-width: 75px;
-            aspect-ratio: 1 / 1;
-        }
+           현재 이미지 비율
+           - contact_image_01.png: 5:4
+           - contact_icon_01.png: 1:1
+           - contact_icon_02.png: 1:1
+           - contact_icon_03.png: 1:1
+           - contact_icon_04.png: 1:1
 
-        /* contact_icon_03.png */
-        .contact-icon-box-03 {
-            width: 75px;
-            max-width: 75px;
-            aspect-ratio: 1 / 1;
-        }
+           나중에 특정 사진만 바꾸고 싶으면
+           아래 해당 클래스의 aspect-ratio 한 곳만 수정하면 됩니다.
+           ========================================================= */
 
-        /* contact_icon_04.png */
-        .contact-icon-box-04 {
-            width: 75px;
-            max-width: 75px;
-            aspect-ratio: 1 / 1;
-        }
+        /* 메인 이미지별 박스 비율 */
+        .contact-image-box-01 { aspect-ratio: 5 / 4; }
 
-/*
+        /* 문의 아이콘별 박스 비율 */
+        .contact-icon-box-01 { aspect-ratio: 1 / 1; }
+        .contact-icon-box-02 { aspect-ratio: 1 / 1; }
+        .contact-icon-box-03 { aspect-ratio: 1 / 1; }
+        .contact-icon-box-04 { aspect-ratio: 1 / 1; }
+
+
+        /*
         =========================================================
         EMAIL
         =========================================================
@@ -1143,6 +1135,7 @@
 
 
         .guide-icon-box {
+            width: 75px;
             background: #fff;
             border-radius: 50%;
             display: flex;
@@ -1151,6 +1144,7 @@
             border: 1.5px solid var(--primary-color);
             overflow: hidden;
             padding: 15px;
+            box-sizing: border-box;
         }
 
 
