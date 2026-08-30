@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .container,
@@ -428,7 +428,7 @@
         .container {
             width: calc(100% - (var(--page-gutter) * 2));
             max-width: none;
-            margin: 130px var(--page-gutter) 100px;
+            margin: 140px var(--page-gutter) 100px;
             padding: 0;
             box-sizing: border-box;
         }
@@ -496,30 +496,53 @@
             border-color: var(--primary-color);
         }
 
-        /* 이미지 비율 클래스 정의 (5:4 및 4:5) */
-        .image-box-54 {
-            width: 100%; 
-            aspect-ratio: 5 / 4; 
-            border: 2px solid var(--deep-color); 
-            background: #FFFFFF; 
+/* 섹션 2 */
+
+        /* =========================================================
+           ★ IMAGE SIZE / RATIO CONTROL
+           첫 번째 코드를 이미지 규격 기본툴로 사용합니다.
+
+           현재 이미지 규격
+           - brand_01_image_01.png: 5:4
+           - brand_01_image_02.png: 5:4
+           - brand_01_image_03.png: 4:5
+           - brand_01_image_04.png: 4:5
+           - brand_01_image_05.png: 4:5
+           - brand_01_image_06.png: 4:5
+
+           표시 기준
+           - 메인 2열 영역: grid-template-columns: 1fr 1fr
+           - 2열 간격: 60px
+           - 첫 섹션 시작 위치: 140px
+           - 이미지 모서리: 8px
+           - 코드1 메인 이미지와 같은 소프트 그림자
+           - 각 이미지 비율은 아래 개별 클래스에서만 수정
+           ========================================================= */
+
+        .creator-image-box-01 { aspect-ratio: 5 / 4; }
+        .creator-image-box-02 { aspect-ratio: 5 / 4; }
+        .creator-image-box-03 { aspect-ratio: 4 / 5; }
+        .creator-image-box-04 { aspect-ratio: 4 / 5; }
+        .creator-image-box-05 { aspect-ratio: 4 / 5; }
+        .creator-image-box-06 { aspect-ratio: 4 / 5; }
+
+        .creator-image-box {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-        }
-        .image-box-54 img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+            box-shadow: 0 10px 30px rgba(47, 72, 88, 0.05);
         }
 
-        .image-box-45 {
-            width: 100%; 
-            aspect-ratio: 4 / 5; 
-            border: 2px solid var(--deep-color); 
-            background: #FFFFFF; 
-            overflow: hidden;
-        }
-        .image-box-45 img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+        .creator-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* 섹션 2 */
+
         .sec-story { margin-bottom: 120px; }
         .banner-title-box { background-color: var(--bg-light); padding: 40px 20px; text-align: center; margin-bottom: 60px; }
         .banner-title-box h2 {
@@ -580,7 +603,7 @@
         }
 
         /* 섹션 4 */
-        .sec-cta { background-color: var(--bg-light); border: 2px solid var(--deep-color); padding: 60px 20px; text-align: center; }
+        .sec-cta { background-color: var(--bg-light); border: 1px solid var(--border-color); padding: 60px 20px; text-align: center; }
         .sec-cta h3 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
         .sec-cta p {
             font-family: var(--font-body-family);
@@ -726,8 +749,8 @@
                 <a href="#" class="link-arrow" data-translate="content_view">콘텐츠 보기 ↗</a>
             </div>
             <div>
-                <div class="image-box-54">
-                    <img src="brand_01_image_01.png" alt="brand_01_image_01 이미지">
+                <div class="creator-image-box creator-image-box-01">
+            <img src="brand_01_image_01.png" alt="brand_01_image_01 이미지">
                 </div>
             </div>
         </section>
@@ -743,8 +766,8 @@
             </div>
             <div class="sec-story-grid">
                 <div>
-                    <div class="image-box-54">
-                        <img src="brand_01_image_02.png" alt="brand_01_image_02 이미지">
+                    <div class="creator-image-box creator-image-box-02">
+            <img src="brand_01_image_02.png" alt="brand_01_image_02 이미지">
                     </div>
                 </div>
                 <div class="story-text-side">
@@ -764,26 +787,26 @@
             <div class="topics-4-grid">
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_1">비즈니스·이커머스 경험</div>
-                    <div class="image-box-45">
-                        <img src="brand_01_image_03.png" alt="brand_01_image_03 이미지">
+                    <div class="creator-image-box creator-image-box-03">
+            <img src="brand_01_image_03.png" alt="brand_01_image_03 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_2">중국·대만 문화와 생활</div>
-                    <div class="image-box-45">
-                        <img src="brand_01_image_04.png" alt="brand_01_image_04 이미지">
+                    <div class="creator-image-box creator-image-box-04">
+            <img src="brand_01_image_04.png" alt="brand_01_image_04 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_3">여행과 일상</div>
-                    <div class="image-box-45">
-                        <img src="brand_01_image_05.png" alt="brand_01_image_05 이미지">
+                    <div class="creator-image-box creator-image-box-05">
+            <img src="brand_01_image_05.png" alt="brand_01_image_05 이미지">
                     </div>
                 </div>
                 <div class="topic-card-wrap">
                     <div class="topic-card-title" data-translate="topic_4">중국어</div>
-                    <div class="image-box-45">
-                        <img src="brand_01_image_06.png" alt="brand_01_image_06 이미지">
+                    <div class="creator-image-box creator-image-box-06">
+            <img src="brand_01_image_06.png" alt="brand_01_image_06 이미지">
                     </div>
                 </div>
             </div>
