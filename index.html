@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11617"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7867"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3955"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3377"></script>
@@ -8,6 +9,10 @@
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10686"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=9629"></script>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
     :root {
         --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
@@ -17,6 +22,16 @@
         --bg-base: #FFFFFF;             /* 기본 배경 */
         --text-sub: #5A6E7C;            /* 보조 본문 컬러 (가독성 개선) */
         --border-color: #F1E6DC;        /* 테두리 컬러 (팔레트 반영) */
+
+        /* =========================================================
+           ★ LANGUAGE FONT SYSTEM
+           KOR Title : Noto Serif KR / Body : Pretendard
+           ENG Title : Noto Serif    / Body : Pretendard
+           CN  Title : Noto Serif SC / Body : Noto Sans SC
+           ========================================================= */
+        --font-title-family: 'Noto Serif KR', serif;
+        --font-body-family: 'Pretendard', sans-serif;
+
 
         --page-gutter: 240px;          /* ★ 데스크톱 전체 좌우 여백: 여기 숫자만 바꾸면 전체 적용 */
 
@@ -46,8 +61,50 @@
         --line-sub: 1.50;
     }
 
+    html[lang="ko"] {
+        --font-title-family: 'Noto Serif KR', serif;
+        --font-body-family: 'Pretendard', sans-serif;
+    }
+
+    html[lang="en"] {
+        --font-title-family: 'Noto Serif', serif;
+        --font-body-family: 'Pretendard', sans-serif;
+    }
+
+    html[lang="zh-CN"] {
+        --font-title-family: 'Noto Serif SC', serif;
+        --font-body-family: 'Noto Sans SC', sans-serif;
+    }
+
+    /* 제목/타이틀은 언어별 Serif, 나머지는 언어별 본문 폰트 */
+    .banner-text-area h1,
+    .project-name,
+    .experience-title,
+    .story-main-header h2,
+    .story-card-title,
+    .story-content-text h4 {
+        font-family: var(--font-title-family);
+    }
+
+    body,
+    .nav-menu,
+    .dropdown,
+    .lang-switch,
+    .exp-category,
+    .exp-desc,
+    .project-desc,
+    .project-links,
+    .story-card-category,
+    .story-card-desc,
+    .story-content-tag,
+    .story-content-text p,
+    .action-btn,
+    footer {
+        font-family: var(--font-body-family);
+    }
+
     .banner-text-area h1, .project-name {
-        font-family: 'Noto Serif KR', serif;
+        font-family: var(--font-title-family);
     }
 
 
@@ -72,7 +129,7 @@
     body {
         color: var(--deep-color);
         background-color: var(--bg-base);
-        font-family: 'Pretendard', sans-serif;
+        font-family: var(--font-body-family);
         font-size: var(--font-body);
         font-weight: 400;
         line-height: var(--line-body);
@@ -312,7 +369,7 @@
         border: 0;
         margin: 0;
         padding: 5px 0;
-        font-family: 'Pretendard', sans-serif;
+        font-family: var(--font-body-family);
         font-size: var(--font-sub);
         font-weight: 600;
         line-height: var(--line-sub);
@@ -496,8 +553,8 @@
     }
 
     .btn-primary:hover {
-        border-color: var(--deep-color);
-        background-color: var(--deep-color);
+        border-color: #FF865E;
+        background-color: #FF865E;
         color: #ffffff;
         transform: translateY(-2px);
     }
@@ -515,8 +572,8 @@
     }
 
     .btn-outline:hover {
-        border-color: var(--deep-color);
-        background-color: var(--deep-color);
+        border-color: #FF865E;
+        background-color: #FF865E;
         color: #ffffff;
         transform: translateY(-2px);
     }
@@ -593,6 +650,18 @@
     .home-image-box-09 { aspect-ratio: 16 / 9; }
 
 
+
+    .philosophy-label {
+        display: block;
+        margin-top: 10px;
+        font-family: var(--font-body-family);
+        font-size: var(--font-sub);
+        font-weight: 600;
+        line-height: var(--line-sub);
+        color: var(--primary-color);
+        letter-spacing: 1px;
+    }
+
     /* Experience Intro Section */
     .experience-section {
         background-color: var(--bg-light);
@@ -612,7 +681,7 @@
         font-size: var(--font-section-title);
         font-weight: 700;
         line-height: var(--line-section-title);
-        font-family: 'Noto Serif KR', serif;
+        font-family: var(--font-title-family);
         color: var(--deep-color);
         margin-bottom: 60px;
         letter-spacing: -0.5px;
@@ -833,7 +902,7 @@
         font-size: var(--font-section-title);
         font-weight: 700;
         line-height: var(--line-section-title);
-        font-family: 'Noto Serif KR', serif;
+        font-family: var(--font-title-family);
         margin-bottom: 12px;
         color: var(--deep-color);
     }
@@ -994,8 +1063,8 @@
     }
 
     .action-btn:hover {
-        border-color: var(--deep-color);
-        background-color: var(--deep-color);
+        border-color: #FF865E;
+        background-color: #FF865E;
         color: #ffffff;
         transform: translateY(-2px);
     }
@@ -1145,9 +1214,9 @@
             </div>
 
             <div class="language-options">
-                <button type="button" class="lang-btn active" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
-                <button type="button" class="lang-btn" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
-                <button type="button" class="lang-btn" onclick="switchLanguage('chn', 'CN', event)">CN</button>
+                <button type="button" class="lang-btn active" aria-pressed="true" onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
+                <button type="button" class="lang-btn" aria-pressed="false" onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
+                <button type="button" class="lang-btn" aria-pressed="false" onclick="switchLanguage('chn', 'CN', event)">CN</button>
             </div>
         </div>
         <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
@@ -1213,7 +1282,7 @@
 <!-- Experience Intro Section -->
 <section class="experience-section">
     <div class="experience-inner">
-        <h2 class="experience-title" data-translate="exp_main_title">보고, 고르고, 연결하며 쌓아온 경험을 소개합니다<span style="display:block; font-size:var(--font-sub); line-height:var(--line-sub); font-family:'Pretendard', sans-serif; font-weight:600; color:var(--primary-color); margin-top:10px; letter-spacing:1px;">OUR PHILOSOPHY</span></h2>
+        <h2 class="experience-title" data-translate="exp_main_title">보고, 고르고, 연결하며 쌓아온 경험을 소개합니다<span class="philosophy-label">OUR PHILOSOPHY</span></h2>
         <div class="experience-grid">
             <div class="experience-item anim-stagger-item">
                 <div class="exp-category">01 CONTENT</div>
@@ -1510,22 +1579,26 @@
             drop_creator: "크리에이터",
             drop_ecommerce: "이커머스",
             drop_global: "글로벌 소싱",
+
             banner_main_title: "새로운 일상과<br>새로운 시작을<br>연결하는 이야기",
             banner_main_desc: "중국과 대만의 콘텐츠, 9sh의 일상 액세서리,<br>중국 상품 소싱까지,<br>보고, 고르고 연결하며 쌓아온 경험을 전합니다.",
             btn_explore: "브랜드 둘러보기",
             btn_inquiry: "프로젝트 문의",
-            exp_main_title: "보고, 고르고, 연결하며 쌓아온 경험을 소개합니다<span style=\"display:block; font-size:var(--font-sub); line-height:var(--line-sub); font-family:'Pretendard', sans-serif; font-weight:600; color:var(--primary-color); margin-top:10px; letter-spacing:1px;\">OUR PHILOSOPHY</span>",
+
+            exp_main_title: "보고, 고르고, 연결하며 쌓아온 경험을 소개합니다<span class=\"philosophy-label\">OUR PHILOSOPHY</span>",
             exp_content_desc: "현지의 일상과 문화를<br>발견하고 기록합니다",
             exp_select_desc: "가치 있는 제품과 정보를<br>신중하게 고릅니다",
             exp_connect_desc: "사람과 브랜드, 시장을<br>연결합니다",
+
             service_creator_title: "송스토리쩜엠피포",
-            service_creator_desc: "중화권 여행, 문화, 일상,\n비즈니스의 기록을 콘텐츠로 전합니다.",
+            service_creator_desc: "중화권 여행, 문화, 일상,<br>비즈니스의 기록을 콘텐츠로 전합니다.",
             service_ecommerce_title: "9sh",
-            service_ecommerce_desc: "새로운 시작을 준비하는 당신에게,\n일상과 비즈니스에 자연스럽게 어울리는\n캐주얼한 하루를 만들어 드립니다.",
+            service_ecommerce_desc: "새로운 시작을 준비하는 당신에게,<br>일상과 비즈니스에 자연스럽게 어울리는<br>캐주얼한 하루를 만들어 드립니다.",
             service_logistics_title: "星星地送",
-            service_logistics_desc: "고객의 조건에 맞는 상품을 조사하고,\n커뮤니케이션, 구매 지원까지 함께합니다.",
+            service_logistics_desc: "고객의 조건에 맞는 상품을 조사하고,<br>커뮤니케이션부터 구매 지원까지 함께합니다.",
             detail_view: "자세히 보기 →",
             smart_store: "스마트스토어 ↗",
+
             story_main_subtitle: "PROJECTS &amp; STORIES",
             story_main_title: "프로젝트와 스토리",
             story_main_desc: "다양한 시도와 연결의 과정을 차곡차곡 기록하고 있습니다.",
@@ -1535,12 +1608,14 @@
             img_card2_desc: "9sh · 제품 · 라이프스타일",
             img_card3_title: "더 좋은 선택을 위한 연결",
             img_card3_desc: "시장 조사 · 상품 탐색",
+
             story_box1_title: "새로운 시작에<br>어울리는 선물을 찾고 있나요?",
             story_box1_desc: "9sh의 캐주얼 잡화를<br>스마트스토어에서 만나보세요.",
             smart_store_btn: "스마트스토어 바로가기",
             story_box2_title: "프로젝트에 필요한 제품을<br>찾고 있나요?",
-            story_box2_desc: "제품 구매, 제품 소싱 상담 등의<br>내용을 문의해 주세요.",
+            story_box2_desc: "제품 구매와 소싱 상담이 필요하다면<br>편하게 문의해 주세요.",
             story_inquiry_btn: "프로젝트 문의하기",
+
             footer_company_label: "상호명",
             footer_company_name: "송스토리",
             footer_ceo_label: "대표",
@@ -1552,146 +1627,212 @@
             footer_mail_order_label: "통신판매업신고",
             footer_mail_order_val: "2025-대전서구-0376",
             footer_privacy_officer_label: "개인정보보호책임자",
-            footer_privacy_officer_val: "송스토리(song9shtory@gmail.com)",
+            footer_privacy_officer_val: "송스토리 (song9shtory@gmail.com)",
             footer_about: "회사소개",
             footer_privacy: "개인정보처리방침",
             footer_terms: "이용약관",
             footer_guide: "이용안내",
             footer_copy: "&copy; 2026 SONGSHTORY. All rights reserved. Designed by EJ"
         },
+
         eng: {
             menu_about: "About",
-            menu_brand: "Brand",
-            menu_project: "Project",
+            menu_brand: "Brands",
+            menu_project: "Projects",
             menu_contact: "Contact",
             drop_creator: "Creator",
             drop_ecommerce: "E-Commerce",
             drop_global: "Global Sourcing",
-            banner_main_title: "A Story Connecting<br>New Daily Life and<br>New Beginnings",
-            banner_main_desc: "From Greater China content and 9sh everyday accessories<br>to Chinese product sourcing,<br>we share our accumulated experiences of observing, selecting, and connecting.",
-            btn_explore: "Explore Brand",
+
+            banner_main_title: "Stories That Connect<br>Everyday Life with<br>New Beginnings",
+            banner_main_desc: "From content across China and Taiwan to 9sh everyday accessories<br>and product sourcing in China,<br>we share the experience we have built by discovering, selecting, and connecting.",
+            btn_explore: "Explore Our Brands",
             btn_inquiry: "Project Inquiry",
-            exp_main_title: "Sharing the Experience Built Through Observing, Selecting, and Connecting<span style=\"display:block; font-size:var(--font-sub); line-height:var(--line-sub); font-family:'Pretendard', sans-serif; font-weight:600; color:var(--primary-color); margin-top:10px; letter-spacing:1px;\">OUR PHILOSOPHY</span>",
-            exp_content_desc: "Discovering and recording<br>local daily life and culture",
-            exp_select_desc: "Carefully choosing<br>valuable products and information",
+
+            exp_main_title: "Experience Built Through Discovering, Selecting, and Connecting<span class=\"philosophy-label\">OUR PHILOSOPHY</span>",
+            exp_content_desc: "Discovering and documenting<br>local life and culture",
+            exp_select_desc: "Carefully selecting<br>valuable products and information",
             exp_connect_desc: "Connecting people,<br>brands, and markets",
-            service_creator_title: "Songshtory.mp4",
-            service_creator_desc: "Delivering records of Greater China travel, culture, daily life, and business through contents.",
+
+            service_creator_title: "SONGSHTORY.mp4",
+            service_creator_desc: "Stories of travel, culture, everyday life,<br>and business across Greater China, told through content.",
             service_ecommerce_title: "9sh",
-            service_ecommerce_desc: "For those preparing a new beginning,\nwe create a casual day that naturally fits your daily life and business.",
+            service_ecommerce_desc: "For every new beginning,<br>we offer casual pieces that fit naturally<br>into both everyday life and work.",
             service_logistics_title: "星星地送",
-            service_logistics_desc: "We research products tailored to customer conditions,\nand provide communication and purchasing support.",
+            service_logistics_desc: "We find products that match your requirements<br>and support communication and purchasing throughout the process.",
             detail_view: "View Details →",
             smart_store: "Smart Store ↗",
+
             story_main_subtitle: "PROJECTS &amp; STORIES",
             story_main_title: "Projects & Stories",
-            story_main_desc: "We are steadily recording the process of various attempts and connections.",
-            img_card1_title: "Contents recording local daily life",
+            story_main_desc: "We document each experiment, collaboration, and connection along the way.",
+            img_card1_title: "Content That Captures Local Life",
             img_card1_desc: "Travel · Culture · Business",
-            img_card2_title: "Things making daily life more like you",
+            img_card2_title: "Everyday Pieces That Feel More Like You",
             img_card2_desc: "9sh · Products · Lifestyle",
-            img_card3_title: "Connection for a better choice",
-            img_card3_desc: "Market Research · Product Search",
+            img_card3_title: "Connections for Better Choices",
+            img_card3_desc: "Market Research · Product Discovery",
+
             story_box1_title: "Looking for a gift<br>for a new beginning?",
-            story_box1_desc: "Discover 9sh's casual accessories<br>at our smart store.",
-            smart_store_btn: "Go to Smart Store",
-            story_box2_title: "Looking for products<br>for your project?",
-            story_box2_desc: "Inquire about product purchases<br>and sourcing consultations.",
-            story_inquiry_btn: "Inquire Project",
+            story_box1_desc: "Discover 9sh's casual accessories<br>on our Smart Store.",
+            smart_store_btn: "Visit Smart Store",
+            story_box2_title: "Looking for the right products<br>for your project?",
+            story_box2_desc: "Contact us for product purchasing<br>and sourcing support.",
+            story_inquiry_btn: "Contact Us About a Project",
+
             footer_company_label: "Company",
-            footer_company_name: "Songstory",
+            footer_company_name: "SONGSHTORY",
             footer_ceo_label: "CEO",
             footer_ceo_name: "Sunghyun Song",
             footer_addr_label: "Address",
-            footer_addr_val: "8140, 8F, Daesung Bldg., 21, Dunsan-ro 137beon-gil, Seo-gu, Daejeon",
-            footer_reg_label: "Business Registration",
+            footer_addr_val: "Suite 8140, 8F, Daeseung Building, 21 Dunsan-ro 137beon-gil, Seo-gu, Daejeon, Republic of Korea",
+            footer_reg_label: "Business Registration No.",
             footer_reg_val: "740-47-01039",
-            footer_mail_order_label: "Mail-Order Sales",
-            footer_mail_order_val: "2025-DaejeonSeogu-0376",
+            footer_mail_order_label: "E-commerce Registration",
+            footer_mail_order_val: "2025-Daejeon Seogu-0376",
             footer_privacy_officer_label: "Privacy Officer",
-            footer_privacy_officer_val: "Songstory (song9shtory@gmail.com)",
+            footer_privacy_officer_val: "SONGSHTORY (song9shtory@gmail.com)",
             footer_about: "About Us",
             footer_privacy: "Privacy Policy",
             footer_terms: "Terms of Use",
-            footer_guide: "Guide",
+            footer_guide: "User Guide",
             footer_copy: "&copy; 2026 SONGSHTORY. All rights reserved. Designed by EJ"
         },
+
         chn: {
             menu_about: "关于我们",
             menu_brand: "品牌",
             menu_project: "项目",
             menu_contact: "联系我们",
-            drop_creator: "创作者",
-            drop_ecommerce: "电商平台",
+            drop_creator: "内容创作",
+            drop_ecommerce: "电商",
             drop_global: "全球采购",
-            banner_main_title: "连接崭新日常生活与<br>崭新开始的故事",
-            banner_main_desc: "从大中华区内容、9sh日常饰品<br>到中国商品采购，<br>我们传递在观察、精选与连接中积累的经验。",
-            btn_explore: "探索品牌",
+
+            banner_main_title: "连接日常生活与<br>全新开始的<br>故事",
+            banner_main_desc: "从中国与台湾地区的内容、9sh 日常配饰<br>到中国商品采购，<br>我们分享在发现、精选与连接中积累的经验。",
+            btn_explore: "浏览品牌",
             btn_inquiry: "项目咨询",
-            exp_main_title: "分享我们在观察、挑选与连接中积累的经验<span style=\"display:block; font-size:var(--font-sub); line-height:var(--line-sub); font-family:'Pretendard', sans-serif; font-weight:600; color:var(--primary-color); margin-top:10px; letter-spacing:1px;\">OUR PHILOSOPHY</span>",
-            exp_content_desc: "发掘并记录<br>当地的日常生活与文化",
-            exp_select_desc: "精心挑选<br>有价值的产品与信息",
-            exp_connect_desc: "将人、品牌与市场<br>紧密连接",
-            service_creator_title: "송스토리쩜엠피포",
-            service_creator_desc: "通过内容传递大中华区旅游、文化、日常生活与商业的记录。",
+
+            exp_main_title: "分享我们在发现、精选与连接中积累的经验<span class=\"philosophy-label\">OUR PHILOSOPHY</span>",
+            exp_content_desc: "发现并记录<br>当地的日常生活与文化",
+            exp_select_desc: "认真筛选<br>有价值的产品与信息",
+            exp_connect_desc: "连接人与品牌，<br>以及不同的市场",
+
+            service_creator_title: "SONGSHTORY.mp4",
+            service_creator_desc: "通过内容记录并分享华语地区的旅行、文化、日常生活<br>与商业故事。",
             service_ecommerce_title: "9sh",
-            service_ecommerce_desc: "为准备新开始的您，\n打造自然融入日常生活与商业的休闲一天。",
+            service_ecommerce_desc: "为每一次新的开始，<br>提供自然融入日常与工作场景的<br>轻松生活好物。",
             service_logistics_title: "星星地送",
-            service_logistics_desc: "为您调查符合条件的商品，\n并提供沟通与采购支持服务。",
+            service_logistics_desc: "根据您的需求寻找合适商品，<br>并提供从沟通到采购的全流程支持。",
             detail_view: "查看详情 →",
-            smart_store: "智能商店 ↗",
+            smart_store: "Smart Store ↗",
+
             story_main_subtitle: "PROJECTS &amp; STORIES",
             story_main_title: "项目与故事",
-            story_main_desc: "我们正在稳步记录各种尝试与连接的过程。",
-            img_card1_title: "记录当地日常的内容",
-            img_card1_desc: "旅游 · 文化 · 商业",
-            img_card2_title: "让日常生活更具个性的产品",
+            story_main_desc: "我们持续记录每一次尝试、合作与连接的过程。",
+            img_card1_title: "记录当地日常生活的内容",
+            img_card1_desc: "旅行 · 文化 · 商业",
+            img_card2_title: "让日常更有自己风格的好物",
             img_card2_desc: "9sh · 产品 · 生活方式",
-            img_card3_title: "为更好选择的连接",
-            img_card3_desc: "市场调查 · 商品探索",
-            story_box1_title: "正在寻找适合<br>新开始的礼物吗？",
-            story_box1_desc: "在智能商店中探索<br>9sh 的休闲杂货。",
-            smart_store_btn: "前往智能商店",
-            story_box2_title: "正在寻找项目所需的产<br>品吗？",
-            story_box2_desc: "请咨询产品购买及<br>产品采购咨询等内容。",
-            story_inquiry_btn: "项目咨询",
-            footer_company_label: "商户名称",
-            footer_company_name: "Songstory",
+            img_card3_title: "为更好选择建立连接",
+            img_card3_desc: "市场调研 · 商品寻找",
+
+            story_box1_title: "正在寻找适合<br>全新开始的礼物吗？",
+            story_box1_desc: "欢迎前往 Smart Store<br>选购 9sh 的日常配饰与杂货。",
+            smart_store_btn: "前往 Smart Store",
+            story_box2_title: "正在寻找项目所需的<br>合适商品吗？",
+            story_box2_desc: "如需商品采购或货源寻找支持，<br>欢迎随时联系我们。",
+            story_inquiry_btn: "咨询项目",
+
+            footer_company_label: "企业名称",
+            footer_company_name: "SONGSHTORY",
             footer_ceo_label: "代表",
             footer_ceo_name: "宋圣炫",
             footer_addr_label: "地址",
-            footer_addr_val: "大田西区屯山路137巷21号，8楼8140室（屯山洞，大胜大厦 )",
-            footer_reg_label: "营业执照号",
+            footer_addr_val: "韩国大田广域市西区屯山路137番街21号，大胜大厦8层8140室",
+            footer_reg_label: "营业登记号",
             footer_reg_val: "740-47-01039",
-            footer_mail_order_label: "通信销售申报",
-            footer_mail_order_val: "2025-大田西구-0376",
-            footer_privacy_officer_label: "隐私负责人",
-            footer_privacy_officer_val: "Songstory (song9shtory@gmail.com)",
+            footer_mail_order_label: "通信销售备案号",
+            footer_mail_order_val: "2025-大田西区-0376",
+            footer_privacy_officer_label: "个人信息保护负责人",
+            footer_privacy_officer_val: "SONGSHTORY (song9shtory@gmail.com)",
             footer_about: "公司简介",
-            footer_privacy: "个人信息处理政策",
+            footer_privacy: "隐私政策",
             footer_terms: "使用条款",
             footer_guide: "使用指南",
             footer_copy: "&copy; 2026 SONGSHTORY. All rights reserved. Designed by EJ"
         }
     };
 
-    function switchLanguage(langKey, langDisplay, event) {
-        event.stopPropagation();
-        document.getElementById('currentLangText').textContent = langDisplay;
-        
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
+    const languageConfig = {
+        kor: { display: "KOR", htmlLang: "ko" },
+        eng: { display: "ENG", htmlLang: "en" },
+        chn: { display: "CN",  htmlLang: "zh-CN" }
+    };
 
+    function applyLanguage(langKey, langDisplay = null, event = null) {
+        const config = languageConfig[langKey];
         const translations = allTranslations[langKey];
-        if (!translations) return;
 
-        document.querySelectorAll('[data-translate]').forEach(el => {
-            const key = el.getAttribute('data-translate');
-            if (translations[key]) {
+        if (!config || !translations) return;
+
+        if (event && typeof event.stopPropagation === "function") {
+            event.stopPropagation();
+        }
+
+        /* 1. 언어 코드 변경 → CSS 언어별 폰트 자동 적용 */
+        document.documentElement.lang = config.htmlLang;
+        document.documentElement.dataset.language = langKey;
+
+        /* 2. 현재 언어 표시 */
+        const currentLangText = document.getElementById("currentLangText");
+        if (currentLangText) {
+            currentLangText.textContent = langDisplay || config.display;
+        }
+
+        /* 3. 버튼 활성 상태 */
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            const isActive = btn.textContent.trim() === (langDisplay || config.display);
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-pressed", String(isActive));
+        });
+
+        /* 4. 페이지 전체 번역 */
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+
+            if (Object.prototype.hasOwnProperty.call(translations, key)) {
                 el.innerHTML = translations[key];
             }
         });
+
+        /* 5. 선택 언어 저장 */
+        try {
+            localStorage.setItem("songshtory-language", langKey);
+        } catch (e) {
+            /* 저장소 사용이 제한된 환경에서는 무시 */
+        }
     }
+
+    function switchLanguage(langKey, langDisplay, event) {
+        applyLanguage(langKey, langDisplay, event);
+    }
+
+    function initializeLanguage() {
+        let savedLanguage = "kor";
+
+        try {
+            const stored = localStorage.getItem("songshtory-language");
+            if (stored && languageConfig[stored]) {
+                savedLanguage = stored;
+            }
+        } catch (e) {
+            savedLanguage = "kor";
+        }
+
+        const config = languageConfig[savedLanguage];
+        applyLanguage(savedLanguage, config.display);
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeLanguage);
 </script>
