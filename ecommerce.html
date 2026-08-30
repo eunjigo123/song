@@ -5,35 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">이커머스 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .container, .container * {
+        .container,
+        .container * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Pretendard', sans-serif;
         }
         :root {
             --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
             --accent-color: #FF865E;       /* 보조 포인트 컬러 */
-            --deep-color: #2F4858;         /* 딥 컬러 (제목, 본문, 메뉴) */
+            --deep-color: #2F4858;         /* 딥 컬러 */
             --bg-light: #FFF7EF;           /* 연한 브랜드 배경 */
             --bg-base: #FFFFFF;            /* 기본 배경 */
-            --text-sub: #5A6E7C;           /* 보조 본문 컬러 (가독성 개선) */
+            --text-sub: #5A6E7C;           /* 보조 본문 컬러 */
             --border-color: #F1E6DC;       /* 테두리 컬러 */
+
+            /* =========================================================
+               ★ 데스크톱 폰트 규격 수정 영역
+               1. 페이지 대표 제목 : 44px / 행간 1.25 / 굵기 700
+               2. 대형 섹션 제목   : 36px / 행간 1.30 / 굵기 700
+               3. 중형 제목        : 28px / 행간 1.40 / 굵기 700
+               4. 카드·강조 제목   : 20px / 행간 1.40 / 굵기 700
+               5. 기본 본문        : 16px / 행간 1.70 / 기본 400, 강조 600
+               6. 보조 정보        : 14px / 행간 1.50 / 기본 400, 강조 600
+               ========================================================= */
+            --font-page-title: 44px;
+            --font-section-title: 36px;
+            --font-medium-title: 28px;
+            --font-card-title: 20px;
+            --font-body: 16px;
+            --font-sub: 14px;
+
+            --line-page-title: 1.25;
+            --line-section-title: 1.30;
+            --line-medium-title: 1.40;
+            --line-card-title: 1.40;
+            --line-body: 1.70;
+            --line-sub: 1.50;
+
+            /* ★ 데스크톱 전체 좌우 여백 */
+            --page-gutter: 240px;
+
+            /* ★ 폰트 종류 */
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
         }
 
         html {
             scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background: transparent;
         }
 
         body {
             color: var(--deep-color);
             background-color: var(--bg-base);
-            line-height: 1.75;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
             overflow-x: hidden;
             position: relative;
+            -ms-overflow-style: none;
         }
 
         a {
@@ -57,233 +100,252 @@
             transform: translateY(0);
         }
 
+        /* =========================================================
+           ★ 공통 HEADER 기준
+           - 좌우 기준선: --page-gutter (240px)
+           - 로고: 왼쪽 기준선
+           - 메뉴: 화면 정중앙
+           - 언어 선택: 오른쪽 기준선
+           - 메뉴 사이 간격: 60px
+           ========================================================= */
+
         /* Header (Sticky & Blur) */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 75px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
-            z-index: 1000;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            padding: 0 40px;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
+        z-index: 1000;
+
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        padding: 0 var(--page-gutter);
+        box-sizing: border-box;
+
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
-        }
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
+    }
 
         .logo {
-            display: flex;
-            align-items: center;
-            justify-self: start;
-        }
+        display: flex;
+        align-items: center;
+        justify-self: start;
+    }
 
         .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+        height: 40px;
+        width: auto;
+        display: block;
+    }
 
         .nav-menu {
-            display: flex;
-            justify-self: start;
-            margin-left: 300px;
-            gap: 60px;
-            align-items: center;
-            height: 100%;
-        }
+        display: flex;
+        justify-self: center;
+        margin-left: 0;
+        gap: 60px;
+        align-items: center;
+        height: 100%;
+    }
 
         .nav-menu > li {
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
         .nav-menu a.nav-link {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--deep-color);
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        font-size: var(--font-body);
+        font-weight: 600;
+        line-height: var(--line-body);
+        color: var(--deep-color);
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
 
         .nav-menu a.nav-link:hover {
-            color: var(--primary-color);
-        }
+        color: var(--primary-color);
+    }
 
         .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            background: var(--bg-base);
-            width: 260px;
-            border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(47, 72, 88, 0.12);
-            border: 1px solid var(--border-color);
-            padding: 16px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: var(--bg-base);
+        width: 260px;
+        border-radius: 12px;
+        box-shadow: 0 12px 35px rgba(47, 72, 88, 0.12);
+        border: 1px solid var(--border-color);
+        padding: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
         .dropdown::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 10px;
-            height: 10px;
-            background: var(--bg-base);
-            border-top: 1px solid var(--border-color);
-            border-left: 1px solid var(--border-color);
-        }
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 10px;
+        height: 10px;
+        background: var(--bg-base);
+        border-top: 1px solid var(--border-color);
+        border-left: 1px solid var(--border-color);
+    }
 
         .nav-menu > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
 
         .dropdown-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+    }
 
         .dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--deep-color);
-            transition: background 0.2s, color 0.2s;
-        }
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        margin: 0;
+        border-radius: 8px;
+        font-size: var(--font-body);
+        font-weight: 600;
+        line-height: var(--line-body);
+        color: var(--deep-color);
+        transition: background 0.2s, color 0.2s;
+    }
 
         .dropdown-item:hover {
-            background: var(--bg-light);
-            color: var(--primary-color);
-        }
+        background: var(--bg-light);
+        color: var(--primary-color);
+    }
 
         .dropdown-item svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--deep-color);
-            flex-shrink: 0;
-            transition: fill 0.2s;
-        }
+        width: 18px;
+        height: 18px;
+        fill: var(--deep-color);
+        flex-shrink: 0;
+        transition: fill 0.2s;
+    }
 
         .dropdown-item:hover svg {
-            fill: var(--primary-color);
-        }
+        fill: var(--primary-color);
+    }
 
         .nav-right {
-            display: flex;
-            align-items: center;
-            justify-self: end;
-            gap: 15px;
-            height: 100%;
-            padding-right: 80px;
-        }
+        display: flex;
+        align-items: center;
+        justify-self: end;
+        gap: 15px;
+        height: 100%;
+        padding-right: 0; /* 오른쪽 정렬은 header의 --page-gutter만 사용 */
+    }
 
         /* Language Switcher */
         .lang-switch {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 145px;
-            height: 40px;
-            cursor: pointer;
-            position: relative;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 145px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
+    }
 
         /* 기본 상태: Language | KOR */
         .language-default {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            font-size: 0.9rem;
-            color: var(--deep-color);
-        }
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: var(--font-sub);
+        line-height: var(--line-sub);
+        color: var(--deep-color);
+    }
 
         .language-label {
-            font-weight: 500;
-            color: var(--text-sub);
-        }
+        font-weight: 400;
+        color: var(--text-sub);
+    }
 
         .language-divider {
-            margin: 0 9px;
-            color: #CFC6BE;
-        }
+        margin: 0 9px;
+        color: #CFC6BE;
+    }
 
         .language-current {
-            font-weight: 700;
-            color: var(--deep-color);
-        }
+        font-weight: 600;
+        color: var(--deep-color);
+    }
 
         /* 마우스 올리면 KOR ENG CN */
         .language-options {
-            width: 100%;
-            height: 100%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            background-color: #FFFFFF;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
-        }
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background-color: #FFFFFF;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        box-sizing: border-box;
+        box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
+    }
 
         .lang-switch:hover .language-default {
-            display: none;
-        }
+        display: none;
+    }
 
         .lang-switch:hover .language-options {
-            display: flex;
-        }
+        display: flex;
+    }
 
         .lang-btn {
-            appearance: none;
-            -webkit-appearance: none;
-            background: transparent;
-            border: 0;
-            margin: 0;
-            padding: 5px 0;
-            font-family: 'Pretendard', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--text-sub);
-            cursor: pointer;
-            white-space: nowrap;
-        }
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 5px 0;
+        font-family: 'Pretendard', sans-serif;
+        font-size: var(--font-sub);
+        font-weight: 600;
+        line-height: var(--line-sub);
+        color: var(--text-sub);
+        cursor: pointer;
+        white-space: nowrap;
+    }
 
         .lang-btn:hover,
-        .lang-btn.active {
-            color: var(--primary-color);
-        }
+    .lang-btn.active {
+        color: var(--primary-color);
+    }
 
         .hamburger {
             display: none;
@@ -334,7 +396,13 @@
         }
         .drawer-overlay.open { opacity: 1; visibility: visible; }
 
-        .container { max-width: 1200px; margin: 130px auto 100px; padding: 0 40px; }
+        .container {
+            width: calc(100% - (var(--page-gutter) * 2));
+            max-width: none;
+            margin: 130px var(--page-gutter) 100px;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         /* ==========================================================
            이커머스 브랜드 시안 반영 스타일 (비율 및 간격 최적화)
@@ -344,46 +412,56 @@
         }
         
         .tag-orange {
-            display: inline-block; font-size: 1.15rem; font-weight: 700; color: var(--primary-color); margin-bottom: 8px;
+            display: inline-block;
+            font-family: var(--font-body-family);
+            font-size: var(--font-sub);
+            font-weight: 600;
+            line-height: var(--line-sub);
+            color: var(--primary-color);
+            margin-bottom: 8px;
         }
         .orange-line {
             width: 40px; height: 3px; background-color: var(--primary-color); margin-bottom: 24px;
         }
         
         .hero-brand {
-            font-family: 'Noto Serif KR', serif;
-            font-size: 3.5rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-page-title);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: var(--line-page-title);
             letter-spacing: -1px;
             display: block;
             margin-bottom: 20px;
         }
 
         .hero-sub {
-            font-family: 'Pretendard', sans-serif;
-            font-size: 1.6rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-medium-title);
             font-weight: 700;
-            line-height: 1.4;
+            line-height: var(--line-medium-title);
             color: var(--deep-color);
             display: block;
             margin-bottom: 30px;
         }
 
         .hero-desc {
-            font-size: 1.05rem; 
-            color: var(--text-sub); 
-            line-height: 1.7; 
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
+            color: var(--text-sub);
             margin-bottom: 35px;
         }
 
         .link-arrow {
-            font-size: 1.05rem; 
-            font-weight: 600; 
-            color: var(--deep-color); 
-            display: inline-block; 
-            padding-bottom: 4px; 
-            border-bottom: 1.5px solid var(--deep-color); 
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 600;
+            line-height: var(--line-body);
+            color: var(--deep-color);
+            display: inline-block;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid var(--deep-color);
             transition: color 0.2s, border-color 0.2s;
         }
         .link-arrow:hover {
@@ -418,37 +496,95 @@
         /* 섹션 2: 배너 타이틀 및 스토리 영역 */
         .sec-story { margin-bottom: 120px; }
         .banner-title-box { background-color: var(--bg-light); padding: 40px 20px; text-align: center; margin-bottom: 60px; }
-        .banner-title-box h2 { font-size: 2.2rem; font-weight: 700; display: inline-flex; align-items: center; gap: 15px; }
-        .quote-icon { color: var(--primary-color); font-size: 1.8rem; font-weight: 900; line-height: 1; }
+        .banner-title-box h2 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-section-title);
+            font-weight: 700;
+            line-height: var(--line-section-title);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .quote-icon {
+            color: var(--primary-color);
+            font-family: var(--font-title-family);
+            font-size: var(--font-card-title);
+            font-weight: 700;
+            line-height: var(--line-card-title);
+        }
 
         .sec-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px; }
-        .story-text-side h3 { font-size: 2.2rem; font-weight: 700; line-height: 1.35; margin-bottom: 25px; }
+        .story-text-side h3 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-medium-title);
+            font-weight: 700;
+            line-height: var(--line-medium-title);
+            margin-bottom: 25px;
+        }
         .story-text-side .orange-line { width: 40px; height: 3px; background-color: var(--primary-color); margin-bottom: 25px; }
-        .story-text-side p { font-size: 1.1rem; color: var(--text-sub); line-height: 1.8; }
+        .story-text-side p {
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
+            color: var(--text-sub);
+        }
 
         /* 섹션 3: 3개 그리드 스토리 영역 */
         .sec-topics { text-align: center; margin-bottom: 120px; }
-        .sec-topics h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .sec-topics h2 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-section-title);
+            font-weight: 700;
+            line-height: var(--line-section-title);
+            margin-bottom: 15px;
+        }
         .sec-topics .orange-line { width: 40px; height: 3px; background-color: var(--primary-color); margin: 0 auto 50px; }
         
         .topics-3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: left; }
         .topic-card-wrap { display: flex; flex-direction: column; gap: 12px; }
-        .topic-card-title { font-size: 1.25rem; font-weight: 700; }
-        .topic-card-desc { font-size: 0.95rem; color: var(--text-sub); }
+        .topic-card-title {
+            font-family: var(--font-title-family);
+            font-size: var(--font-card-title);
+            font-weight: 700;
+            line-height: var(--line-card-title);
+        }
+        .topic-card-desc {
+            font-family: var(--font-body-family);
+            font-size: var(--font-sub);
+            font-weight: 400;
+            line-height: var(--line-sub);
+            color: var(--text-sub);
+        }
 
         /* 섹션 4: CTA 영역 */
         .sec-cta { background-color: var(--bg-light); border: 2px solid var(--deep-color); padding: 60px 20px; text-align: center; }
-        .sec-cta h3 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
-        .sec-cta p { font-size: 1.1rem; color: var(--text-sub); margin-bottom: 35px; }
+        .sec-cta h3 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-medium-title);
+            font-weight: 700;
+            line-height: var(--line-medium-title);
+            margin-bottom: 15px;
+        }
+        .sec-cta p {
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
+            color: var(--text-sub);
+            margin-bottom: 35px;
+        }
         .cta-btn-box {
             display: inline-block;
             background-color: #FFFFFF;
             color: #2F4858;
+            font-family: var(--font-body-family);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: var(--font-body);
+            line-height: var(--line-body);
             padding: 16px 45px;
             border-radius: 6px;
-            border: 1px solid #F1E6DC;
+            border: 1px solid var(--border-color);
             box-shadow: none;
             transition: all 0.2s ease;
         }
@@ -560,7 +696,7 @@
                 <a href="contact.html" class="mobile-nav-item" onclick="toggleDrawer()" data-translate="menu_contact">문의하기</a>
             </div>
         </div>
-        <div style="font-size: 0.85rem; color: var(--text-sub);">
+        <div style="font-size: var(--font-sub); line-height: var(--line-sub); color: var(--text-sub);">
             &copy; 2026 SONGSHTORY.
         </div>
     </div>
