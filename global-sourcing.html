@@ -5,41 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">글로벌 소싱 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .container, .container * {
+        .container,
+        .container * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Pretendard', sans-serif;
         }
         :root {
             --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
             --accent-color: #FF865E;       /* 보조 포인트 컬러 */
-            --deep-color: #2F4858;         /* 딥 컬러 (제목, 본문, 메뉴) */
+            --deep-color: #2F4858;         /* 딥 컬러 */
             --bg-light: #FFF7EF;           /* 연한 브랜드 배경 */
             --bg-base: #FFFFFF;            /* 기본 배경 */
             --text-sub: #5A6E7C;           /* 보조 본문 컬러 */
-            --border-color: #2F4858;       /* 테두리 색상 */
-            --box-bg: #FFFFFF;             /* 이미지 박스 안쪽 배경 */
-        }
+            --border-color: #F1E6DC;       /* 공통 테두리 컬러 */
+            --image-border-color: #2F4858; /* 기존 이미지 박스 진한 테두리 유지 */
+            --box-bg: #FFFFFF;
 
-        /* Serif 타이틀 적용 */
-        .banner-text-area h1, .serif-title {
-            font-family: 'Noto Serif KR', serif;
+            /* =========================================================
+               ★ 데스크톱 폰트 규격 수정 영역
+               1. 페이지 대표 제목 : 44px / 1.25 / 700
+               2. 대형 섹션 제목   : 36px / 1.30 / 700
+               3. 중형 제목        : 28px / 1.40 / 700
+               4. 카드·강조 제목   : 20px / 1.40 / 700
+               5. 기본 본문        : 16px / 1.70 / 400, 강조 600
+               6. 보조 정보        : 14px / 1.50 / 400, 강조 600
+               ========================================================= */
+            --font-page-title: 44px;
+            --font-section-title: 36px;
+            --font-medium-title: 28px;
+            --font-card-title: 20px;
+            --font-body: 16px;
+            --font-sub: 14px;
+
+            --line-page-title: 1.25;
+            --line-section-title: 1.30;
+            --line-medium-title: 1.40;
+            --line-card-title: 1.40;
+            --line-body: 1.70;
+            --line-sub: 1.50;
+
+            /* ★ 데스크톱 전체 좌우 여백 */
+            --page-gutter: 240px;
+
+            /* ★ 폰트 종류 */
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
         }
 
         html {
             scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background: transparent;
         }
 
         body {
             color: var(--deep-color);
             background-color: var(--bg-base);
-            line-height: 1.75;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
             overflow-x: hidden;
             position: relative;
+            -ms-overflow-style: none;
         }
 
         a {
@@ -50,6 +89,27 @@
         ul {
             list-style: none;
         }
+
+        /* =========================================================
+           ★ 폰트 종류 통일
+           - 제목/타이틀 계열: Noto Serif KR
+           - 제목 외 모든 텍스트: Pretendard
+           - 크기/행간/굵기/여백은 각 요소 규격에서 개별 관리
+           ========================================================= */
+        .text-content h1,
+        .text-content h2,
+        .quote-title-section h2,
+        .section-title-wrap h2,
+        .flow-card-title,
+        .inquiry-content h3 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-medium-title);
+            font-weight: 700;
+            line-height: var(--line-medium-title);
+            color: var(--deep-color);
+            margin-bottom: 15px;
+        }
+
 
         /* 스크롤 애니메이션 초기 상태 */
         .reveal-element {
@@ -64,238 +124,251 @@
             transform: translateY(0);
         }
         /* =========================================================
-           HEADER - contact.html / about.html 기준
+           ★ 공통 HEADER 기준
+           - 좌우 기준선: --page-gutter (240px)
+           - 로고: 왼쪽 기준선
+           - 메뉴: 화면 정중앙
+           - 언어 선택: 오른쪽 기준선
+           - 메뉴 사이 간격: 60px
            ========================================================= */
 
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 75px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
-            z-index: 1000;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            padding: 0 40px;
-            border-bottom: 1px solid #F1E6DC;
-            transition: all 0.3s ease;
-        }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
+        z-index: 1000;
+
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        padding: 0 var(--page-gutter);
+        box-sizing: border-box;
+
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
-        }
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 20px rgba(47, 72, 88, 0.08);
+    }
 
         .logo {
-            display: flex;
-            align-items: center;
-            justify-self: start;
-        }
+        display: flex;
+        align-items: center;
+        justify-self: start;
+    }
 
         .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+        height: 40px;
+        width: auto;
+        display: block;
+    }
 
         .nav-menu {
-            display: flex;
-            justify-self: start;
-            margin-left: 300px;
-            gap: 60px;
-            align-items: center;
-            height: 100%;
-        }
+        display: flex;
+        justify-self: center;
+        margin-left: 0;
+        gap: 60px;
+        align-items: center;
+        height: 100%;
+    }
 
         .nav-menu > li {
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
         .nav-menu a.nav-link {
-            font-size: 1.05rem;
-            font-weight: 600;
-            line-height: 1.75;
-            color: var(--deep-color);
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        font-size: var(--font-body);
+        font-weight: 600;
+        line-height: var(--line-body);
+        color: var(--deep-color);
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
 
         .nav-menu a.nav-link:hover {
-            color: var(--primary-color);
-        }
+        color: var(--primary-color);
+    }
 
         /* Dropdown Menu */
         .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            background: var(--bg-base);
-            width: 260px;
-            border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(47, 72, 88, 0.12);
-            border: 1px solid #F1E6DC;
-            padding: 16px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: var(--bg-base);
+        width: 260px;
+        border-radius: 12px;
+        box-shadow: 0 12px 35px rgba(47, 72, 88, 0.12);
+        border: 1px solid var(--border-color);
+        padding: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
         .dropdown::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 10px;
-            height: 10px;
-            background: var(--bg-base);
-            border-top: 1px solid #F1E6DC;
-            border-left: 1px solid #F1E6DC;
-        }
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 10px;
+        height: 10px;
+        background: var(--bg-base);
+        border-top: 1px solid var(--border-color);
+        border-left: 1px solid var(--border-color);
+    }
 
         .nav-menu > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
 
         .dropdown-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+    }
 
         .dropdown-item {
-            font-size: 0.95rem;
-            font-weight: 600;
-            line-height: 1.75;
-            color: var(--deep-color);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            transition: background 0.2s, color 0.2s;
-        }
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        margin: 0;
+        border-radius: 8px;
+        font-size: var(--font-body);
+        font-weight: 600;
+        line-height: var(--line-body);
+        color: var(--deep-color);
+        transition: background 0.2s, color 0.2s;
+    }
 
         .dropdown-item:hover {
-            background: var(--bg-light);
-            color: var(--primary-color);
-        }
+        background: var(--bg-light);
+        color: var(--primary-color);
+    }
 
         .dropdown-item svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--deep-color);
-            flex-shrink: 0;
-            transition: fill 0.2s;
-        }
+        width: 18px;
+        height: 18px;
+        fill: var(--deep-color);
+        flex-shrink: 0;
+        transition: fill 0.2s;
+    }
 
         .dropdown-item:hover svg {
-            fill: var(--primary-color);
-        }
+        fill: var(--primary-color);
+    }
 
         .nav-right {
-            display: flex;
-            align-items: center;
-            justify-self: end;
-            gap: 15px;
-            height: 100%;
-            padding-right: 80px;
-        }
+        display: flex;
+        align-items: center;
+        justify-self: end;
+        gap: 15px;
+        height: 100%;
+        padding-right: 0; /* 오른쪽 정렬은 header의 --page-gutter만 사용 */
+    }
 
         /* Language Switcher */
         .lang-switch {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 145px;
-            height: 40px;
-            cursor: pointer;
-            position: relative;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 145px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
+    }
 
         /* 기본 상태: Language | KOR */
         .language-default {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            font-size: 0.9rem;
-            color: var(--deep-color);
-        }
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: var(--font-sub);
+        line-height: var(--line-sub);
+        color: var(--deep-color);
+    }
 
         .language-label {
-            font-weight: 500;
-            color: var(--text-sub);
-        }
+        font-weight: 400;
+        color: var(--text-sub);
+    }
 
         .language-divider {
-            margin: 0 9px;
-            color: #CFC6BE;
-        }
+        margin: 0 9px;
+        color: #CFC6BE;
+    }
 
         .language-current {
-            font-weight: 700;
-            color: var(--deep-color);
-        }
+        font-weight: 600;
+        color: var(--deep-color);
+    }
 
         /* 마우스 올리면 KOR ENG CN */
         .language-options {
-            width: 100%;
-            height: 100%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            background-color: #FFFFFF;
-            border: 1px solid #F1E6DC;
-            border-radius: 6px;
-            box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
-        }
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background-color: #FFFFFF;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        box-sizing: border-box;
+        box-shadow: 0 4px 12px rgba(47, 72, 88, 0.08);
+    }
 
         .lang-switch:hover .language-default {
-            display: none;
-        }
+        display: none;
+    }
 
         .lang-switch:hover .language-options {
-            display: flex;
-        }
+        display: flex;
+    }
 
         .lang-btn {
-            appearance: none;
-            -webkit-appearance: none;
-            background: transparent;
-            border: 0;
-            margin: 0;
-            padding: 5px 0;
-            font-family: 'Pretendard', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--text-sub);
-            cursor: pointer;
-            white-space: nowrap;
-        }
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 5px 0;
+        font-family: 'Pretendard', sans-serif;
+        font-size: var(--font-sub);
+        font-weight: 600;
+        line-height: var(--line-sub);
+        color: var(--text-sub);
+        cursor: pointer;
+        white-space: nowrap;
+    }
 
         .lang-btn:hover,
-        .lang-btn.active {
-            color: var(--primary-color);
-        }
+    .lang-btn.active {
+        color: var(--primary-color);
+    }
 
         /* Mobile Hamburger & Drawer */
         .hamburger {
@@ -386,10 +459,12 @@
 
 
         /* 메인 콘텐츠 레이아웃 */
-        .container { 
-            max-width: 1200px; 
-            margin: 140px auto 100px; 
-            padding: 0 40px; 
+        .container {
+            width: calc(100% - (var(--page-gutter) * 2));
+            max-width: none;
+            margin: 140px var(--page-gutter) 100px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         .content-block {
@@ -407,35 +482,41 @@
             direction: ltr;
         }
 
-        .text-content .tag { 
-            display: inline-block; 
-            font-size: 0.95rem; 
-            font-weight: 700; 
-            color: var(--primary-color); 
-            margin-bottom: 8px; 
+        .text-content .tag {
+            display: inline-block;
+            font-family: var(--font-body-family);
+            font-size: var(--font-sub);
+            font-weight: 600;
+            line-height: var(--line-sub);
+            color: var(--primary-color);
+            margin-bottom: 8px;
         }
 
-        .text-content h1 { 
-            font-size: 3.2rem; 
-            font-weight: 700; 
-            line-height: 1.2; 
-            margin-bottom: 25px; 
-            color: var(--deep-color); 
+        .text-content h1 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-page-title);
+            font-weight: 700;
+            line-height: var(--line-page-title);
+            margin-bottom: 25px;
+            color: var(--deep-color);
         }
 
-        .text-content h2 { 
-            font-size: 2.2rem; 
-            font-weight: 700; 
-            line-height: 1.3; 
-            margin-bottom: 20px; 
-            color: var(--deep-color); 
+        .text-content h2 {
+            font-family: var(--font-title-family);
+            font-size: var(--font-medium-title);
+            font-weight: 700;
+            line-height: var(--line-medium-title);
+            margin-bottom: 20px;
+            color: var(--deep-color);
         }
 
-        .text-content p { 
-            font-size: 1.1rem; 
-            color: var(--text-sub); 
-            line-height: 1.8; 
-            margin-bottom: 15px; 
+        .text-content p {
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
+            color: var(--text-sub);
+            margin-bottom: 15px;
         }
 
         .accent-line {
@@ -458,8 +539,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.05rem;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
             font-weight: 600;
+            line-height: var(--line-body);
             color: var(--deep-color);
         }
 
@@ -477,7 +560,7 @@
             align-items: center;
             justify-content: center;
             background: var(--box-bg);
-            border: 1.5px solid var(--border-color);
+            border: 1.5px solid var(--image-border-color);
             position: relative;
             overflow: hidden;
             border-radius: 2px;
@@ -518,8 +601,10 @@
         }
 
         .quote-title-section h2 {
-            font-size: 2.2rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-section-title);
             font-weight: 700;
+            line-height: var(--line-section-title);
             color: var(--deep-color);
             display: inline-flex;
             align-items: center;
@@ -528,7 +613,10 @@
 
         .quote-title-section h2 span {
             color: var(--primary-color);
-            font-size: 1.8rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-card-title);
+            font-weight: 700;
+            line-height: var(--line-card-title);
         }
 
         /* 프로세스 섹션 (B-03-003, 004, 005 복합 레이아웃) */
@@ -554,15 +642,19 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 600;
+            line-height: var(--line-body);
             color: var(--deep-color);
         }
 
         .process-step-item span.num {
             color: var(--primary-color);
-            font-size: 1.2rem;
-            font-family: 'Noto Serif KR', serif;
+            font-family: var(--font-title-family);
+            font-size: var(--font-card-title);
+            font-weight: 700;
+            line-height: var(--line-card-title);
             width: 30px;
         }
 
@@ -587,8 +679,10 @@
         }
 
         .section-title-wrap h2 {
-            font-size: 2.3rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-section-title);
             font-weight: 700;
+            line-height: var(--line-section-title);
             color: var(--deep-color);
             margin-bottom: 15px;
         }
@@ -647,24 +741,27 @@
         }
 
         .flow-card-step {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-family: var(--font-body-family);
+            font-size: var(--font-sub);
+            font-weight: 600;
+            line-height: var(--line-sub);
             color: var(--primary-color);
             margin-bottom: 6px;
             letter-spacing: 0.05em;
         }
 
         .flow-card-title {
-            font-size: 1.05rem;
+            font-family: var(--font-title-family);
+            font-size: var(--font-card-title);
             font-weight: 700;
+            line-height: var(--line-card-title);
             color: var(--deep-color);
-            line-height: 1.4;
         }
 
         /* 하단 문의하기 배너 섹션 */
         .inquiry-banner {
             background: #FFFFFF;
-            border: 1.5px solid var(--deep-color);
+            border: 1.5px solid var(--image-border-color);
             border-radius: 12px;
             padding: 50px 60px;
             display: grid;
@@ -683,9 +780,11 @@
         }
 
         .inquiry-content p {
-            font-size: 1.1rem;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
+            font-weight: 400;
+            line-height: var(--line-body);
             color: var(--text-sub);
-            line-height: 1.7;
             margin-bottom: 25px;
         }
 
@@ -695,11 +794,13 @@
             gap: 8px;
             background-color: #FFFFFF;
             color: #2F4858;
-            font-size: 1.05rem;
+            font-family: var(--font-body-family);
+            font-size: var(--font-body);
             font-weight: 600;
+            line-height: var(--line-body);
             padding: 14px 28px;
             border-radius: 6px;
-            border: 1px solid #F1E6DC;
+            border: 1px solid var(--border-color);
             transition: all 0.2s ease;
             box-shadow: none;
         }
@@ -714,7 +815,7 @@
         .inquiry-image-box {
             width: 100%;
             background: #FFFFFF;
-            border: 1.5px solid var(--deep-color);
+            border: 1.5px solid var(--image-border-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -725,8 +826,10 @@
 
         .placeholder-text {
             color: #FF3333;
+            font-family: var(--font-body-family);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: var(--font-card-title);
+            line-height: var(--line-card-title);
         }
 
         @media (max-width: 900px) {
@@ -855,7 +958,7 @@
             </div>
         </div>
 
-        <div style="font-size: 0.85rem; color: var(--text-sub);">
+        <div style="font-size: var(--font-sub); line-height: var(--line-sub); color: var(--text-sub);">
             &copy; 2026 SONGSHTORY.
         </div>
     </div>
