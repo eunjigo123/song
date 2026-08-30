@@ -6,7 +6,7 @@
 
     <title>문의하기 - SONGSHTORY</title>
 
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -83,7 +83,7 @@
         body {
             color: var(--deep-color);
             background-color: var(--bg-base);
-            font-family: var(--font-body-family);
+            font-family: 'Pretendard', sans-serif;
             font-size: var(--font-body);
             font-weight: 400;
             line-height: var(--line-body);
@@ -120,6 +120,14 @@
         =========================================================
         */
 
+        /* =========================================================
+           ★ 공통 HEADER 기준
+           - 좌우 기준선: --page-gutter (240px)
+           - 로고: 왼쪽 기준선
+           - 메뉴: 화면 정중앙
+           - 언어 선택: 오른쪽 기준선
+           - 페이지별 강제 margin 사용 금지
+           ========================================================= */
         header {
             position: fixed;
 
@@ -142,9 +150,9 @@
             display: grid;
 
             grid-template-columns:
-                auto
                 1fr
-                auto;
+                auto
+                1fr;
 
             align-items: center;
 
@@ -203,9 +211,9 @@
         .nav-menu {
             display: flex;
 
-            justify-self: start;
+            justify-self: center;
 
-            margin-left: 300px;
+            margin-left: 0;
 
             gap: 60px;
 
@@ -396,7 +404,7 @@
 
             height: 100%;
 
-            padding-right: 0;
+            padding-right: 0; /* 오른쪽 정렬은 header의 --page-gutter만 사용 */
         }
 
 
@@ -431,7 +439,7 @@
         }
 
         .language-label {
-            font-weight: 500;
+            font-weight: 400;
             color: var(--text-sub);
         }
 
@@ -441,7 +449,7 @@
         }
 
         .language-current {
-            font-weight: 700;
+            font-weight: 600;
             color: var(--deep-color);
         }
 
