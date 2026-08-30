@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .container,
         .container * {
@@ -54,6 +56,30 @@
             --font-body-family: 'Pretendard', sans-serif;
         }
 
+        /* =========================================================
+           ★ LANGUAGE FONT SYSTEM
+           KOR Title : Noto Serif KR / Body : Pretendard
+           ENG Title : Noto Serif    / Body : Pretendard
+           CN  Title : Noto Serif SC / Body : Noto Sans SC
+           ========================================================= */
+
+        html[lang="ko"] {
+            --font-title-family: 'Noto Serif KR', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="en"] {
+            --font-title-family: 'Noto Serif', serif;
+            --font-body-family: 'Pretendard', sans-serif;
+        }
+
+        html[lang="zh-CN"] {
+            --font-title-family: 'Noto Serif SC', serif;
+            --font-body-family: 'Noto Sans SC', sans-serif;
+        }
+
+
+
         html {
             scroll-behavior: smooth;
             scrollbar-width: none;
@@ -87,6 +113,27 @@
 
         ul {
             list-style: none;
+        }
+
+
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        select,
+        .nav-menu,
+        .dropdown,
+        .lang-switch,
+        .mobile-drawer,
+        .tag-orange,
+        .hero-desc,
+        .link-arrow,
+        .story-text-side p,
+        .sec-topics .section-tag,
+        .sec-cta p,
+        .cta-btn-box {
+            font-family: var(--font-body-family);
         }
 
         /* =========================================================
@@ -205,7 +252,7 @@
         }
 
         .nav-menu a.nav-link:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .dropdown {
@@ -267,7 +314,7 @@
 
         .dropdown-item:hover {
             background: var(--bg-light);
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .dropdown-item svg {
@@ -279,7 +326,7 @@
         }
 
         .dropdown-item:hover svg {
-            fill: var(--primary-color);
+            fill: var(--accent-color);
         }
 
         .nav-right {
@@ -362,7 +409,7 @@
             border: 0;
             margin: 0;
             padding: 5px 0;
-            font-family: 'Pretendard', sans-serif;
+            font-family: var(--font-body-family);
             font-size: var(--font-sub);
             font-weight: 600;
             line-height: var(--line-sub);
@@ -373,7 +420,7 @@
 
         .lang-btn:hover,
         .lang-btn.active {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .hamburger {
@@ -492,8 +539,8 @@
             transition: color 0.2s, border-color 0.2s;
         }
         .link-arrow:hover {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
+            color: #FF865E;
+            border-color: #FF865E;
         }
 
 /* 섹션 2 */
@@ -628,9 +675,9 @@
         }
 
         .cta-btn-box:hover {
-            background-color: #2F4858;
+            background-color: #FF865E;
             color: #FFFFFF;
-            border-color: #2F4858;
+            border-color: #FF865E;
             transform: translateY(-2px);
         }
 
@@ -689,13 +736,13 @@
                 </div>
 
                 <div class="language-options">
-                    <button type="button" class="lang-btn active"
+                    <button type="button" class="lang-btn active" aria-pressed="true"
                         onclick="switchLanguage('kor', 'KOR', event)">KOR</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('eng', 'ENG', event)">ENG</button>
 
-                    <button type="button" class="lang-btn"
+                    <button type="button" class="lang-btn" aria-pressed="false"
                         onclick="switchLanguage('chn', 'CN', event)">CN</button>
                 </div>
             </div>
@@ -855,56 +902,56 @@
             eng: {
                 page_title: "Creator - SONGSHTORY",
                 menu_intro: "About",
-                menu_brand: "Brand",
+                menu_brand: "Brands",
                 drop_creator: "Creator",
                 drop_ecommerce: "E-Commerce",
                 drop_global: "Global Sourcing",
                 menu_project: "Projects",
                 menu_contact: "Contact",
-                creator_tag: "Creator",
-                hero_brand: "Songshtory.mp4",
-                hero_sub: "A creator recording culture, daily life, and business experiences.",
-                hero_desc: "Recording diverse contents and experiences centered around China and Taiwan.",
-                content_view: "View Content ↗",
-                sec2_banner_title: "Records of Stories Experienced Firsthand",
-                sec2_sub_title: "Delivering moments met locally<br>through stories.",
-                sec2_desc: "Directly seeing, experiencing, and recording<br>travel landscapes, daily life, culture, language,<br>and the scenes of business and e-commerce.",
-                sec3_tag: "Recording Stories",
-                sec3_title: "Creating content on various topics.",
+                creator_tag: "CREATOR",
+                hero_brand: "SONGSHTORY.mp4",
+                hero_sub: "A creator documenting culture, everyday life, and business",
+                hero_desc: "Stories and experiences from China and Taiwan, captured through firsthand encounters.",
+                content_view: "Explore Content ↗",
+                sec2_banner_title: "Stories Drawn from Firsthand Experience",
+                sec2_sub_title: "Turning moments from the ground<br>into stories worth sharing.",
+                sec2_desc: "From travel and everyday life to culture, language,<br>business, and e-commerce,<br>we experience it firsthand and document what we find.",
+                sec3_tag: "STORIES WE DOCUMENT",
+                sec3_title: "Content Across a Range of Topics",
                 topic_1: "Business & E-Commerce",
-                topic_2: "China & Taiwan Culture & Life",
-                topic_3: "Travel & Daily Life",
+                topic_2: "Life & Culture in China and Taiwan",
+                topic_3: "Travel & Everyday Life",
                 topic_4: "Chinese Language",
-                cta_title: "Curious about more stories?",
-                cta_desc: "Check out vivid stories and experiences on the Songshtory.mp4 channel.",
-                cta_btn: "View Channel ↗"
+                cta_title: "Want to See More Stories?",
+                cta_desc: "Discover more real-life stories and experiences on the SONGSHTORY.mp4 channel.",
+                cta_btn: "Visit Channel ↗"
             },
             chn: {
-                page_title: "创作者 - SONGSHTORY",
-                menu_intro: "简介",
+                page_title: "内容创作 - SONGSHTORY",
+                menu_intro: "关于我们",
                 menu_brand: "品牌",
-                drop_creator: "创作者",
+                drop_creator: "内容创作",
                 drop_ecommerce: "电商",
                 drop_global: "全球采购",
                 menu_project: "项目",
                 menu_contact: "联系我们",
-                creator_tag: "创作者",
-                hero_brand: "宋故事.mp4",
-                hero_sub: "记录文化、日常生活与商业经验的创作者",
-                hero_desc: "以中国和台湾为中心记录各种内容与体验。",
+                creator_tag: "内容创作",
+                hero_brand: "SONGSHTORY.mp4",
+                hero_sub: "记录文化、日常生活与商业体验的内容创作者",
+                hero_desc: "以中国与台湾地区为中心，记录亲身经历的故事与各种真实体验。",
                 content_view: "查看内容 ↗",
-                sec2_banner_title: "亲身经历的故事记录",
-                sec2_sub_title: "将当地相遇的瞬间<br>化作故事传递给您。",
-                sec2_desc: "亲自观看、体验并记录旅行风景、日常生活、文化语言<br>以及商业与电商的现场。",
-                sec3_tag: "记录的故事",
-                sec3_title: "以多样的主题制作内容。",
-                topic_1: "商业与电商经验",
-                topic_2: "中国与台湾文化生活",
-                topic_3: "旅行与日常生活",
+                sec2_banner_title: "来自亲身经历的故事记录",
+                sec2_sub_title: "把在当地遇见的瞬间<br>转化为值得分享的故事。",
+                sec2_desc: "从旅行风景、日常生活到文化与语言，<br>再到商业与电商现场，<br>我们亲自观察、体验并持续记录。",
+                sec3_tag: "记录中的故事",
+                sec3_title: "围绕多样主题持续创作内容",
+                topic_1: "商业与电商",
+                topic_2: "中国与台湾地区的文化生活",
+                topic_3: "旅行与日常",
                 topic_4: "中文",
                 cta_title: "想了解更多故事吗？",
-                cta_desc: "在宋故事.mp4频道中确认生动的故事与体验。",
-                cta_btn: "查看频道 ↗"
+                cta_desc: "欢迎前往 SONGSHTORY.mp4 频道，查看更多真实的故事与体验。",
+                cta_btn: "前往频道 ↗"
             }
         };
 
@@ -948,28 +995,68 @@
             observer.observe(el);
         });
 
-        function switchLanguage(langCode, langLabel, event) {
-            if (event) event.stopPropagation();
-            
-            document.getElementById('currentLangText').textContent = langLabel;
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) {
-                event.target.classList.add('active');
+        const languageConfig = {
+            kor: { label: "KOR", htmlLang: "ko" },
+            eng: { label: "ENG", htmlLang: "en" },
+            chn: { label: "CN", htmlLang: "zh-CN" }
+        };
+
+        function applyLanguage(langCode, event = null) {
+            const config = languageConfig[langCode];
+            const dictionary = translations[langCode];
+            if (!config || !dictionary) return;
+
+            if (event && typeof event.stopPropagation === "function") {
+                event.stopPropagation();
             }
 
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[langCode] && translations[langCode][key]) {
-                    if (el.tagName === 'TITLE') {
-                        document.title = translations[langCode][key];
-                    } else {
-                        el.innerHTML = translations[langCode][key];
-                    }
+            document.documentElement.lang = config.htmlLang;
+            document.documentElement.dataset.language = langCode;
+
+            const currentLangText = document.getElementById("currentLangText");
+            if (currentLangText) {
+                currentLangText.textContent = config.label;
+            }
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                const isActive = button.textContent.trim() === config.label;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
+
+            document.querySelectorAll("[data-translate]").forEach((element) => {
+                const key = element.getAttribute("data-translate");
+                if (!Object.prototype.hasOwnProperty.call(dictionary, key)) return;
+
+                if (element.tagName === "TITLE") {
+                    element.textContent = dictionary[key].replace(/<br\s*\/?>/gi, " ");
+                } else {
+                    element.innerHTML = dictionary[key];
                 }
             });
+
+            try {
+                localStorage.setItem("songshtory-language", langCode);
+            } catch (error) {}
         }
-    </script>
+
+        function switchLanguage(langCode, langLabel, event) {
+            applyLanguage(langCode, event);
+        }
+
+        function initializeLanguage() {
+            let initialLanguage = "kor";
+            try {
+                const savedLanguage = localStorage.getItem("songshtory-language");
+                if (savedLanguage && languageConfig[savedLanguage]) {
+                    initialLanguage = savedLanguage;
+                }
+            } catch (error) {}
+            applyLanguage(initialLanguage);
+        }
+    
+
+        document.addEventListener("DOMContentLoaded", initializeLanguage);
+</script>
 </body>
 </html>
