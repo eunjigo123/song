@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">이커머스 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .container,
@@ -399,7 +399,7 @@
         .container {
             width: calc(100% - (var(--page-gutter) * 2));
             max-width: none;
-            margin: 130px var(--page-gutter) 100px;
+            margin: 140px var(--page-gutter) 100px;
             padding: 0;
             box-sizing: border-box;
         }
@@ -469,31 +469,53 @@
             border-color: var(--primary-color);
         }
 
-        /* 5:4 비율 이미지 박스 (시안 기준) */
-        .image-box-54 {
-            width: 100%; 
-            aspect-ratio: 5 / 4; 
-            border: 2px solid var(--deep-color); 
-            background: #FFFFFF; 
+/* 섹션 2: 배너 타이틀 및 스토리 영역 */
+
+        /* =========================================================
+           ★ IMAGE SIZE / RATIO CONTROL
+           첫 번째 코드를 이미지 규격의 기준 코드로 사용합니다.
+
+           현재 이미지 규격
+           - brand_02_image_01.png: 5:4
+           - brand_02_image_02.png: 5:4
+           - brand_02_image_03.png: 5:4
+           - brand_02_image_04.png: 4:3
+           - brand_02_image_05.png: 4:3
+           - brand_02_image_06.png: 4:3
+
+           표시 기준
+           - 메인 2열 영역: grid-template-columns: 1fr 1fr
+           - 2열 간격: 60px
+           - 첫 섹션 시작 위치: 140px
+           - 이미지 모서리: 8px
+           - 첫 번째 코드와 같은 부드러운 이미지 그림자
+           - 비율은 공통 클래스가 아닌 이미지별 클래스에서만 수정
+           ========================================================= */
+
+        .ecommerce-image-box-01 { aspect-ratio: 5 / 4; }
+        .ecommerce-image-box-02 { aspect-ratio: 5 / 4; }
+        .ecommerce-image-box-03 { aspect-ratio: 5 / 4; }
+        .ecommerce-image-box-04 { aspect-ratio: 4 / 3; }
+        .ecommerce-image-box-05 { aspect-ratio: 4 / 3; }
+        .ecommerce-image-box-06 { aspect-ratio: 4 / 3; }
+
+        .ecommerce-image-box {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-        }
-        .image-box-54 img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+            box-shadow: 0 10px 30px rgba(47, 72, 88, 0.05);
         }
 
-        /* 4:3 비율 이미지 박스 (시안 기준 스토어 3개 영역) */
-        .image-box-43 {
-            width: 100%; 
-            aspect-ratio: 4 / 3; 
-            border: 2px solid var(--deep-color); 
-            background: #FFFFFF; 
-            overflow: hidden;
-        }
-        .image-box-43 img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+        .ecommerce-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* 섹션 2: 배너 타이틀 및 스토리 영역 */
+
         .sec-story { margin-bottom: 120px; }
         .banner-title-box { background-color: var(--bg-light); padding: 40px 20px; text-align: center; margin-bottom: 60px; }
         .banner-title-box h2 {
@@ -558,7 +580,7 @@
         }
 
         /* 섹션 4: CTA 영역 */
-        .sec-cta { background-color: var(--bg-light); border: 2px solid var(--deep-color); padding: 60px 20px; text-align: center; }
+        .sec-cta { background-color: var(--bg-light); border: 1px solid var(--border-color); padding: 60px 20px; text-align: center; }
         .sec-cta h3 {
             font-family: var(--font-title-family);
             font-size: var(--font-medium-title);
@@ -716,8 +738,8 @@
                 <a href="#" class="link-arrow" data-translate="content_view">스마트스토어에서 보기 ↗</a>
             </div>
             <div>
-                <div class="image-box-54">
-                    <img src="brand_02_image_01.png" alt="brand_02_image_01 이미지">
+                <div class="ecommerce-image-box ecommerce-image-box-01">
+                        <img src="brand_02_image_01.png" alt="brand_02_image_01 이미지">
                 </div>
             </div>
         </section>
@@ -733,7 +755,7 @@
             </div>
             <div class="sec-story-grid">
                 <div>
-                    <div class="image-box-54">
+                    <div class="ecommerce-image-box ecommerce-image-box-02">
                         <img src="brand_02_image_02.png" alt="brand_02_image_02 이미지">
                     </div>
                 </div>
@@ -752,7 +774,7 @@
                     <p data-translate="sec3_desc">새로운 시작을 앞둔 자신을 위한,<br>소중한 사람을 위한<br>따뜻한 선택이 되길 바랍니다.</p>
                 </div>
                 <div>
-                    <div class="image-box-54">
+                    <div class="ecommerce-image-box ecommerce-image-box-03">
                         <img src="brand_02_image_03.png" alt="brand_02_image_03 이미지">
                     </div>
                 </div>
@@ -766,21 +788,21 @@
 
             <div class="topics-3-grid">
                 <div class="topic-card-wrap">
-                    <div class="topic-card-box image-box-43">
+                    <div class="topic-card-box ecommerce-image-box ecommerce-image-box-04">
                         <img src="brand_02_image_04.png" alt="brand_02_image_04 이미지">
                     </div>
                     <div class="topic-card-title" data-translate="topic_1_title">가방</div>
                     <div class="topic-card-desc" data-translate="topic_1_desc">일상의 흐름을 담는, 실용적인 디자인</div>
                 </div>
                 <div class="topic-card-wrap">
-                    <div class="topic-card-box image-box-43">
+                    <div class="topic-card-box ecommerce-image-box ecommerce-image-box-05">
                         <img src="brand_02_image_05.png" alt="brand_02_image_05 이미지">
                     </div>
                     <div class="topic-card-title" data-translate="topic_2_title">넥타이</div>
                     <div class="topic-card-desc" data-translate="topic_2_desc">나만의 인상을 완성하는 포인트</div>
                 </div>
                 <div class="topic-card-wrap">
-                    <div class="topic-card-box image-box-43">
+                    <div class="topic-card-box ecommerce-image-box ecommerce-image-box-06">
                         <img src="brand_02_image_06.png" alt="brand_02_image_06 이미지">
                     </div>
                     <div class="topic-card-title" data-translate="topic_3_title">캐주얼 잡화</div>
