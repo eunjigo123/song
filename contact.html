@@ -6,7 +6,7 @@
 
     <title>문의하기 - SONGSHTORY</title>
 
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=8670"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=4163"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=3149"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18554"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18154"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12147"></script><link
         rel="stylesheet"
         as="style"
         crossorigin
@@ -105,29 +105,6 @@
 
 
 
-        /*
-        =========================================================
-        ★ 관리 포인트
-        - 전체 데스크톱 좌우 여백: :root의 --page-gutter
-        - 폰트 크기: :root의 --font-* 변수
-        - 제목 폰트: Noto Serif KR
-        - 제목 외 폰트: Pretendard
-        - 스크롤 기능 유지, 스크롤바만 숨김
-        =========================================================
-
-        HEADER
-        about.html 기준
-        =========================================================
-        */
-
-        /* =========================================================
-           ★ 공통 HEADER 기준
-           - 좌우 기준선: --page-gutter (240px)
-           - 로고: 왼쪽 기준선
-           - 메뉴: 화면 정중앙
-           - 언어 선택: 오른쪽 기준선
-           - 페이지별 강제 margin 사용 금지
-           ========================================================= */
         header {
             position: fixed;
 
@@ -754,49 +731,66 @@
 
 
         .image-box {
-            width: 100%;
-
-            aspect-ratio: 5 / 4;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             background: #fff;
-
-            border:
-                1px solid
-                var(--border-color);
-
+            border: 1px solid var(--border-color);
             position: relative;
-
             overflow: hidden;
-
             border-radius: 8px;
-
-            box-shadow:
-                0 10px 30px
-                rgba(47,72,88,.05);
+            box-shadow: 0 10px 30px rgba(47,72,88,.05);
         }
 
 
         .image-box img {
             position: absolute;
-
             inset: 0;
-
             width: 100%;
-
             height: 100%;
-
             object-fit: cover;
         }
 
 
 
-        /*
+
+       
+        /* contact_image_01.png */
+        .contact-image-box-01 {
+            width: 100%;
+            max-width: none;
+            aspect-ratio: 5 / 4;
+        }
+
+        /* contact_icon_01.png */
+        .contact-icon-box-01 {
+            width: 75px;
+            max-width: 75px;
+            aspect-ratio: 1 / 1;
+        }
+
+        /* contact_icon_02.png */
+        .contact-icon-box-02 {
+            width: 75px;
+            max-width: 75px;
+            aspect-ratio: 1 / 1;
+        }
+
+        /* contact_icon_03.png */
+        .contact-icon-box-03 {
+            width: 75px;
+            max-width: 75px;
+            aspect-ratio: 1 / 1;
+        }
+
+        /* contact_icon_04.png */
+        .contact-icon-box-04 {
+            width: 75px;
+            max-width: 75px;
+            aspect-ratio: 1 / 1;
+        }
+
+/*
         =========================================================
         EMAIL
         =========================================================
@@ -1149,37 +1143,21 @@
 
 
         .guide-icon-box {
-            width: 75px;
-
-            height: 75px;
-
             background: #fff;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            border:
-                1.5px solid
-                var(--primary-color);
-
+            border: 1.5px solid var(--primary-color);
             overflow: hidden;
-
             padding: 15px;
         }
 
 
         .guide-icon-box img {
             width: 100%;
-
             height: 100%;
-
             object-fit: contain;
-
             display: block;
         }
 
@@ -1700,7 +1678,7 @@
 
 
 
-            <div class="image-box">
+            <div class="image-box contact-image-box-01">
 
                 <img
                     src="contact_image_01.png"
@@ -1971,8 +1949,7 @@
                 <div class="guide-icon-card">
 
 
-                    <div class="guide-icon-box">
-
+                    <div class="guide-icon-box contact-icon-box-01">
                         <img
                             src="contact_icon_01.png"
                             alt="문의 목적 아이콘"
@@ -1995,8 +1972,7 @@
                 <div class="guide-icon-card">
 
 
-                    <div class="guide-icon-box">
-
+                    <div class="guide-icon-box contact-icon-box-02">
                         <img
                             src="contact_icon_02.png"
                             alt="필요한 내용 또는 상품 아이콘"
@@ -2019,8 +1995,7 @@
                 <div class="guide-icon-card">
 
 
-                    <div class="guide-icon-box">
-
+                    <div class="guide-icon-box contact-icon-box-03">
                         <img
                             src="contact_icon_03.png"
                             alt="희망 일정 아이콘"
@@ -2043,8 +2018,7 @@
                 <div class="guide-icon-card">
 
 
-                    <div class="guide-icon-box">
-
+                    <div class="guide-icon-box contact-icon-box-04">
                         <img
                             src="contact_icon_04.png"
                             alt="예산·수량 조건 아이콘"
