@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5643"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .container,
@@ -15,16 +15,16 @@
             box-sizing: border-box;
         }
         :root {
-            --primary-color: #FFA552;      /* 메인 브랜드 컬러 */
-            --accent-color: #FF865E;       /* 보조 포인트 컬러 */
-            --deep-color: #2F4858;         /* 딥 컬러 */
-            --bg-light: #FFF7EF;           /* 연한 브랜드 배경 */
-            --bg-base: #FFFFFF;            /* 기본 배경 */
-            --text-sub: #5A6E7C;           /* 보조 본문 컬러 */
-            --border-color: #F1E6DC;       /* 테두리 컬러 */
+            --primary-color: #FFA552;
+            --accent-color: #FF865E;
+            --deep-color: #2F4858;
+            --bg-light: #FFF7EF;
+            --bg-base: #FFFFFF;
+            --text-sub: #5A6E7C;
+            --border-color: #F1E6DC;
 
             /* =========================================================
-               ★ 데스크톱 폰트 규격 수정 영역
+               ★ 데스크톱 폰트 규격
                1. 페이지 대표 제목 : 44px / 1.25 / 700
                2. 대형 섹션 제목   : 36px / 1.30 / 700
                3. 중형 제목        : 28px / 1.40 / 700
@@ -56,7 +56,7 @@
 
         html {
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
 
         html::-webkit-scrollbar,
@@ -88,7 +88,7 @@
             list-style: none;
         }
 
-        /* 제목/타이틀 계열은 Noto Serif KR */
+        /* 제목 계열 */
         h1,
         h2,
         h3,
@@ -99,14 +99,13 @@
         .sec-topics h2,
         .topic-card-title,
         .sec-cta h3 {
-            font-family: var(--font-title-family);
             font-size: var(--font-medium-title);
             font-weight: 700;
             line-height: var(--line-medium-title);
             margin-bottom: 15px;
         }
 
-        /* 제목을 제외한 일반 텍스트는 Pretendard */
+        /* 제목을 제외한 텍스트 */
         body,
         a,
         button,
@@ -120,7 +119,6 @@
         .section-tag,
         .sec-story p,
         .sec-cta p {
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 400;
             line-height: var(--line-body);
@@ -141,12 +139,12 @@
         }
 
         /* =========================================================
-           ★ 공통 관리 포인트
-           - 데스크톱 좌우 여백: --page-gutter
-           - 폰트 크기/행간: --font-* / --line-* 변수
-           - 타이틀: Noto Serif KR
-           - 타이틀 외 텍스트: Pretendard
-           - 스크롤 기능 유지, 스크롤바만 숨김
+           ★ 공통 HEADER 기준
+           - 좌우 기준선: --page-gutter (240px)
+           - 로고: 왼쪽 기준선
+           - 메뉴: 화면 정중앙
+           - 언어 선택: 오른쪽 기준선
+           - 메뉴 간격: 60px
            ========================================================= */
 
         /* Header (Sticky & Blur) */
@@ -162,12 +160,12 @@
             box-shadow: 0 2px 12px rgba(47, 72, 88, 0.03);
             z-index: 1000;
 
-            padding: 0 var(--page-gutter);
-            box-sizing: border-box;
-
             display: grid;
             grid-template-columns: 1fr auto 1fr;
             align-items: center;
+
+            padding: 0 var(--page-gutter);
+            box-sizing: border-box;
 
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
@@ -207,7 +205,6 @@
         }
 
         .nav-menu a.nav-link {
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 600;
             line-height: var(--line-body);
@@ -231,7 +228,7 @@
             width: 260px;
             border-radius: 12px;
             box-shadow: 0 12px 35px rgba(47, 72, 88, 0.12);
-            border: 1px solid #F1E6DC;
+            border: 1px solid var(--border-color);
             padding: 16px;
             opacity: 0;
             visibility: hidden;
@@ -247,8 +244,8 @@
             width: 10px;
             height: 10px;
             background: var(--bg-base);
-            border-top: 1px solid #F1E6DC;
-            border-left: 1px solid #F1E6DC;
+            border-top: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
         }
 
         .nav-menu > li:hover .dropdown {
@@ -269,7 +266,6 @@
             gap: 12px;
             padding: 10px 12px;
             border-radius: 8px;
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 600;
             line-height: var(--line-body);
@@ -322,7 +318,6 @@
             align-items: center;
             justify-content: center;
             white-space: nowrap;
-            font-family: var(--font-body-family);
             font-size: var(--font-sub);
             line-height: var(--line-sub);
             color: var(--deep-color);
@@ -373,7 +368,7 @@
             border: 0;
             margin: 0;
             padding: 5px 0;
-            font-family: var(--font-body-family);
+            font-family: 'Pretendard', sans-serif;
             font-size: var(--font-sub);
             font-weight: 600;
             line-height: var(--line-sub);
@@ -454,7 +449,6 @@
         /* 상단 주황색 작은 태그 & 밑줄 */
         .tag-orange {
             display: inline-block;
-            font-family: var(--font-body-family);
             font-size: var(--font-sub);
             font-weight: 600;
             line-height: var(--line-sub);
@@ -486,7 +480,6 @@
         }
 
         .hero-desc {
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 400;
             color: var(--text-sub);
@@ -495,7 +488,6 @@
         }
 
         .link-arrow {
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 600;
             line-height: var(--line-body);
@@ -537,7 +529,6 @@
         .sec-story { margin-bottom: 120px; }
         .banner-title-box { background-color: var(--bg-light); padding: 40px 20px; text-align: center; margin-bottom: 60px; }
         .banner-title-box h2 {
-            font-family: var(--font-title-family);
             font-size: var(--font-section-title);
             font-weight: 700;
             line-height: var(--line-section-title);
@@ -547,7 +538,6 @@
         }
         .quote-icon {
             color: var(--primary-color);
-            font-family: var(--font-title-family);
             font-size: var(--font-card-title);
             font-weight: 700;
             line-height: var(--line-card-title);
@@ -555,7 +545,6 @@
 
         .sec-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .story-text-side h3 {
-            font-family: var(--font-title-family);
             font-size: var(--font-medium-title);
             font-weight: 700;
             line-height: var(--line-medium-title);
@@ -563,7 +552,6 @@
         }
         .story-text-side .orange-line { width: 40px; height: 3px; background-color: var(--primary-color); margin-bottom: 25px; }
         .story-text-side p {
-            font-family: var(--font-body-family);
             font-size: var(--font-body);
             font-weight: 400;
             color: var(--text-sub);
@@ -573,7 +561,6 @@
         /* 섹션 3 */
         .sec-topics { text-align: center; margin-bottom: 120px; }
         .sec-topics .section-tag {
-            font-family: var(--font-body-family);
             font-size: var(--font-sub);
             font-weight: 600;
             line-height: var(--line-sub);
@@ -582,7 +569,6 @@
             display: block;
         }
         .sec-topics h2 {
-            font-family: var(--font-title-family);
             font-size: var(--font-section-title);
             font-weight: 700;
             line-height: var(--line-section-title);
@@ -593,7 +579,6 @@
         .topics-4-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: left; }
         .topic-card-wrap { display: flex; flex-direction: column; gap: 12px; }
         .topic-card-title {
-            font-family: var(--font-title-family);
             font-size: var(--font-card-title);
             font-weight: 700;
             line-height: var(--line-card-title);
@@ -608,13 +593,12 @@
             display: inline-block;
             background-color: #FFFFFF;
             color: #2F4858;
-            font-family: var(--font-body-family);
             font-weight: 600;
             font-size: var(--font-body);
             line-height: var(--line-body);
             padding: 16px 45px;
             border-radius: 6px;
-            border: 1px solid #F1E6DC;
+            border: 1px solid var(--border-color);
             box-shadow: none;
             transition: all 0.2s ease;
         }
