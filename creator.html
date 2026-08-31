@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29739"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28711"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=30319"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29739"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28711"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -1142,6 +1142,64 @@
             }
         }
 
+
+        /* =========================================================
+           ★ LOCK 1 VIEWPORT FIX
+           첫 섹션에서 다음 섹션이 화면 하단에 보이지 않도록
+           첫 섹션 자체가 viewport 하단까지 채우게 설정
+
+           기준:
+           - fixed header: 75px
+           - header 아래 실제 top gap: 75px
+           - 첫 섹션 시작점: 150px
+           - 첫 섹션 높이: viewport - 150px
+           - 다음 섹션은 화면 밖에서 시작
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important;
+            }
+
+            #creatorLock1 {
+                height: calc(100vh - 150px) !important;
+                min-height: calc(100vh - 150px) !important;
+
+                margin: 0 0 75px 0 !important;
+                padding: 0 !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                /* 상단 75px 기준은 그대로, 세로 중앙정렬 금지 */
+                align-items: start !important;
+                align-content: start !important;
+
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            #creatorLock1 > div {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ CTA BOTTOM GAP = TRUE 75px
+           블록 하단 → 페이지 끝 공백을 실제 75px로 고정
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-bottom: 0 !important;
+            }
+
+            .sec-cta {
+                margin-bottom: 75px !important;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -1517,7 +1575,7 @@
 
            수정 핵심:
            - 스냅 이동 자체는 즉시
-           - 각 락 도착 후 900ms 동안 휠 입력 고정 차단
+           - 각 락 도착 후 1400ms 동안 휠 입력 고정 차단
            - 기존 90ms + 이벤트마다 타이머 재시작 방식 제거
            - 한 번의 터치패드/휠 제스처가 다음 락까지 관통하는 문제 방지
            ========================================================= */
@@ -1525,7 +1583,7 @@
             const DESKTOP_BREAKPOINT = 1024;
             const HEADER_HEIGHT = 75;
             const POSITION_TOLERANCE = 28;
-            const LOCK_HOLD_MS = 900;
+            const LOCK_HOLD_MS = 1400;
 
             const locks = [
                 document.getElementById('creatorLock1'),
@@ -1583,7 +1641,7 @@
             function handleWheel(event) {
                 if (!isDesktop()) return;
 
-                /* 락 도착 후 900ms 동안은 방향과 관계없이 휠을 막음 */
+                /* 락 도착 후 1400ms 동안은 방향과 관계없이 휠을 막음 */
                 if (isHolding) {
                     event.preventDefault();
                     return;
