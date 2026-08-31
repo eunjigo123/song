@@ -1,4 +1,9 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26540"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26418"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26314"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26044"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=25825"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17224"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=15411"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11617"></script>
@@ -976,7 +981,7 @@
         position: relative;
         border: 1px solid var(--border-color);
         background: var(--bg-base);
-        padding: 50px 40px; 
+        padding: 36px 40px; 
         border-radius: 12px;
         display: flex;
         justify-content: space-between; 
@@ -1098,7 +1103,7 @@
         height: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
@@ -1146,7 +1151,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        justify-content: center;
+        justify-content: flex-end;
         text-align: right;
         flex-shrink: 0;
     }
@@ -1311,6 +1316,790 @@
             display: none;
         }
     }
+
+    /* =========================================================
+       ★ LOCK 2 ONE-VIEW FIT
+       프로젝트와 스토리 섹션을 데스크톱 한 화면에 맞춤
+       - 헤더 75px 제외한 화면 안에 전체 내용이 보이도록 압축
+       - 이미지 비율은 기존 16:9 그대로 유지
+       - 모바일은 기존 레이아웃 유지
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-section {
+            min-height: calc(100vh - 75px);
+            padding: 38px var(--page-gutter);
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: 100%;
+        }
+
+        .story-main-header {
+            margin-bottom: 26px;
+        }
+
+        .story-main-header span {
+            margin-bottom: 8px;
+        }
+
+        .story-main-header h2 {
+            margin-bottom: 8px;
+        }
+
+        .story-grid-top {
+            gap: 30px;
+            margin-bottom: 0;
+        }
+
+        .story-card-img {
+            margin-bottom: 12px;
+        }
+
+        .story-card-category {
+            margin-bottom: 4px;
+        }
+
+        .story-card-title {
+            margin-bottom: 4px;
+        }
+
+        .story-bottom-box {
+            margin-top: 24px;
+            padding: 20px 32px;
+            gap: 60px;
+        }
+
+        .story-bottom-box::after {
+            top: 20px;
+            bottom: 20px;
+        }
+
+        .story-content-tag {
+            margin-bottom: 8px;
+        }
+
+        .story-content-text h4 {
+            margin-bottom: 8px;
+        }
+
+        .story-content-text p {
+            margin-bottom: 16px;
+        }
+
+        .action-btn {
+            padding: 11px 18px;
+        }
+    }
+
+
+    /* ★ OUR PHILOSOPHY도 독립 LOCK 지점으로 사용 */
+    @media (min-width: 901px) {
+        .experience-section {
+            scroll-margin-top: 75px;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK SECTION 75px VERTICAL GAP
+       모든 데스크톱 락 지점은
+       헤더(75px) 아래에서 시작하고,
+       락 화면 안에서 콘텐츠 위/아래에 75px 공백을 확보합니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        .main-banner-section,
+        .experience-section,
+        .story-main-section {
+            box-sizing: border-box;
+        }
+
+        /* LOCK 1 : MAIN BANNER */
+        .main-banner-section {
+            margin: 75px var(--page-gutter) 0 var(--page-gutter);
+            min-height: calc(100vh - 75px);
+            padding-top: 75px;
+            padding-bottom: 75px;
+            align-content: center;
+        }
+
+        /* LOCK 2 : OUR PHILOSOPHY */
+        .experience-section {
+            margin: 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .experience-inner {
+            width: 100%;
+        }
+
+        /* LOCK 3 : PROJECTS & STORIES */
+        .story-main-section {
+            margin: 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: 100%;
+        }
+    }
+
+
+    /* =========================================================
+       ★ PROJECTS & STORIES BOTTOM END
+       - 주황색 배경은 story-bottom-box 끝에서 바로 종료
+       - 이후 흰색 공백 정확히 75px
+       - 그 다음 footer 시작
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-section {
+            min-height: auto;
+            padding-top: 75px;
+            padding-right: var(--page-gutter);
+            padding-bottom: 0;
+            padding-left: var(--page-gutter);
+            margin: 0 0 75px 0;
+            display: block;
+        }
+
+        .story-main-inner {
+            width: 100%;
+        }
+
+        .story-bottom-box {
+            margin-bottom: 0;
+        }
+
+        .site-footer {
+            margin-top: 0;
+        }
+    }
+
+
+    /* =========================================================
+       ★ PROJECTS & STORIES COMPACT / ALIGN
+       - 제목, 카드, 카드 텍스트 사이 간격을 일정하게 정리
+       - 세 카드 높이/정렬 통일
+       - 데스크톱 락 시 한 화면에 더 안정적으로 들어오도록 압축
+       - 이미지 비율은 그대로 유지
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-section {
+            padding-top: 40px;
+            padding-right: var(--page-gutter);
+            padding-bottom: 0;
+            padding-left: var(--page-gutter);
+        }
+
+        .story-main-header {
+            margin-bottom: 28px;
+        }
+
+        .story-main-header span {
+            margin-bottom: 8px;
+        }
+
+        .story-main-header h2 {
+            margin-bottom: 8px;
+        }
+
+        .story-grid-top {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            margin-bottom: 0;
+            align-items: stretch;
+        }
+
+        .story-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .story-card-img {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .story-card-category {
+            margin-bottom: 4px;
+        }
+
+        .story-card-title {
+            margin-bottom: 4px;
+        }
+
+        .story-card-desc {
+            margin-top: 0;
+        }
+
+        .story-bottom-box {
+            margin-top: 20px;
+            padding: 18px 30px;
+            gap: 48px;
+        }
+
+        .story-bottom-box::after {
+            top: 18px;
+            bottom: 18px;
+        }
+
+        .story-content-tag {
+            margin-bottom: 6px;
+        }
+
+        .story-content-text h4 {
+            margin-bottom: 6px;
+        }
+
+        .story-content-text p {
+            margin-bottom: 14px;
+        }
+
+        .action-btn {
+            padding: 10px 18px;
+        }
+    }
+
+
+    /* =========================================================
+       ★ FINAL DESKTOP LOCK / SPACING RULE
+       LOCK 1 : 새로운 일상과 새로운 시작...
+       LOCK 2 : 보고, 고르고, 연결하며...
+       LOCK 3 : 프로젝트와 스토리
+
+       모든 락 화면:
+       - fixed header 75px
+       - 실제 콘텐츠 위 공백 75px
+       - 실제 콘텐츠 아래 공백 75px
+       ========================================================= */
+    @media (min-width: 901px) {
+
+        /* ---------- 사진 오프셋 제거 ---------- */
+        .project-img-box {
+            margin: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(47, 72, 88, 0.06);
+        }
+
+        /* ---------- LOCK 1 ---------- */
+        .main-banner-section {
+            margin: 75px var(--page-gutter) 0 var(--page-gutter);
+            width: auto;
+            min-height: calc(100vh - 75px);
+            padding: 75px 0;
+            box-sizing: border-box;
+
+            /* ★ 실제 상단 공백을 정확히 75px로 유지
+               align-content:center가 남는 세로 공간을 위/아래에 추가 분배해서
+               체감 공백이 75px보다 커지는 문제를 제거 */
+            align-content: start;
+        }
+
+        /* ---------- LOCK 2 ---------- */
+        .experience-section {
+            margin: 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            box-sizing: border-box;
+
+            /* 실제 콘텐츠 시작점이 헤더 아래 정확히 75px이 되도록
+               세로 중앙정렬 제거 */
+            display: block;
+        }
+
+        .experience-inner {
+            width: 100%;
+            margin: 0;
+        }
+
+        /* ---------- LOCK 3 ---------- */
+        .story-main-section {
+            margin: 0 0 75px 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LOCK 3가 한 화면에 안정적으로 들어오도록 간격만 정리
+           이미지 비율은 기존 16:9 그대로 유지 */
+        .story-main-header {
+            margin-bottom: 22px;
+        }
+
+        .story-main-header span {
+            margin-bottom: 6px;
+        }
+
+        .story-main-header h2 {
+            margin-bottom: 6px;
+        }
+
+        .story-grid-top {
+            gap: 24px;
+            margin-bottom: 0;
+        }
+
+        .story-card-img {
+            margin-bottom: 8px;
+        }
+
+        .story-card-category {
+            margin-bottom: 3px;
+        }
+
+        .story-card-title {
+            margin-bottom: 3px;
+        }
+
+        .story-bottom-box {
+            margin-top: 16px;
+            margin-bottom: 0;
+            padding: 16px 28px;
+            gap: 44px;
+        }
+
+        .story-bottom-box::after {
+            top: 16px;
+            bottom: 16px;
+        }
+
+        .story-content-tag {
+            margin-bottom: 5px;
+        }
+
+        .story-content-text h4 {
+            margin-bottom: 5px;
+        }
+
+        .story-content-text p {
+            margin-bottom: 10px;
+        }
+
+        .action-btn {
+            padding: 9px 16px;
+        }
+
+        /* 마지막 락 뒤 footer까지 추가 100px이 쌓이지 않게 */
+        .site-footer {
+            margin-top: 0;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK 3 FINAL ONE-VIEW FIT
+       프로젝트와 스토리 전체가 락됐을 때 한 화면 안에 보이도록
+       데스크톱에서 폭과 간격만 더 압축합니다.
+       사진 비율(16:9)은 그대로 유지합니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-section {
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: min(100%, 1080px);
+            margin: 0 auto;
+        }
+
+        .story-main-header {
+            margin-bottom: 14px;
+        }
+
+        .story-main-header span {
+            margin-bottom: 4px;
+        }
+
+        .story-main-header h2 {
+            margin-bottom: 4px;
+        }
+
+        .story-main-header p {
+            margin: 0;
+        }
+
+        .story-grid-top {
+            gap: 20px;
+            margin-bottom: 0;
+        }
+
+        .story-card-img {
+            margin-bottom: 6px;
+        }
+
+        .story-card-category {
+            margin-bottom: 2px;
+        }
+
+        .story-card-title {
+            margin-bottom: 2px;
+        }
+
+        .story-card-desc {
+            margin: 0;
+        }
+
+        .story-bottom-box {
+            margin-top: 12px;
+            margin-bottom: 0;
+            padding: 12px 24px;
+            gap: 36px;
+        }
+
+        .story-bottom-box::after {
+            top: 12px;
+            bottom: 12px;
+        }
+
+        .story-content-tag {
+            margin-bottom: 4px;
+        }
+
+        .story-content-text h4 {
+            margin-bottom: 4px;
+        }
+
+        .story-content-text p {
+            margin-bottom: 8px;
+        }
+
+        .action-btn {
+            padding: 8px 14px;
+        }
+    }
+
+
+    /* =========================================================
+       ★ SERVICE → PROJECTS & STORIES GAP FIX
+       글로벌 소싱 마지막 구분선이 끝나는 즉시
+       PROJECTS & STORIES 섹션이 이어지도록
+       서비스 전체 래퍼의 하단 여백만 제거합니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        #brand.section {
+            padding-bottom: 0;
+        }
+
+        #global-sourcing.project-section {
+            margin-bottom: 0;
+        }
+
+        .story-main-section {
+            margin-top: 0;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK 2 FINAL FIX
+       "보고, 고르고, 연결하며..." 섹션은
+       실제 콘텐츠 기준 위 75px / 아래 75px만 남깁니다.
+       화면 높이를 억지로 채우는 min-height 제거.
+       ========================================================= */
+    @media (min-width: 901px) {
+        .experience-section {
+            margin: 0 !important;
+            min-height: 0 !important;
+            height: auto !important;
+            padding: 75px var(--page-gutter) !important;
+            box-sizing: border-box !important;
+            display: block !important;
+            align-items: initial !important;
+        }
+
+        .experience-inner {
+            width: 100% !important;
+            margin: 0 !important;
+        }
+    }
+
+
+    /* =========================================================
+       ★ FINAL SERVICE → PROJECTS & STORIES CONNECTION
+       글로벌 소싱 마지막 구분선 바로 다음 픽셀부터
+       PROJECTS & STORIES 섹션이 시작됩니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        #brand.section {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        #global-sourcing.project-section {
+            margin-bottom: 0 !important;
+        }
+
+        #brand + .story-main-section,
+        #project.story-main-section {
+            margin-top: 0 !important;
+        }
+
+        /* 마지막 서비스 구분선 뒤 추가 여백 금지 */
+        #brand.section::after,
+        #global-sourcing.project-section::after {
+            margin-bottom: 0 !important;
+        }
+    }
+
+
+    /* =========================================================
+       ★ PROJECTS & STORIES TEXT SPACING FINAL
+       영어 라벨과 타이틀 사이 간격을 일정하게 축소
+       하단 2분할 박스 제목도 동일한 원칙으로 정리
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-header span {
+            margin-top: 0 !important;
+            margin-bottom: 6px !important;
+        }
+
+        .story-main-header h2 {
+            margin-top: 0 !important;
+            margin-bottom: 6px !important;
+        }
+
+        .story-main-header p {
+            margin-top: 0 !important;
+        }
+
+        .story-content-tag {
+            margin-top: 0 !important;
+            margin-bottom: 6px !important;
+        }
+
+        .story-content-text h4 {
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
+        }
+
+        .story-content-text p {
+            margin-top: 0 !important;
+        }
+
+        /* 하단 박스는 스크롤 애니메이션 없이 처음부터 표시 */
+        .story-bottom-box {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK 3 FINAL SINGLE-VIEW LAYOUT
+       프로젝트와 스토리 = 하나의 락 섹션
+       헤더 75px 아래에서 섹션 전체가 한눈에 보이도록 구성
+       이미지 비율은 기존 16:9 유지
+       ========================================================= */
+    @media (min-width: 901px) {
+        #project.story-main-section {
+            width: 100%;
+            height: calc(100vh - 75px) !important;
+            min-height: 0 !important;
+            margin: 0 0 75px 0 !important;
+            padding: 28px var(--page-gutter) !important;
+            box-sizing: border-box;
+            display: flex !important;
+            align-items: center !important;
+            overflow: hidden;
+        }
+
+        #project .story-main-inner {
+            width: min(100%, 1060px) !important;
+            max-width: 1060px !important;
+            margin: 0 auto !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 상단 타이틀 묶음 */
+        #project .story-main-header {
+            margin: 0 0 14px 0 !important;
+        }
+
+        #project .story-main-header span {
+            margin: 0 0 5px 0 !important;
+        }
+
+        #project .story-main-header h2 {
+            margin: 0 0 5px 0 !important;
+        }
+
+        #project .story-main-header p {
+            margin: 0 !important;
+        }
+
+        /* 3개 카드 */
+        #project .story-grid-top {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 20px !important;
+            margin: 0 !important;
+            align-items: start;
+        }
+
+        #project .story-card {
+            min-width: 0;
+        }
+
+        #project .story-card-img {
+            width: 100%;
+            margin: 0 0 6px 0 !important;
+        }
+
+        #project .story-card-category {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-title {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-desc {
+            margin: 0 !important;
+        }
+
+        /* 하단 2분할 박스 */
+        #project .story-bottom-box {
+            margin: 12px 0 0 0 !important;
+            padding: 12px 24px !important;
+            gap: 34px !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        #project .story-bottom-box::after {
+            top: 12px !important;
+            bottom: 12px !important;
+        }
+
+        #project .story-content-tag {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-content-text h4 {
+            margin: 0 0 5px 0 !important;
+        }
+
+        #project .story-content-text p {
+            margin: 0 0 7px 0 !important;
+        }
+
+        #project .action-btn {
+            padding: 8px 14px !important;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK 3 WORKING FINAL
+       PROJECTS & STORIES 전체를 하나의 스냅 화면으로 사용
+       ========================================================= */
+    @media (min-width: 901px) {
+        #project.story-main-section {
+            height: calc(100vh - 75px) !important;
+            min-height: 0 !important;
+            margin: 0 0 75px 0 !important;
+            padding: 24px var(--page-gutter) !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            align-items: center !important;
+            overflow: hidden !important;
+        }
+
+        #project .story-main-inner {
+            width: min(100%, 1060px) !important;
+            max-width: 1060px !important;
+            margin: 0 auto !important;
+        }
+
+        #project .story-main-header {
+            margin: 0 0 12px 0 !important;
+        }
+
+        #project .story-main-header span {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-main-header h2 {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-main-header p {
+            margin: 0 !important;
+        }
+
+        #project .story-grid-top {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 20px !important;
+            margin: 0 !important;
+        }
+
+        #project .story-card-img {
+            margin: 0 0 6px 0 !important;
+        }
+
+        #project .story-card-category {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-title {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-desc {
+            margin: 0 !important;
+        }
+
+        #project .story-bottom-box {
+            margin: 12px 0 0 0 !important;
+            padding: 12px 24px !important;
+            gap: 34px !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        #project .story-bottom-box::after {
+            top: 12px !important;
+            bottom: 12px !important;
+        }
+
+        #project .story-content-tag {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-content-text h4 {
+            margin: 0 0 5px 0 !important;
+        }
+
+        #project .story-content-text p {
+            margin: 0 0 7px 0 !important;
+        }
+
+        #project .action-btn {
+            padding: 8px 14px !important;
+        }
+    }
+
 </style>
 
 <!-- Header -->
@@ -1534,7 +2323,7 @@
             </div>
         </div>
 
-        <div class="story-bottom-box scroll-reveal">
+        <div class="story-bottom-box">
             <div class="story-bottom-item">
                 <div class="story-content-text">
                     <span class="story-content-tag">9sh SMART STORE</span>
@@ -1979,4 +2768,176 @@
     }
 
     document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+
+
+    /* =========================================================
+       ★ FINAL 3-POINT DESKTOP SCROLL LOCK
+       ---------------------------------------------------------
+       LOCK 1 : 새로운 일상과 새로운 시작
+       LOCK 2 : OUR PHILOSOPHY
+       LOCK 3 : PROJECTS & STORIES
+
+       LOCK 2 이후 서비스 상세는 자유 스크롤.
+       PROJECTS & STORIES가 화면에 접근하면 LOCK 3에 정확히 정착.
+       ========================================================= */
+    (() => {
+        const DESKTOP_BREAKPOINT = 900;
+        const HEADER_HEIGHT = 75;
+        const SNAP_DURATION = 620;
+        const POSITION_TOLERANCE = 14;
+
+        const lock1 = document.querySelector('.main-banner-section');
+        const lock2 = document.querySelector('.experience-section');
+        const lock3 = document.querySelector('#project.story-main-section');
+
+        if (!lock1 || !lock2 || !lock3) return;
+
+        let isAnimating = false;
+        let lock3JustSnapped = false;
+
+        function isDesktop() {
+            return window.innerWidth > DESKTOP_BREAKPOINT;
+        }
+
+        function absoluteTop(element) {
+            return element.getBoundingClientRect().top + window.scrollY;
+        }
+
+        function getPositions() {
+            return {
+                first: 0,
+                second: Math.max(0, absoluteTop(lock2) - HEADER_HEIGHT),
+                third: Math.max(0, absoluteTop(lock3) - HEADER_HEIGHT)
+            };
+        }
+
+        function near(a, b, tolerance = POSITION_TOLERANCE) {
+            return Math.abs(a - b) <= tolerance;
+        }
+
+        function smoothSnap(targetY, afterSnap) {
+            if (isAnimating) return;
+
+            isAnimating = true;
+            document.body.style.overscrollBehaviorY = 'none';
+
+            const startY = window.scrollY;
+            const distance = targetY - startY;
+            const startTime = performance.now();
+
+            function ease(t) {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function frame(now) {
+                const progress = Math.min((now - startTime) / SNAP_DURATION, 1);
+                window.scrollTo(0, startY + distance * ease(progress));
+
+                if (progress < 1) {
+                    requestAnimationFrame(frame);
+                    return;
+                }
+
+                window.scrollTo(0, targetY);
+                isAnimating = false;
+                document.body.style.overscrollBehaviorY = '';
+
+                if (typeof afterSnap === 'function') {
+                    afterSnap();
+                }
+            }
+
+            requestAnimationFrame(frame);
+        }
+
+        function handleWheel(event) {
+            if (!isDesktop()) return;
+
+            if (isAnimating) {
+                event.preventDefault();
+                return;
+            }
+
+            const y = window.scrollY;
+            const pos = getPositions();
+            const down = event.deltaY > 0;
+            const up = event.deltaY < 0;
+
+            /* LOCK 1 → LOCK 2 */
+            if (down && near(y, pos.first, 20)) {
+                event.preventDefault();
+                smoothSnap(pos.second);
+                return;
+            }
+
+            /* LOCK 2 → LOCK 1 */
+            if (up && near(y, pos.second, 20)) {
+                event.preventDefault();
+                smoothSnap(pos.first);
+                return;
+            }
+
+            /* -------------------------------------------------
+               LOCK 3 진입
+               PROJECTS & STORIES 상단이 viewport 하단 40% 안으로
+               들어오는 순간 정확한 LOCK 3 위치로 스냅.
+               큰 휠 입력으로 180px 구간을 건너뛰어도 놓치지 않음.
+               ------------------------------------------------- */
+            if (down && y > pos.second + 20 && y < pos.third - POSITION_TOLERANCE) {
+                const distanceToThird = pos.third - y;
+                const triggerDistance = Math.max(260, window.innerHeight * 0.40);
+
+                if (distanceToThird <= triggerDistance) {
+                    event.preventDefault();
+
+                    smoothSnap(pos.third, () => {
+                        lock3JustSnapped = true;
+
+                        /* 같은 휠 제스처의 잔여 입력이 즉시 락을 풀지 않게 */
+                        window.setTimeout(() => {
+                            lock3JustSnapped = false;
+                        }, 450);
+                    });
+
+                    return;
+                }
+            }
+
+            /* LOCK 3에 막 도착한 직후 잔여 휠 입력 차단 */
+            if (near(y, pos.third, 20) && lock3JustSnapped) {
+                event.preventDefault();
+                return;
+            }
+
+            /* LOCK 3 도착 후 새로운 아래 스크롤은 footer 방향 자유 스크롤 */
+
+            /* 아래에서 위로 올라오며 LOCK 3 직전까지 오면 다시 LOCK 3에 정착 */
+            if (up && y > pos.third + POSITION_TOLERANCE) {
+                const distanceFromThird = y - pos.third;
+                const triggerDistance = Math.max(260, window.innerHeight * 0.40);
+
+                if (distanceFromThird <= triggerDistance) {
+                    event.preventDefault();
+                    smoothSnap(pos.third);
+                    return;
+                }
+            }
+
+            /* LOCK 3에서 위로 스크롤하면 서비스 영역으로 자유롭게 이동 */
+        }
+
+        window.addEventListener('wheel', handleWheel, { passive: false });
+
+        window.addEventListener('resize', () => {
+            if (!isDesktop()) {
+                isAnimating = false;
+                lock3JustSnapped = false;
+                document.body.style.overscrollBehaviorY = '';
+            }
+        });
+    })();
+
 </script>
