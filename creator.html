@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28474"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28711"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -693,164 +693,107 @@
         }
     
         /* =========================================================
-           ★ CREATOR FIRST SECTION LOCK
-           - fixed header: 75px
-           - header 아래 실제 공백: 75px
-           - 첫 섹션에서 아래 휠 → 두 번째 섹션으로 즉시 스냅
-           - 두 번째 섹션 이후는 자유 스크롤
-           ========================================================= */
-        @media (min-width: 1025px) {
-            .container {
-                margin-top: 150px !important; /* 75px header + 75px gap */
-            }
-
-            #creatorHeroLock {
-                margin-top: 0 !important;
-                margin-bottom: 75px !important;
-                min-height: calc(100vh - 225px);
-                box-sizing: border-box;
-                align-items: center;
-            }
-
-            #creatorHeroLock h1,
-            #creatorHeroLock h2,
-            #creatorHeroLock p {
-                margin-top: 0;
-            }
-
-            #creatorSection2 {
-                scroll-margin-top: 75px;
-            }
-        }
-
-
-        /* =========================================================
-           ★ CREATOR LOCK 2
-           "다양한 주제로 콘텐츠를 만듭니다."
-           - 실제 위 공백 75px
-           - 실제 아래 공백 75px
-           - 락 시 한 화면에 전체 카드가 보이도록 정리
-           ========================================================= */
-        @media (min-width: 1025px) {
-            #creatorTopicsLock {
-                margin: 0 !important;
-                min-height: 0 !important;
-                height: auto !important;
-                padding: 75px 0 !important;
-                box-sizing: border-box !important;
-                text-align: center;
-                scroll-margin-top: 75px;
-            }
-
-            #creatorTopicsLock .section-tag {
-                margin-top: 0 !important;
-                margin-bottom: 6px !important;
-            }
-
-            #creatorTopicsLock h2 {
-                margin-top: 0 !important;
-                margin-bottom: 8px !important;
-            }
-
-            #creatorTopicsLock > .orange-line {
-                margin: 0 auto 24px !important;
-            }
-
-            #creatorTopicsLock .topics-4-grid {
-                gap: 20px !important;
-                align-items: start;
-            }
-
-            #creatorTopicsLock .topic-card-wrap {
-                gap: 8px !important;
-                margin: 0 !important;
-            }
-
-            #creatorTopicsLock .topic-card-title {
-                margin: 0 !important;
-            }
-
-            /* 원본 4:5 비율 유지 */
-            #creatorTopicsLock .creator-image-box {
-                margin: 0 !important;
-            }
-        }
-
-
-        /* =========================================================
-           ★ CREATOR 3-SECTION LOCK FINAL
+           ★ CREATOR FINAL 3 LOCKS
            LOCK 1 : 송스토리쩜엠피포
            LOCK 2 : 직접 경험한 이야기의 기록
            LOCK 3 : 다양한 주제로 콘텐츠를 만듭니다.
 
-           공통:
-           - fixed header 75px
-           - 콘텐츠 위 75px / 아래 75px
-           - 데스크톱에서 한 화면에 전체 섹션 표시
+           데스크톱 공통:
+           - 고정 헤더 75px
+           - LOCK 콘텐츠 위 공백 75px
+           - LOCK 콘텐츠 아래 공백 75px
            ========================================================= */
         @media (min-width: 1025px) {
 
-            /* 컨테이너 시작점 = 헤더 75 + 상단 공백 75 */
+            /* 첫 화면:
+               header 75 + 상단 공백 75 = container 시작 150px */
             .container {
-                margin-top: 150px !important;
-                margin-bottom: 100px !important;
+                margin: 150px var(--page-gutter) 100px !important;
             }
 
-            /* ---------- LOCK 1 ---------- */
-            #creatorHeroLock {
-                margin: 0 0 75px 0 !important;
-                min-height: 0 !important;
+            /* -----------------------------------------------------
+               LOCK 1
+               viewport 기준:
+               header 75
+               top gap 75
+               content area
+               bottom gap 75
+               ----------------------------------------------------- */
+            #creatorLock1 {
                 height: calc(100vh - 225px) !important;
+                min-height: 0 !important;
+                margin: 0 0 75px 0 !important;
                 padding: 0 !important;
-                box-sizing: border-box !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
                 align-items: center !important;
+                box-sizing: border-box !important;
             }
 
-            /* ---------- LOCK 2 ---------- */
-            #creatorStoryLock {
-                margin: 0 !important;
+            #creatorLock1 h1,
+            #creatorLock1 h2,
+            #creatorLock1 p {
+                margin-top: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               LOCK 2
+               섹션 자체가 header 제외 viewport 높이.
+               내부 padding 위/아래 각각 정확히 75px.
+               ----------------------------------------------------- */
+            #creatorLock2 {
                 height: calc(100vh - 75px) !important;
                 min-height: 0 !important;
+                margin: 0 !important;
                 padding: 75px 0 !important;
                 box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
+                display: grid !important;
+                grid-template-rows: auto minmax(0, 1fr) !important;
+                align-content: stretch !important;
             }
 
-            #creatorStoryLock .banner-title-box {
-                margin: 0 0 20px 0 !important;
+            #creatorLock2 .banner-title-box {
+                margin: 0 0 22px 0 !important;
                 padding: 18px 20px !important;
             }
 
-            #creatorStoryLock .banner-title-box h2 {
+            #creatorLock2 .banner-title-box h2 {
                 margin: 0 !important;
             }
 
-            #creatorStoryLock .sec-story-grid {
-                gap: 50px !important;
+            #creatorLock2 .sec-story-grid {
+                min-height: 0 !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
                 align-items: center !important;
-                flex: 1;
             }
 
-            #creatorStoryLock .story-text-side h3 {
-                margin-top: 0 !important;
-                margin-bottom: 14px !important;
-            }
-
-            #creatorStoryLock .story-text-side .orange-line {
-                margin-bottom: 16px !important;
-            }
-
-            #creatorStoryLock .story-text-side p {
+            #creatorLock2 .creator-image-box {
                 margin: 0 !important;
             }
 
-            /* ---------- LOCK 3 ---------- */
-            #creatorTopicsLock {
+            #creatorLock2 .story-text-side h3 {
+                margin: 0 0 16px 0 !important;
+            }
+
+            #creatorLock2 .story-text-side .orange-line {
+                margin: 0 0 18px 0 !important;
+            }
+
+            #creatorLock2 .story-text-side p {
                 margin: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               LOCK 3
+               섹션 자체가 header 제외 viewport 높이.
+               내부 padding 위/아래 각각 정확히 75px.
+               ----------------------------------------------------- */
+            #creatorLock3 {
                 height: calc(100vh - 75px) !important;
                 min-height: 0 !important;
+                margin: 0 !important;
                 padding: 75px 0 !important;
                 box-sizing: border-box !important;
                 display: flex !important;
@@ -859,42 +802,124 @@
                 text-align: center !important;
             }
 
-            #creatorTopicsLock .section-tag {
+            #creatorLock3 .section-tag {
                 margin: 0 0 5px 0 !important;
             }
 
-            #creatorTopicsLock h2 {
+            #creatorLock3 h2 {
                 margin: 0 0 6px 0 !important;
             }
 
-            #creatorTopicsLock > .orange-line {
+            #creatorLock3 > .orange-line {
                 margin: 0 auto 20px !important;
             }
 
-            #creatorTopicsLock .topics-4-grid {
-                gap: 20px !important;
+            #creatorLock3 .topics-4-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 22px !important;
                 align-items: start !important;
-                flex: 1;
+                margin: 0 !important;
             }
 
-            #creatorTopicsLock .topic-card-wrap {
+            #creatorLock3 .topic-card-wrap {
                 gap: 8px !important;
                 margin: 0 !important;
             }
 
-            #creatorTopicsLock .topic-card-title {
+            #creatorLock3 .topic-card-title,
+            #creatorLock3 .creator-image-box {
                 margin: 0 !important;
             }
 
-            /* 이미지 비율은 기존 값 그대로 유지 */
-            #creatorStoryLock .creator-image-box,
-            #creatorTopicsLock .creator-image-box {
-                margin: 0 !important;
-            }
-
-            /* CTA는 LOCK 3 이후 일반 자유 스크롤 */
+            /* 마지막 LOCK 이후 CTA는 일반 스크롤 */
             .sec-cta {
-                margin-top: 75px !important;
+                margin-top: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ LOCK 3 COMBINED FINAL
+           "다양한 주제로 콘텐츠를 만듭니다." + CTA를 한 섹션으로 통합
+           위 75px / 아래 75px 유지
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #creatorLock3.creator-lock3-combined {
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                gap: 18px !important;
+                text-align: center !important;
+            }
+
+            #creatorLock3 .sec-topics {
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: 0 !important;
+                flex: 1 1 auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+            }
+
+            #creatorLock3 .sec-topics .section-tag {
+                margin: 0 0 4px 0 !important;
+            }
+
+            #creatorLock3 .sec-topics h2 {
+                margin: 0 0 5px 0 !important;
+            }
+
+            #creatorLock3 .sec-topics > .orange-line {
+                margin: 0 auto 16px !important;
+            }
+
+            #creatorLock3 .topics-4-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 18px !important;
+                align-items: start !important;
+                margin: 0 !important;
+            }
+
+            #creatorLock3 .topic-card-wrap {
+                gap: 6px !important;
+                margin: 0 !important;
+            }
+
+            #creatorLock3 .topic-card-title {
+                margin: 0 !important;
+            }
+
+            #creatorLock3 .creator-image-box {
+                margin: 0 !important;
+            }
+
+            /* CTA 높이와 내부 공백 축소 */
+            #creatorLock3 .sec-cta {
+                margin: 0 !important;
+                padding: 24px 20px !important;
+                flex: 0 0 auto !important;
+            }
+
+            #creatorLock3 .sec-cta h3 {
+                margin: 0 0 6px 0 !important;
+                font-size: var(--font-medium-title) !important;
+                line-height: var(--line-medium-title) !important;
+            }
+
+            #creatorLock3 .sec-cta p {
+                margin: 0 0 12px 0 !important;
+                line-height: 1.5 !important;
+            }
+
+            #creatorLock3 .cta-btn-box {
+                padding: 10px 34px !important;
+                line-height: 1.4 !important;
             }
         }
 
@@ -991,7 +1016,7 @@
     <div class="container">
 
         <!-- 섹션 1 (brand_01_image_01.png - 5:4 비율 적용) -->
-        <section class="sec-hero" id="creatorHeroLock">
+        <section class="sec-hero" id="creatorLock1">
             <div>
                 <span class="tag-orange" data-translate="creator_tag">크리에이터</span>
                 <div class="orange-line"></div>
@@ -1010,7 +1035,7 @@
         </section>
 
         <!-- 섹션 2 (brand_01_image_02.png - 5:4 비율 적용) -->
-        <section class="sec-story" id="creatorStoryLock">
+        <section class="sec-story" id="creatorLock2">
             <div class="banner-title-box">
                 <h2>
                     <span class="quote-icon">“</span>
@@ -1033,7 +1058,8 @@
         </section>
 
         <!-- 섹션 3 (brand_01_image_03 ~ 06.png - 4:5 비율 적용) -->
-        <section class="sec-topics" id="creatorTopicsLock">
+        <section class="creator-lock3-combined" id="creatorLock3">
+<section class="sec-topics">
             <span class="section-tag" data-translate="sec3_tag">기록하는 스토리</span>
             <h2 data-translate="sec3_title">다양한 주제로 콘텐츠를 만듭니다.</h2>
             <div class="orange-line"></div>
@@ -1068,11 +1094,12 @@
 
         
        <!-- 섹션 4 (수정된 부분) -->
-<section class="sec-cta reveal-element">
+<section class="sec-cta">
     <h3 data-translate="cta_title">더 많은 이야기가 궁금하신가요?</h3>
     <p data-translate="cta_desc">송스토리쩜엠피포 채널에서 생생한 이야기와 경험을 확인해보세요.</p>
     <!-- href를 유튜브 주소로 변경하고, 새 탭에서 열리도록 target="_blank" 추가 -->
     <a href="https://www.youtube.com/@songshtory.mp4" class="cta-btn-box" data-translate="cta_btn" target="_blank" rel="noopener noreferrer">채널 보기 ↗</a>
+</section>
 </section>
 
     </div>
@@ -1266,97 +1293,153 @@
         document.addEventListener("DOMContentLoaded", initializeLanguage);
 
         /* =========================================================
-           ★ CREATOR 3-SECTION SCROLL LOCK
+           ★ CREATOR FINAL 3-SECTION SCROLL LOCK
            ---------------------------------------------------------
-           LOCK 1 : #creatorHeroLock
-           LOCK 2 : #creatorStoryLock
-           LOCK 3 : #creatorTopicsLock
+           LOCK 1 → LOCK 2 → LOCK 3
+           LOCK 3 이후는 자유 스크롤
 
-           - 스크롤 애니메이션 없음
-           - setTimeout 없음
-           - wheel 입력 즉시 다음/이전 LOCK 위치로 이동
-           - LOCK 3 이후 CTA는 일반 자유 스크롤
+           스냅은 즉시 실행.
+           터치패드/휠 한 번의 잔여 이벤트가
+           다음 LOCK까지 연속으로 넘어가는 현상만 차단합니다.
            ========================================================= */
         (() => {
             const DESKTOP_BREAKPOINT = 1024;
             const HEADER_HEIGHT = 75;
-            const TOLERANCE = 24;
+            const POSITION_TOLERANCE = 28;
+            const WHEEL_GESTURE_END_MS = 90;
 
-            const lock1 = document.getElementById('creatorHeroLock');
-            const lock2 = document.getElementById('creatorStoryLock');
-            const lock3 = document.getElementById('creatorTopicsLock');
+            const locks = [
+                document.getElementById('creatorLock1'),
+                document.getElementById('creatorLock2'),
+                document.getElementById('creatorLock3')
+            ];
 
-            if (!lock1 || !lock2 || !lock3) return;
+            if (locks.some(section => !section)) return;
+
+            let gestureBlocked = false;
+            let gestureEndTimer = null;
 
             function isDesktop() {
                 return window.innerWidth > DESKTOP_BREAKPOINT;
             }
 
-            function absoluteTop(el) {
-                return el.getBoundingClientRect().top + window.scrollY;
+            function absoluteTop(element) {
+                return element.getBoundingClientRect().top + window.scrollY;
             }
 
-            function lockY(el, first = false) {
-                if (first) return 0;
-                return Math.max(0, absoluteTop(el) - HEADER_HEIGHT);
+            function getLockPositions() {
+                return [
+                    0,
+                    Math.max(0, absoluteTop(locks[1]) - HEADER_HEIGHT),
+                    Math.max(0, absoluteTop(locks[2]) - HEADER_HEIGHT)
+                ];
             }
 
             function near(a, b) {
-                return Math.abs(a - b) <= TOLERANCE;
+                return Math.abs(a - b) <= POSITION_TOLERANCE;
             }
 
-            function snapNow(y) {
+            function snapNow(targetY) {
                 const root = document.documentElement;
-                const oldBehavior = root.style.scrollBehavior;
+                const previousInlineBehavior = root.style.scrollBehavior;
 
                 root.style.scrollBehavior = 'auto';
-                window.scrollTo(0, y);
-                root.style.scrollBehavior = oldBehavior;
+                window.scrollTo(0, targetY);
+                root.style.scrollBehavior = previousInlineBehavior;
+            }
+
+            function blockRemainderOfCurrentGesture() {
+                gestureBlocked = true;
+
+                if (gestureEndTimer) {
+                    clearTimeout(gestureEndTimer);
+                }
+
+                gestureEndTimer = setTimeout(() => {
+                    gestureBlocked = false;
+                    gestureEndTimer = null;
+                }, WHEEL_GESTURE_END_MS);
+            }
+
+            function refreshGestureEndTimer() {
+                if (!gestureBlocked) return;
+
+                if (gestureEndTimer) {
+                    clearTimeout(gestureEndTimer);
+                }
+
+                gestureEndTimer = setTimeout(() => {
+                    gestureBlocked = false;
+                    gestureEndTimer = null;
+                }, WHEEL_GESTURE_END_MS);
             }
 
             function handleWheel(event) {
                 if (!isDesktop()) return;
 
-                const y = window.scrollY;
-                const y1 = lockY(lock1, true);
-                const y2 = lockY(lock2);
-                const y3 = lockY(lock3);
+                /* 스냅 직후 같은 물리적 휠/터치패드 제스처의
+                   잔여 wheel 이벤트는 소비 */
+                if (gestureBlocked) {
+                    event.preventDefault();
+                    refreshGestureEndTimer();
+                    return;
+                }
 
+                const positions = getLockPositions();
+                const y = window.scrollY;
                 const down = event.deltaY > 0;
                 const up = event.deltaY < 0;
 
-                /* LOCK 1 → LOCK 2 */
-                if (down && near(y, y1)) {
-                    event.preventDefault();
-                    snapNow(y2);
+                let currentIndex = -1;
+
+                for (let i = 0; i < positions.length; i++) {
+                    if (near(y, positions[i])) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+
+                /* LOCK 위치에 정확히 있을 때만 다음/이전 LOCK으로 이동 */
+                if (currentIndex !== -1) {
+                    if (down && currentIndex < positions.length - 1) {
+                        event.preventDefault();
+                        snapNow(positions[currentIndex + 1]);
+                        blockRemainderOfCurrentGesture();
+                        return;
+                    }
+
+                    if (up && currentIndex > 0) {
+                        event.preventDefault();
+                        snapNow(positions[currentIndex - 1]);
+                        blockRemainderOfCurrentGesture();
+                        return;
+                    }
+
+                    /* LOCK 3에서 아래로 내릴 때는 CTA 방향 자유 스크롤 */
                     return;
                 }
 
-                /* LOCK 2 → LOCK 3 */
-                if (down && near(y, y2)) {
-                    event.preventDefault();
-                    snapNow(y3);
-                    return;
-                }
+                /* LOCK 3 아래 CTA에서 위로 올라오다가
+                   LOCK 3 위치를 지나칠 정도로 접근하면 다시 LOCK 3에 정착 */
+                const lastY = positions[2];
 
-                /* LOCK 3 이후는 아래 방향 자유 스크롤 */
-
-                /* LOCK 3 → LOCK 2 */
-                if (up && near(y, y3)) {
+                if (up && y > lastY && (y - lastY) <= 140) {
                     event.preventDefault();
-                    snapNow(y2);
-                    return;
-                }
-
-                /* LOCK 2 → LOCK 1 */
-                if (up && near(y, y2)) {
-                    event.preventDefault();
-                    snapNow(y1);
-                    return;
+                    snapNow(lastY);
+                    blockRemainderOfCurrentGesture();
                 }
             }
 
             window.addEventListener('wheel', handleWheel, { passive: false });
+
+            window.addEventListener('resize', () => {
+                gestureBlocked = false;
+
+                if (gestureEndTimer) {
+                    clearTimeout(gestureEndTimer);
+                    gestureEndTimer = null;
+                }
+            });
         })();
 
 </script>
