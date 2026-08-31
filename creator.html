@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28711"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29739"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28711"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -923,6 +923,225 @@
             }
         }
 
+
+        /* =========================================================
+           ★ LOCK 3 CTA COMPACT FIX
+           "더 많은 이야기가 궁금하신가요?" 블록을
+           내용 높이에 맞게 최대한 컴팩트하게 정리
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #creatorLock3.creator-lock3-combined {
+                gap: 12px !important;
+                overflow: hidden !important;
+            }
+
+            /* topics 영역은 CTA 위에서 자연스럽게 끝나도록 */
+            #creatorLock3 .sec-topics {
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* CTA가 카드 위로 겹쳐 보이지 않도록 일반 흐름 고정 */
+            #creatorLock3 .sec-cta {
+                position: static !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                padding: 12px 20px !important;
+                flex: 0 0 auto !important;
+            }
+
+            #creatorLock3 .sec-cta h3 {
+                margin: 0 0 3px 0 !important;
+                font-size: var(--font-medium-title) !important;
+                line-height: 1.25 !important;
+            }
+
+            #creatorLock3 .sec-cta p {
+                margin: 0 0 6px 0 !important;
+                line-height: 1.35 !important;
+            }
+
+            #creatorLock3 .cta-btn-box {
+                margin: 0 !important;
+                padding: 7px 30px !important;
+                line-height: 1.3 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ LOCK 3 GUIDE FINAL
+           ① LOCK3 상단 공백 75px
+           ② "다양한 주제로..."까지만 LOCK
+              "더 많은 이야기가..." CTA는 LOCK 없음
+           ③ LOCK3 ↔ CTA 사이 공백 75px
+           ④ CTA 박스 아래 공백 75px
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* LOCK 3 = topics만 */
+            #creatorLock3.sec-topics {
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                text-align: center !important;
+
+                scroll-margin-top: 75px;
+                overflow: hidden !important;
+            }
+
+            #creatorLock3 .section-tag {
+                margin: 0 0 4px 0 !important;
+            }
+
+            #creatorLock3 h2 {
+                margin: 0 0 5px 0 !important;
+            }
+
+            #creatorLock3 > .orange-line {
+                margin: 0 auto 16px !important;
+            }
+
+            #creatorLock3 .topics-4-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 18px !important;
+                align-items: start !important;
+                margin: 0 !important;
+            }
+
+            #creatorLock3 .topic-card-wrap {
+                gap: 6px !important;
+                margin: 0 !important;
+            }
+
+            #creatorLock3 .topic-card-title,
+            #creatorLock3 .creator-image-box {
+                margin: 0 !important;
+            }
+
+            /* CTA는 LOCK 밖, 75px 떨어져서 시작 */
+            .sec-cta {
+                margin: 75px 0 75px 0 !important;
+                padding: 12px 20px !important;
+                position: static !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .sec-cta h3 {
+                margin: 0 0 3px 0 !important;
+                font-size: var(--font-medium-title) !important;
+                line-height: 1.25 !important;
+            }
+
+            .sec-cta p {
+                margin: 0 0 6px 0 !important;
+                line-height: 1.35 !important;
+            }
+
+            .cta-btn-box {
+                margin: 0 !important;
+                padding: 7px 30px !important;
+                line-height: 1.3 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ LOCK 1 TRUE TOP GAP = 75px
+           fixed header 75px 아래에서 실제 콘텐츠가 정확히 75px 후 시작
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important; /* header 75 + gap 75 */
+            }
+
+            #creatorLock1 {
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 0 75px 0 !important;
+                padding: 0 !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                /* 핵심: 세로 중앙정렬 제거 */
+                align-items: start !important;
+                align-content: start !important;
+
+                box-sizing: border-box !important;
+            }
+
+            #creatorLock1 > div {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+
+            #creatorLock1 .tag-orange,
+            #creatorLock1 .creator-image-box {
+                margin-top: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ CTA TOP GAP FINAL = 75px
+           "더 많은 이야기가 궁금하신가요?" 블록 위 공백을 정확히 75px로 고정
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .sec-cta {
+                margin-top: 75px !important;
+                margin-bottom: 75px !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ LOCK 3 → CTA GAP FINAL
+           카드 콘텐츠 끝 → CTA 블록 시작 = 정확히 75px
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* LOCK3가 빈 화면 높이를 강제로 먹지 않게 */
+            #creatorLock3.sec-topics {
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+
+                /* 락 위치에서 상단 75px 확보 */
+                padding: 75px 0 0 0 !important;
+
+                box-sizing: border-box !important;
+                overflow: visible !important;
+                display: block !important;
+            }
+
+            /* 카드 그리드 끝에서 섹션이 바로 끝나도록 */
+            #creatorLock3 .topics-4-grid {
+                margin-bottom: 0 !important;
+            }
+
+            #creatorLock3 .topic-card-wrap,
+            #creatorLock3 .creator-image-box {
+                margin-bottom: 0 !important;
+            }
+
+            /* LOCK3 실제 콘텐츠 끝 → CTA 시작 정확히 75px */
+            .sec-cta {
+                margin-top: 75px !important;
+                margin-bottom: 75px !important;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -1058,8 +1277,7 @@
         </section>
 
         <!-- 섹션 3 (brand_01_image_03 ~ 06.png - 4:5 비율 적용) -->
-        <section class="creator-lock3-combined" id="creatorLock3">
-<section class="sec-topics">
+        <section class="sec-topics" id="creatorLock3">
             <span class="section-tag" data-translate="sec3_tag">기록하는 스토리</span>
             <h2 data-translate="sec3_title">다양한 주제로 콘텐츠를 만듭니다.</h2>
             <div class="orange-line"></div>
@@ -1099,7 +1317,6 @@
     <p data-translate="cta_desc">송스토리쩜엠피포 채널에서 생생한 이야기와 경험을 확인해보세요.</p>
     <!-- href를 유튜브 주소로 변경하고, 새 탭에서 열리도록 target="_blank" 추가 -->
     <a href="https://www.youtube.com/@songshtory.mp4" class="cta-btn-box" data-translate="cta_btn" target="_blank" rel="noopener noreferrer">채널 보기 ↗</a>
-</section>
 </section>
 
     </div>
@@ -1296,17 +1513,19 @@
            ★ CREATOR FINAL 3-SECTION SCROLL LOCK
            ---------------------------------------------------------
            LOCK 1 → LOCK 2 → LOCK 3
-           LOCK 3 이후는 자유 스크롤
+           LOCK 3 이후 CTA는 자유 스크롤
 
-           스냅은 즉시 실행.
-           터치패드/휠 한 번의 잔여 이벤트가
-           다음 LOCK까지 연속으로 넘어가는 현상만 차단합니다.
+           수정 핵심:
+           - 스냅 이동 자체는 즉시
+           - 각 락 도착 후 900ms 동안 휠 입력 고정 차단
+           - 기존 90ms + 이벤트마다 타이머 재시작 방식 제거
+           - 한 번의 터치패드/휠 제스처가 다음 락까지 관통하는 문제 방지
            ========================================================= */
         (() => {
             const DESKTOP_BREAKPOINT = 1024;
             const HEADER_HEIGHT = 75;
             const POSITION_TOLERANCE = 28;
-            const WHEEL_GESTURE_END_MS = 90;
+            const LOCK_HOLD_MS = 900;
 
             const locks = [
                 document.getElementById('creatorLock1'),
@@ -1316,8 +1535,8 @@
 
             if (locks.some(section => !section)) return;
 
-            let gestureBlocked = false;
-            let gestureEndTimer = null;
+            let isHolding = false;
+            let holdTimer = null;
 
             function isDesktop() {
                 return window.innerWidth > DESKTOP_BREAKPOINT;
@@ -1348,40 +1567,25 @@
                 root.style.scrollBehavior = previousInlineBehavior;
             }
 
-            function blockRemainderOfCurrentGesture() {
-                gestureBlocked = true;
+            function startHold() {
+                isHolding = true;
 
-                if (gestureEndTimer) {
-                    clearTimeout(gestureEndTimer);
+                if (holdTimer) {
+                    clearTimeout(holdTimer);
                 }
 
-                gestureEndTimer = setTimeout(() => {
-                    gestureBlocked = false;
-                    gestureEndTimer = null;
-                }, WHEEL_GESTURE_END_MS);
-            }
-
-            function refreshGestureEndTimer() {
-                if (!gestureBlocked) return;
-
-                if (gestureEndTimer) {
-                    clearTimeout(gestureEndTimer);
-                }
-
-                gestureEndTimer = setTimeout(() => {
-                    gestureBlocked = false;
-                    gestureEndTimer = null;
-                }, WHEEL_GESTURE_END_MS);
+                holdTimer = setTimeout(() => {
+                    isHolding = false;
+                    holdTimer = null;
+                }, LOCK_HOLD_MS);
             }
 
             function handleWheel(event) {
                 if (!isDesktop()) return;
 
-                /* 스냅 직후 같은 물리적 휠/터치패드 제스처의
-                   잔여 wheel 이벤트는 소비 */
-                if (gestureBlocked) {
+                /* 락 도착 후 900ms 동안은 방향과 관계없이 휠을 막음 */
+                if (isHolding) {
                     event.preventDefault();
-                    refreshGestureEndTimer();
                     return;
                 }
 
@@ -1399,45 +1603,45 @@
                     }
                 }
 
-                /* LOCK 위치에 정확히 있을 때만 다음/이전 LOCK으로 이동 */
-                if (currentIndex !== -1) {
-                    if (down && currentIndex < positions.length - 1) {
-                        event.preventDefault();
-                        snapNow(positions[currentIndex + 1]);
-                        blockRemainderOfCurrentGesture();
-                        return;
-                    }
-
-                    if (up && currentIndex > 0) {
-                        event.preventDefault();
-                        snapNow(positions[currentIndex - 1]);
-                        blockRemainderOfCurrentGesture();
-                        return;
-                    }
-
-                    /* LOCK 3에서 아래로 내릴 때는 CTA 방향 자유 스크롤 */
+                /* 현재 LOCK 위치에서 아래 → 다음 LOCK */
+                if (currentIndex !== -1 && down && currentIndex < positions.length - 1) {
+                    event.preventDefault();
+                    snapNow(positions[currentIndex + 1]);
+                    startHold();
                     return;
                 }
 
-                /* LOCK 3 아래 CTA에서 위로 올라오다가
-                   LOCK 3 위치를 지나칠 정도로 접근하면 다시 LOCK 3에 정착 */
-                const lastY = positions[2];
+                /* 현재 LOCK 위치에서 위 → 이전 LOCK */
+                if (currentIndex !== -1 && up && currentIndex > 0) {
+                    event.preventDefault();
+                    snapNow(positions[currentIndex - 1]);
+                    startHold();
+                    return;
+                }
 
-                if (up && y > lastY && (y - lastY) <= 140) {
+                /* LOCK 3에서 아래는 CTA 방향 자유 스크롤 */
+                if (currentIndex === positions.length - 1 && down) {
+                    return;
+                }
+
+                /* CTA 아래에서 위로 올라올 때 LOCK 3 근처면 정확히 재정착 */
+                const lastY = positions[positions.length - 1];
+
+                if (up && y > lastY && (y - lastY) <= 160) {
                     event.preventDefault();
                     snapNow(lastY);
-                    blockRemainderOfCurrentGesture();
+                    startHold();
                 }
             }
 
             window.addEventListener('wheel', handleWheel, { passive: false });
 
             window.addEventListener('resize', () => {
-                gestureBlocked = false;
+                isHolding = false;
 
-                if (gestureEndTimer) {
-                    clearTimeout(gestureEndTimer);
-                    gestureEndTimer = null;
+                if (holdTimer) {
+                    clearTimeout(holdTimer);
+                    holdTimer = null;
                 }
             });
         })();
