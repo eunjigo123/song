@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">이커머스 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=30100"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29107"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=30516"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=30100"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29107"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -906,6 +906,78 @@
             }
         }
 
+
+        /* =========================================================
+           ★ E-COMMERCE FINAL VIEWPORT / GAP FIX
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* header 75px + 첫 섹션 위 공백 75px */
+            .container {
+                margin-top: 150px !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               LOCK 1
+               첫 화면에서 다음 섹션이 절대 보이지 않도록
+               첫 섹션이 현재 viewport 하단까지 정확히 채움
+               ----------------------------------------------------- */
+            #ecommerceLock1 {
+                height: calc(100vh - 150px) !important;
+                min-height: calc(100vh - 150px) !important;
+
+                margin: 0 0 75px 0 !important;
+                padding: 0 !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                align-items: start !important;
+                align-content: start !important;
+
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            #ecommerceLock1 > div {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+
+            #ecommerceLock1 .tag-orange,
+            #ecommerceLock1 .ecommerce-image-box {
+                margin-top: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               9sh 스토리/CTA는 현재처럼 자유 스크롤 유지
+               ----------------------------------------------------- */
+            #ecommerceLock3 {
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+                overflow: visible !important;
+            }
+
+            #ecommerceLock3 .sec-topics {
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: 0 !important;
+                display: block !important;
+            }
+
+            /* Smart Store CTA 위 75px / 아래 실제 75px */
+            #ecommerceLock3 .sec-cta {
+                margin-top: 75px !important;
+                margin-bottom: 75px !important;
+                padding: 22px 20px !important;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -1319,110 +1391,113 @@
         document.addEventListener("DOMContentLoaded", initializeLanguage);
 
         /* =========================================================
-           ★ E-COMMERCE SCROLL LOCK
+           ★ E-COMMERCE SCROLL LOCK - STRONG HOLD
            ---------------------------------------------------------
            LOCK 1 : #ecommerceLock1
            LOCK 2 : #ecommerceLock2
+           LOCK 2 이후는 자유 스크롤
 
-           이후 영역은 전부 자유 스크롤
+           - 이동은 즉시 스냅
+           - 각 락 도착 후 1500ms 동안 휠 입력 차단
+           - 기존 90ms gesture timer 제거
            ========================================================= */
         (() => {
             const DESKTOP_BREAKPOINT = 1024;
             const HEADER_HEIGHT = 75;
             const POSITION_TOLERANCE = 28;
-            const GESTURE_END_MS = 90;
+            const LOCK_HOLD_MS = 1500;
 
             const lock1 = document.getElementById('ecommerceLock1');
             const lock2 = document.getElementById('ecommerceLock2');
 
             if (!lock1 || !lock2) return;
 
-            let gestureBlocked = false;
-            let gestureTimer = null;
+            let isHolding = false;
+            let holdTimer = null;
 
             function isDesktop() {
                 return window.innerWidth > DESKTOP_BREAKPOINT;
             }
 
-            function absoluteTop(el) {
-                return el.getBoundingClientRect().top + window.scrollY;
+            function absoluteTop(element) {
+                return element.getBoundingClientRect().top + window.scrollY;
             }
 
-            function yOf(el, first = false) {
-                if (first) return 0;
-                return Math.max(0, absoluteTop(el) - HEADER_HEIGHT);
+            function getPositions() {
+                return {
+                    lock1: 0,
+                    lock2: Math.max(0, absoluteTop(lock2) - HEADER_HEIGHT)
+                };
             }
 
             function near(a, b) {
                 return Math.abs(a - b) <= POSITION_TOLERANCE;
             }
 
-            function snapNow(y) {
+            function snapNow(targetY) {
                 const root = document.documentElement;
-                const old = root.style.scrollBehavior;
+                const previousBehavior = root.style.scrollBehavior;
+
                 root.style.scrollBehavior = 'auto';
-                window.scrollTo(0, y);
-                root.style.scrollBehavior = old;
+                window.scrollTo(0, targetY);
+                root.style.scrollBehavior = previousBehavior;
             }
 
-            function blockCurrentGesture() {
-                gestureBlocked = true;
-                if (gestureTimer) clearTimeout(gestureTimer);
+            function startHold() {
+                isHolding = true;
 
-                gestureTimer = setTimeout(() => {
-                    gestureBlocked = false;
-                    gestureTimer = null;
-                }, GESTURE_END_MS);
-            }
+                if (holdTimer) {
+                    clearTimeout(holdTimer);
+                }
 
-            function refreshGestureTimer() {
-                if (!gestureBlocked) return;
-                if (gestureTimer) clearTimeout(gestureTimer);
-
-                gestureTimer = setTimeout(() => {
-                    gestureBlocked = false;
-                    gestureTimer = null;
-                }, GESTURE_END_MS);
+                holdTimer = setTimeout(() => {
+                    isHolding = false;
+                    holdTimer = null;
+                }, LOCK_HOLD_MS);
             }
 
             function handleWheel(event) {
                 if (!isDesktop()) return;
 
-                if (gestureBlocked) {
+                /* 락 도착 후 1.5초 동안 휠을 완전히 막아
+                   락 화면이 확실히 머물도록 처리 */
+                if (isHolding) {
                     event.preventDefault();
-                    refreshGestureTimer();
                     return;
                 }
 
                 const y = window.scrollY;
-                const y1 = yOf(lock1, true);
-                const y2 = yOf(lock2);
+                const pos = getPositions();
                 const down = event.deltaY > 0;
                 const up = event.deltaY < 0;
 
-                if (down && near(y, y1)) {
+                /* LOCK 1 → LOCK 2 */
+                if (down && near(y, pos.lock1)) {
                     event.preventDefault();
-                    snapNow(y2);
-                    blockCurrentGesture();
+                    snapNow(pos.lock2);
+                    startHold();
                     return;
                 }
 
-                if (up && near(y, y2)) {
+                /* LOCK 2 → LOCK 1 */
+                if (up && near(y, pos.lock2)) {
                     event.preventDefault();
-                    snapNow(y1);
-                    blockCurrentGesture();
+                    snapNow(pos.lock1);
+                    startHold();
+                    return;
                 }
 
-                /* LOCK2 이후는 전부 자유 스크롤 */
+                /* LOCK 2 이후 아래 방향은 자유 스크롤 */
             }
 
             window.addEventListener('wheel', handleWheel, { passive: false });
 
             window.addEventListener('resize', () => {
-                gestureBlocked = false;
-                if (gestureTimer) {
-                    clearTimeout(gestureTimer);
-                    gestureTimer = null;
+                isHolding = false;
+
+                if (holdTimer) {
+                    clearTimeout(holdTimer);
+                    holdTimer = null;
                 }
             });
         })();
