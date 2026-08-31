@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=19000"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17224"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=15411"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11617"></script>
@@ -153,9 +154,12 @@
     header {
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: var(--page-gutter);
+
+        /* ★ 가이드 기준: 1920px 화면에서 좌우 240px 외곽 여백을 제외한 유효 폭 1440px */
+        width: calc(100% - (var(--page-gutter) * 2));
         height: 75px;
+
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -166,7 +170,8 @@
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
 
-        padding: 0 var(--page-gutter);
+        /* 헤더 자체가 이미 1440px 유효 폭이므로 내부에 240px을 다시 넣지 않음 */
+        padding: 0;
         box-sizing: border-box;
 
         border-bottom: 1px solid var(--border-color);
@@ -511,7 +516,7 @@
     /* Main Top Banner Section */
     .main-banner-section {
         max-width: none;
-        margin: 140px var(--page-gutter) 60px var(--page-gutter);
+        margin: 150px var(--page-gutter) 60px var(--page-gutter);
         padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -665,15 +670,39 @@
     }
 
     /* Experience Intro Section */
+    /* =========================================================
+       ★ PAGE FRAME GUIDE
+       - 데스크톱 유효 폭: 1440px
+       - 좌우 외곽 여백: 240px (= --page-gutter)
+       - 콘텐츠 배치는 기존 그대로 유지
+       - 섹션 배경만 유효 폭 안쪽에 표시
+       - 푸터는 예외로 전체 폭 유지
+       ========================================================= */
     .experience-section {
-        background-color: var(--bg-light);
+        position: relative;
+        background: transparent;
         padding: 100px var(--page-gutter);
         margin: 120px 0;
+        border: 0;
+    }
+
+    .experience-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--page-gutter);
+        right: var(--page-gutter);
+        background: var(--bg-light);
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
+        pointer-events: none;
+        z-index: 0;
     }
 
     .experience-inner {
+        position: relative;
+        z-index: 1;
         max-width: none;
         margin: 0;
     }
@@ -868,19 +897,35 @@
 
     /* 스토리 종합 섹션 (스크롤 애니메이션 적용) */
     .story-main-section {
+        position: relative;
         padding: 100px var(--page-gutter);
         width: 100%;
         margin: 120px 0 0 0;
-        background-color: var(--bg-light);
+        background: transparent;
         border-radius: 0;
         color: var(--deep-color);
         text-align: center;
         box-sizing: border-box;
+        border: 0;
+    }
+
+    .story-main-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--page-gutter);
+        right: var(--page-gutter);
+        background: var(--bg-light);
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
+        pointer-events: none;
+        z-index: 0;
     }
 
     .story-main-inner {
+        position: relative;
+        z-index: 1;
         max-width: none;
         margin: 0;
     }
@@ -1080,14 +1125,20 @@
        - 왼쪽 정보 라벨은 일반 굵기
        ========================================================= */
     .site-footer {
-        width: 100%;
+        /* ★ 헤더/페이지 섹션과 동일하게 좌우 240px 외곽 여백 노출 */
+        width: calc(100% - (var(--page-gutter) * 2));
         height: 200px;
         box-sizing: border-box;
+
         background: var(--bg-light);
         border-top: 1px solid var(--border-color);
         color: var(--text-sub);
-        padding: 28px var(--page-gutter); /* ★ header / main과 동일한 좌우 정렬 기준 */
-        margin-top: 100px;
+
+        /* 푸터 자체가 1440px 유효 폭이므로 내부 좌우 240px을 중복 적용하지 않음 */
+        padding: 28px 0;
+
+        margin: 100px var(--page-gutter) 0 var(--page-gutter);
+
         font-family: var(--font-body-family);
         font-size: var(--font-sub);
         line-height: var(--line-sub);
@@ -1215,6 +1266,8 @@
     /* Responsive Media Queries */
     @media (max-width: 900px) {
         header {
+            left: 0;
+            width: 100%;
             grid-template-columns: auto 1fr auto;
             padding: 0 20px;
         }
@@ -1233,6 +1286,13 @@
         .experience-grid {
             grid-template-columns: 1fr;
             gap: 40px;
+        }
+
+        /* 모바일에서는 데스크톱 1440px 배경 프레임 해제 */
+        .experience-section::before,
+        .story-main-section::before {
+            left: 0;
+            right: 0;
         }
         .experience-item:not(:last-child)::after {
             display: none;
@@ -1267,8 +1327,10 @@
             box-sizing: border-box;
         }
         .site-footer {
+            width: 100%;
             height: auto;
             min-height: 200px;
+            margin: 100px 0 0 0;
             padding: 35px 20px;
         }
         .footer-inner {
