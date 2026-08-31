@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=25095"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17224"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=15411"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11617"></script>
@@ -1311,6 +1312,142 @@
             display: none;
         }
     }
+
+    /* =========================================================
+       ★ LOCK 2 ONE-VIEW FIT
+       프로젝트와 스토리 섹션을 데스크톱 한 화면에 맞춤
+       - 헤더 75px 제외한 화면 안에 전체 내용이 보이도록 압축
+       - 이미지 비율은 기존 16:9 그대로 유지
+       - 모바일은 기존 레이아웃 유지
+       ========================================================= */
+    @media (min-width: 901px) {
+        .story-main-section {
+            min-height: calc(100vh - 75px);
+            padding: 38px var(--page-gutter);
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: 100%;
+        }
+
+        .story-main-header {
+            margin-bottom: 26px;
+        }
+
+        .story-main-header span {
+            margin-bottom: 8px;
+        }
+
+        .story-main-header h2 {
+            margin-bottom: 8px;
+        }
+
+        .story-grid-top {
+            gap: 30px;
+            margin-bottom: 0;
+        }
+
+        .story-card-img {
+            margin-bottom: 12px;
+        }
+
+        .story-card-category {
+            margin-bottom: 4px;
+        }
+
+        .story-card-title {
+            margin-bottom: 4px;
+        }
+
+        .story-bottom-box {
+            margin-top: 24px;
+            padding: 26px 32px;
+            gap: 60px;
+        }
+
+        .story-bottom-box::after {
+            top: 26px;
+            bottom: 26px;
+        }
+
+        .story-content-tag {
+            margin-bottom: 8px;
+        }
+
+        .story-content-text h4 {
+            margin-bottom: 8px;
+        }
+
+        .story-content-text p {
+            margin-bottom: 16px;
+        }
+
+        .action-btn {
+            padding: 11px 18px;
+        }
+    }
+
+
+    /* ★ OUR PHILOSOPHY도 독립 LOCK 지점으로 사용 */
+    @media (min-width: 901px) {
+        .experience-section {
+            scroll-margin-top: 75px;
+        }
+    }
+
+
+    /* =========================================================
+       ★ LOCK SECTION 75px VERTICAL GAP
+       모든 데스크톱 락 지점은
+       헤더(75px) 아래에서 시작하고,
+       락 화면 안에서 콘텐츠 위/아래에 75px 공백을 확보합니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        .main-banner-section,
+        .experience-section,
+        .story-main-section {
+            box-sizing: border-box;
+        }
+
+        /* LOCK 1 : MAIN BANNER */
+        .main-banner-section {
+            margin: 75px var(--page-gutter) 0 var(--page-gutter);
+            min-height: calc(100vh - 75px);
+            padding-top: 75px;
+            padding-bottom: 75px;
+            align-content: center;
+        }
+
+        /* LOCK 2 : OUR PHILOSOPHY */
+        .experience-section {
+            margin: 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .experience-inner {
+            width: 100%;
+        }
+
+        /* LOCK 3 : PROJECTS & STORIES */
+        .story-main-section {
+            margin: 0;
+            min-height: calc(100vh - 75px);
+            padding: 75px var(--page-gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .story-main-inner {
+            width: 100%;
+        }
+    }
+
 </style>
 
 <!-- Header -->
@@ -1979,4 +2116,156 @@
     }
 
     document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+
+
+    /* =========================================================
+       ★ DESKTOP MULTI-LOCK SCROLL
+       ---------------------------------------------------------
+       LOCK 1 : 메인 배너
+       LOCK 2 : OUR PHILOSOPHY
+       LOCK 3 : PROJECTS & STORIES
+
+       동작:
+       - 락 지점에 도달하면 해당 섹션 위치로 정확히 스냅
+       - 락 지점 사이 구간은 일반 자유 스크롤
+       - 아래/위 방향 모두 다음 락 지점에 닿을 때만 스냅
+       - 모바일(900px 이하)은 락 미적용
+       ========================================================= */
+
+    (() => {
+        const DESKTOP_BREAKPOINT = 900;
+        const HEADER_HEIGHT = 75;
+        const SNAP_DURATION = 650;
+        const TRIGGER_DISTANCE = 90;
+        const POSITION_TOLERANCE = 8;
+
+        let isLockMoving = false;
+        let lastScrollY = window.scrollY;
+
+        const lockSections = [
+            document.querySelector('.main-banner-section'),
+            document.querySelector('.experience-section'),
+            document.querySelector('.story-main-section')
+        ].filter(Boolean);
+
+        if (lockSections.length < 2) return;
+
+        function isDesktop() {
+            return window.innerWidth > DESKTOP_BREAKPOINT;
+        }
+
+        function getLockY(section, index) {
+            if (index === 0) return 0;
+
+            return Math.max(
+                0,
+                section.getBoundingClientRect().top
+                + window.scrollY
+                - HEADER_HEIGHT
+            );
+        }
+
+        function getLockPositions() {
+            return lockSections.map((section, index) => ({
+                section,
+                y: getLockY(section, index)
+            }));
+        }
+
+        function smoothLockTo(targetY) {
+            if (isLockMoving) return;
+
+            isLockMoving = true;
+
+            const startY = window.scrollY;
+            const distance = targetY - startY;
+            const startTime = performance.now();
+
+            document.body.style.overscrollBehaviorY = 'none';
+
+            function easeInOutCubic(t) {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function frame(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / SNAP_DURATION, 1);
+                const eased = easeInOutCubic(progress);
+
+                window.scrollTo(0, startY + distance * eased);
+
+                if (progress < 1) {
+                    requestAnimationFrame(frame);
+                    return;
+                }
+
+                window.scrollTo(0, targetY);
+                lastScrollY = targetY;
+                isLockMoving = false;
+                document.body.style.overscrollBehaviorY = '';
+            }
+
+            requestAnimationFrame(frame);
+        }
+
+        function handleWheel(event) {
+            if (!isDesktop()) return;
+
+            if (isLockMoving) {
+                event.preventDefault();
+                return;
+            }
+
+            const currentY = window.scrollY;
+            const scrollingDown = event.deltaY > 0;
+            const scrollingUp = event.deltaY < 0;
+            const locks = getLockPositions();
+
+            if (scrollingDown) {
+                const nextLock = locks.find(lock => lock.y > currentY + POSITION_TOLERANCE);
+
+                if (nextLock) {
+                    const distance = nextLock.y - currentY;
+
+                    if (distance <= TRIGGER_DISTANCE) {
+                        event.preventDefault();
+                        smoothLockTo(nextLock.y);
+                    }
+                }
+
+                return;
+            }
+
+            if (scrollingUp) {
+                const previousLocks = locks
+                    .filter(lock => lock.y < currentY - POSITION_TOLERANCE);
+
+                const previousLock = previousLocks[previousLocks.length - 1];
+
+                if (previousLock) {
+                    const distance = currentY - previousLock.y;
+
+                    if (distance <= TRIGGER_DISTANCE) {
+                        event.preventDefault();
+                        smoothLockTo(previousLock.y);
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('wheel', handleWheel, {
+            passive: false
+        });
+
+        window.addEventListener('resize', () => {
+            if (!isDesktop()) {
+                isLockMoving = false;
+                document.body.style.overscrollBehaviorY = '';
+            }
+        });
+    })();
+
 </script>
