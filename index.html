@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26884"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26540"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26418"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26314"></script>
@@ -2779,13 +2780,14 @@
        LOCK 3 : PROJECTS & STORIES
 
        LOCK 2 이후 서비스 상세는 자유 스크롤.
-       PROJECTS & STORIES가 화면에 접근하면 LOCK 3에 정확히 정착.
+       PROJECTS & STORIES가 viewport 안으로 들어오면 LOCK 3에 정착.
        ========================================================= */
     (() => {
         const DESKTOP_BREAKPOINT = 900;
         const HEADER_HEIGHT = 75;
         const SNAP_DURATION = 620;
-        const POSITION_TOLERANCE = 14;
+        const LOCK_TOLERANCE = 16;
+        const RELEASE_DELAY = 520;
 
         const lock1 = document.querySelector('.main-banner-section');
         const lock2 = document.querySelector('.experience-section');
@@ -2794,7 +2796,7 @@
         if (!lock1 || !lock2 || !lock3) return;
 
         let isAnimating = false;
-        let lock3JustSnapped = false;
+        let lock3Holding = false;
 
         function isDesktop() {
             return window.innerWidth > DESKTOP_BREAKPOINT;
@@ -2804,19 +2806,16 @@
             return element.getBoundingClientRect().top + window.scrollY;
         }
 
-        function getPositions() {
-            return {
-                first: 0,
-                second: Math.max(0, absoluteTop(lock2) - HEADER_HEIGHT),
-                third: Math.max(0, absoluteTop(lock3) - HEADER_HEIGHT)
-            };
+        function getLockY(element, isFirst = false) {
+            if (isFirst) return 0;
+            return Math.max(0, absoluteTop(element) - HEADER_HEIGHT);
         }
 
-        function near(a, b, tolerance = POSITION_TOLERANCE) {
+        function near(a, b, tolerance = LOCK_TOLERANCE) {
             return Math.abs(a - b) <= tolerance;
         }
 
-        function smoothSnap(targetY, afterSnap) {
+        function smoothSnap(targetY, callback) {
             if (isAnimating) return;
 
             isAnimating = true;
@@ -2845,12 +2844,17 @@
                 isAnimating = false;
                 document.body.style.overscrollBehaviorY = '';
 
-                if (typeof afterSnap === 'function') {
-                    afterSnap();
-                }
+                if (typeof callback === 'function') callback();
             }
 
             requestAnimationFrame(frame);
+        }
+
+        function holdLock3Briefly() {
+            lock3Holding = true;
+            window.setTimeout(() => {
+                lock3Holding = false;
+            }, RELEASE_DELAY);
         }
 
         function handleWheel(event) {
@@ -2862,71 +2866,64 @@
             }
 
             const y = window.scrollY;
-            const pos = getPositions();
+            const lock1Y = getLockY(lock1, true);
+            const lock2Y = getLockY(lock2);
+            const lock3Y = getLockY(lock3);
+
             const down = event.deltaY > 0;
             const up = event.deltaY < 0;
 
             /* LOCK 1 → LOCK 2 */
-            if (down && near(y, pos.first, 20)) {
+            if (down && near(y, lock1Y, 20)) {
                 event.preventDefault();
-                smoothSnap(pos.second);
+                smoothSnap(lock2Y);
                 return;
             }
 
             /* LOCK 2 → LOCK 1 */
-            if (up && near(y, pos.second, 20)) {
+            if (up && near(y, lock2Y, 20)) {
                 event.preventDefault();
-                smoothSnap(pos.first);
+                smoothSnap(lock1Y);
+                return;
+            }
+
+            /* LOCK 3에 도착 직후 같은 제스처의 잔여 wheel 차단 */
+            if (lock3Holding && near(y, lock3Y, 24)) {
+                event.preventDefault();
                 return;
             }
 
             /* -------------------------------------------------
                LOCK 3 진입
-               PROJECTS & STORIES 상단이 viewport 하단 40% 안으로
-               들어오는 순간 정확한 LOCK 3 위치로 스냅.
-               큰 휠 입력으로 180px 구간을 건너뛰어도 놓치지 않음.
+               PROJECTS & STORIES의 상단이 화면 안쪽 82% 지점까지
+               들어오면 native scroll을 막고 정확한 위치로 스냅.
+               deltaY 크기에 상관없이 실제 rect 위치를 사용하므로
+               터치패드/큰 휠에서도 놓치지 않습니다.
                ------------------------------------------------- */
-            if (down && y > pos.second + 20 && y < pos.third - POSITION_TOLERANCE) {
-                const distanceToThird = pos.third - y;
-                const triggerDistance = Math.max(260, window.innerHeight * 0.40);
+            if (down && y < lock3Y - LOCK_TOLERANCE) {
+                const rect = lock3.getBoundingClientRect();
+                const triggerLine = window.innerHeight * 0.82;
 
-                if (distanceToThird <= triggerDistance) {
+                if (rect.top <= triggerLine) {
                     event.preventDefault();
-
-                    smoothSnap(pos.third, () => {
-                        lock3JustSnapped = true;
-
-                        /* 같은 휠 제스처의 잔여 입력이 즉시 락을 풀지 않게 */
-                        window.setTimeout(() => {
-                            lock3JustSnapped = false;
-                        }, 450);
-                    });
-
+                    smoothSnap(lock3Y, holdLock3Briefly);
                     return;
                 }
             }
 
-            /* LOCK 3에 막 도착한 직후 잔여 휠 입력 차단 */
-            if (near(y, pos.third, 20) && lock3JustSnapped) {
-                event.preventDefault();
-                return;
-            }
+            /* 아래에서 위로 다시 돌아올 때 LOCK 3에 재정착 */
+            if (up && y > lock3Y + LOCK_TOLERANCE) {
+                const rect = lock3.getBoundingClientRect();
+                const triggerLine = HEADER_HEIGHT + (window.innerHeight * 0.18);
 
-            /* LOCK 3 도착 후 새로운 아래 스크롤은 footer 방향 자유 스크롤 */
-
-            /* 아래에서 위로 올라오며 LOCK 3 직전까지 오면 다시 LOCK 3에 정착 */
-            if (up && y > pos.third + POSITION_TOLERANCE) {
-                const distanceFromThird = y - pos.third;
-                const triggerDistance = Math.max(260, window.innerHeight * 0.40);
-
-                if (distanceFromThird <= triggerDistance) {
+                if (rect.top >= HEADER_HEIGHT && rect.top <= triggerLine) {
                     event.preventDefault();
-                    smoothSnap(pos.third);
+                    smoothSnap(lock3Y, holdLock3Briefly);
                     return;
                 }
             }
 
-            /* LOCK 3에서 위로 스크롤하면 서비스 영역으로 자유롭게 이동 */
+            /* LOCK 3에서 새로운 아래 wheel 입력은 footer 방향 자유 스크롤 */
         }
 
         window.addEventListener('wheel', handleWheel, { passive: false });
@@ -2934,7 +2931,7 @@
         window.addEventListener('resize', () => {
             if (!isDesktop()) {
                 isAnimating = false;
-                lock3JustSnapped = false;
+                lock3Holding = false;
                 document.body.style.overscrollBehaviorY = '';
             }
         });
