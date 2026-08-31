@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">이커머스 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29989"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29107"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=30100"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29107"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -872,6 +872,40 @@
             }
         }
 
+
+        /* =========================================================
+           ★ E-COMMERCE FINAL
+           9sh의 스토리 영역 LOCK 해제
+           CTA 위 공백 정확히 75px
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #ecommerceLock3 {
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+                overflow: visible !important;
+            }
+
+            #ecommerceLock3 .sec-topics {
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: 0 !important;
+                display: block !important;
+            }
+
+            #ecommerceLock3 .topics-3-grid {
+                margin: 0 !important;
+            }
+
+            #ecommerceLock3 .sec-cta {
+                margin-top: 75px !important;
+                margin-bottom: 75px !important;
+                padding: 22px 20px !important;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -1285,15 +1319,12 @@
         document.addEventListener("DOMContentLoaded", initializeLanguage);
 
         /* =========================================================
-           ★ E-COMMERCE FINAL SCROLL LOCK
+           ★ E-COMMERCE SCROLL LOCK
            ---------------------------------------------------------
            LOCK 1 : #ecommerceLock1
            LOCK 2 : #ecommerceLock2
-           FREE   : "나를 위해..." story grid
-           LOCK 3 : #ecommerceLock3
 
-           스냅은 즉시.
-           같은 휠 제스처의 잔여 이벤트만 차단.
+           이후 영역은 전부 자유 스크롤
            ========================================================= */
         (() => {
             const DESKTOP_BREAKPOINT = 1024;
@@ -1303,9 +1334,8 @@
 
             const lock1 = document.getElementById('ecommerceLock1');
             const lock2 = document.getElementById('ecommerceLock2');
-            const lock3 = document.getElementById('ecommerceLock3');
 
-            if (!lock1 || !lock2 || !lock3) return;
+            if (!lock1 || !lock2) return;
 
             let gestureBlocked = false;
             let gestureTimer = null;
@@ -1367,11 +1397,9 @@
                 const y = window.scrollY;
                 const y1 = yOf(lock1, true);
                 const y2 = yOf(lock2);
-                const y3 = yOf(lock3);
                 const down = event.deltaY > 0;
                 const up = event.deltaY < 0;
 
-                /* LOCK 1 → LOCK 2 */
                 if (down && near(y, y1)) {
                     event.preventDefault();
                     snapNow(y2);
@@ -1379,43 +1407,13 @@
                     return;
                 }
 
-                /* LOCK 2 → LOCK 1 */
                 if (up && near(y, y2)) {
                     event.preventDefault();
                     snapNow(y1);
                     blockCurrentGesture();
-                    return;
                 }
 
-                /* LOCK 2에서 아래로는 자유 스크롤.
-                   "나를 위해..." 구간을 직접 지나감. */
-
-                /* 자유 스크롤 중 LOCK 3에 접근하면 정착 */
-                if (down && y < y3 - POSITION_TOLERANCE) {
-                    const rect = lock3.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight * 0.78) {
-                        event.preventDefault();
-                        snapNow(y3);
-                        blockCurrentGesture();
-                        return;
-                    }
-                }
-
-                /* LOCK 3 아래에서 위로 올라오면 다시 LOCK 3에 정착 */
-                if (up && y > y3 + POSITION_TOLERANCE) {
-                    const rect = lock3.getBoundingClientRect();
-                    if (
-                        rect.top >= HEADER_HEIGHT &&
-                        rect.top <= HEADER_HEIGHT + window.innerHeight * 0.22
-                    ) {
-                        event.preventDefault();
-                        snapNow(y3);
-                        blockCurrentGesture();
-                        return;
-                    }
-                }
-
-                /* LOCK 3에서 위로 올리면 자유 스크롤 구간으로 이동 */
+                /* LOCK2 이후는 전부 자유 스크롤 */
             }
 
             window.addEventListener('wheel', handleWheel, { passive: false });
