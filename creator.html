@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">크리에이터 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=28474"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18166"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12865"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10593"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6485"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=5961"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=14954"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12406"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -691,7 +691,214 @@
             .hero-brand { font-size: 2.8rem; }
             .hero-sub { font-size: 1.3rem; }
         }
-    </style>
+    
+        /* =========================================================
+           ★ CREATOR FIRST SECTION LOCK
+           - fixed header: 75px
+           - header 아래 실제 공백: 75px
+           - 첫 섹션에서 아래 휠 → 두 번째 섹션으로 즉시 스냅
+           - 두 번째 섹션 이후는 자유 스크롤
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important; /* 75px header + 75px gap */
+            }
+
+            #creatorHeroLock {
+                margin-top: 0 !important;
+                margin-bottom: 75px !important;
+                min-height: calc(100vh - 225px);
+                box-sizing: border-box;
+                align-items: center;
+            }
+
+            #creatorHeroLock h1,
+            #creatorHeroLock h2,
+            #creatorHeroLock p {
+                margin-top: 0;
+            }
+
+            #creatorSection2 {
+                scroll-margin-top: 75px;
+            }
+        }
+
+
+        /* =========================================================
+           ★ CREATOR LOCK 2
+           "다양한 주제로 콘텐츠를 만듭니다."
+           - 실제 위 공백 75px
+           - 실제 아래 공백 75px
+           - 락 시 한 화면에 전체 카드가 보이도록 정리
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #creatorTopicsLock {
+                margin: 0 !important;
+                min-height: 0 !important;
+                height: auto !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                text-align: center;
+                scroll-margin-top: 75px;
+            }
+
+            #creatorTopicsLock .section-tag {
+                margin-top: 0 !important;
+                margin-bottom: 6px !important;
+            }
+
+            #creatorTopicsLock h2 {
+                margin-top: 0 !important;
+                margin-bottom: 8px !important;
+            }
+
+            #creatorTopicsLock > .orange-line {
+                margin: 0 auto 24px !important;
+            }
+
+            #creatorTopicsLock .topics-4-grid {
+                gap: 20px !important;
+                align-items: start;
+            }
+
+            #creatorTopicsLock .topic-card-wrap {
+                gap: 8px !important;
+                margin: 0 !important;
+            }
+
+            #creatorTopicsLock .topic-card-title {
+                margin: 0 !important;
+            }
+
+            /* 원본 4:5 비율 유지 */
+            #creatorTopicsLock .creator-image-box {
+                margin: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ CREATOR 3-SECTION LOCK FINAL
+           LOCK 1 : 송스토리쩜엠피포
+           LOCK 2 : 직접 경험한 이야기의 기록
+           LOCK 3 : 다양한 주제로 콘텐츠를 만듭니다.
+
+           공통:
+           - fixed header 75px
+           - 콘텐츠 위 75px / 아래 75px
+           - 데스크톱에서 한 화면에 전체 섹션 표시
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* 컨테이너 시작점 = 헤더 75 + 상단 공백 75 */
+            .container {
+                margin-top: 150px !important;
+                margin-bottom: 100px !important;
+            }
+
+            /* ---------- LOCK 1 ---------- */
+            #creatorHeroLock {
+                margin: 0 0 75px 0 !important;
+                min-height: 0 !important;
+                height: calc(100vh - 225px) !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                align-items: center !important;
+            }
+
+            /* ---------- LOCK 2 ---------- */
+            #creatorStoryLock {
+                margin: 0 !important;
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+
+            #creatorStoryLock .banner-title-box {
+                margin: 0 0 20px 0 !important;
+                padding: 18px 20px !important;
+            }
+
+            #creatorStoryLock .banner-title-box h2 {
+                margin: 0 !important;
+            }
+
+            #creatorStoryLock .sec-story-grid {
+                gap: 50px !important;
+                align-items: center !important;
+                flex: 1;
+            }
+
+            #creatorStoryLock .story-text-side h3 {
+                margin-top: 0 !important;
+                margin-bottom: 14px !important;
+            }
+
+            #creatorStoryLock .story-text-side .orange-line {
+                margin-bottom: 16px !important;
+            }
+
+            #creatorStoryLock .story-text-side p {
+                margin: 0 !important;
+            }
+
+            /* ---------- LOCK 3 ---------- */
+            #creatorTopicsLock {
+                margin: 0 !important;
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                text-align: center !important;
+            }
+
+            #creatorTopicsLock .section-tag {
+                margin: 0 0 5px 0 !important;
+            }
+
+            #creatorTopicsLock h2 {
+                margin: 0 0 6px 0 !important;
+            }
+
+            #creatorTopicsLock > .orange-line {
+                margin: 0 auto 20px !important;
+            }
+
+            #creatorTopicsLock .topics-4-grid {
+                gap: 20px !important;
+                align-items: start !important;
+                flex: 1;
+            }
+
+            #creatorTopicsLock .topic-card-wrap {
+                gap: 8px !important;
+                margin: 0 !important;
+            }
+
+            #creatorTopicsLock .topic-card-title {
+                margin: 0 !important;
+            }
+
+            /* 이미지 비율은 기존 값 그대로 유지 */
+            #creatorStoryLock .creator-image-box,
+            #creatorTopicsLock .creator-image-box {
+                margin: 0 !important;
+            }
+
+            /* CTA는 LOCK 3 이후 일반 자유 스크롤 */
+            .sec-cta {
+                margin-top: 75px !important;
+            }
+        }
+
+</style>
 </head>
 <body>
 
@@ -784,7 +991,7 @@
     <div class="container">
 
         <!-- 섹션 1 (brand_01_image_01.png - 5:4 비율 적용) -->
-        <section class="sec-hero reveal-element">
+        <section class="sec-hero" id="creatorHeroLock">
             <div>
                 <span class="tag-orange" data-translate="creator_tag">크리에이터</span>
                 <div class="orange-line"></div>
@@ -803,7 +1010,7 @@
         </section>
 
         <!-- 섹션 2 (brand_01_image_02.png - 5:4 비율 적용) -->
-        <section class="sec-story reveal-element">
+        <section class="sec-story" id="creatorStoryLock">
             <div class="banner-title-box">
                 <h2>
                     <span class="quote-icon">“</span>
@@ -826,7 +1033,7 @@
         </section>
 
         <!-- 섹션 3 (brand_01_image_03 ~ 06.png - 4:5 비율 적용) -->
-        <section class="sec-topics reveal-element">
+        <section class="sec-topics" id="creatorTopicsLock">
             <span class="section-tag" data-translate="sec3_tag">기록하는 스토리</span>
             <h2 data-translate="sec3_title">다양한 주제로 콘텐츠를 만듭니다.</h2>
             <div class="orange-line"></div>
@@ -1057,6 +1264,101 @@
     
 
         document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+        /* =========================================================
+           ★ CREATOR 3-SECTION SCROLL LOCK
+           ---------------------------------------------------------
+           LOCK 1 : #creatorHeroLock
+           LOCK 2 : #creatorStoryLock
+           LOCK 3 : #creatorTopicsLock
+
+           - 스크롤 애니메이션 없음
+           - setTimeout 없음
+           - wheel 입력 즉시 다음/이전 LOCK 위치로 이동
+           - LOCK 3 이후 CTA는 일반 자유 스크롤
+           ========================================================= */
+        (() => {
+            const DESKTOP_BREAKPOINT = 1024;
+            const HEADER_HEIGHT = 75;
+            const TOLERANCE = 24;
+
+            const lock1 = document.getElementById('creatorHeroLock');
+            const lock2 = document.getElementById('creatorStoryLock');
+            const lock3 = document.getElementById('creatorTopicsLock');
+
+            if (!lock1 || !lock2 || !lock3) return;
+
+            function isDesktop() {
+                return window.innerWidth > DESKTOP_BREAKPOINT;
+            }
+
+            function absoluteTop(el) {
+                return el.getBoundingClientRect().top + window.scrollY;
+            }
+
+            function lockY(el, first = false) {
+                if (first) return 0;
+                return Math.max(0, absoluteTop(el) - HEADER_HEIGHT);
+            }
+
+            function near(a, b) {
+                return Math.abs(a - b) <= TOLERANCE;
+            }
+
+            function snapNow(y) {
+                const root = document.documentElement;
+                const oldBehavior = root.style.scrollBehavior;
+
+                root.style.scrollBehavior = 'auto';
+                window.scrollTo(0, y);
+                root.style.scrollBehavior = oldBehavior;
+            }
+
+            function handleWheel(event) {
+                if (!isDesktop()) return;
+
+                const y = window.scrollY;
+                const y1 = lockY(lock1, true);
+                const y2 = lockY(lock2);
+                const y3 = lockY(lock3);
+
+                const down = event.deltaY > 0;
+                const up = event.deltaY < 0;
+
+                /* LOCK 1 → LOCK 2 */
+                if (down && near(y, y1)) {
+                    event.preventDefault();
+                    snapNow(y2);
+                    return;
+                }
+
+                /* LOCK 2 → LOCK 3 */
+                if (down && near(y, y2)) {
+                    event.preventDefault();
+                    snapNow(y3);
+                    return;
+                }
+
+                /* LOCK 3 이후는 아래 방향 자유 스크롤 */
+
+                /* LOCK 3 → LOCK 2 */
+                if (up && near(y, y3)) {
+                    event.preventDefault();
+                    snapNow(y2);
+                    return;
+                }
+
+                /* LOCK 2 → LOCK 1 */
+                if (up && near(y, y2)) {
+                    event.preventDefault();
+                    snapNow(y1);
+                    return;
+                }
+            }
+
+            window.addEventListener('wheel', handleWheel, { passive: false });
+        })();
+
 </script>
 </body>
 </html>
