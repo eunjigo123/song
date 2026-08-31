@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=27242"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26884"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26540"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26418"></script>
@@ -2101,6 +2102,158 @@
         }
     }
 
+
+    /* =========================================================
+       ★ FINAL LOCK SPACING
+       데스크톱 LOCK 기준
+       LOCK 1 / LOCK 2 : 콘텐츠 위·아래 정확히 75px
+       LOCK 3 : 한 화면 안에서 위·아래 정확히 75px
+       ========================================================= */
+    @media (min-width: 901px) {
+
+        /* ---------- LOCK 1 ---------- */
+        .main-banner-section {
+            margin: 75px var(--page-gutter) 0 var(--page-gutter) !important;
+            min-height: 0 !important;
+            height: auto !important;
+            padding: 75px 0 !important;
+            box-sizing: border-box !important;
+            align-content: start !important;
+        }
+
+        .banner-text-area h1 {
+            margin-top: 0 !important;
+        }
+
+        .banner-buttons {
+            margin-bottom: 0 !important;
+        }
+
+        .banner-visual-wrap,
+        .slide-dots {
+            margin-bottom: 0 !important;
+        }
+
+        /* ---------- LOCK 2 ---------- */
+        .experience-section {
+            margin: 0 !important;
+            min-height: 0 !important;
+            height: auto !important;
+            padding: 75px var(--page-gutter) !important;
+            box-sizing: border-box !important;
+            display: block !important;
+        }
+
+        .experience-inner {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .experience-title {
+            margin-top: 0 !important;
+        }
+
+        .experience-grid,
+        .experience-item,
+        .exp-desc {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* ---------- LOCK 3 : PROJECTS & STORIES ---------- */
+        #project.story-main-section {
+            width: 100% !important;
+            height: calc(100vh - 75px) !important;
+            min-height: 0 !important;
+            margin: 0 0 75px 0 !important;
+            padding: 75px var(--page-gutter) !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            align-items: stretch !important;
+            overflow: hidden !important;
+        }
+
+        /* 섹션 내부의 첫 요소는 위 padding 75px에서 바로 시작,
+           마지막 박스는 아래 padding 75px 직전에 끝남 */
+        #project .story-main-inner {
+            width: min(100%, 1080px) !important;
+            max-width: 1080px !important;
+            height: 100% !important;
+            margin: 0 auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        #project .story-main-header {
+            margin: 0 !important;
+        }
+
+        #project .story-main-header span {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-main-header h2 {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-main-header p {
+            margin: 0 !important;
+        }
+
+        #project .story-grid-top {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 20px !important;
+            margin: 0 !important;
+            align-items: start !important;
+        }
+
+        #project .story-card-img {
+            margin: 0 0 6px 0 !important;
+        }
+
+        #project .story-card-category {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-title {
+            margin: 0 0 2px 0 !important;
+        }
+
+        #project .story-card-desc {
+            margin: 0 !important;
+        }
+
+        #project .story-bottom-box {
+            margin: 0 !important;
+            padding: 12px 24px !important;
+            gap: 34px !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        #project .story-bottom-box::after {
+            top: 12px !important;
+            bottom: 12px !important;
+        }
+
+        #project .story-content-tag {
+            margin: 0 0 4px 0 !important;
+        }
+
+        #project .story-content-text h4 {
+            margin: 0 0 5px 0 !important;
+        }
+
+        #project .story-content-text p {
+            margin: 0 0 7px 0 !important;
+        }
+
+        #project .action-btn {
+            padding: 8px 14px !important;
+        }
+    }
+
 </style>
 
 <!-- Header -->
@@ -2779,15 +2932,13 @@
        LOCK 2 : OUR PHILOSOPHY
        LOCK 3 : PROJECTS & STORIES
 
-       LOCK 2 이후 서비스 상세는 자유 스크롤.
-       PROJECTS & STORIES가 viewport 안으로 들어오면 LOCK 3에 정착.
+       ★ 애니메이션 시간 / setTimeout 없음
+       ★ 휠 입력 즉시 해당 위치로 스냅
        ========================================================= */
     (() => {
         const DESKTOP_BREAKPOINT = 900;
         const HEADER_HEIGHT = 75;
-        const SNAP_DURATION = 620;
-        const LOCK_TOLERANCE = 16;
-        const RELEASE_DELAY = 520;
+        const TOLERANCE = 18;
 
         const lock1 = document.querySelector('.main-banner-section');
         const lock2 = document.querySelector('.experience-section');
@@ -2795,8 +2946,7 @@
 
         if (!lock1 || !lock2 || !lock3) return;
 
-        let isAnimating = false;
-        let lock3Holding = false;
+        let consumeNextWheelAtLock3 = false;
 
         function isDesktop() {
             return window.innerWidth > DESKTOP_BREAKPOINT;
@@ -2806,133 +2956,94 @@
             return element.getBoundingClientRect().top + window.scrollY;
         }
 
-        function getLockY(element, isFirst = false) {
-            if (isFirst) return 0;
+        function lockY(element, first = false) {
+            if (first) return 0;
             return Math.max(0, absoluteTop(element) - HEADER_HEIGHT);
         }
 
-        function near(a, b, tolerance = LOCK_TOLERANCE) {
+        function near(a, b, tolerance = TOLERANCE) {
             return Math.abs(a - b) <= tolerance;
         }
 
-        function smoothSnap(targetY, callback) {
-            if (isAnimating) return;
+        /* CSS html{scroll-behavior:smooth}의 영향까지 제거하고 즉시 이동 */
+        function snapNow(targetY) {
+            const root = document.documentElement;
+            const previousBehavior = root.style.scrollBehavior;
 
-            isAnimating = true;
-            document.body.style.overscrollBehaviorY = 'none';
-
-            const startY = window.scrollY;
-            const distance = targetY - startY;
-            const startTime = performance.now();
-
-            function ease(t) {
-                return t < 0.5
-                    ? 4 * t * t * t
-                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            }
-
-            function frame(now) {
-                const progress = Math.min((now - startTime) / SNAP_DURATION, 1);
-                window.scrollTo(0, startY + distance * ease(progress));
-
-                if (progress < 1) {
-                    requestAnimationFrame(frame);
-                    return;
-                }
-
-                window.scrollTo(0, targetY);
-                isAnimating = false;
-                document.body.style.overscrollBehaviorY = '';
-
-                if (typeof callback === 'function') callback();
-            }
-
-            requestAnimationFrame(frame);
-        }
-
-        function holdLock3Briefly() {
-            lock3Holding = true;
-            window.setTimeout(() => {
-                lock3Holding = false;
-            }, RELEASE_DELAY);
+            root.style.scrollBehavior = 'auto';
+            window.scrollTo(0, targetY);
+            root.style.scrollBehavior = previousBehavior;
         }
 
         function handleWheel(event) {
             if (!isDesktop()) return;
 
-            if (isAnimating) {
-                event.preventDefault();
-                return;
-            }
-
             const y = window.scrollY;
-            const lock1Y = getLockY(lock1, true);
-            const lock2Y = getLockY(lock2);
-            const lock3Y = getLockY(lock3);
+            const y1 = lockY(lock1, true);
+            const y2 = lockY(lock2);
+            const y3 = lockY(lock3);
 
             const down = event.deltaY > 0;
             const up = event.deltaY < 0;
 
-            /* LOCK 1 → LOCK 2 */
-            if (down && near(y, lock1Y, 20)) {
+            /* LOCK 1 → LOCK 2 : 즉시 */
+            if (down && near(y, y1, 24)) {
                 event.preventDefault();
-                smoothSnap(lock2Y);
+                snapNow(y2);
                 return;
             }
 
-            /* LOCK 2 → LOCK 1 */
-            if (up && near(y, lock2Y, 20)) {
+            /* LOCK 2 → LOCK 1 : 즉시 */
+            if (up && near(y, y2, 24)) {
                 event.preventDefault();
-                smoothSnap(lock1Y);
+                snapNow(y1);
                 return;
             }
 
-            /* LOCK 3에 도착 직후 같은 제스처의 잔여 wheel 차단 */
-            if (lock3Holding && near(y, lock3Y, 24)) {
+            /* LOCK 3에 막 정착한 다음 wheel 한 번만 소비.
+               시간 지연 없이 '락 한 번'만 체감되도록 함. */
+            if (consumeNextWheelAtLock3 && near(y, y3, 24)) {
                 event.preventDefault();
+                consumeNextWheelAtLock3 = false;
                 return;
             }
 
-            /* -------------------------------------------------
-               LOCK 3 진입
-               PROJECTS & STORIES의 상단이 화면 안쪽 82% 지점까지
-               들어오면 native scroll을 막고 정확한 위치로 스냅.
-               deltaY 크기에 상관없이 실제 rect 위치를 사용하므로
-               터치패드/큰 휠에서도 놓치지 않습니다.
-               ------------------------------------------------- */
-            if (down && y < lock3Y - LOCK_TOLERANCE) {
+            /* 서비스 상세를 자유 스크롤하다가
+               PROJECTS & STORIES가 화면 안으로 들어오면 즉시 LOCK 3 */
+            if (down && y < y3 - TOLERANCE) {
                 const rect = lock3.getBoundingClientRect();
-                const triggerLine = window.innerHeight * 0.82;
 
-                if (rect.top <= triggerLine) {
+                if (rect.top <= window.innerHeight * 0.78) {
                     event.preventDefault();
-                    smoothSnap(lock3Y, holdLock3Briefly);
+                    snapNow(y3);
+                    consumeNextWheelAtLock3 = true;
                     return;
                 }
             }
 
-            /* 아래에서 위로 다시 돌아올 때 LOCK 3에 재정착 */
-            if (up && y > lock3Y + LOCK_TOLERANCE) {
+            /* footer 쪽에서 위로 올라올 때도 LOCK 3에 즉시 재정착 */
+            if (up && y > y3 + TOLERANCE) {
                 const rect = lock3.getBoundingClientRect();
-                const triggerLine = HEADER_HEIGHT + (window.innerHeight * 0.18);
 
-                if (rect.top >= HEADER_HEIGHT && rect.top <= triggerLine) {
+                if (
+                    rect.top >= HEADER_HEIGHT &&
+                    rect.top <= HEADER_HEIGHT + window.innerHeight * 0.22
+                ) {
                     event.preventDefault();
-                    smoothSnap(lock3Y, holdLock3Briefly);
+                    snapNow(y3);
+                    consumeNextWheelAtLock3 = true;
                     return;
                 }
             }
 
-            /* LOCK 3에서 새로운 아래 wheel 입력은 footer 방향 자유 스크롤 */
+            /* 그 외 구간은 자유 스크롤 */
         }
 
         window.addEventListener('wheel', handleWheel, { passive: false });
 
         window.addEventListener('resize', () => {
             if (!isDesktop()) {
-                isAnimating = false;
-                lock3Holding = false;
-                document.body.style.overscrollBehaviorY = '';
+                consumeNextWheelAtLock3 = false;
             }
         });
     })();
