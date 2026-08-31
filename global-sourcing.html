@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">글로벌 소싱 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13179"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=31246"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13179"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -951,7 +951,390 @@
             .container { padding: 0 20px; }
             .inquiry-banner { padding: 30px 20px; }
         }
-    </style>
+    
+        /* =========================================================
+           ★ GLOBAL SOURCING LOCK 1 FINAL
+           - fixed header: 75px
+           - header 아래 실제 공백: 75px
+           - 첫 화면에서 두 번째 섹션 노출 금지
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important; /* header 75 + gap 75 */
+            }
+
+            #globalLock1 {
+                height: calc(100vh - 150px) !important;
+                min-height: calc(100vh - 150px) !important;
+
+                margin: 0 0 75px 0 !important;
+                padding: 0 !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                /* 콘텐츠가 75px 아래에서 바로 시작하도록 중앙정렬 제거 */
+                align-items: start !important;
+                align-content: start !important;
+
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            #globalLock1 > * {
+                margin-top: 0 !important;
+            }
+
+            #globalLock1 .text-content,
+            #globalLock1 .image-box {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+
+            #globalSection2 {
+                scroll-margin-top: 75px;
+            }
+        }
+
+
+        /* =========================================================
+           ★ GLOBAL LOCK 1 + QUOTE FINAL
+           - header 아래 첫 섹션 상단 공백 75px
+           - hero와 quote 사이 75px
+           - quote 아래 75px
+           - quote 내부는 글씨 높이에 맞게 compact
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important; /* header 75 + top gap 75 */
+            }
+
+            #globalLock1.global-lock1-wrap {
+                height: calc(100vh - 150px) !important;
+                min-height: calc(100vh - 150px) !important;
+                margin: 0 !important;
+                padding: 0 0 75px 0 !important; /* quote 아래 75px */
+                box-sizing: border-box !important;
+
+                display: flex !important;
+                flex-direction: column !important;
+                overflow: hidden !important;
+            }
+
+            #globalLock1 .global-lock1-main {
+                margin: 0 !important;
+                min-height: 0 !important;
+                flex: 1 1 auto !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+                align-items: start !important;
+                align-content: start !important;
+            }
+
+            #globalLock1 .global-lock1-main > * {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+
+            /* hero와 인용구 사이 정확히 75px */
+            #globalLock1 .global-lock1-quote {
+                margin: 75px 0 0 0 !important;
+                padding: 14px 20px !important;
+                min-height: 0 !important;
+                flex: 0 0 auto !important;
+                box-sizing: border-box !important;
+            }
+
+            /* 인용구 텍스트 검정 계열 */
+            #globalLock1 .global-lock1-quote h2,
+            #globalLock1 .global-lock1-quote h2 span {
+                margin: 0 !important;
+                color: var(--deep-color) !important;
+            }
+
+            #globalLock1 .global-lock1-quote h2 {
+                font-size: var(--font-card-title) !important;
+                line-height: 1.4 !important;
+            }
+
+            #globalSection2 {
+                scroll-margin-top: 75px;
+            }
+        }
+
+
+        /* =========================================================
+           ★ GLOBAL SOURCING LOCK 2
+           "중국 상품을 더 정확하고 편리하게 찾을 수 있도록"
+           - 상단 공백 75px
+           - 하단 공백 75px
+           - 한 화면에 전체 내용 표시
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #globalLock2 {
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                align-items: center !important;
+                align-content: center !important;
+
+                overflow: hidden !important;
+                scroll-margin-top: 75px;
+            }
+
+            #globalLock2 .text-content,
+            #globalLock2 .image-box {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            #globalLock2 .text-content h2 {
+                margin-top: 0 !important;
+            }
+
+            #globalLock2 .text-content p:last-child,
+            #globalLock2 .check-list {
+                margin-bottom: 0 !important;
+            }
+
+            #globalSection3 {
+                scroll-margin-top: 75px;
+            }
+        }
+
+
+        /* =========================================================
+           ★ PROCESS SECTION - FREE SCROLL / GAP 75px
+           "필요한 상품을 찾는 과정에 함께합니다."
+           - JS 락 없음
+           - 상단 공백 75px
+           - 하단 공백 75px
+           ========================================================= */
+        @media (min-width: 1025px) {
+            #globalSection3.process-layout-section {
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                min-height: 0 !important;
+                height: auto !important;
+                box-sizing: border-box !important;
+
+                display: grid !important;
+                grid-template-columns: 0.8fr 2fr !important;
+                gap: 60px !important;
+                align-items: center !important;
+
+                /* 일반 스크롤 섹션 */
+                scroll-margin-top: 0 !important;
+                overflow: visible !important;
+            }
+
+            #globalSection3 .text-content,
+            #globalSection3 .process-visual-stack {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            #globalSection3 .process-top-grid,
+            #globalSection3 .process-bottom-grid {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ SERVICE FLOW / INQUIRY GAP FINAL
+           서비스 진행 과정 : 위 75px / 아래 75px
+           문의하기          : 위 75px / 아래 75px
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* 서비스 진행 과정 */
+            .service-flow-section {
+                margin: 0 !important;
+                padding: 75px 40px !important;
+                box-sizing: border-box !important;
+            }
+
+            .service-flow-section .section-title-wrap {
+                margin-top: 0 !important;
+            }
+
+            .service-flow-section .flow-cards-container {
+                margin-bottom: 0 !important;
+            }
+
+            /* 문의하기를 독립 섹션으로 분리 */
+            .inquiry-section-wrap {
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            .inquiry-section-wrap .inquiry-banner {
+                margin: 0 !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ QUOTE BLOCK RESTORE
+           원래 인용구 박스 디자인 복원 + 글씨 색상만 검정
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* 첫 LOCK 안에서 기존 위치/75px 간격 유지 */
+            #globalLock1 .global-lock1-quote {
+                width: 100% !important;
+                margin: 75px 0 0 0 !important;
+
+                /* 원래 박스 규격 복원 */
+                padding: 50px 20px !important;
+                background: var(--bg-light) !important;
+                border: 1px solid #F1E6DC !important;
+                border-radius: 8px !important;
+
+                text-align: center !important;
+                box-sizing: border-box !important;
+                flex: 0 0 auto !important;
+            }
+
+            /* 원래 제목 크기/행간/간격 복원 */
+            #globalLock1 .global-lock1-quote h2 {
+                margin: 0 !important;
+                padding: 0 !important;
+
+                font-family: var(--font-title-family) !important;
+                font-size: var(--font-section-title) !important;
+                font-weight: 700 !important;
+                line-height: var(--line-section-title) !important;
+
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 15px !important;
+
+                /* 글씨만 검정 */
+                color: var(--deep-color) !important;
+            }
+
+            /* 따옴표도 기존 크기 유지, 색상만 검정 */
+            #globalLock1 .global-lock1-quote h2 span {
+                font-family: var(--font-title-family) !important;
+                font-size: var(--font-card-title) !important;
+                font-weight: 700 !important;
+                line-height: var(--line-card-title) !important;
+
+                color: var(--deep-color) !important;
+            }
+        }
+
+
+        /* =========================================================
+           ★ GLOBAL SOURCING TRUE 75PX SECTION GAPS
+           - LOCK 2: 실제 위/아래 75px
+           - PROCESS: 실제 위/아래 75px
+           - SERVICE FLOW: 실제 위/아래 75px
+           - INQUIRY: 실제 위/아래 75px
+           - 페이지 마지막 추가 margin 제거
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* 페이지 마지막에 기존 100px이 더 붙지 않도록 */
+            .container {
+                margin-bottom: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               LOCK 2
+               기존 height + align-content:center 때문에
+               padding 75px 외에 추가 공백이 생기던 문제 제거
+               ----------------------------------------------------- */
+            #globalLock2 {
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 75px 0 !important;
+
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+
+                align-items: center !important;
+                align-content: start !important;
+
+                box-sizing: border-box !important;
+                overflow: visible !important;
+            }
+
+            #globalLock2 .text-content,
+            #globalLock2 .image-box {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               PROCESS
+               "필요한 상품을 찾는 과정에 함께합니다."
+               ----------------------------------------------------- */
+            #globalSection3.process-layout-section {
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                height: auto !important;
+                min-height: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            #globalSection3 .text-content,
+            #globalSection3 .process-visual-stack,
+            #globalSection3 .process-top-grid,
+            #globalSection3 .process-bottom-grid {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               SERVICE FLOW
+               ----------------------------------------------------- */
+            .service-flow-section {
+                margin: 0 !important;
+                padding: 75px 40px !important;
+                box-sizing: border-box !important;
+            }
+
+            .service-flow-section .section-title-wrap {
+                margin-top: 0 !important;
+            }
+
+            .service-flow-section .flow-cards-container {
+                margin-bottom: 0 !important;
+            }
+
+            /* -----------------------------------------------------
+               INQUIRY
+               문의하기 박스 바깥 위/아래 실제 75px
+               ----------------------------------------------------- */
+            .inquiry-section-wrap {
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            .inquiry-section-wrap .inquiry-banner {
+                margin: 0 !important;
+            }
+        }
+
+</style>
 </head>
 <body>
 
@@ -1074,7 +1457,8 @@
     <div class="container">
         
         <!-- 첫 번째 섹션 (brand_03_image_01.png: 5:4 비율 적용)[cite: 10] -->
-        <div class="content-block reveal-element">
+        <section class="global-lock1-wrap" id="globalLock1">
+<div class="content-block global-lock1-main">
             <div class="text-content banner-text-area">
                 <span class="tag" data-translate="global_tag">GLOBAL SOURCING</span>
                 <div class="accent-line"></div>
@@ -1086,16 +1470,15 @@
                 <img src="brand_03_image_01.png" alt="brand_03_image_01 이미지" onerror="this.onerror=null; this.src='brand_03_image_01.png';">
             </div>
         </div>
-
-        <!-- 인용구 타이틀 섹션 -->
-        <div class="quote-title-section reveal-element">
+<div class="quote-title-section global-lock1-quote">
             <h2 class="serif-title">
                 <span>“</span> <span data-translate="quote_title">단정함과 편안함 사이의 새로운 선택</span> <span>”</span>
             </h2>
         </div>
+</section>
 
         <!-- 두 번째 섹션 (brand_03_image_02.png: 5:4 비율 적용)[cite: 10] -->
-        <div class="content-block reverse reveal-element">
+        <div class="content-block reverse" id="globalLock2">
             <div class="text-content">
                 <h2 data-translate="sec2_title">중국 상품을 더 정확하고<br>편리하게 찾을 수 있도록</h2>
                 <div class="accent-line"></div>
@@ -1119,7 +1502,7 @@
         </div>
 
         <!-- 세 번째 섹션 (참고 이미지 구조 적용) -->
-        <div class="process-layout-section reveal-element">
+        <div class="process-layout-section reveal-element" id="globalSection3">
             <div class="text-content">
                 <h2 data-translate="sec3_title">필요한 상품을 찾는<br>과정에 함께합니다.</h2>
                 <div class="accent-line"></div>
@@ -1211,8 +1594,11 @@
                 </div>
             </div>
 
-            <!-- 하단 문의하기 배너 (brand_03_image_06.png: 16:9 비율 적용)[cite: 10] -->
-            <div class="inquiry-banner">
+        </div>
+
+        <!-- 문의하기 독립 섹션 -->
+        <section class="inquiry-section-wrap">
+<div class="inquiry-banner">
                 <div class="inquiry-content">
                     <h3 data-translate="inquiry_title">문의하기</h3>
                     <p data-translate="inquiry_desc">중국 상품 소싱과 구매 지원에 대해<br>궁금하신 점은 언제든지 문의해 주세요.</p>
@@ -1226,7 +1612,7 @@
                     <img src="brand_03_image_06.png" alt="brand_03_image_06 이미지" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
                 </div>
             </div>
-        </div>
+        </section>
 
     </div>
 
@@ -1484,6 +1870,112 @@
     
 
         document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+        /* =========================================================
+           ★ GLOBAL SOURCING 2-SECTION SCROLL LOCK
+           ---------------------------------------------------------
+           LOCK 1 : 첫 hero + 인용구
+           LOCK 2 : 중국 상품을 더 정확하고 편리하게 찾을 수 있도록
+
+           LOCK 2 이후는 자유 스크롤
+           각 락 도착 후 1500ms 유지
+           ========================================================= */
+        (() => {
+            const DESKTOP_BREAKPOINT = 1024;
+            const HEADER_HEIGHT = 75;
+            const POSITION_TOLERANCE = 28;
+            const LOCK_HOLD_MS = 1500;
+
+            const lock1 = document.getElementById('globalLock1');
+            const lock2 = document.getElementById('globalLock2');
+
+            if (!lock1 || !lock2) return;
+
+            let isHolding = false;
+            let holdTimer = null;
+
+            function isDesktop() {
+                return window.innerWidth > DESKTOP_BREAKPOINT;
+            }
+
+            function absoluteTop(element) {
+                return element.getBoundingClientRect().top + window.scrollY;
+            }
+
+            function getPositions() {
+                return {
+                    lock1: 0,
+                    lock2: Math.max(0, absoluteTop(lock2) - HEADER_HEIGHT)
+                };
+            }
+
+            function near(a, b) {
+                return Math.abs(a - b) <= POSITION_TOLERANCE;
+            }
+
+            function snapNow(targetY) {
+                const root = document.documentElement;
+                const oldBehavior = root.style.scrollBehavior;
+
+                root.style.scrollBehavior = 'auto';
+                window.scrollTo(0, targetY);
+                root.style.scrollBehavior = oldBehavior;
+            }
+
+            function startHold() {
+                isHolding = true;
+
+                if (holdTimer) clearTimeout(holdTimer);
+
+                holdTimer = setTimeout(() => {
+                    isHolding = false;
+                    holdTimer = null;
+                }, LOCK_HOLD_MS);
+            }
+
+            function handleWheel(event) {
+                if (!isDesktop()) return;
+
+                if (isHolding) {
+                    event.preventDefault();
+                    return;
+                }
+
+                const y = window.scrollY;
+                const pos = getPositions();
+                const down = event.deltaY > 0;
+                const up = event.deltaY < 0;
+
+                /* LOCK 1 → LOCK 2 */
+                if (down && near(y, pos.lock1)) {
+                    event.preventDefault();
+                    snapNow(pos.lock2);
+                    startHold();
+                    return;
+                }
+
+                /* LOCK 2 → LOCK 1 */
+                if (up && near(y, pos.lock2)) {
+                    event.preventDefault();
+                    snapNow(pos.lock1);
+                    startHold();
+                    return;
+                }
+
+                /* LOCK 2 이후 아래 방향은 자유 스크롤 */
+            }
+
+            window.addEventListener('wheel', handleWheel, { passive: false });
+
+            window.addEventListener('resize', () => {
+                isHolding = false;
+                if (holdTimer) {
+                    clearTimeout(holdTimer);
+                    holdTimer = null;
+                }
+            });
+        })();
+
 </script>
 </body>
 </html>
