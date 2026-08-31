@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">이커머스 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=29107"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=17364"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13042"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10853"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6729"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18387"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12587"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -662,7 +662,176 @@
             .nav-menu { display: none; }
             .hamburger { display: flex; }
         }
-    </style>
+    
+        /* =========================================================
+           ★ E-COMMERCE LOCK 1
+           첫 번째 9sh 섹션
+           - fixed header 75px
+           - header 아래 실제 공백 75px
+           - 첫 섹션에서 아래 휠 → 두 번째 섹션으로 즉시 스냅
+           - 이미지 비율 유지
+           ========================================================= */
+        @media (min-width: 1025px) {
+            .container {
+                margin-top: 150px !important; /* 75px header + 75px gap */
+            }
+
+            #ecommerceLock1 {
+                margin-top: 0 !important;
+                margin-bottom: 75px !important;
+                min-height: calc(100vh - 225px) !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+                align-items: center !important;
+            }
+
+            #ecommerceLock1 h1,
+            #ecommerceLock1 h2,
+            #ecommerceLock1 p {
+                margin-top: 0 !important;
+            }
+
+            #ecommerceSection2 {
+                scroll-margin-top: 75px;
+            }
+        }
+
+
+        /* =========================================================
+           ★ E-COMMERCE FINAL LOCK STRUCTURE
+           LOCK 1 : 첫 9sh hero
+           LOCK 2 : 단정함과 편안함... + 첫 번째 story grid
+           FREE   : 나를 위해, 소중한 사람을 위해
+           LOCK 3 : 9sh의 스토리 + Smart Store CTA
+           ========================================================= */
+        @media (min-width: 1025px) {
+
+            /* ---------- LOCK 2 ---------- */
+            #ecommerceStorySection {
+                margin: 0 !important;
+            }
+
+            #ecommerceLock2 {
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                display: grid !important;
+                grid-template-rows: auto minmax(0, 1fr) !important;
+                align-content: stretch !important;
+                scroll-margin-top: 75px;
+            }
+
+            #ecommerceLock2 .banner-title-box {
+                margin: 0 0 22px 0 !important;
+                padding: 18px 20px !important;
+            }
+
+            #ecommerceLock2 .banner-title-box h2 {
+                margin: 0 !important;
+            }
+
+            #ecommerceLock2 .sec-story-grid {
+                margin: 0 !important;
+                min-height: 0 !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 60px !important;
+                align-items: center !important;
+            }
+
+            #ecommerceLock2 .story-text-side h3 {
+                margin: 0 0 16px 0 !important;
+            }
+
+            #ecommerceLock2 .story-text-side .orange-line {
+                margin: 0 0 18px 0 !important;
+            }
+
+            #ecommerceLock2 .story-text-side p {
+                margin: 0 !important;
+            }
+
+            /* ---------- FREE SCROLL : "나를 위해..." ---------- */
+            #ecommerceStorySection > .sec-story-grid {
+                margin: 75px 0 !important;
+            }
+
+            /* ---------- LOCK 3 ---------- */
+            #ecommerceLock3 {
+                height: calc(100vh - 75px) !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 75px 0 !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                gap: 18px !important;
+                scroll-margin-top: 75px;
+            }
+
+            #ecommerceLock3 .sec-topics {
+                margin: 0 !important;
+                padding: 0 !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            #ecommerceLock3 .sec-topics h2 {
+                margin: 0 0 6px 0 !important;
+            }
+
+            #ecommerceLock3 .sec-topics > .orange-line {
+                margin: 0 auto 18px !important;
+            }
+
+            #ecommerceLock3 .topics-3-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 22px !important;
+                margin: 0 !important;
+                align-items: start !important;
+            }
+
+            #ecommerceLock3 .topic-card-wrap {
+                gap: 7px !important;
+                margin: 0 !important;
+            }
+
+            #ecommerceLock3 .topic-card-title,
+            #ecommerceLock3 .topic-card-desc,
+            #ecommerceLock3 .ecommerce-image-box {
+                margin: 0 !important;
+            }
+
+            /* CTA를 LOCK 3와 함께 한 화면에 보이게 압축 */
+            #ecommerceLock3 .sec-cta {
+                margin: 0 !important;
+                padding: 22px 20px !important;
+                flex: 0 0 auto !important;
+            }
+
+            #ecommerceLock3 .sec-cta h3 {
+                margin: 0 0 10px 0 !important;
+                line-height: 1.3 !important;
+            }
+
+            #ecommerceLock3 .sec-cta p {
+                margin: 0 0 10px 0 !important;
+                line-height: 1.5 !important;
+            }
+
+            #ecommerceLock3 .cta-btn-box {
+                padding: 10px 34px !important;
+                line-height: 1.4 !important;
+            }
+        }
+
+</style>
 </head>
 <body>
 
@@ -755,7 +924,7 @@
     <div class="container">
 
         <!-- 섹션 1: 히어로서주 (시안 1) -->
-        <section class="sec-hero reveal-element">
+        <section class="sec-hero" id="ecommerceLock1">
             <div>
                 <span class="tag-orange" data-translate="ecommerce_tag">이커머스</span>
                 <div class="orange-line"></div>
@@ -774,7 +943,8 @@
         </section>
 
         <!-- 섹션 2: 스토리 배너 및 첫 번째 본문 (시안 2) -->
-        <section class="sec-story reveal-element">
+        <section class="sec-story" id="ecommerceStorySection">
+            <div class="ecommerce-lock2-wrap" id="ecommerceLock2">
             <div class="banner-title-box">
                 <h2>
                     <span class="quote-icon">“</span>
@@ -794,6 +964,7 @@
                     <p data-translate="sec2_desc">단정하지만 부담스럽지 않고,<br>실용적이면서도 개성을 잃지 않는 스타일.<br><br>9sh는 새로운 환경에 적응하는 당신의<br>든든한 일상 파트너가 되어 드립니다.</p>
                 </div>
             </div>
+            </div><!-- /#ecommerceLock2 -->
 
             <!-- 시안 3 추가 반영 (나를 위해, 소중한 사람을 위해) -->
             <div class="sec-story-grid" style="margin-bottom: 0;">
@@ -811,7 +982,8 @@
         </section>
 
         <!-- 섹션 3: 9sh의 스토리 (시안 4) -->
-        <section class="sec-topics reveal-element">
+        <section class="ecommerce-lock3-combined" id="ecommerceLock3">
+<section class="sec-topics">
             <h2 data-translate="sec4_title">9sh의 스토리</h2>
             <div class="orange-line"></div>
 
@@ -841,9 +1013,10 @@
         </section>
 
         <!-- 섹션 4: CTA 영역 (시안 4 하단) -->
-        <section class="sec-cta reveal-element">
+        <section class="sec-cta">
             <h3 data-translate="cta_title">스마트스토어에서 판매 중인 상품을 확인해 보세요</h3>
             <a href="https://smartstore.naver.com/xxingde82" class="cta-btn-box" data-translate="cta_btn" target="_blank" rel="noopener noreferrer">스마트스토어 ↗</a>
+        </section>
         </section>
 
     </div>
@@ -1069,6 +1242,152 @@
     
 
         document.addEventListener("DOMContentLoaded", initializeLanguage);
+
+        /* =========================================================
+           ★ E-COMMERCE FINAL SCROLL LOCK
+           ---------------------------------------------------------
+           LOCK 1 : #ecommerceLock1
+           LOCK 2 : #ecommerceLock2
+           FREE   : "나를 위해..." story grid
+           LOCK 3 : #ecommerceLock3
+
+           스냅은 즉시.
+           같은 휠 제스처의 잔여 이벤트만 차단.
+           ========================================================= */
+        (() => {
+            const DESKTOP_BREAKPOINT = 1024;
+            const HEADER_HEIGHT = 75;
+            const POSITION_TOLERANCE = 28;
+            const GESTURE_END_MS = 90;
+
+            const lock1 = document.getElementById('ecommerceLock1');
+            const lock2 = document.getElementById('ecommerceLock2');
+            const lock3 = document.getElementById('ecommerceLock3');
+
+            if (!lock1 || !lock2 || !lock3) return;
+
+            let gestureBlocked = false;
+            let gestureTimer = null;
+
+            function isDesktop() {
+                return window.innerWidth > DESKTOP_BREAKPOINT;
+            }
+
+            function absoluteTop(el) {
+                return el.getBoundingClientRect().top + window.scrollY;
+            }
+
+            function yOf(el, first = false) {
+                if (first) return 0;
+                return Math.max(0, absoluteTop(el) - HEADER_HEIGHT);
+            }
+
+            function near(a, b) {
+                return Math.abs(a - b) <= POSITION_TOLERANCE;
+            }
+
+            function snapNow(y) {
+                const root = document.documentElement;
+                const old = root.style.scrollBehavior;
+                root.style.scrollBehavior = 'auto';
+                window.scrollTo(0, y);
+                root.style.scrollBehavior = old;
+            }
+
+            function blockCurrentGesture() {
+                gestureBlocked = true;
+                if (gestureTimer) clearTimeout(gestureTimer);
+
+                gestureTimer = setTimeout(() => {
+                    gestureBlocked = false;
+                    gestureTimer = null;
+                }, GESTURE_END_MS);
+            }
+
+            function refreshGestureTimer() {
+                if (!gestureBlocked) return;
+                if (gestureTimer) clearTimeout(gestureTimer);
+
+                gestureTimer = setTimeout(() => {
+                    gestureBlocked = false;
+                    gestureTimer = null;
+                }, GESTURE_END_MS);
+            }
+
+            function handleWheel(event) {
+                if (!isDesktop()) return;
+
+                if (gestureBlocked) {
+                    event.preventDefault();
+                    refreshGestureTimer();
+                    return;
+                }
+
+                const y = window.scrollY;
+                const y1 = yOf(lock1, true);
+                const y2 = yOf(lock2);
+                const y3 = yOf(lock3);
+                const down = event.deltaY > 0;
+                const up = event.deltaY < 0;
+
+                /* LOCK 1 → LOCK 2 */
+                if (down && near(y, y1)) {
+                    event.preventDefault();
+                    snapNow(y2);
+                    blockCurrentGesture();
+                    return;
+                }
+
+                /* LOCK 2 → LOCK 1 */
+                if (up && near(y, y2)) {
+                    event.preventDefault();
+                    snapNow(y1);
+                    blockCurrentGesture();
+                    return;
+                }
+
+                /* LOCK 2에서 아래로는 자유 스크롤.
+                   "나를 위해..." 구간을 직접 지나감. */
+
+                /* 자유 스크롤 중 LOCK 3에 접근하면 정착 */
+                if (down && y < y3 - POSITION_TOLERANCE) {
+                    const rect = lock3.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight * 0.78) {
+                        event.preventDefault();
+                        snapNow(y3);
+                        blockCurrentGesture();
+                        return;
+                    }
+                }
+
+                /* LOCK 3 아래에서 위로 올라오면 다시 LOCK 3에 정착 */
+                if (up && y > y3 + POSITION_TOLERANCE) {
+                    const rect = lock3.getBoundingClientRect();
+                    if (
+                        rect.top >= HEADER_HEIGHT &&
+                        rect.top <= HEADER_HEIGHT + window.innerHeight * 0.22
+                    ) {
+                        event.preventDefault();
+                        snapNow(y3);
+                        blockCurrentGesture();
+                        return;
+                    }
+                }
+
+                /* LOCK 3에서 위로 올리면 자유 스크롤 구간으로 이동 */
+            }
+
+            window.addEventListener('wheel', handleWheel, { passive: false });
+
+            window.addEventListener('resize', () => {
+                gestureBlocked = false;
+                if (gestureTimer) {
+                    clearTimeout(gestureTimer);
+                    gestureTimer = null;
+                }
+            });
+        })();
+
 </script>
 </body>
 </html>
