@@ -1,4 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=64002"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59977"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59567"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26884"></script>
@@ -2133,6 +2134,68 @@
         }
     }
 
+
+
+    /* =========================================================
+       ★ FINAL OUR PHILOSOPHY SPACING FIX V3
+       - 섹션 시작 → 제목 시작: 내부 상단 75px
+       - 마지막 콘텐츠 → 분홍 섹션 끝: 내부 하단 75px
+       - 분홍 섹션 끝 → 다음 섹션 시작: 외부 흰색 75px
+       - 제목/wrapper 자체 상단 여백 제거
+       ========================================================= */
+    @media (min-width: 901px) {
+        .experience-section {
+            margin: 0 0 75px 0 !important;
+            padding: 75px var(--page-gutter) 75px var(--page-gutter) !important;
+            min-height: 0 !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            display: block !important;
+            align-items: initial !important;
+        }
+
+        .experience-inner {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .experience-title {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .experience-grid {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    }
+
+
+    /* =========================================================
+       ★ FINAL PHILOSOPHY → CREATOR GAP FIX V4
+       - OUR PHILOSOPHY 내부 하단 여백: 75px 유지
+       - 분홍 섹션 끝 → 크리에이터 콘텐츠 시작: 총 75px
+       - 기존 .section(80px) + #creator(70px) 중복 상단 여백 제거
+       ========================================================= */
+    @media (min-width: 901px) {
+        /* 다음 섹션의 75px을 #brand 쪽에서 담당하므로
+           philosophy 바깥 margin은 제거 */
+        .experience-section {
+            margin-bottom: 0 !important;
+        }
+
+        /* 분홍 섹션 종료 후 흰색 상단 여백을 정확히 75px로 */
+        #brand.section {
+            padding-top: 75px !important;
+        }
+
+        /* 첫 서비스 자체의 기존 70px top padding이
+           위 75px에 추가로 쌓이지 않도록 제거 */
+        #creator.project-section {
+            padding-top: 0 !important;
+        }
+    }
 </style>
 
 <!-- Header -->
