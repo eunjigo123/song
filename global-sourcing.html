@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="page_title">글로벌 소싱 - SONGSHTORY</title>
     <!-- Pretendard & Noto Serif KR 폰트 링크 -->
-    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=31246"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13179"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=63210"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=31246"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=13179"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11178"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=7256"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18696"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=12971"></script><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=11014"></script><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -1872,27 +1872,41 @@
         document.addEventListener("DOMContentLoaded", initializeLanguage);
 
         /* =========================================================
-           ★ GLOBAL SOURCING 2-SECTION SCROLL LOCK
+           ★ GLOBAL SOURCING 2-SECTION SCROLL LOCK - PROJECT ENGINE
            ---------------------------------------------------------
            LOCK 1 : 첫 hero + 인용구
            LOCK 2 : 중국 상품을 더 정확하고 편리하게 찾을 수 있도록
 
            LOCK 2 이후는 자유 스크롤
-           각 락 도착 후 1500ms 유지
+
+           프로젝트 페이지와 동일한 이동 엔진:
+           - wheelAccumulator 누적
+           - WHEEL_THRESHOLD = 45
+           - window.scrollTo({ behavior: 'smooth' })
+           - ANIMATION_TIME = 820ms
+
+           중요:
+           - 글로벌 소싱 고유 위치 계산은 그대로 유지
+             LOCK 1 = 0
+             LOCK 2 = absoluteTop(lock2) - 75
+           - 프로젝트 전용 load/resize 강제 위치 보정은 사용하지 않음
            ========================================================= */
         (() => {
             const DESKTOP_BREAKPOINT = 1024;
             const HEADER_HEIGHT = 75;
             const POSITION_TOLERANCE = 28;
-            const LOCK_HOLD_MS = 1500;
+            const WHEEL_THRESHOLD = 45;
+            const ANIMATION_TIME = 820;
 
             const lock1 = document.getElementById('globalLock1');
             const lock2 = document.getElementById('globalLock2');
 
             if (!lock1 || !lock2) return;
 
-            let isHolding = false;
-            let holdTimer = null;
+            let isAnimating = false;
+            let wheelAccumulator = 0;
+            let wheelResetTimer = null;
+            let animationTimer = null;
 
             function isDesktop() {
                 return window.innerWidth > DESKTOP_BREAKPOINT;
@@ -1902,6 +1916,7 @@
                 return element.getBoundingClientRect().top + window.scrollY;
             }
 
+            /* 글로벌 소싱 기존 위치 계산 유지 */
             function getPositions() {
                 return {
                     lock1: 0,
@@ -1913,30 +1928,42 @@
                 return Math.abs(a - b) <= POSITION_TOLERANCE;
             }
 
-            function snapNow(targetY) {
-                const root = document.documentElement;
-                const oldBehavior = root.style.scrollBehavior;
+            /* 프로젝트 페이지와 동일한 smooth 이동 엔진 */
+            function animateTo(targetY) {
+                if (!isDesktop() || isAnimating) return;
 
-                root.style.scrollBehavior = 'auto';
-                window.scrollTo(0, targetY);
-                root.style.scrollBehavior = oldBehavior;
+                isAnimating = true;
+                wheelAccumulator = 0;
+
+                window.scrollTo({
+                    top: targetY,
+                    behavior: 'smooth'
+                });
+
+                clearTimeout(animationTimer);
+                animationTimer = setTimeout(() => {
+                    if (Math.abs(window.scrollY - targetY) > 2) {
+                        window.scrollTo({
+                            top: targetY,
+                            behavior: 'auto'
+                        });
+                    }
+
+                    isAnimating = false;
+                }, ANIMATION_TIME);
             }
 
-            function startHold() {
-                isHolding = true;
-
-                if (holdTimer) clearTimeout(holdTimer);
-
-                holdTimer = setTimeout(() => {
-                    isHolding = false;
-                    holdTimer = null;
-                }, LOCK_HOLD_MS);
+            function resetAccumulatorSoon() {
+                clearTimeout(wheelResetTimer);
+                wheelResetTimer = setTimeout(() => {
+                    wheelAccumulator = 0;
+                }, 160);
             }
 
             function handleWheel(event) {
                 if (!isDesktop()) return;
 
-                if (isHolding) {
+                if (isAnimating) {
                     event.preventDefault();
                     return;
                 }
@@ -1949,30 +1976,45 @@
                 /* LOCK 1 → LOCK 2 */
                 if (down && near(y, pos.lock1)) {
                     event.preventDefault();
-                    snapNow(pos.lock2);
-                    startHold();
+
+                    wheelAccumulator += event.deltaY;
+                    resetAccumulatorSoon();
+
+                    if (wheelAccumulator >= WHEEL_THRESHOLD) {
+                        wheelAccumulator = 0;
+                        animateTo(pos.lock2);
+                    }
                     return;
                 }
 
                 /* LOCK 2 → LOCK 1 */
                 if (up && near(y, pos.lock2)) {
                     event.preventDefault();
-                    snapNow(pos.lock1);
-                    startHold();
+
+                    wheelAccumulator += event.deltaY;
+                    resetAccumulatorSoon();
+
+                    if (wheelAccumulator <= -WHEEL_THRESHOLD) {
+                        wheelAccumulator = 0;
+                        animateTo(pos.lock1);
+                    }
                     return;
                 }
 
-                /* LOCK 2 이후 아래 방향은 자유 스크롤 */
+                /* LOCK 2 이후 아래 방향은 기존대로 자유 스크롤 */
             }
 
             window.addEventListener('wheel', handleWheel, { passive: false });
 
+            /* 위치를 강제로 재정렬하지 않고 상태만 초기화 */
             window.addEventListener('resize', () => {
-                isHolding = false;
-                if (holdTimer) {
-                    clearTimeout(holdTimer);
-                    holdTimer = null;
-                }
+                isAnimating = false;
+                wheelAccumulator = 0;
+
+                clearTimeout(wheelResetTimer);
+                clearTimeout(animationTimer);
+                wheelResetTimer = null;
+                animationTimer = null;
             });
         })();
 
