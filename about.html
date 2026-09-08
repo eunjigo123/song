@@ -1,4 +1,6 @@
 <!-- Pretendard 폰트 링크 -->
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59747"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59567"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26884"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26540"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26418"></script>
@@ -2101,6 +2103,29 @@
         }
     }
 
+
+    /* =========================================================
+       ★ REQUESTED FINAL VIEW / LAST LOCK ADJUSTMENT
+       1) LOCK 1은 fixed header(75px)를 제외한 화면을 정확히 채워
+          다음 섹션 상단이 첫 화면 하단에 비치지 않도록 합니다.
+       2) 글로벌 소싱 하단은 마지막 섹션 진입 트리거로만 사용합니다.
+          실제 최종 LOCK은 PROJECTS & STORIES 섹션입니다.
+       기존 콘텐츠/DOM은 유지하고, 데스크톱 레이아웃 높이만 고정합니다.
+       ========================================================= */
+    @media (min-width: 901px) {
+        .main-banner-section {
+            margin: 75px var(--page-gutter) 0 var(--page-gutter) !important;
+            width: auto !important;
+            height: calc(100vh - 75px) !important;
+            min-height: calc(100vh - 75px) !important;
+            max-height: calc(100vh - 75px) !important;
+            padding: 75px 0 !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+            align-content: start !important;
+        }
+    }
+
 </style>
 
 <!-- Header -->
@@ -2775,166 +2800,341 @@
     /* =========================================================
        ★ FINAL 3-POINT DESKTOP SCROLL LOCK
        ---------------------------------------------------------
+       PROJECT 페이지의 실제 LOCK 엔진을 ABOUT에 그대로 적용합니다.
+
        LOCK 1 : 새로운 일상과 새로운 시작
        LOCK 2 : OUR PHILOSOPHY
-       LOCK 3 : PROJECTS & STORIES
+       LOCK 3 : PROJECTS & STORIES (FINAL)
 
-       LOCK 2 이후 서비스 상세는 자유 스크롤.
-       PROJECTS & STORIES가 viewport 안으로 들어오면 LOCK 3에 정착.
+       엔진 기준:
+       - wheel delta 누적
+       - WHEEL_THRESHOLD = 45
+       - window.scrollTo({ behavior: 'smooth' })
+       - ANIMATION_TIME = 820ms 후 위치 보정
+       - 애니메이션 중 추가 wheel 차단
+       - LOCK 2 이후 서비스 상세 구간은 자유 스크롤
+       - 글로벌 소싱 하단에서 같은 엔진으로 LOCK 3 진입
        ========================================================= */
-    (() => {
-        const DESKTOP_BREAKPOINT = 900;
+    (function initAboutSectionLock() {
+
+        const desktopQuery = window.matchMedia('(min-width: 901px)');
+
+        const firstSection = document.querySelector('.main-banner-section');
+        const secondSection = document.querySelector('.experience-section');
+        const globalSourcing = document.querySelector('#global-sourcing.project-section');
+        const thirdSection = document.querySelector('#project.story-main-section');
+
+        if (!firstSection || !secondSection || !globalSourcing || !thirdSection) return;
+
         const HEADER_HEIGHT = 75;
-        const SNAP_DURATION = 620;
-        const LOCK_TOLERANCE = 16;
-        const RELEASE_DELAY = 520;
+        const FIRST_LOCK_OFFSET = HEADER_HEIGHT;
+        const SECOND_TOP_OFFSET = HEADER_HEIGHT;
+        const THIRD_TOP_OFFSET = HEADER_HEIGHT;
 
-        const lock1 = document.querySelector('.main-banner-section');
-        const lock2 = document.querySelector('.experience-section');
-        const lock3 = document.querySelector('#project.story-main-section');
-
-        if (!lock1 || !lock2 || !lock3) return;
+        /* PROJECT 페이지와 동일한 입력 감도 / 이동 시간 */
+        const WHEEL_THRESHOLD = 45;
+        const ANIMATION_TIME = 820;
 
         let isAnimating = false;
-        let lock3Holding = false;
+        let wheelAccumulator = 0;
+        let wheelResetTimer = null;
+        let animationTimer = null;
+        let resizeTimer = null;
 
-        function isDesktop() {
-            return window.innerWidth > DESKTOP_BREAKPOINT;
-        }
 
-        function absoluteTop(element) {
+        function documentY(element) {
             return element.getBoundingClientRect().top + window.scrollY;
         }
 
-        function getLockY(element, isFirst = false) {
-            if (isFirst) return 0;
-            return Math.max(0, absoluteTop(element) - HEADER_HEIGHT);
+
+        function firstTargetY() {
+            return Math.max(
+                0,
+                documentY(firstSection) - FIRST_LOCK_OFFSET
+            );
         }
 
-        function near(a, b, tolerance = LOCK_TOLERANCE) {
-            return Math.abs(a - b) <= tolerance;
+
+        function secondTargetY() {
+            return Math.max(
+                0,
+                documentY(secondSection) - SECOND_TOP_OFFSET
+            );
         }
 
-        function smoothSnap(targetY, callback) {
-            if (isAnimating) return;
+
+        function thirdTargetY() {
+            return Math.max(
+                0,
+                documentY(thirdSection) - THIRD_TOP_OFFSET
+            );
+        }
+
+
+        /* PROJECT 페이지의 animateTo()와 동일한 native smooth 엔진 */
+        function animateTo(targetY) {
+            if (!desktopQuery.matches || isAnimating) return;
 
             isAnimating = true;
+            wheelAccumulator = 0;
+
+            /* PROJECT의 project-lock-moving 역할과 동일하게 이동 중 overscroll 억제 */
             document.body.style.overscrollBehaviorY = 'none';
 
-            const startY = window.scrollY;
-            const distance = targetY - startY;
-            const startTime = performance.now();
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
 
-            function ease(t) {
-                return t < 0.5
-                    ? 4 * t * t * t
-                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            }
+            clearTimeout(animationTimer);
 
-            function frame(now) {
-                const progress = Math.min((now - startTime) / SNAP_DURATION, 1);
-                window.scrollTo(0, startY + distance * ease(progress));
-
-                if (progress < 1) {
-                    requestAnimationFrame(frame);
-                    return;
+            animationTimer = setTimeout(() => {
+                if (Math.abs(window.scrollY - targetY) > 2) {
+                    window.scrollTo({
+                        top: targetY,
+                        behavior: 'auto'
+                    });
                 }
 
-                window.scrollTo(0, targetY);
                 isAnimating = false;
                 document.body.style.overscrollBehaviorY = '';
-
-                if (typeof callback === 'function') callback();
-            }
-
-            requestAnimationFrame(frame);
+            }, ANIMATION_TIME);
         }
 
-        function holdLock3Briefly() {
-            lock3Holding = true;
-            window.setTimeout(() => {
-                lock3Holding = false;
-            }, RELEASE_DELAY);
+
+        /* PROJECT의 첫 LOCK zone 판정과 같은 방식 */
+        function isInsideFirstLockZone() {
+            const firstTop = firstTargetY();
+            const secondTop = secondTargetY();
+
+            return (
+                window.scrollY >= firstTop - 8 &&
+                window.scrollY < secondTop - 8
+            );
         }
 
-        function handleWheel(event) {
-            if (!isDesktop()) return;
 
-            if (isAnimating) {
-                event.preventDefault();
-                return;
-            }
+        function isAtSecondSectionTop() {
+            const target = secondTargetY();
+            return Math.abs(window.scrollY - target) <= 12;
+        }
 
-            const y = window.scrollY;
-            const lock1Y = getLockY(lock1, true);
-            const lock2Y = getLockY(lock2);
-            const lock3Y = getLockY(lock3);
 
-            const down = event.deltaY > 0;
-            const up = event.deltaY < 0;
+        function isAtThirdSectionTop() {
+            const target = thirdTargetY();
+            return Math.abs(window.scrollY - target) <= 12;
+        }
 
-            /* LOCK 1 → LOCK 2 */
-            if (down && near(y, lock1Y, 20)) {
-                event.preventDefault();
-                smoothSnap(lock2Y);
-                return;
-            }
 
-            /* LOCK 2 → LOCK 1 */
-            if (up && near(y, lock2Y, 20)) {
-                event.preventDefault();
-                smoothSnap(lock1Y);
-                return;
-            }
+        /*
+        LOCK 3 진입 구간
+        글로벌 소싱의 하단이 viewport 하단에 거의 닿았을 때부터
+        PROJECTS & STORIES 직전까지를 진입 zone으로 봅니다.
 
-            /* LOCK 3에 도착 직후 같은 제스처의 잔여 wheel 차단 */
-            if (lock3Holding && near(y, lock3Y, 24)) {
-                event.preventDefault();
-                return;
-            }
+        이 구간에서도 PROJECT와 동일하게 wheel delta를 45까지 누적한 뒤
+        native smooth로 LOCK 3에 이동합니다.
+        */
+        function isInsideThirdEntryZone() {
+            const thirdTop = thirdTargetY();
 
-            /* -------------------------------------------------
-               LOCK 3 진입
-               PROJECTS & STORIES의 상단이 화면 안쪽 82% 지점까지
-               들어오면 native scroll을 막고 정확한 위치로 스냅.
-               deltaY 크기에 상관없이 실제 rect 위치를 사용하므로
-               터치패드/큰 휠에서도 놓치지 않습니다.
-               ------------------------------------------------- */
-            if (down && y < lock3Y - LOCK_TOLERANCE) {
-                const rect = lock3.getBoundingClientRect();
-                const triggerLine = window.innerHeight * 0.82;
+            if (window.scrollY >= thirdTop - 8) return false;
 
-                if (rect.top <= triggerLine) {
+            const globalRect = globalSourcing.getBoundingClientRect();
+            const thirdRect = thirdSection.getBoundingClientRect();
+
+            const globalBottomReached = globalRect.bottom <= window.innerHeight + 24;
+            const thirdEnteredViewport = thirdRect.top <= window.innerHeight * 0.92;
+
+            return globalBottomReached || thirdEnteredViewport;
+        }
+
+
+        function resetWheelAccumulatorSoon() {
+            clearTimeout(wheelResetTimer);
+            wheelResetTimer = setTimeout(() => {
+                wheelAccumulator = 0;
+            }, 160);
+        }
+
+
+        window.addEventListener(
+            'wheel',
+            (event) => {
+
+                if (!desktopQuery.matches) return;
+
+                if (isAnimating) {
                     event.preventDefault();
-                    smoothSnap(lock3Y, holdLock3Briefly);
                     return;
                 }
-            }
 
-            /* 아래에서 위로 다시 돌아올 때 LOCK 3에 재정착 */
-            if (up && y > lock3Y + LOCK_TOLERANCE) {
-                const rect = lock3.getBoundingClientRect();
-                const triggerLine = HEADER_HEIGHT + (window.innerHeight * 0.18);
-
-                if (rect.top >= HEADER_HEIGHT && rect.top <= triggerLine) {
+                /* =====================================================
+                   LOCK 1 → LOCK 2
+                   PROJECT 페이지와 동일:
+                   아래 wheel을 누적하여 45 이상이면 한 번에 이동
+                   ===================================================== */
+                if (isInsideFirstLockZone() && event.deltaY > 0) {
                     event.preventDefault();
-                    smoothSnap(lock3Y, holdLock3Briefly);
+
+                    wheelAccumulator += event.deltaY;
+                    resetWheelAccumulatorSoon();
+
+                    if (wheelAccumulator >= WHEEL_THRESHOLD) {
+                        wheelAccumulator = 0;
+                        animateTo(secondTargetY());
+                    }
+
                     return;
                 }
+
+
+                /* =====================================================
+                   LOCK 2 → LOCK 1
+                   LOCK 2 정확한 상단에서 위로 올릴 때만 복귀
+                   그 외 LOCK 2 이후 서비스 구간은 자유 스크롤
+                   ===================================================== */
+                if (isAtSecondSectionTop() && event.deltaY < 0) {
+                    event.preventDefault();
+
+                    wheelAccumulator += event.deltaY;
+                    resetWheelAccumulatorSoon();
+
+                    if (wheelAccumulator <= -WHEEL_THRESHOLD) {
+                        wheelAccumulator = 0;
+                        animateTo(firstTargetY());
+                    }
+
+                    return;
+                }
+
+
+                /* =====================================================
+                   글로벌 소싱 하단 → LOCK 3
+                   같은 PROJECT 엔진을 사용합니다.
+                   ===================================================== */
+                if (isInsideThirdEntryZone() && event.deltaY > 0) {
+                    event.preventDefault();
+
+                    wheelAccumulator += event.deltaY;
+                    resetWheelAccumulatorSoon();
+
+                    if (wheelAccumulator >= WHEEL_THRESHOLD) {
+                        wheelAccumulator = 0;
+                        animateTo(thirdTargetY());
+                    }
+
+                    return;
+                }
+
+
+                /* =====================================================
+                   LOCK 3 FINAL
+                   마지막 섹션에서는 아래 방향 스크롤을 막아
+                   PROJECTS & STORIES 한 화면에 정착합니다.
+                   위 방향은 막지 않으므로 서비스 구간으로 정상 복귀합니다.
+                   ===================================================== */
+                if (isAtThirdSectionTop() && event.deltaY > 0) {
+                    event.preventDefault();
+                    wheelAccumulator = 0;
+                    return;
+                }
+            },
+            { passive: false }
+        );
+
+
+        /* PROJECT 페이지와 동일하게 키보드 이동도 같은 구조로 처리 */
+        window.addEventListener('keydown', (event) => {
+
+            if (!desktopQuery.matches || isAnimating) return;
+
+            const downKeys = ['ArrowDown', 'PageDown', ' '];
+            const upKeys = ['ArrowUp', 'PageUp'];
+
+            if (
+                isInsideFirstLockZone() &&
+                downKeys.includes(event.key) &&
+                !event.shiftKey
+            ) {
+                event.preventDefault();
+                animateTo(secondTargetY());
+                return;
             }
 
-            /* LOCK 3에서 새로운 아래 wheel 입력은 footer 방향 자유 스크롤 */
-        }
+            if (
+                isAtSecondSectionTop() &&
+                (
+                    upKeys.includes(event.key) ||
+                    (event.key === ' ' && event.shiftKey)
+                )
+            ) {
+                event.preventDefault();
+                animateTo(firstTargetY());
+                return;
+            }
 
-        window.addEventListener('wheel', handleWheel, { passive: false });
+            if (
+                isInsideThirdEntryZone() &&
+                downKeys.includes(event.key) &&
+                !event.shiftKey
+            ) {
+                event.preventDefault();
+                animateTo(thirdTargetY());
+                return;
+            }
 
-        window.addEventListener('resize', () => {
-            if (!isDesktop()) {
-                isAnimating = false;
-                lock3Holding = false;
-                document.body.style.overscrollBehaviorY = '';
+            if (
+                isAtThirdSectionTop() &&
+                downKeys.includes(event.key) &&
+                !event.shiftKey
+            ) {
+                event.preventDefault();
             }
         });
+
+
+        /* PROJECT 페이지와 동일한 최초 진입 위치 보정 */
+        window.addEventListener('load', () => {
+            if (!desktopQuery.matches) return;
+
+            if (window.scrollY < 30) {
+                window.scrollTo({
+                    top: firstTargetY(),
+                    behavior: 'auto'
+                });
+            }
+        });
+
+
+        /* PROJECT 페이지와 동일한 resize 보정 */
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+
+            resizeTimer = setTimeout(() => {
+                if (!desktopQuery.matches) {
+                    isAnimating = false;
+                    wheelAccumulator = 0;
+                    document.body.style.overscrollBehaviorY = '';
+                    return;
+                }
+
+                if (isInsideFirstLockZone()) {
+                    window.scrollTo({
+                        top: firstTargetY(),
+                        behavior: 'auto'
+                    });
+                    return;
+                }
+
+                if (isAtThirdSectionTop()) {
+                    window.scrollTo({
+                        top: thirdTargetY(),
+                        behavior: 'auto'
+                    });
+                }
+            }, 120);
+        });
+
     })();
 
 </script>
