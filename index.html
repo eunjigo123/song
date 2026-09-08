@@ -1,5 +1,5 @@
 <!-- Pretendard 폰트 링크 -->
-<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59747"></script>
+<script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59977"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=59567"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26884"></script>
 <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=26540"></script>
@@ -2116,9 +2116,16 @@
         .main-banner-section {
             margin: 75px var(--page-gutter) 0 var(--page-gutter) !important;
             width: auto !important;
-            height: calc(100vh - 75px) !important;
-            min-height: calc(100vh - 75px) !important;
-            max-height: calc(100vh - 75px) !important;
+
+            /* LOCK 1 화면에서 다음 섹션의 border/top이 1px이라도
+               먼저 보이지 않도록 첫 섹션 자체를 viewport 높이만큼 유지합니다.
+               fixed header는 문서 흐름을 차지하지 않으므로, 섹션이 y=75px에서
+               시작한 상태에서 100vh를 차지하면 다음 섹션은 viewport 아래로
+               완전히 밀려납니다. */
+            height: 100vh !important;
+            min-height: 100vh !important;
+            max-height: 100vh !important;
+
             padding: 75px 0 !important;
             box-sizing: border-box !important;
             overflow: hidden !important;
